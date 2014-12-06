@@ -199,14 +199,9 @@ if (defined('ENVIRONMENT'))
  * And away we go...
  *
  */
-
-/*
- * Require doctrine and other libaries to be loaded that are installed by composer
- *
- */
-
-require_once BASEPATH.'../vendor/autoload.php';
 require_once BASEPATH.'core/CodeIgniter.php';
+
+
 
 /* End of file index.php */
 /* Location: ./index.php */
