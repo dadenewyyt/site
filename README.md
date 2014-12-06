@@ -1,6 +1,5 @@
 MADEBYUS4U.COM
-YYT Software Development
-Daniel Adenew ,December 5/2014
+
 ---------------------------------------------------------------------------------
 # CodeIgniter With Bootstrap UI
 Bundles the following packages together.
