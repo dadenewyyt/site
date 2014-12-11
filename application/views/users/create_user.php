@@ -3,7 +3,7 @@
 
 <div id="infoMessage"><?php echo $message;?></div>
 
-<?php echo form_open("user/create_user");?>
+<?php echo form_open("users/create_user");?>
 
       <p>
             <?php echo lang('create_user_fname_label', 'first_name');?> <br />

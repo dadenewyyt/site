@@ -19,13 +19,13 @@
             <td><?php echo htmlspecialchars($user->email,ENT_QUOTES,'UTF-8');?></td>
 			<td>
 				<?php foreach ($user->groups as $group):?>
-					<?php echo anchor("user/edit_group/".$group->id, htmlspecialchars($group->name,ENT_QUOTES,'UTF-8')) ;?><br />
+					<?php echo anchor("users/edit_group/".$group->id, htmlspecialchars($group->name,ENT_QUOTES,'UTF-8')) ;?><br />
                 <?php endforeach?>
 			</td>
-			<td><?php echo ($user->active) ? anchor("user/deactivate/".$user->id, lang('index_active_link')) : anchor("user/activate/". $user->id, lang('index_inactive_link'));?></td>
-			<td><?php echo anchor("user/edit_user/".$user->id, 'Edit') ;?></td>
+			<td><?php echo ($user->active) ? anchor("users/deactivate/".$user->id, lang('index_active_link')) : anchor("users/activate/". $user->id, lang('index_inactive_link'));?></td>
+			<td><?php echo anchor("users/edit_user/".$user->id, 'Edit') ;?></td>
 		</tr>
 	<?php endforeach;?>
 </table>
 
-<p><?php echo anchor('user/create_user', lang('index_create_user_link'))?> | <?php echo anchor('user/create_group', lang('index_create_group_link'))?></p>
+<p><?php echo anchor('users/create_user', lang('index_create_user_link'))?> | <?php echo anchor('users/create_group', lang('index_create_group_link'))?></p>
