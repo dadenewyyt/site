@@ -14,7 +14,7 @@
 *
 * Created:  10.01.2009
 *
-* Description:  Modified user system based on redux_auth with extensive customization.  This is basically what Redux Auth 2 should be.
+* Description:  Modified users system based on redux_auth with extensive customization.  This is basically what Redux Auth 2 should be.
 * Original Author name has been kept but that does not mean that the method has not been modified.
 *
 * Requirements: PHP5 or above
@@ -91,9 +91,9 @@ $config['max_password_length']        = 20;                  // Maximum Allowed 
 $config['email_activation']           = FALSE;               // Email Activation for registration
 $config['manual_activation']          = FALSE;               // Manual Activation for registration
 $config['remember_users']             = TRUE;                // Allow users to be remembered and enable auto-login
-$config['user_expire']                = 86500;               // How long to remember the user (seconds). Set to zero for no expiration
+$config['user_expire']                = 86500;               // How long to remember the users (seconds). Set to zero for no expiration
 $config['user_extend_on_login']       = FALSE;               // Extend the users cookies every time they auto-login
-$config['track_login_attempts']       = FALSE;               // Track the number of failed login attempts for each user or ip.
+$config['track_login_attempts']       = FALSE;               // Track the number of failed login attempts for each users or ip.
 $config['track_login_ip_address']     = TRUE;                // Track login attempts by IP Address, if FALSE will track based on identity. (Default: TRUE)
 $config['maximum_login_attempts']     = 3;                   // The maximum number of failed login attempts.
 $config['lockout_time']               = 600;                 // The number of seconds to lockout an account due to exceeded attempts
@@ -127,7 +127,7 @@ $config['email_config'] = array(
  | Email templates.
  | -------------------------------------------------------------------------
  | Folder where email templates are stored.
- | Default: user/
+ | Default: users/
  */
 $config['email_templates'] = 'user/email/';
 

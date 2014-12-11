@@ -19,7 +19,7 @@
 * Changelog:
 * * 3-22-13 - Additional entropy added - 52aa456eef8b60ad6754b31fbdcc77bb
 *
-* Description:  Modified user system based on redux_auth with extensive customization.  This is basically what Redux Auth 2 should be.
+* Description:  Modified users system based on redux_auth with extensive customization.  This is basically what Redux Auth 2 should be.
 * Original Author name has been kept but that does not mean that the method has not been modified.
 *
 * Requirements: PHP5 or above
@@ -935,7 +935,7 @@ class Ion_auth_model extends CI_Model
 		}
 
 		//filter out any data passed that doesnt have a matching column in the users table
-		//and merge the set user data and the additional data
+		//and merge the set users data and the additional data
 		$user_data = array_merge($this->_filter_data($this->tables['users'], $additional_data), $data);
 
 		$this->trigger_events('extra_set');
@@ -1364,7 +1364,7 @@ class Ion_auth_model extends CI_Model
 	}
 
 	/**
-	 * user
+	 * users
 	 *
 	 * @return object
 	 * @author Ben Edmunds
@@ -1457,13 +1457,13 @@ class Ion_auth_model extends CI_Model
 	{
 		$this->trigger_events('remove_from_group');
 
-		// user id is required
+		// users id is required
 		if(empty($user_id))
 		{
 			return FALSE;
 		}
 
-		// if group id(s) are passed remove user from the group(s)
+		// if group id(s) are passed remove users from the group(s)
 		if( ! empty($group_ids))
 		{
 			if(!is_array($group_ids))
@@ -1482,7 +1482,7 @@ class Ion_auth_model extends CI_Model
 
 			$return = TRUE;
 		}
-		// otherwise remove user from all groups
+		// otherwise remove users from all groups
 		else
 		{
 			if ($return = $this->db->delete($this->tables['users_groups'], array($this->join['users'] => (int)$user_id))) {
@@ -1633,13 +1633,13 @@ class Ion_auth_model extends CI_Model
 
 		$this->db->trans_begin();
 
-		// remove user from groups
+		// remove users from groups
 		$this->remove_from_group(NULL, $id);
 
-		// delete user from users table should be placed after remove from group
+		// delete users from users table should be placed after remove from group
 		$this->db->delete($this->tables['users'], array('id' => $id));
 
-		// if user does not exist in database then it returns FALSE else removes the user from groups
+		// if users does not exist in database then it returns FALSE else removes the users from groups
 		if ($this->db->affected_rows() == 0)
 		{
 		    return FALSE;
@@ -1808,7 +1808,7 @@ class Ion_auth_model extends CI_Model
 			return FALSE;
 		}
 
-		//get the user
+		//get the users
 		$this->trigger_events('extra_where');
 		$query = $this->db->select($this->identity_column.', id, username, email, last_login')
 		                  ->where($this->identity_column, get_cookie($this->config->item('identity_cookie_name', 'ion_auth')))
@@ -1817,7 +1817,7 @@ class Ion_auth_model extends CI_Model
 		    			  ->order_by('id', 'desc')
 		                  ->get($this->tables['users']);
 
-		//if the user was found, sign them in
+		//if the users was found, sign them in
 		if ($query->num_rows() == 1)
 		{
 			$user = $query->row();

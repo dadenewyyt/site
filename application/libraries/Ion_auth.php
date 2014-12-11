@@ -14,7 +14,7 @@
 *
 * Created:  10.01.2009
 *
-* Description:  Modified user system based on redux_auth with extensive customization.  This is basically what Redux Auth 2 should be.
+* Description:  Modified users system based on redux_auth with extensive customization.  This is basically what Redux Auth 2 should be.
 * Original Author name has been kept but that does not mean that the method has not been modified.
 *
 * Requirements: PHP5 or above
@@ -80,7 +80,7 @@ class Ion_auth
 
 		$this->_cache_user_in_group =& $this->ion_auth_model->_cache_user_in_group;
 
-		//auto-login the user if they are remembered
+		//auto-login the users if they are remembered
 		if (!$this->logged_in() && get_cookie($this->config->item('identity_cookie_name', 'ion_auth')) && get_cookie($this->config->item('remember_cookie_name', 'ion_auth')))
 		{
 			$this->ion_auth_model->login_remembered_user();
@@ -139,7 +139,7 @@ class Ion_auth
 	{
 		if ( $this->ion_auth_model->forgotten_password($identity) )   //changed
 		{
-			// Get user information
+			// Get users information
             $user = $this->where($this->config->item('identity', 'ion_auth'), $identity)->where('active', 1)->users()->row();  //changed to get_user_by_identity from email
 
 			if ($user)
