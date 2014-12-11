@@ -34,7 +34,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-<<<<<<< HEAD
+
 
         //$this->output->cache(1);
         //load template engine
@@ -51,11 +51,7 @@ class Welcome extends CI_Controller {
         $data['site_url'] = site_url('user/login');
        // $this->parser->parse('layout/layout',$data);
 		$this->load->view('layout/grid');
-=======
-		$this->load->view('include/header');
-		$this->load->view('welcome_message');
-		$this->load->view('include/footer');
->>>>>>> ebb787394f01020834415874e692202a74d1c0de
+
 	}
 }
 

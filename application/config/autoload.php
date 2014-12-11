@@ -64,12 +64,8 @@ $autoload['libraries'] = array('ion_auth','session','database');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-<<<<<<< HEAD
-$autoload['helper'] = array('url','security');
-=======
-$autoload['helper'] = array('url');
->>>>>>> ebb787394f01020834415874e692202a74d1c0de
 
+$autoload['helper'] = array('url','security');
 
 /*
 | -------------------------------------------------------------------
