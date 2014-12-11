@@ -120,7 +120,7 @@ $config['auth_library_function'] = '';
 
 /*
 |--------------------------------------------------------------------------
-| Override auth types for specific class/method
+| Override user types for specific class/method
 |--------------------------------------------------------------------------
 |
 | Set specific authentication types for methods within a class (controller)
@@ -166,9 +166,9 @@ $config['rest_valid_logins'] = array('admin' => '1234');
 | Limit connections to your REST server to whitelisted IP addresses.
 |
 | Usage:
-| 1. Set to true *and* select an auth option for extreme security (client's IP
+| 1. Set to true *and* select an user option for extreme security (client's IP
 |  address must be in whitelist and they must also log in)
-| 2. Set to true with auth set to false to allow whitelisted IPs access with no login.
+| 2. Set to true with user set to false to allow whitelisted IPs access with no login.
 | 3. Set to false here but set 'auth_override_class_method' to 'whitelist' to
 |  restrict certain methods to IPs in your whitelist
 |

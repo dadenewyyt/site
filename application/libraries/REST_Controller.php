@@ -281,7 +281,7 @@ abstract class REST_Controller extends CI_Controller
             $this->rest->db     = $this->db;
         }
 
-        // Check if there is a specific auth type for the current class/method
+        // Check if there is a specific user type for the current class/method
         // _auth_override_check could exit so we need $this->rest->db initialized before
         $this->auth_override    = $this->_auth_override_check();
 
@@ -297,7 +297,7 @@ abstract class REST_Controller extends CI_Controller
             $this->response($response, 406); // Set status to 406 NOT ACCEPTABLE
         }
 
-        // When there is no specific override for the current class/method, use the default auth value set in the config
+        // When there is no specific override for the current class/method, use the default user value set in the config
         if ($this->auth_override !== true && !(config_item('rest_enable_keys') && $this->_allow === true)) {
             $rest_auth = strtolower($this->config->item('rest_auth'));
             switch ($rest_auth) {
@@ -834,7 +834,7 @@ abstract class REST_Controller extends CI_Controller
     /**
      * Auth override check
      *
-     * Check if there is a specific auth type set for the current class/method
+     * Check if there is a specific user type set for the current class/method
      * being called.
      *
      * @return boolean
@@ -842,7 +842,7 @@ abstract class REST_Controller extends CI_Controller
     protected function _auth_override_check()
     {
 
-        // Assign the class/method auth type override array from the config
+        // Assign the class/method user type override array from the config
         $this->overrides_array = $this->config->item('auth_override_class_method');
 
         // Check to see if the override array is even populated, otherwise return false
@@ -852,27 +852,27 @@ abstract class REST_Controller extends CI_Controller
 
         // check for wildcard flag for rules for classes
         if(!empty($this->overrides_array[$this->router->class]['*'])){//check for class overides
-            // None auth override found, prepare nothing but send back a true override flag
+            // None user override found, prepare nothing but send back a true override flag
             if ($this->overrides_array[$this->router->class]['*'] == 'none')
             {
                 return true;
             }
 
-            // Basic auth override found, prepare basic
+            // Basic user override found, prepare basic
             if ($this->overrides_array[$this->router->class]['*'] == 'basic')
             {
                 $this->_prepare_basic_auth();
                 return true;
             }
 
-            // Digest auth override found, prepare digest
+            // Digest user override found, prepare digest
             if ($this->overrides_array[$this->router->class]['*'] == 'digest')
             {
                 $this->_prepare_digest_auth();
                 return true;
             }
 
-            // Whitelist auth override found, check client's ip against config whitelist
+            // Whitelist user override found, check client's ip against config whitelist
             if ($this->overrides_array[$this->router->class]['*'] == 'whitelist')
             {
                 $this->_check_whitelist_auth();
@@ -885,26 +885,26 @@ abstract class REST_Controller extends CI_Controller
             return false;
         }
 
-        // None auth override found, prepare nothing but send back a true override flag
+        // None user override found, prepare nothing but send back a true override flag
         if ($this->overrides_array[$this->router->class][$this->router->method] == 'none') {
             return true;
         }
 
-        // Basic auth override found, prepare basic
+        // Basic user override found, prepare basic
         if ($this->overrides_array[$this->router->class][$this->router->method] == 'basic') {
             $this->_prepare_basic_auth();
 
             return true;
         }
 
-        // Digest auth override found, prepare digest
+        // Digest user override found, prepare digest
         if ($this->overrides_array[$this->router->class][$this->router->method] == 'digest') {
             $this->_prepare_digest_auth();
 
             return true;
         }
 
-        // Whitelist auth override found, check client's ip against config whitelist
+        // Whitelist user override found, check client's ip against config whitelist
         if ($this->overrides_array[$this->router->class][$this->router->method] == 'whitelist') {
             $this->_check_whitelist_auth();
 
@@ -1396,7 +1396,7 @@ abstract class REST_Controller extends CI_Controller
         }
 
         // The $_SESSION['error_prompted'] variable is used to ask the password
-        // again if none given or if the user enters wrong auth information.
+        // again if none given or if the user enters wrong user information.
         if (empty($digest_string)) {
             $this->_force_login($uniqid);
         }
@@ -1465,7 +1465,7 @@ abstract class REST_Controller extends CI_Controller
         if (strtolower( $this->config->item('rest_auth') ) == 'basic') {
             header('WWW-Authenticate: Basic realm="'.$this->config->item('rest_realm').'"');
         } elseif (strtolower( $this->config->item('rest_auth') ) == 'digest') {
-            header('WWW-Authenticate: Digest realm="'.$this->config->item('rest_realm').'", qop="auth", nonce="'.$nonce.'", opaque="'.md5($this->config->item('rest_realm')).'"');
+            header('WWW-Authenticate: Digest realm="'.$this->config->item('rest_realm').'", qop="user", nonce="'.$nonce.'", opaque="'.md5($this->config->item('rest_realm')).'"');
         }
 
         $this->response(array(config_item('rest_status_field_name') => false, config_item('rest_message_field_name') => 'Not authorized'), 401);

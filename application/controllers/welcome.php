@@ -1,7 +1,23 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+
+
 class Welcome extends CI_Controller {
 
+
+    public function __construct() {
+
+       parent::__construct() ;
+
+      if ($this->ion_auth->logged_in() == false) {
+
+         redirect('user/login');
+
+      }
+
+
+
+    }
 	/**
 	 * Index Page for this controller.
 	 *
@@ -17,10 +33,23 @@ class Welcome extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{   $this->output->cache(1);
-		$this->load->view('header');
-		$this->load->view('welcome_message');
-		$this->load->view('footer');
+	{
+
+        //$this->output->cache(1);
+        //load template engine
+       // $this->output->enable_profiler(TRUE);
+       // $this->load->library('parser');
+       log_message('error','Hmm no migration this time , are u nutts ? ');
+        $data = array(
+                      'title'=>'Layout',
+                      'header'=>'Header'
+                     );
+
+
+      //	$this->load->view('header');
+        $data['site_url'] = site_url('user/login');
+       // $this->parser->parse('layout/layout',$data);
+		$this->load->view('layout/grid');
 	}
 }
 

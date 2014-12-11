@@ -18,12 +18,18 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-    /**
-     * Dynamically determine environment
-     */
-     $env = $_SERVER['HTTP_HOST'];
 
-     switch($env) {
+
+   /**
+    * Dynamically determine environment
+    * and make sure HTTP_HOST IS available from  command line execution
+    * --php index.php application/migrations/migrate start_migrate-
+    */
+   if( isset( $_SERVER['HTTP_HOST']) ){
+
+      $env = $_SERVER['HTTP_HOST'];
+
+      switch($env) {
 
         case "localhost":
             $env = "development";
@@ -34,7 +40,12 @@
         default:
             $env = "production";
             break;
-    }
+     }
+
+   }  else {
+
+           $env = "development";
+   }
 
     define('ENVIRONMENT', $env);
 /*
