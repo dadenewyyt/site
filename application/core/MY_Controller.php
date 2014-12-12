@@ -12,10 +12,11 @@ class MY_Controller extends CI_Controller {
     {
         parent::__construct();
 
-        $public_allowed_urls = 'users/login';
-        if($this->ion_auth->logged_in()==false && !in_array(uri_string(),$public_allowed_urls) ) {
+        $public_allowed_urls = array('welcome/index');
 
-             redirect('users/login');
+        if( $this->ion_auth->logged_in()== false && in_array(uri_string(),$public_allowed_urls) == true ) {
+
+            redirect('users/login');
         }
     }
 

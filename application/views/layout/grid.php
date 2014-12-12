@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Scaffolding · Bootstrap</title>
+    <title>Welcome to MadeByUs4U.com | Home </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -10,6 +10,8 @@
     <!-- Le styles -->
     <link href=<?php echo base_url()."assets/css/bootstrap.min.css";?> rel="stylesheet">
     <link href=<?php echo base_url()."assets/css/bootstrap-responsive.css";?> rel="stylesheet">
+    <link href=<?php echo base_url()."assets/css/jambo.css";?> rel="stylesheet">
+
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -32,15 +34,16 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-xs-6">
-            <p>Column 1</p>
+        <div class="jumbotron">
+            <h1>MadeByUs4U.com</h1>
+            <p class="lead"><img width='300px' src=<?php echo site_url()."/assets/images/underconstruction.jpg";?>></img> </p>
+            <p><a class="btn btn-lg btn-success" href="#" role="button">Thankyou!</a></p>
         </div>
-
-        <div class="col-xs-6">
-            <p>Column 2</p>
-        </div>
-
+        <footer class="footer">
+            <p>© <a href="http://www.madebyus4u.com">MadebyUs4u.com 2014</a></p>
+        </footer>
     </div>
+
 </div>
 
 <!-- Le javascript
