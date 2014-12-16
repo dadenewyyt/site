@@ -50,9 +50,9 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'tutorial';
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['password'] = 'OPpzcjXF6gkpCyT5fnnK';
+$db['default']['database'] = 'mbu4u';
+$db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
