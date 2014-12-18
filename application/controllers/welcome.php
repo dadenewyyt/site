@@ -25,26 +25,52 @@ class Welcome extends MY_Controller {
 	 */
 	public function index()
 	{
-
-
-        //$this->output->cache(1);
-        //load template engine
-       // $this->output->enable_profiler(TRUE);
-       // $this->load->library('parser');
-       log_message('error','Hmm no migration this time , are u nutts ? ');
-        $data = array(
-                      'title'=>'Layout',
-                      'header'=>'Header'
-                     );
-
-
-      //	$this->load->view('header');
-        $data['site_url'] = site_url('user/login');
-       // $this->parser->parse('layout/layout',$data);
-		$this->load->view('layout/grid');
+        $data['email_form'] = 'layout/email_form';
+        $this->load->view('coming_soon',$data);
 
 	}
+
+    /**
+     * subscribe function that recives email address
+     * register it on to database for future notifications
+     * @post email_address
+     */
+    public function subscribe()
+    {
+ 
+
+     $email = $this->input->post('email_address',TRUE);
+
+
+     if ( $email ) {
+
+         $this->load->helper('general'); //load email library
+
+         $from ='support@madebyus4u.com';
+         $to = $email ;
+         $subject = 'MadeByus4u.com subscription successful!';
+         $content = 'Thankyou for subscribing at madebyus4u.com!';
+
+         if (send_email_new('',$from,$to,$subject,$content)) {
+
+             //show_error($this->email->print_debugger());
+             $content = $this->email->print_debugger();
+
+           } else {
+
+             $content = 'Thankyou for subscription using '. $email .'</b> please check your email!';
+             //send email json message for the view
+
+          }
+
+          $message = array (
+             "message" => $content,
+          );
+
+        echo json_encode($message);
+     }
 }
 
+}
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
