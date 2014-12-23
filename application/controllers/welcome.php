@@ -71,6 +71,11 @@ class Welcome extends MY_Controller {
      }
 }
 
+    public function home() {
+
+
+    $this->load->view('layout/home');
+    }
 }
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
