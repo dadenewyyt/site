@@ -73,8 +73,8 @@ class Welcome extends MY_Controller {
 
     public function home() {
 
-
-    $this->load->view('layout/home');
+    $data['footer_page'] = 'include/footer_page';
+    $this->load->view('layout/home',$data);
     }
 }
 /* End of file welcome.php */
