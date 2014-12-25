@@ -126,7 +126,7 @@
               <option>Miami</option>
               <option>Florida</option>
               <option>DC</option>
-              <option>Philadelpiha</option>\
+              <option>Philadelpiha</option>
                <option>NYC</option>
             </select>
             </div>

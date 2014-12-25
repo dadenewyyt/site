@@ -1,5 +1,6 @@
   
-   .col-left-border {
+  .col-left-border {
+
   border-right: 1px solid #d9d9d9;
 } 
     .row1 {
@@ -41,7 +42,7 @@
     }
     .row3 {
 
-    background-image: url('../assets/images/signup_large_image.png');
+    background-image: url('../../assets/images/signup_large_image.png');
     background-attachment: content;
     background-size: 100%;
     background-clip: body;
