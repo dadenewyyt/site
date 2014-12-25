@@ -79,8 +79,8 @@ class Welcome extends MY_Controller {
 
     public function shop() {
 
-    $data['footer_page'] = 'include/footer_page';
-    $this->load->view('layout/shop',$data);
+        $data['footer_page'] = 'include/footer_page';
+        $this->load->view('layout/shop',$data);
     }
 }
 /* End of file welcome.php */
