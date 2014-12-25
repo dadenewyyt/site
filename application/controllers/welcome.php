@@ -76,6 +76,12 @@ class Welcome extends MY_Controller {
     $data['footer_page'] = 'include/footer_page';
     $this->load->view('layout/home',$data);
     }
+
+    public function shop() {
+
+    $data['footer_page'] = 'include/footer_page';
+    $this->load->view('layout/shop',$data);
+    }
 }
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
