@@ -46,6 +46,14 @@ class Users extends MY_Controller {
 	//log the users in
 	function login()
 	{
+        $this->load->model('memeber_model');
+        $memebers = $this->memeber_model->get_all();
+        var_dump($memebers);
+
+
+        $post = $this->memeber_model->with('products')->with('user')
+            ->get(1);
+        var_dump($post);
 		$this->data['title'] = "Login";
 
 		//validate form input

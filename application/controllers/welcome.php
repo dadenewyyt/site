@@ -25,7 +25,7 @@ class Welcome extends MY_Controller {
 	 */
 	public function index()
 	{
-        $data['email_form'] = 'layout/email_form';
+        $data['email_form'] = 'include/email_form';
         $this->load->view('coming_soon',$data);
 
 	}
@@ -74,13 +74,13 @@ class Welcome extends MY_Controller {
     public function home() {
 
     $data['footer_page'] = 'include/footer_page';
-    $this->load->view('layout/home',$data);
+    $this->load->view('home/home',$data);
     }
 
     public function shop() {
 
         $data['footer_page'] = 'include/footer_page';
-        $this->load->view('layout/shop',$data);
+        $this->load->view('shop/shop',$data);
     }
 }
 /* End of file welcome.php */

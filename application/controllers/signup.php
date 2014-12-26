@@ -17,7 +17,7 @@ class SignUp extends MY_Controller {
 
       $data['footer_privacy'] = 'include/footer_privacy';
       $data['footer_subscribe'] = 'include/footer_subscribe';
-      $this->load->view('layout/signup',$data);
+      $this->load->view('signup/signup',$data);
   }
 
 }
