@@ -59,7 +59,7 @@
 <div class="container container2">
 
 <div class="row row2"  >
- <div class="col-md-3 col-md-offset-5" style="background-color:balck;"><img src="../assets/images/logo_home.jpg"/></div>
+ <div class="col-md-3 col-md-offset-5" style="background-color:balck;"><img src=<?php echo base_url("assets/images/logo_home.jpg");?> /></div>
  <div class="col-md-2 col-md-offset-1 col-md-offset-1-1" style="margin-top: 1%;">
           <select class="form-control" size="width:100%;">
           <option>All Catagories</option>
@@ -87,7 +87,7 @@
                 <span class="icon-bar"></span>
               </button>
                 <a class="navbar-brand" href="#">
-                <img alt="Brand" src="../assets/images/logo.jpg" height="0">
+                <img alt="Brand" src=<?php echo base_url("assets/images/logo.jpg");?> height="0">
               </a>
             </div>
 
@@ -183,7 +183,8 @@
         <!-- <img data-src="holder.js/200x300">
          <img src="../assets/images/products/ring.jpg" width="200" height="300">
          -->
-            <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive" src="../assets/images/products/dimond.jpg" data-holder-rendered="true" style="height: 200px; display: block;">
+            <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
+                 src=<?php echo base_url("assets/images/products/dimond.jpg");?> data-holder-rendered="true" style="height: 200px; display: block;">
      
                   <div class="caption">
                         <h4>Set of Wedding Ring</h4>
@@ -199,7 +200,8 @@
 
     <div class="col-sm-3 col-md-3">
             <div class="thumbnail">
-                <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive" src="../assets/images/products/tshirt.jpg" data-holder-rendered="true" style="height: 200px;display: block;">
+                <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
+                     src=<?php echo base_url("assets/images/products/tshirt.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
                   <div class="caption">
                     <h4>Black and Red Plad Sleeve</h4>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -212,7 +214,8 @@
 
     <div class="col-sm-3 col-md-3">
         <div class="thumbnail">
-        <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive" src="../assets/images/products/bag.jpg" data-holder-rendered="true" style="height: 200px;display: block;">
+        <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
+                src=<?php echo base_url("assets/images/products/bag.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
           <div class="caption">
             <h4>Black and Red Plad Sleeve</h4>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -226,7 +229,8 @@
       <div class="col-sm-3 col-md-3">
 
         <div class="thumbnail">
-           <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive" src="../assets/images/products/ring.jpg" data-holder-rendered="true" style="height: 200px;display: block;">
+           <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
+               src=<?php echo base_url("/assets/images/products/ring.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
            <div class="caption">
            <h4>Set of Wedding Ring</h4>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -250,7 +254,8 @@
         <!-- <img data-src="holder.js/200x300">
          <img src="../assets/images/products/ring.jpg" width="200" height="300">
          -->
-            <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive" src="../assets/images/products/dimond.jpg" data-holder-rendered="true" style="height: 200px; display: block;">
+            <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
+                 src=<?php echo base_url("assets/images/products/dimond.jpg");?> data-holder-rendered="true" style="height: 200px; display: block;">
      
                   <div class="caption">
 
@@ -267,7 +272,8 @@
 
     <div class="col-sm-3 col-md-3">
             <div class="thumbnail">
-                <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive" src="../assets/images/products/tshirt.jpg" data-holder-rendered="true" style="height: 200px;display: block;">
+                <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
+                     src=<?php echo base_url("assets/images/products/tshirt.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
                   <div class="caption">
                     <h4>Black and Red Plad Sleeve</h4>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -280,7 +286,8 @@
 
     <div class="col-sm-3 col-md-3">
         <div class="thumbnail">
-        <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive" src="../assets/images/products/bag.jpg" data-holder-rendered="true" style="height: 200px;display: block;">
+        <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
+             src=<?php echo base_url("assets/images/products/bag.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
           <div class="caption">
             <h4>Black and Red Plad Sleeve</h4>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -294,7 +301,8 @@
       <div class="col-sm-3 col-md-3">
 
         <div class="thumbnail">
-           <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive" src="../assets/images/products/ring.jpg" data-holder-rendered="true" style="height: 200px;display: block;">
+           <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
+                src=<?php echo base_url('assets/images/products/ring.jpg');?> data-holder-rendered="true" style="height: 200px;display: block;">
            <div class="caption">
             <h4>Black and Red Plad Sleeve</h4>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -330,9 +338,9 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src=<?php base_url()."assets/js/holder.js";?>></script>
-<script src="path/to/js/star-rating.min.js" type="text/javascript"></script>
+<script src=<?php echo base_url()."assets/plugins/bootstrap/js/bootstrap.min.js";?>></script>
+<script src=<?php echo base_url()."assets/js/holder.js";?>></script>
+
 
 
 
