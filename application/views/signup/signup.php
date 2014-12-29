@@ -18,7 +18,7 @@
 <div class='row row1'>
     <div class="container">
         <div class="col-md-2 col-left-border">
-            <b>Hi</b> <a href="#">Sign In</a> or <a href="#">Register</a>
+            <b>Hi</b> <a href="#">Sign In</a> or <a href="<?php echo base_url('signup');?>">Register</a>
         </div>
         <div class="col-md-1 col-left-border">
             <strong><a href="#">Sell</a></strong>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="col-md-4 col-md-offset-3 ">
-              <img src="../assets/images/logo_home.jpg"/>
+              <a href="<?php echo base_url('welcome/home'); ?>"><img src="<?php echo base_url()."assets/images/logo_home.jpg";?>"/></a>
         </div>
 
         <div class="col-md-3 input_search" >
@@ -77,71 +77,7 @@
 <div class="row row3">
 
 
-    <div class="col-md-3 col-md-offset-3 thumbnail " style="background-color:#ffffff;border-top:6px solid black;" >
-        <h5>Register with MadeByUs4U.com Today!</h5>
-        <hr style="padding-bottom:2%;">
-
-    <div class="col-md-6" style="background-color:white;">
-               <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">First Name</label>
-                <input type="email" class="form-control input-sm" id="exampleInputEmail1">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email Address</label>
-                <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">UserName</label>
-                <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Password</label>
-                <input type="password" class="form-control" id="exampleInputEmail1" placeholder="">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">City</label>
-                <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="">
-              </div>
-              <div class="form-group">
-               <label for="exampleInputEmail1">Zip /Postal code</label>
-               <input type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="">
-            </div>
-  </div>
-
-    <div class="col-md-6" style="background-color:white;">
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Last Name</label>
-                <input type="email" class="form-control input-sm" id="exampleInputEmail1" >
-              </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1" style="margin-top:120px;">Confirm Password</label>
-                <input type="password" class="form-control input-sm" id="exampleInputEmail1" placeholder="">
-              </div>
-              <div class="form-group">
-               <label for="exampleInputEmail1">State</label>
-              <select class="form-control" style="z-index:-1;">
-              <option>Las Vegas</option>
-              <option>Miami</option>
-              <option>Florida</option>
-              <option>DC</option>
-              <option>Philadelpiha</option>
-               <option>NYC</option>
-            </select>
-            </div>
-
-    </div>
-
-
-    <div class="col-md-7 col-md-offset-4" style="margin-top:5%;">
-
-            <button type="submit" class="btn btn-default btn-primary">REGISTER NOW</button>
-            <p><small>or login with</small> <span><img src="../assets/images/fb.png" height="15" width="15" /><a href="#">Facebook</a></span></p>
-        
-    </div>
-    </form>
-    </div>
+    <?php $this->load->view($signup_form) ;?>
   
     <!--SELL TEXT-->
 
@@ -161,8 +97,10 @@
 <footer class="footer">
 
     <?php 
-    $this->load->view($footer_subscribe);
+
+
     $this->load->view($footer_privacy);
+    
     ?>
 
 </footer>

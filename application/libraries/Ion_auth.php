@@ -157,8 +157,9 @@ class Ion_auth
 				else
 				{
 					$message = $this->load->view($this->config->item('email_templates', 'ion_auth').$this->config->item('email_forgot_password', 'ion_auth'), $data, true);
-					$this->email->clear();
-					$this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
+
+                    $this->email->clear();
+					$this->email->from('support@madebyus4u.com');
 					$this->email->to($user->email);
 					$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - ' . $this->lang->line('email_forgotten_password_subject'));
 					$this->email->message($message);
@@ -344,14 +345,14 @@ class Ion_auth
 			{
 				$this->ion_auth_model->trigger_events(array('post_account_creation', 'post_account_creation_successful', 'activation_email_successful'));
 				$this->set_message('activation_email_successful');
-					return $data;
+	         return $data;
 			}
 			else
 			{
 				$message = $this->load->view($this->config->item('email_templates', 'ion_auth').$this->config->item('email_activate', 'ion_auth'), $data, true);
 
 				$this->email->clear();
-				$this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
+				$this->email->from('admin@madebyus4u.com');
 				$this->email->to($email);
 				$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - ' . $this->lang->line('email_activation_subject'));
 				$this->email->message($message);

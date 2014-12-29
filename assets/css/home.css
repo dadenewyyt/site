@@ -191,12 +191,12 @@ text-align:center;padding-bottom:8%;
 .content-bottom {padding-top:1%;text-align:center;padding-bottom:1%;}
 .module_images_upload{z-index:-1;}
 .module_images_newarrival{z-index:-1;}
-footer_menu {padding-right: }
+/**footer_menu {padding-right: }**/
 
 }
 
 .buy_btn {float: right;}
-.price { padding-top: 1%;margin-left: 3%;font-size: 17px;font-weight: 600;}.
+.price { padding-top: 1%;margin-left: 3%;font-size: 17px;font-weight: 600;}
 .caption p {
     padding: 1%;
 }
@@ -272,7 +272,7 @@ padding-left: 1%;
      .module_images_upload{z-index:-1;}
    .module_images_newarrival{z-index:-1;}
    .footer_menu {padding-right: 0;}
-    }
+   }
 
 
    

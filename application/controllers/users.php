@@ -46,13 +46,13 @@ class Users extends MY_Controller {
 	//log the users in
 	function login()
 	{
-        
+     /*
 		$this->data['title'] = "Login";
 
 		//validate form input
 		$this->form_validation->set_rules('identity', 'Identity', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-
+*/
 		if ($this->form_validation->run() == true)
 		{
 			//check to see if the users is logging in
