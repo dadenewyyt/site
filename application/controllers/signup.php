@@ -90,7 +90,7 @@ class SignUp extends MY_Controller {
      $user_id =  $this->session->userdata('user_id');
      $activation_code = $this->session->userdata('activation_code');
 
-      $data['data']['message_page_header'] = "Thankyou for Registration" ;
+      $data['data']['message_page_header'] = "Thankyou for Registration!" ;
       $data['data']['message_page_title'] = "Your SignUp </small> was <span style=color:'#2770a2'>Successful!</span>";
       $data['data']['message_page_message'] = "A message has been sent to your email.Please use the link provided in your email to activate your account.<p>Please check your spam folder.<P>If you dont please use below link to resend activation code to your email account.</p> " ;
       $data['data']['message_page_message'].= "<strong>Resend Activation code</srong> <a href=". base_url('signup/resend_activation/') .'/'. $user_id.'/'. $activation_code . ">Resend Activation </a>";
@@ -123,8 +123,8 @@ class SignUp extends MY_Controller {
                 $update_result = $this->users->update($user_id, $activate_user_data);
 
                 $data['data']['message_page_header'] = "Account activated!";
-                $data['data']['message_page_header'] = "Thankyou for Registration";
-                $data['data']['message_page_title'] = "Your account is <span style=color:'#2770a2'>Activated!</span>";
+                $data['data']['message_page_header'] = "Thankyou for Registration!";
+                $data['data']['message_page_title'] = "Your account is now <span style=color:'#2770a2'>Activated!</span>";
                 $data['data']['message_page_message'] = "<a class='btn btn-default btn-primary' href=" . base_url('welcome/home/') . ">Back To Home</a>";
                 // var_dump($_POST);die;
                 $data['message_page'] = 'message_page';

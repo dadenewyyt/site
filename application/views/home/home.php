@@ -77,7 +77,7 @@
 
   <div class="row">
 
-          <nav class="navbar navbar-default" role="navigation" style="min-height:40px;">
+          <home class="navbar navbar-default" role="navigation" style="min-height:40px;">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -88,7 +88,7 @@
                 <span class="icon-bar"></span>
               </button>
                 <a class="navbar-brand" href="#">
-                <img alt="Brand" src=<?php echo base_url("assets/images/logo.jpg");?> height="0">
+              
               </a>
             </div>
 
@@ -112,7 +112,7 @@
               
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
-        </nav>
+        </div>
          <div class="container container4" id='header_image'>
                   
             <div class=" row row3-background">

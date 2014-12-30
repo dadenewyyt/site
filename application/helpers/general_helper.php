@@ -57,12 +57,12 @@ function send_activation_email($first_name,$user_id ,$activation_code,$email) {
     $subject = "MadeByUs4u.com Activation Required";
     $content =
         "<html><body>" .
-        "<h1> Dear " . $first_name . ",</h1>" . "your registration was successful " .
-        "<h2>Your Activation code is:<small>" . $activation_code . "</small></h2>" .
+        "<p><h1> Dear " . $first_name . ",</h1>" . "your registration was successful </p>" .
+        "<h3>Your Activation code is:<small>" . $activation_code . "</small></h3>" .
         "<p>Please use the below link to activate your account.</p>" .
         "<p><a href=" . $activation_link . ">" . $activation_link . "</a> to activate</p>" .
-        "<p>If this above does not work please , go to " .
-        "<a href=" . $signup_link . ">  <b/>SignUp</b> </a>to verify your activation code</p>" .
+        "<p>If this above does not work please click on signup link " .
+        "<a href=" . $signup_link . ">  <b/>SignUp</b> </a>to resend your activation link again! </p>" .
         "</body></html>";
 
         $ci = get_instance();

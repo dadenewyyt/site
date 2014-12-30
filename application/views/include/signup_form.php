@@ -51,19 +51,19 @@ echo form_open('signup/register',$form_attributes_data);
             <!--display errors-->
              <div class="alert alert alert-error" >
                  <a href="#" class="close" data-dismiss="alert">×</a>
-                 <strong>Warning!</strong> <?php echo $this->message['message'];?>.
+                 <strong>Error!</strong> <?php echo $this->message['message'];?>.
              </div>
           <!-- <div class="errorMessage"></div> -->
         <?php elseif ($this->message['type'] == 'info'):?>
             <!--display errors-->
              <div class="alert alert-info" >
                  <a href="#" class="close" data-dismiss="alert">×</a>
-                 <strong>Warning!</strong> <?php echo $this->message['message'];?>.
+                 <strong>Info!</strong> <?php echo $this->message['message'];?>.
              </div>
          <?php elseif ($this->message['type'] == 'success'): ?>
              <div class="alert alert-success" >
                  <a href="#" class="close" data-dismiss="alert">×</a>
-                 <strong>Warning!</strong> <?php echo $this->message['message'];?>.
+                 <strong>Success!</strong> <?php echo $this->message['message'];?>.
              </div>
         <?php endif; ?>
     <?php endif; ?>
@@ -75,27 +75,27 @@ echo form_open('signup/register',$form_attributes_data);
 
               <div class="form-group">
                 <label for="exampleInputEmail1">First Name</label>
-                <input type="text" class="form-control input-sm" id="firstname" name="firstname">
+                <input type="text" class="form-control input-sm" id="firstname" name="firstname" tabindex="1">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Email Address</label>
-                <input type="email" class="form-control input-sm" id="exampleInputEmail1" name="email" placeholder="">
+                <input type="email" class="form-control input-sm" id="exampleInputEmail1" name="email" placeholder=""  tabindex="2">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">UserName</label>
-                <input type="text" class="form-control input-sm" id="username" name="username" placeholder="">
+                <input type="text" class="form-control input-sm" id="username" name="username" placeholder=""  tabindex="3">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Password</label>
-                <input type="password" class="form-control" id="exampleInputEmail1" name="password" placeholder="">
+                <input type="password" class="form-control" id="exampleInputEmail1" name="password" placeholder=""  tabindex="4">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">City</label>
-                <input type="text" class="form-control input-sm" id="city"  name="city" placeholder="">
+                <input type="text" class="form-control input-sm" id="city"  name="city" placeholder=""  tabindex="6">
               </div>
               <div class="form-group">
                <label for="exampleInputEmail1">Zip /Postal code</label>
-               <input type="text" class="form-control input-sm"  name="zipcode" id="zipcosde" placeholder="">
+               <input type="text" class="form-control input-sm"  name="zipcode" id="zipcosde" placeholder=""  tabindex="8">
             </div>
   </div>
 
@@ -103,16 +103,16 @@ echo form_open('signup/register',$form_attributes_data);
 
               <div class="form-group">
                 <label for="exampleInputEmail1">Last Name</label>
-                <input type="text" class="form-control input-sm" id="lastname" name="lastname" >
+                <input type="text" class="form-control input-sm" id="lastname" name="lastname"  tabindex="1" tab >
               </div>
             <div class="form-group">
                 <label for="exampleInputEmail1" style="margin-top:120px;">Confirm Password</label>
-                <input type="password" class="form-control input-sm"  name="confirm" id="confirm_password" placeholder="">
+                <input type="password" class="form-control input-sm"  name="confirm" id="confirm_password" placeholder=""  tabindex="5">
               </div>
               <div class="form-group">
                <label for="exampleInputEmail1">State</label>
 
-                  <?= form_dropdown('state', array_merge(array(''=>'Select State'), $states) ,'','class="form-control"' ) ;?>
+                  <?= form_dropdown('state', array_merge(array(''=>'Select State'), $states) ,'','class="form-control"  tabindex="7"' ) ;?>
 
             </div>
 
@@ -127,14 +127,15 @@ echo form_open('signup/register',$form_attributes_data);
                         'name'        => 'signup',
                         'id'          => 'signup',
                         'type'        => 'submit',
-                        'class'       => 'btn btn-default btn-primary'
+                        'class'       => 'btn btn-default btn-primary',
+                        'tabindex'    => '10'
                     );
             echo form_button($form_submit_button_data, 'REGISTER NOW');
             
         ?>
 
 
-      <p><small>or login with</small> <span><img src="../assets/images/fb.png" height="15" width="15" /><a href="#">Facebook</a></span></p>
+      <p><small>or login with</small> <span><img src=<?php echo base_url()."assets/images/fb.png" ;?> height="15" width="15" /><a href="#">Facebook</a></span></p>
 
     </div>
     <?php echo  form_close();?>

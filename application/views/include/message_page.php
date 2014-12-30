@@ -3,7 +3,9 @@
     .panel-default>.panel-heading {
         background-color:#2770a2 ;
     }
-
+  .panel-title {
+   color: white;
+   }
 </style>
 
 <div class="panel panel-default">

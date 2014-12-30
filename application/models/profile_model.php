@@ -51,7 +51,7 @@ class Profile_model extends MY_Model {
         if ($user_id) {
 
             $member_insert_data = array(
-                'fname' => $post['firstname'],
+                'fname' => ucfirst($firstname),
                 'lname' => $post['lastname'],
                 'zipcode' => $post['zipcode'],
                 'state' => $post['state'],
@@ -83,7 +83,7 @@ class Profile_model extends MY_Model {
                 $this->session->set_userdata('user_id', $user_id);
                 $this->session->set_userdata('activation_code', $activation_code);
                 $this->session->set_userdata('email', $email);
-                $this->session->set_userdata('firstname',$firstname);
+                $this->session->set_userdata('firstname',ucfirst($firstname));
 
                 send_activation_email($firstname,$user_id,$activation_code,$email);
                 return TRUE;

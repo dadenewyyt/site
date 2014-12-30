@@ -3,7 +3,7 @@
 -- Host: localhost    Database: mbu4u
 -- ------------------------------------------------------
 -- Server version	5.6.20
-
+use mbu4u;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -79,10 +79,10 @@ CREATE TABLE `comments` (
   `commeted_to_id` int(11) DEFAULT NULL,
   `commeted_by_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
-  `comment_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `comment_date` datetime DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
   `created_by` varchar(45) DEFAULT NULL,
-  `updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` datetime DEFAULT NULL,
   `update_by` varchar(45) DEFAULT NULL,
   `deleted_by_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -108,7 +108,7 @@ DROP TABLE IF EXISTS `emails`;
 CREATE TABLE `emails` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -134,7 +134,7 @@ CREATE TABLE `followers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `follower_profile_id` int(11) DEFAULT NULL,
   `following_profile_id` int(11) DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_date` datetime DEFAULT NULL,
   `created_by` varchar(45) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL,
   `follow_date` datetime DEFAULT NULL,
@@ -162,10 +162,10 @@ CREATE TABLE `freinds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sender_id` int(11) DEFAULT NULL,
   `receiver_id` int(11) DEFAULT NULL,
-  `request_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `request_date` datetime DEFAULT NULL,
   `accept_date` datetime DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_date` datetime DEFAULT NULL,
   `created_by` varchar(45) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL,
   `updated_by` varchar(45) DEFAULT NULL,
@@ -218,7 +218,7 @@ CREATE TABLE `likes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `like_profile_id` int(11) DEFAULT NULL,
   `like_product_id` int(11) DEFAULT NULL,
-  `like_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `like_date` datetime DEFAULT NULL,
   `like_comment_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -365,8 +365,8 @@ CREATE TABLE `profiles` (
   `facebook` varchar(45) DEFAULT NULL,
   `twitter` varchar(45) DEFAULT NULL,
   `join_date` varchar(45) DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `created_by` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_date` datetime DEFAULT NULL,
+  `created_by` datetime DEFAULT NULL,
   `is_profile_verfied` bit(1) DEFAULT b'0',
   `is_seller` bit(1) DEFAULT b'0',
   `stored_id` int(11) DEFAULT NULL,
