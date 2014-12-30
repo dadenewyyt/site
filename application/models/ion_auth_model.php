@@ -26,8 +26,24 @@
 *
 */
 
-class Ion_auth_model extends CI_Model
+class Ion_auth_model extends MY_Model
 {
+
+    protected $_table = 'users';
+
+    protected function timestamps($table)
+    {
+        //$table['created_date'] = $table['updated_date'] = date('Y-m-d H:i:s');
+        $table['created_date'] = date('Y-m-d H:i:s');
+        return $table;
+    }
+    public $belongs_to = array( 'memeber' => array( 'primary_key' => 'user_id' ) );
+    /**
+     * Define relationship a memeber
+     * have One to One , One to Many ,
+     * Many to Many if any
+     */
+
 	/**
 	 * Holds an array of tables used
 	 *
@@ -168,7 +184,7 @@ class Ion_auth_model extends CI_Model
 	 **/
 	protected $_cache_groups = array();
 
-	public function __construct()
+    public function __construct()
 	{
 		parent::__construct();
 		$this->load->database();
