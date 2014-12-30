@@ -39,6 +39,11 @@ echo form_open('signup/register',$form_attributes_data);
         border: 1px solid grey;
         font-weight: 500;
         font-size: 13px;
+    } 
+    .help-block {
+      font-size: 11px;
+    font-weight: 100;
+    color: rgb(14, 83, 163);
     }
 
 </style>
@@ -88,6 +93,7 @@ echo form_open('signup/register',$form_attributes_data);
               <div class="form-group">
                 <label for="exampleInputEmail1">Password</label>
                 <input type="password" class="form-control" id="exampleInputEmail1" name="password" placeholder=""  tabindex="4">
+              <span id="helpBlock" class="help-block">Minmum Password Length is 8.</span>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">City</label>
