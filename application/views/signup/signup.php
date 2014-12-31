@@ -99,6 +99,7 @@
     <?php 
 
 
+    $this->load->view($footer_subscribe);
     $this->load->view($footer_privacy);
     
     ?>
