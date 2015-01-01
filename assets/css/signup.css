@@ -99,38 +99,4 @@ margin-bottom: 3px;
 .image_left_conent p {
     font-weight: 500;
 }
-.shopping_cart .badge {
-    font-size: 17px;
-margin-left: 116px;
-margin-top: -35px;
-display: block;
-width: 30px;
-background-color: #226da0;
-border-radius: 2px;
-/* padding: 0 5px; */
-}
-.shopping_cart .glyphicon {
-font-size:2.0em;
-color:grey;
-} 
 
-.footer_menufooter_menu a {
-    display: block;
-    width: 60px;
-}
-.footer_menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-.footer_menu li {
-    display: inline;
-    position: relative;
-    padding-right: 3%;
-    font-weight: 400;
-}
-.footer_menu li a {
-   text-decoration: none;
-   color: #ffffff;
-   font-size: 12px;
-}

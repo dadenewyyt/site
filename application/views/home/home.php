@@ -9,7 +9,7 @@
 
     <!-- Le styles -->
     <link href=<?php echo base_url()."assets/plugins/bootstrap/css/bootstrap.min.css";?> rel="stylesheet">
-     <link href=<?php echo base_url()."assets/css/home.css";?> rel="stylesheet">
+    <link href=<?php echo base_url()."assets/css/home.css";?> rel="stylesheet">
 
 </head>
 
@@ -129,7 +129,7 @@
                           </div>
                 </div>
   </div>
-
+<div class="container">
     <div class="row row5">
 
          <div class="col-md-4 module_images_upload col-sm-4 col-xs-4 module_border_style">
@@ -173,11 +173,11 @@
         <div class='pull-right'>
             <span class='glyphicon glyphicon-chevron-left' style='background-color:#cccccc;'></span>
             <span class='glyphicon glyphicon-chevron-right' style='background-color:#cccccc;'></span>
-            </div>
+        </div>
      </div>
-
+</div>
 <div class='row'>
-
+<div class='col-md-12 col-sm-6'>
   <div class="col-sm-3 col-md-3">
         <div class="thumbnail">
         
@@ -243,13 +243,12 @@
         </div>
       </div>
 
+
+      </div>
+
     </div>
-
-  
-  </div>
-  <div class="row">
-
- <div class="col-sm-3 col-md-3">
+<div class="row"><div class='col-md-12 col-sm-2'>
+  <div class="col-sm-3 col-md-3">
         <div class="thumbnail">
         
         <!-- <img data-src="holder.js/200x300">
@@ -259,15 +258,14 @@
                  src=<?php echo base_url("assets/images/products/dimond.jpg");?> data-holder-rendered="true" style="height: 200px; display: block;">
      
                   <div class="caption">
-
-                       <h4>Set of Wedding Ring</h4>
+                        <h4>Set of Wedding Ring</h4>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                         <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
                   </div>
                   <hr>
                   <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-             
-                 
+
+
         </div>
     </div>
 
@@ -278,7 +276,7 @@
                   <div class="caption">
                     <h4>Black and Red Plad Sleeve</h4>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                     <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
+                    <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
                   </div>
                    <hr>
                   <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
@@ -288,14 +286,14 @@
     <div class="col-sm-3 col-md-3">
         <div class="thumbnail">
         <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-             src=<?php echo base_url("assets/images/products/bag.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
+                src=<?php echo base_url("assets/images/products/bag.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
           <div class="caption">
             <h4>Black and Red Plad Sleeve</h4>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
           </div>
            <hr>
-                  <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
+          <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
         </div>
       </div>
 
@@ -303,31 +301,24 @@
 
         <div class="thumbnail">
            <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-                src=<?php echo base_url('assets/images/products/ring.jpg');?> data-holder-rendered="true" style="height: 200px;display: block;">
+               src=<?php echo base_url("/assets/images/products/ring.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
            <div class="caption">
-            <h4>Black and Red Plad Sleeve</h4>
+           <h4>Set of Wedding Ring</h4>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
+            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
           </div>
            <hr>
-                  <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-           
+                  <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
+         
         </div>
       </div>
+      </div>
+  
 
-    </div>
 
   </div>
 
-  
-  
-
-  
-  
-
-  
-             
-</div>  
+  </div>
 
 
 

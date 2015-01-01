@@ -25,7 +25,7 @@ RewriteRule ^(.*)$ index.php/$1 [PT,L]
 </IfModule>
 
    RewriteEngine On
-    RewriteBase /dev/
+    RewriteBase /madebyus4u/
 
     #Removes access to the shopping_system folder by users.
     #Additionally this will allow you to create a System.php controller,

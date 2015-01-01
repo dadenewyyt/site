@@ -9,11 +9,13 @@
 
     <!-- Le styles -->
     <link href=<?php echo base_url()."assets/plugins/bootstrap/css/bootstrap.min.css";?> rel="stylesheet">
-     <link href=<?php echo base_url()."assets/css/home.css";?> rel="stylesheet">
+    <link href=<?php echo base_url()."assets/css/home.css";?> rel="stylesheet">
 
 </head>
 <style type="text/css">
-  
+  .row2 {
+    background-color: 
+  }
 .navbar-default .navbar-nav>li>a {
 color: white;
 }
@@ -70,7 +72,7 @@ background-color: transparent;
 <!-- Responsive design
 ================================================== -->
 <section id="responsive" >
-<div class="row row2"  >
+<div class="row row3"  >
 <div class="container">
  <div class="col-md-3 col-md-offset-5" style="background-color:balck;"><img src="../assets/images/logo_home.jpg"/></div>
  <div class="col-md-2 col-md-offset-1 col-md-offset-1-1" style="margin-top: 1%;">
