@@ -29,7 +29,7 @@
         <strong><a href="#">Buy</a></strong>
     </div>
      <div class="col-md-1 col-left-border">
-         <strong><a href="#">Bid</a></strong>
+         <strong><a href="<?php echo base_url('bid');?>">Bid</a></strong>
     </div>
      <div class="col-md-3 col-md-offset-3 search-box">
          <div class="input-group">
