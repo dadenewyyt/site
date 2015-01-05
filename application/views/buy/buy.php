@@ -667,7 +667,9 @@ div.status_box_featured p
      */
     $(document).ready(function() {
        var url =  "<?php echo site_url('welcome/subscribe');?>";
+
        subscribe_using_ajax(url);
+       
     });
 
 </script>
