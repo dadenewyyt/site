@@ -48,8 +48,6 @@
     background-clip: body;
     background-repeat: no-repeat;
     padding-top:4%; 
-    
-    min-height: 648px;
     overflow: hidden;
  }
  body {

@@ -2,6 +2,7 @@
 
     .email_subscribe .form-control {
         border-radius: 2px;
+        width: 50%;
     }
 
     .email_subscribe .btn{
@@ -12,6 +13,7 @@
       color: #3498db;
       text-transform: uppercase;
       font-size: 13px;
+
       padding: 6px 24px;
 
 
@@ -125,19 +127,3 @@ echo form_close();
 
 </div>
 </div>
-<script src="<?php echo base_url()."assets/js/subscribe_ajax.js";?>"></script>
-<script type="text/javascript">
-
-
-    /***
-     * Created by Daniel Adenew
-     * Submit email subscription using ajax
-     * Send email address
-     * Send controller
-     * Recive response
-     */
-    $(document).ready(function() {
-       
-       subscribe_using_ajax
-    });
-

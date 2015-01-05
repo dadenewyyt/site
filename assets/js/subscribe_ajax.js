@@ -3,10 +3,10 @@ subscribe_ajax.js - client side email subscriber
 © 2014-2015 daniel adenew http://daniel-ethiopia.rhcloud.com
 */
 
-function subscribe_using_ajax() {
+function subscribe_using_ajax(url) {
 	
 	 var csrf = $('input[name="madebyus4u_csrf_test_name"]').val();  // <- get token value from hidden form input
-        var server_url = "<?php echo site_url('welcome/subscribe');?>";
+        var server_url = url;
 
         $('#signup').click(function() {
 

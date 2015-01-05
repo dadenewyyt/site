@@ -196,7 +196,7 @@
 
 <script src="<?php echo base_url()."assets/plugins/jquery/jquery.min.js";?>"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url()."assets/plugins/bootstrap/js/bootstrap.min.js";?>"></script>
 <script src="<?php echo base_url()."assets/js/subscribe_ajax.js";?>"></script>
 <script type="text/javascript">
 
