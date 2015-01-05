@@ -6,7 +6,7 @@
  * Time: 10:11 AM
  */
 
-class Bid extends  MY_Controller {
+class Buy extends  MY_Controller {
 
     public function __construct() {
 
@@ -40,10 +40,6 @@ class Bid extends  MY_Controller {
 
        $tweets_page = 'include/tweets';
        $paginate_page = 'include/paginate_page';
-    
-    
-
-    
        $tweetes_content = $twee_texts;
 
         $data['footer_privacy'] = 'include/footer_privacy';
@@ -52,7 +48,7 @@ class Bid extends  MY_Controller {
         $data['tweets_page'] = $tweets_page;
         $data['paginate_page'] = $paginate_page;
         $data['data']['tweetes_content'] = $tweetes_content;
-        $this->load->view('bid/bid',$data);
+        $this->load->view('buy/buy',$data);
 
     }
 }

@@ -4,17 +4,16 @@
                 <b>Hi</b> <a href="#">Sign In</a> or <a href="<?php echo base_url('signup');?>">Register</a>
             </div>
             <div class="col-md-1 col-left-border">
-                <strong><a href="#">Sell</a></strong>
+                <strong><a href="<?php echo base_url('sell');?>">Sell</a></strong>
             </div>
             <div class="col-md-1 col-left-border">
-                <strong><a href="#">Buy</a></strong>
+                <strong><a href="<?php echo base_url('buy');?>">Buy</a></strong>
             </div>
             <div class="col-md-1 col-left-border">
                 <strong><a href="<?php echo base_url('bid');?>">Bid</a></strong>
             </div>
             <div class="col-md-2 col-md-offset-3 col-left-border" style="text-align:right;">
                 My Account
-
             </div>
 
             <div class="col-md-1 col-left-border ">

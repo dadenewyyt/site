@@ -28,7 +28,7 @@ padding: 7px;
     <div class="twitte_text" style="width:100%;">
 		<?php 
          foreach($tweetes_content as $twitted_text)  {          
-          echo "<p class='tweet_content'>".$twitted_text."</p>";
+          echo "<p class='tweet_content'>"."<img style='padding:4px;' src=".base_url().'assets/images/bid/twitter_large.png'.">" . $twitted_text."</p>";
         }
 
 		?>

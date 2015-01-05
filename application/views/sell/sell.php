@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Welcome to MadebyUs4u.com | Bid</title>
+    <title>Welcome to MadebyUs4u.com | Sell</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -218,14 +218,12 @@ div.status_box_featured p
 
 </style>
 <body>
-<div id="notification_bar">
-    <span></span>
-</div>
-	<header>
 
-	   <?php $this->load->view($header_black_menu); ?>
+  <header>
 
-	</header>
+     <?php $this->load->view($header_black_menu); ?>
+
+  </header>
 <!-- Responsive design
 ================================================== -->
 <section id="responsive" style="background-color:#f5f5f5;">

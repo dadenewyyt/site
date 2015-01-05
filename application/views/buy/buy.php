@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Welcome to MadebyUs4u.com | Bid</title>
+    <title>Welcome to MadebyUs4u.com | Buy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -218,14 +218,12 @@ div.status_box_featured p
 
 </style>
 <body>
-<div id="notification_bar">
-    <span></span>
-</div>
-	<header>
 
-	   <?php $this->load->view($header_black_menu); ?>
+  <header>
 
-	</header>
+     <?php $this->load->view($header_black_menu); ?>
+
+  </header>
 <!-- Responsive design
 ================================================== -->
 <section id="responsive" style="background-color:#f5f5f5;">
@@ -376,7 +374,7 @@ div.status_box_featured p
                             <h4>Black and Red </h4>
 
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">3 Bid</a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
                         </div>
                         <hr>
                        
@@ -410,7 +408,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">2 Bid</a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
                         </div>
                         <hr>
                         <div class='rating'>
@@ -431,7 +429,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -448,7 +446,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -470,7 +468,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -486,7 +484,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -506,7 +504,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -522,7 +520,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -542,7 +540,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now! </a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -560,7 +558,7 @@ div.status_box_featured p
                             <h4>Black and Red </h4>
 
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now! </a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -581,7 +579,7 @@ div.status_box_featured p
                             <h4>Black and Red </h4>
 
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -602,7 +600,7 @@ div.status_box_featured p
                             <h4>Black and Red </h4>
 
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">1 Bid </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy Now! </a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -619,7 +617,9 @@ div.status_box_featured p
                 <div class="col-md-9 col-md-offset-3" style="padding-bottom:6%;">
                         <hr class="hr_border_bottom" style="margin-top:0px;">
                         <div class="pull-right">
-                                <?php $this->load->view($paginate_page); ?>
+                           
+                             <?php $this->load->view($paginate_page); ?>
+
                         </div>    
                 </div>
         

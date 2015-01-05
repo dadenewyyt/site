@@ -56,7 +56,8 @@
                     <h3>Subscribe Us </h3> 
                         <p><h3><small>Get the latest updates & offers in your inbox</small></h3></p>
         </div>
-        <div class='email_subscribe'>
+
+        <!--<div class='email_subscribe'>
         <form class="form-inline">
         <div class="form-group">
                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
@@ -65,7 +66,32 @@
              
               <button type="submit" class="btn btn-default btn-lg">SUBSCRIBE</button>
             </form>
-        </div>
+        </div> -->
+        <div class='email_subscribe'>
+        <?php
+$form_attributes_data = array('class' =>'form-inline', 'id' => 'subscribe_form');
+$form_email_input_data = array(
+    'name'        => 'subscribe_email_input',
+    'id'          => 'subscribe_email_input',
+    'class'       =>'form-control',
+    'placeholder' => ''
+   
+);
+$form_submit_button_data = array(
+            'name'        => 'signup',
+            'id'          => 'signup',
+            'value'       => 'SUBSCRIBE',
+            'class'       => 'btn btn-default btn-lg'
+        );
+
+echo form_open('welcome/subscribe',$form_attributes_data);
+echo form_input($form_email_input_data);
+
+echo form_button($form_submit_button_data, 'SUBSCRIBE');
+echo form_close();
+?>
+</div>
+
         
     </div>
     <div class="col-md-2">
@@ -99,3 +125,19 @@
 
 </div>
 </div>
+<script src="<?php echo base_url()."assets/js/subscribe_ajax.js";?>"></script>
+<script type="text/javascript">
+
+
+    /***
+     * Created by Daniel Adenew
+     * Submit email subscription using ajax
+     * Send email address
+     * Send controller
+     * Recive response
+     */
+    $(document).ready(function() {
+       
+       subscribe_using_ajax
+    });
+
