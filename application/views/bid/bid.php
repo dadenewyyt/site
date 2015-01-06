@@ -40,7 +40,7 @@ color: #a1a1a1;
   }
   .thumbnail-catagories {
 
-    max-height: 500px;
+    height: 100%;
     overflow-y: scroll;  
     background-color:#fafafa;
     margin-top: 16px;
@@ -65,13 +65,22 @@ font-family: font-family: 'Open Sans', sans-serif;
 
   }
   
-  .buy_btn .btn-primary {
+.buy_btn .btn-primary {
 color: #fff;
 background-color: #3E3F3F;
 border-color: #535658;
 border-radius: 2px;
 float: right;
 }
+
+.apply_btn .btn-primary {
+color: #fff;
+background-color: #3E3F3F;
+border-color: #535658;
+border-radius: 2px;
+padding: 1px 10px 1px 10px;
+}
+
  .buy_btn .btn {
 padding: 3px 9px;
 /* height: auto; */
@@ -109,7 +118,7 @@ margin-top: -5px;
 padding-right: 10px;
 padding-left: 0px;**/
 padding-right: 2;
-padding-left: 8px;
+
 }
 .col-md-catagory {
 /*width:28%;*/
@@ -149,13 +158,17 @@ color:#595959;
 }
 .rating .glyphicon {
   color: #2676af;
-  font-size: 16px;
+  font-size: 10px;
 
 }
 .row-no-margin {
     margin: 0;
 }
 
+.line-checkbox {
+  font-size: 13px;
+}
+              
 div.status_box_featured
 {
 
@@ -215,31 +228,18 @@ div.status_box_featured p
 .img-responsive {
   border: none;
 }
-
-#notification_bar {
-    position: absolute;
-    z-index: 101;
-    top: 0;
-    left: 0;
-    right: 0;
-    background:#1a689f; 
-    /* fde073*/
-    text-align: center;
-    line-height: 2.5;
-    overflow: hidden; 
-    -webkit-box-shadow: 0 0 5px black;
-    -moz-box-shadow:    0 0 5px black;
-    box-shadow:         0 0 5px black;
-    display:none;
-    color: orange;
-    text-decoration: orange;
+.thumbnail {
+  border-radius: 1px;
 }
+.left-catag-twitt {
+background-color:#ffffff;
 
+}
 </style>
 <body>
-<div id="notification_bar">
-    <span></span>
-</div>
+
+  <?php $this->load->view($notification_bar); ?>
+
 	<header>
 
 	   <?php $this->load->view($header_black_menu); ?>
@@ -300,52 +300,49 @@ div.status_box_featured p
 
 
 <div class="container">
-          
-            <div class="col-md-3" style="background-color:#ffffff;">
+   
+            <div class="col-md-3 left-catag-twitt">
+
 
                 <div class="thumbnail catagory-checks thumbnail-catagories" >
-                    <span><small>MadeByUs4U</small><span class="caret"></span></span>
-                    <div class="thumbnail rec" >
-                   
-                    <!--form -->
-                    <form>
-                        <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div> <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div> <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                  
+                    <span><small>MadeByUs4U</small><span class="caret"></span>&nbsp;<span style="font-weight:bold">Clothing</span>
+                    <div class="thumbnail rec" >                   
+                  <!--form -->
+                  <?php 
+                  $form_data = array(
+                    'name'        => 'categories',
+                    'id'          => 'categories',
+                    'class' => 'form',
+                    );
+                  echo form_open('bid/categories',$form_data);
+                 ?> 
+
+                <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
+                  <div class="line-checkbox">
+                  <p><a href=""><input type="checkbox"  class='form-inline'name="categories[]" value="<?php echo $value;?>">&nbsp;<?php echo $value;?>(<span class='catagory_count'>201,201</span> ) </a>  </p>            
+                
+                </div>
+
+                <?php endforeach;?>                                                          
                     
-                                    </div>
-<!--form end-->
-                    <span class='buy_btn'  style ="float:left;padding:5px;"><input type='submit' class="btn btn-primary apply-button" value="APPLY"/></span>
-                     <span class='buy_btn' style ="float:right;padding:5px;"><input type='reset' class="btn btn-primary apply-button" value="reset filter"/></span>
-                   </form>
+                </div>
+                <?php
+
+                  $submit_btn_data = array(
+                        'class'=>'btn btn-primary apply-button pull-left',        
+                        'value'=>"APPLY",              
+                        'type'=>'submit',
+                    );
+                  $reset_btn_data = array(
+                        'class'=>'btn btn-primary apply-button pull-right',                  
+                        'value'=>"reset filter",
+                        'type'=>'reset',
+                    );
+                ?>
+                    <span class='apply_btn'><?php echo form_submit($submit_btn_data);?></span>
+                    <span class='apply_btn' ><?php echo form_input($reset_btn_data);?></span>
+                    <?php echo form_close();?>
+                   <!--form end--> 
             </div>
 <hr>
                  <div class="row row-newline">
@@ -377,7 +374,7 @@ div.status_box_featured p
             </div>
             </div>   
 
-<hr class="hr_border">
+     <hr class="hr_border">
 
             <div class="products">                 
           
@@ -635,6 +632,7 @@ div.status_box_featured p
                     </div>
                 </div>
 
+
                 <div class="col-md-9 col-md-offset-3" style="padding-bottom:6%;">
                         <hr class="hr_border_bottom" style="margin-top:0px;">
                         <div class="pull-right">
@@ -689,7 +687,6 @@ div.status_box_featured p
 
       
     });
-
 
        var url =  "<?php echo site_url('welcome/subscribe');?>";
        subscribe_using_ajax(url);

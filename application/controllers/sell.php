@@ -24,7 +24,7 @@ class Sell extends  MY_Controller {
 		    'accessTokenSecret' => 'zD7Zmxs2uQqP344OEgwJ63rOStEKFOkwEJdtkJhQMNysb',
 		    'usecache'          => true,
 		    'count'             => 2,
-		    'numdays'           => 30
+		    'numdays'           => 1
 		));
 
         //var_dump($tweets);die;
