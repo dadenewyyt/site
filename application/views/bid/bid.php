@@ -305,7 +305,7 @@ background-color:#ffffff;
 
 
                 <div class="thumbnail catagory-checks thumbnail-catagories" >
-                    <span><small>MadeByUs4U</small><span class="caret"></span>&nbsp;<span style="font-weight:bold">Clothing</span>
+                    <span><small>MadeByUs4U</small>&nbsp;&nbsp;<span class="caret"></span>&nbsp;<span style="font-weight:bold">&nbsp;Clothing</span>
                     <div class="thumbnail rec" >                   
                   <!--form -->
                   <?php 
@@ -319,7 +319,7 @@ background-color:#ffffff;
 
                 <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
                   <div class="line-checkbox">
-                  <p><a href=""><input type="checkbox"  class='form-inline'name="categories[]" value="<?php echo $value;?>">&nbsp;<?php echo $value;?>(<span class='catagory_count'>201,201</span> ) </a>  </p>            
+                  <p><input type="checkbox"  class='form-inline'name="categories[]" value="<?php echo $value;?>"><a href="">&nbsp;<?php echo $value;?></a>&nbsp;(<span class='catagory_count'>201,201</span> )</p>            
                 
                 </div>
 
@@ -379,19 +379,19 @@ background-color:#ffffff;
             <div class="products">                 
           
                <div class="row row-no-margin">
-
-                               
+                   
                 <div class="col-sm-2 col-md-3">
 
                     <div class="thumbnail rec">
+
                       <div class="status_box_featured"><p>Featured!</p></div> 
 
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/dimond.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
                       
                         <div class="caption">
-                            <h4>Black and Red </h4>
+                            <h4>Dimonad Rings </h4>
 
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
+                            <p><span class='price'>$66.99</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
                             <span class='span_buy_it_now'><p><a href="#">3 Bid</a></p></span>
                         </div>
                         <hr>
@@ -422,10 +422,10 @@ background-color:#ffffff;
 
                     <div class="status_box_onsale"><p>on Sale!</p></div> 
                        
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/tshirt.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
                         <div class="caption">
-                            <h4>Black and Red </h4>
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
+                            <h4>Thirt </h4>
+                            <p><span class='price'>$88.00</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
                             <span class='span_buy_it_now'><p><a href="#">2 Bid</a></p></span>
                         </div>
                         <hr>
@@ -443,7 +443,7 @@ background-color:#ffffff;
                 <div class="col-sm-2 col-md-3 col-md-images">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/bag.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>

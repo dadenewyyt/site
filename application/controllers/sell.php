@@ -40,6 +40,7 @@ class Sell extends  MY_Controller {
 
        $tweets_page = 'include/tweets';
        $paginate_page = 'include/paginate_page';
+       $notification_bar = 'include/notification_bar';
 
        $tweetes_content = $twee_texts;
 
@@ -48,6 +49,7 @@ class Sell extends  MY_Controller {
         $data['header_black_menu'] = 'include/header_black_menu';
         $data['tweets_page'] = $tweets_page;
         $data['paginate_page'] = $paginate_page;
+        $data['notification_bar'] = $notification_bar;
         $data['data']['tweetes_content'] = $tweetes_content;
         $this->load->view('sell/sell',$data);
 

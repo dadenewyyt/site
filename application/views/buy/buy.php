@@ -40,7 +40,7 @@ color: #a1a1a1;
   }
   .thumbnail-catagories {
 
-    max-height: 500px;
+    height: 100%;
     overflow-y: scroll;  
     background-color:#fafafa;
     margin-top: 16px;
@@ -65,13 +65,22 @@ font-family: font-family: 'Open Sans', sans-serif;
 
   }
   
-  .buy_btn .btn-primary {
+.buy_btn .btn-primary {
 color: #fff;
 background-color: #3E3F3F;
 border-color: #535658;
 border-radius: 2px;
 float: right;
 }
+
+.apply_btn .btn-primary {
+color: #fff;
+background-color: #3E3F3F;
+border-color: #535658;
+border-radius: 2px;
+padding: 1px 10px 1px 10px;
+}
+
  .buy_btn .btn {
 padding: 3px 9px;
 /* height: auto; */
@@ -109,7 +118,7 @@ margin-top: -5px;
 padding-right: 10px;
 padding-left: 0px;**/
 padding-right: 2;
-padding-left: 8px;
+
 }
 .col-md-catagory {
 /*width:28%;*/
@@ -149,13 +158,17 @@ color:#595959;
 }
 .rating .glyphicon {
   color: #2676af;
-  font-size: 16px;
+  font-size: 10px;
 
 }
 .row-no-margin {
     margin: 0;
 }
 
+.line-checkbox {
+  font-size: 13px;
+}
+              
 div.status_box_featured
 {
 
@@ -215,9 +228,17 @@ div.status_box_featured p
 .img-responsive {
   border: none;
 }
+.thumbnail {
+  border-radius: 1px;
+}
+.left-catag-twitt {
+background-color:#ffffff;
 
+}
 </style>
 <body>
+
+  <?php $this->load->view($notification_bar); ?>
 
   <header>
 
@@ -279,52 +300,49 @@ div.status_box_featured p
 
 
 <div class="container">
-          
-            <div class="col-md-3" style="background-color:#ffffff;">
+   
+            <div class="col-md-3 left-catag-twitt">
+
 
                 <div class="thumbnail catagory-checks thumbnail-catagories" >
-                    <span><small>MadeByUs4U</small><span class="caret"></span></span>
-                    <div class="thumbnail rec" >
-                   
-                    <!--form -->
-                    <form>
-                        <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div> <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div> <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                         <div class="line-checkbox">
-                        <a href=""><input type="checkbox" class="form-inline" /> Casual &nbsp; (<span class='catagory_count'>201,201</span> ) </a>
-                        
-                        </div>
-                  
+                    <span><small>MadeByUs4U</small>&nbsp;&nbsp;<span class="caret"></span>&nbsp;<span style="font-weight:bold">&nbsp;Clothing</span>
+                    <div class="thumbnail rec" >                   
+                  <!--form -->
+                  <?php 
+                  $form_data = array(
+                    'name'        => 'categories',
+                    'id'          => 'categories',
+                    'class' => 'form',
+                    );
+                  echo form_open('bid/categories',$form_data);
+                 ?> 
+
+                <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
+                  <div class="line-checkbox">
+                  <p><input type="checkbox"  class='form-inline'name="categories[]" value="<?php echo $value;?>"><a href="">&nbsp;<?php echo $value;?></a>&nbsp;(<span class='catagory_count'>201,201</span> )</p>            
+                
+                </div>
+
+                <?php endforeach;?>                                                          
                     
-                                    </div>
-<!--form end-->
-                    <span class='buy_btn'  style ="float:left;padding:5px;"><input type='submit' class="btn btn-primary apply-button" value="APPLY"/></span>
-                     <span class='buy_btn' style ="float:right;padding:5px;"><input type='reset' class="btn btn-primary apply-button" value="reset filter"/></span>
-                   </form>
+                </div>
+                <?php
+
+                  $submit_btn_data = array(
+                        'class'=>'btn btn-primary apply-button pull-left',        
+                        'value'=>"APPLY",              
+                        'type'=>'submit',
+                    );
+                  $reset_btn_data = array(
+                        'class'=>'btn btn-primary apply-button pull-right',                  
+                        'value'=>"reset filter",
+                        'type'=>'reset',
+                    );
+                ?>
+                    <span class='apply_btn'><?php echo form_submit($submit_btn_data);?></span>
+                    <span class='apply_btn' ><?php echo form_input($reset_btn_data);?></span>
+                    <?php echo form_close();?>
+                   <!--form end--> 
             </div>
 <hr>
                  <div class="row row-newline">
@@ -356,25 +374,25 @@ div.status_box_featured p
             </div>
             </div>   
 
-<hr class="hr_border">
+     <hr class="hr_border">
 
             <div class="products">                 
           
                <div class="row row-no-margin">
-
-                               
+                   
                 <div class="col-sm-2 col-md-3">
 
                     <div class="thumbnail rec">
+
                       <div class="status_box_featured"><p>Featured!</p></div> 
 
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/dimond.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
                       
                         <div class="caption">
-                            <h4>Black and Red </h4>
+                            <h4>Dimonad Rings </h4>
 
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
+                            <p><span class='price'>$66.99</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                        
@@ -404,11 +422,11 @@ div.status_box_featured p
 
                     <div class="status_box_onsale"><p>on Sale!</p></div> 
                        
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/tshirt.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
                         <div class="caption">
-                            <h4>Black and Red </h4>
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
+                            <h4>Thirt </h4>
+                            <p><span class='price'>$88.00</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                         <div class='rating'>
@@ -425,11 +443,11 @@ div.status_box_featured p
                 <div class="col-sm-2 col-md-3 col-md-images">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/bag.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now! </a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -446,7 +464,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -468,7 +486,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -484,7 +502,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -504,7 +522,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now! </a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -520,7 +538,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -540,7 +558,7 @@ div.status_box_featured p
                         <div class="caption">
                             <h4>Black and Red </h4>
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now! </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -558,7 +576,7 @@ div.status_box_featured p
                             <h4>Black and Red </h4>
 
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now! </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -579,7 +597,7 @@ div.status_box_featured p
                             <h4>Black and Red </h4>
 
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now!</a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -600,7 +618,7 @@ div.status_box_featured p
                             <h4>Black and Red </h4>
 
                             <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy Now! </a></p></span>
+                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
                         </div>
                         <hr>
                         <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
@@ -614,12 +632,11 @@ div.status_box_featured p
                     </div>
                 </div>
 
+
                 <div class="col-md-9 col-md-offset-3" style="padding-bottom:6%;">
                         <hr class="hr_border_bottom" style="margin-top:0px;">
                         <div class="pull-right">
-                           
-                             <?php $this->load->view($paginate_page); ?>
-
+                                <?php $this->load->view($paginate_page); ?>
                         </div>    
                 </div>
         
@@ -650,7 +667,8 @@ div.status_box_featured p
     ?>
 
 </footer>
-<!-- Bootstrap and Jquery and Other JavaScript
+
+<!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="<?php echo base_url()."assets\plugins\jquery\jquery.min.js";?>"></script>
@@ -666,12 +684,13 @@ div.status_box_featured p
      * Recive response
      */
     $(document).ready(function() {
-       var url =  "<?php echo site_url('welcome/subscribe');?>";
 
-       subscribe_using_ajax(url);
-       
+      
     });
 
+       var url =  "<?php echo site_url('welcome/subscribe');?>";
+       subscribe_using_ajax(url);
+  
 </script>
 </body>
 </html>

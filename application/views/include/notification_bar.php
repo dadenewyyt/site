@@ -1,6 +1,5 @@
 <style type="text/css">
 
-
 	#notification_bar {
     position: absolute;
     z-index: 101;
@@ -20,7 +19,7 @@
     text-decoration: orange;
 }
 
-	
+
 </style>
 
 <div id="notification_bar">
