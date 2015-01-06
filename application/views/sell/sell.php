@@ -34,23 +34,11 @@ color: #a1a1a1;
   width: 100%;
   margin-left: -16px;
 }
- .col-md-2 {
+ .col-md-2-person {
    
-
-  }
-  .thumbnail-catagories {
-
-    height: 100%;
-    overflow-y: scroll;  
-    background-color:#fafafa;
-    margin-top: 16px;
+width: 21.666667%;
   }
 
-  .catagory-checks {
-    border-radius: 2px;
-
-    
-  }
 .thumbnail hr {
 margin-top: 0px;
 margin-bottom: 0px;
@@ -60,10 +48,7 @@ border-top: 1px solid #eee;
 font-family: font-family: 'Open Sans', sans-serif;
 
 }
-  .img-thumbnail { border-radius: 2px;}
-  .buy_btn_small {
-
-  }
+.img-thumbnail { border-radius: 2px;}
   
 .buy_btn .btn-primary {
 color: #fff;
@@ -73,32 +58,6 @@ border-radius: 2px;
 float: right;
 }
 
-.apply_btn .btn-primary {
-color: #fff;
-background-color: #3E3F3F;
-border-color: #535658;
-border-radius: 2px;
-padding: 1px 10px 1px 10px;
-}
-
- .buy_btn .btn {
-padding: 3px 9px;
-/* height: auto; */
-/* width: 73px; */
-}
-
-.custom_product_images .col-md-3 {
-/*width: 18%;*/
-}
-.span_buy_it_now p{
-margin-top: -10px;
-margin-left: 3px;
-font-size: 11px;
-font-family: font-family: 'Open Sans', sans-serif;
-}
- .span_buy_it_now p a {
-  text-decoration: none;
-}
 
 .thumbnail .caption h4 {
   margin-top: 0px;
@@ -110,27 +69,16 @@ font-family: font-family: 'Open Sans', sans-serif;
 .row-heading {
 margin-top: -5px;
 }
-.element_count {
 
-}
-.col-md-images {
-    /**
-padding-right: 10px;
-padding-left: 0px;**/
-padding-right: 2;
-
-}
-.col-md-catagory {
-/*width:28%;*/
-}
 .showing_text {
-    margin-left: -5%;
+    margin-left: 0;
+    padding-bottom: 10px;
 }
 .hr_border {
-    border-top: 2px dotted #818181;
-    margin-top: 33px;
+border-top: 2px dotted #818181;
+margin-top: 33px;
 margin-bottom: 22px;
-width: 70%;
+width: 100%;
 }
 
 .hr_border_bottom {
@@ -139,91 +87,18 @@ width: 100%;
 }
 .showing_text .showing {
 font-weight: 800;
-font-size: 16px;
+font-size: 20px;
 color:#595959;
+}
+
+.showing_text .small_text{
+font-size: 18px;
+font-weight: normal;
 }
 .showing_text .showing-item {
    color:#bfbfbf;
    font-weight: 600;
-
 }
-
-
-.showing_text .col-md-offset-4  span {
-    margin-top: 0px;
-}
-.rating {
-    padding-left: 2px;
-    
-}
-.rating .glyphicon {
-  color: #2676af;
-  font-size: 10px;
-
-}
-.row-no-margin {
-    margin: 0;
-}
-
-.line-checkbox {
-  font-size: 13px;
-}
-              
-div.status_box_featured
-{
-
-  position: absolute;
-  margin:10px 3px;
-  /*border: 1px solid black;*/
-  background-color: #2676af;
-  opacity:0.7;
-  filter:alpha(opacity=70); /* For IE8 and earlier */
-}
-
-div.status_box_featured p
-{
-  margin: 8px 7px;
-  font-weight: bold;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-
-.status_box_onsale {
-  position: absolute;
-  margin:10px 3px;
-  /*border: 1px solid black;*/
-  background-color: #86a800;
-  opacity:0.7;
-  filter:alpha(opacity=70); /* For IE8 and earlier */
-}
-
-.status_box_onsale p {
-
-  margin: 8px 7px;
-  font-weight: bold;
-  color: #ffffff;
-  text-transform: uppercase;
-} 
-.status_box_outstock {
-  position: absolute;
-  margin:80px 3px;
-  /*border: 1px solid black;*/
-  background-color: #ffffff;
-  width: 80%;
-  opacity:0.7;
-  filter:alpha(opacity=70); /* For IE8 and earlier */
-}
-
-.status_box_outstock p {
- 
-  margin: 8px 5px;
-  font-weight: bold;
-  font-weight: 800;
-  font-size: 17px;
-  color: black;
-  text-transform: uppercase;
-} 
 
 .img-responsive {
   border: none;
@@ -231,10 +106,78 @@ div.status_box_featured p
 .thumbnail {
   border-radius: 1px;
 }
-.left-catag-twitt {
-background-color:#ffffff;
+/**column width**/
+.col-md-2-person {
+width: 19.7777%;
+padding-left: 2;
+padding-right:6px; 
+}
+
+.container-pattern_image {
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+  .pattern_holder_div {
+  width: 100%;
+  background-color: white;
+  height: 70px;
+  padding: 10px;
+
+  }
+
+  .pattern {
+    background-image: url('assets/images/pattern.png');
+     height: 50px;
+    background-repeat: repeat-x;
+    padding: 7px;
+  }
+.become_seller_text{
+font-size: 18px;
+font-weight: 600;
+}
+.become_seller_text .blue_color{
+color: #184878;
+}
+
+ .small_text{
+color: #6c6c6c;
+font-weight: bold;
 
 }
+.buy_btn .btn-primary {
+color: #fff;
+background-color: #3E3F3F;
+border-color: #535658;
+border-radius: 2px;
+float: right;
+}
+
+ .seller_name .member_name{
+  font-size: 17px;
+  font-weight: normal;
+  padding-left: 5px;
+
+  color: #343434;
+ }
+ .seller_name i {
+    color: #343434;
+ }
+ .seller_location {
+   text-align: left;
+  
+ }
+ .text_content {
+  padding-left: 8px;
+    padding-right: 4px;
+ }
+ .rating {
+  color: #828282;
+ }
+.rating_star{
+  color: #2676af;
+}
+
+
 </style>
 <body>
 
@@ -248,6 +191,7 @@ background-color:#ffffff;
 <!-- Responsive design
 ================================================== -->
 <section id="responsive" style="background-color:#f5f5f5;">
+
     <div class="row row-1">
 
         <nav class="navbar navbar-default" role="navigation">
@@ -300,350 +244,699 @@ background-color:#ffffff;
 
 
 <div class="container">
-   
-            <div class="col-md-3 left-catag-twitt">
+          
+             <div class="container-pattern_image"> 
+                <div class="col-md pattern_holder_div">  
+                 <div class="pattern">
+                   <p>
+                   <img src="<?php echo base_url()."assets/images/seller_made_icon.png";?>">
+                   <span class="become_seller_text">Become a <span class="blue_color">SELLER</span> on <span class="blue_color">MadeByUs4u.com</span> today!</span>&nbsp; <small class="small_text">Once you create your free account you will gain instant access to all of our Sellers features!</small>
+                   <span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Become a Seller!</a></span>
+                   </p>
 
-
-                <div class="thumbnail catagory-checks thumbnail-catagories" >
-                    <span><small>MadeByUs4U</small>&nbsp;&nbsp;<span class="caret"></span>&nbsp;<span style="font-weight:bold">&nbsp;Clothing</span>
-                    <div class="thumbnail rec" >                   
-                  <!--form -->
-                  <?php 
-                  $form_data = array(
-                    'name'        => 'categories',
-                    'id'          => 'categories',
-                    'class' => 'form',
-                    );
-                  echo form_open('bid/categories',$form_data);
-                 ?> 
-
-                <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
-                  <div class="line-checkbox">
-                  <p><input type="checkbox"  class='form-inline'name="categories[]" value="<?php echo $value;?>"><a href="">&nbsp;<?php echo $value;?></a>&nbsp;(<span class='catagory_count'>201,201</span> )</p>            
-                
-                </div>
-
-                <?php endforeach;?>                                                          
-                    
-                </div>
-                <?php
-
-                  $submit_btn_data = array(
-                        'class'=>'btn btn-primary apply-button pull-left',        
-                        'value'=>"APPLY",              
-                        'type'=>'submit',
-                    );
-                  $reset_btn_data = array(
-                        'class'=>'btn btn-primary apply-button pull-right',                  
-                        'value'=>"reset filter",
-                        'type'=>'reset',
-                    );
-                ?>
-                    <span class='apply_btn'><?php echo form_submit($submit_btn_data);?></span>
-                    <span class='apply_btn' ><?php echo form_input($reset_btn_data);?></span>
-                    <?php echo form_close();?>
-                   <!--form end--> 
-            </div>
-<hr>
-                 <div class="row row-newline">
-                     <div class="col-md-2">
-                         <img src="<?php echo base_url()."assets/images/bid/delivery.png"?>" height="200"/>
-                     </div> 
                  </div>
- 
-                 <div class="row" style="margin-left:4px;text-align:LEFT;">
-                 <?php $this->load->view($tweets_page,$data); ?>
                 </div>
-            
-            </div>
-
+                </div> 
+          
+                  
                <div class="sfd">
-            <div class="col-md-9 showing_text">
+               <div class="col-md-12 showing_text">
      
-                    <div class="col-md-offset-1 ">
+                    <div class="">
                       
-                      <span class='showing'>Showing &nbsp;( <span class='element_count'>201,201</span> )&nbsp;&nbsp;result in </span>
-                      Clothing  
+                      <span class="showing">Showing <span class="small_text">all Sellers</span> on MBU4U !</span>
 
-                      <span class='pull-right showing-item'>ITEM PER PAGE:&nbsp; (<span class='element_count'>201,201</span>)&nbsp;&nbsp;<a href="#">12</a>&nbsp;<a href="#">15</a>&nbsp;<a href="#">18</a>&nbsp;<a href="#">21</a></span>
+                      <span class='pull-right showing-item'>SELLERS PER PAGE:&nbsp; (<span class='element_count'>201,201</span>)&nbsp;&nbsp;<a href="#">12</a>&nbsp;<a href="#">15</a>&nbsp;<a href="#">18</a>&nbsp;<a href="#">21</a></span>
                     
                     </div>
-                    
-                   
             
             </div>
             </div>   
 
-     <hr class="hr_border">
+     <hr class="hr_border" style="width:100%;">
 
-            <div class="products">                 
+            <div class="sellers">                 
           
-               <div class="row row-no-margin">
-                   
-                <div class="col-sm-2 col-md-3">
+          <div class="row">
+                                     
+                   <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-
-                      <div class="status_box_featured"><p>Featured!</p></div> 
-
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/dimond.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                      
-                        <div class="caption">
-                            <h4>Dimonad Rings </h4>
-
-                            <p><span class='price'>$66.99</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person1.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
                        
-                
-                        <p>
-                        <span class='usericon'>
-                        <i class='glyphicon glyphicon-user'>
-                        <b style='padding-left:4px;color: #1f72ad;'>Danny man</b>
-                       </i> 
-                        </span>
-                         <span class="rating pull-right">
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
-                         </span>
+                         </span></span>
                          </p>
-                
-                         
 
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
                     </div>
-                </div>
+                </div>    
 
-                <div class="col-sm-3 col-md-3 col-md-images">
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
+
                     <div class="thumbnail rec">
-
-                    <div class="status_box_onsale"><p>on Sale!</p></div> 
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person2.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
                        
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/tshirt.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Thirt </h4>
-                            <p><span class='price'>$88.00</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
-                        <div class='rating'>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                       <span class="rating pull-right" style="color:#;">
-                             <i class='glyphicon glyphicon-star'></i>
-                             <i class='glyphicon glyphicon-star'></i>
-                             <i class='glyphicon glyphicon-star'></i>
-                             <i class='glyphicon glyphicon-star-empty'></i>
-                             <i class='glyphicon glyphicon-star-empty'></i>
-                   </span>
-                    </div></div>
-                </div>
-                <div class="col-sm-2 col-md-3 col-md-images">
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
 
-                    <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/bag.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now! </a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                        <span class='pull-right'><i class='glyphicon glyphicon-star'></i>
-                         <i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-                    </span>
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
                     </div>
-                </div>
-
-                 <div class="col-sm-2 col-md-3 col-md-images">
+                </div>                    
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                       <span class="rating pull-right" style="color:#;">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person3.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
-                   </span>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>  
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
+
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person4.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>  
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
+
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person5.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>  
+
                 
-                    </div>
-                </div>
+        
+             </div><!--nio margin row end-->
 
-                 <div class="col-sm-2 col-md-3 col-md-images">
 
-                    <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                        <span class='pull-right'><i class='glyphicon glyphicon-star'></i>
-                         <i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-                    </span>
-                    </div>
-                </div>
-                 <div class="col-sm-2 col-md-3 col-md-images">
+               <div class="row">
+                                     
+                   <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                        <span class="rating pull-right" style="color:#;">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person1.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
-                   </span>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
                     </div>
-                </div>
-                 <div class="col-sm-2 col-md-3 col-md-images">
+                </div>    
+
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now! </a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                        <span class='pull-right'><i class='glyphicon glyphicon-star'></i>
-                         <i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-                    </span>
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person2.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
                     </div>
-                </div>
-                 <div class="col-sm-2 col-md-3 col-md-images">
+                </div>                    
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                      <span class="rating pull-right" style="color:#;">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person3.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
-                   </span>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
                     </div>
-                </div>
-                 <div class="col-sm-2 col-md-3 col-md-images">
+                </div>  
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                        <span class='pull-right'><i class='glyphicon glyphicon-star'></i>
-                         <i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-                    </span>
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person4.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
                     </div>
-                </div>
-                 <div class="col-sm-2 col-md-3 col-md-images">
+                </div>  
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <div class="status_box_outstock"><p>out of stock!</p></div> 
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person5.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
 
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                        <span class="rating pull-right" style="color:#;">
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
-                   </span>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
                     </div>
-                </div>
-                 <div class="col-sm-2 col-md-3 col-md-images">
+                </div>  
+
+                
+        
+             </div><!--nio margin row end-->
+
+             <div class="row">
+                                     
+                   <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person1.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
 
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                       <span class="rating pull-right" style="color:#;">
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
-                   </span>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
                     </div>
-                </div>
-                 <div class="col-sm-2 col-md-3 col-md-images">
+                </div>    
+
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/products/ring.jpg";?>" data-holder-rendered="true" style="height: 200px;display: block;">
-                        <div class="caption">
-                            <h4>Black and Red </h4>
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person2.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
 
-                            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                        <hr>
-                        <p><span class=''><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Danny man</b></span></i>
-                        <span class="rating pull-right" style="color:#;">
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
                              <i class='glyphicon glyphicon-star-empty'></i>
-                   </span>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
                     </div>
-                </div>
+                </div>                    
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
 
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person3.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
 
-                <div class="col-md-9 col-md-offset-3" style="padding-bottom:6%;">
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>  
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
+
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person4.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>  
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
+
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person5.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>  
+
+                
+        
+             </div><!--nio margin row end-->
+             <div class="row">
+                                     
+                   <div class="col-sm-2 col-md-2 col-md-2-person">
+
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person1.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>    
+
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
+
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person2.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>                    
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
+
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person3.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>  
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
+
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person4.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>  
+                  <div class="col-sm-2 col-md-2 col-md-2-person">
+
+                    <div class="thumbnail rec">
+                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person5.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <div class='text_content'>
+                        <div class="seller_name">
+                         <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
+                        </div>   
+                       
+                        <div class="seller_location">
+                          <h4><small><span class="member_location">LasVegas NV | USA </small></h4>
+                        </div> 
+                                                         
+                     <hr> <!--horizonal line-->
+
+                     <div class="rating_social">
+                       <p><span class="rating"><strong>Rating:</strong><span class="rating_star">
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                             <i class='glyphicon glyphicon-star-empty'></i>
+                         </span></span>
+                         </p>
+
+                         <p><span class="friends rating"><strong>Freinds:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span><span class="friends rating pull-right"><strong>Products:</strong>&nbsp;<a href="#">(<span class="nulmbers">12</span>)</a></span> </span></p>
+
+                     </div>
+                    </div> <!--end of text content -->     
+                    </div>
+                </div>  
+
+                
+        
+             </div><!--nio margin row end-->
+            <div class="col-md-12" style="padding-bottom:6%;">
                         <hr class="hr_border_bottom" style="margin-top:0px;">
                         <div class="pull-right">
                                 <?php $this->load->view($paginate_page); ?>
                         </div>    
                 </div>
-        
-             </div><!--nio margin row end-->
-           
 
-        </div>
+
+        </div><!--seller-->
 
 
     

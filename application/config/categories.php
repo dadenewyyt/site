@@ -122,8 +122,5 @@ $config['categories_all']= array(
         'Satchel',
         'Shoulder',
         'Tote',
-        'Weekend Bags',
-    
-    
-    
+        'Weekend Bags',      
 );
