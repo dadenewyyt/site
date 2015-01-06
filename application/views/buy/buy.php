@@ -23,6 +23,7 @@
 
 .navbar-default .navbar-nav>li>a {
 color: #000000;
+padding-right: 40px;
 }
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
@@ -96,7 +97,8 @@ margin-left: 3px;
 font-size: 11px;
 font-family: font-family: 'Open Sans', sans-serif;
 }
- .span_buy_it_now p a {
+ .span_buy_it_nowbtbybuy
+  p a {
   text-decoration: none;
 }
 

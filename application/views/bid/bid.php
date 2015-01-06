@@ -23,6 +23,7 @@
 
 .navbar-default .navbar-nav>li>a {
 color: #000000;
+padding-right: 40px;
 }
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {

@@ -231,12 +231,7 @@ float: right;
                         <li><a href="#">Arts & Crafts</a></li>
                         <li><a href="#">Music</a></li>
                         <li><a href="#">E Books</a></li>
-
-
                     </ul>
-
-
-
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
@@ -251,7 +246,7 @@ float: right;
                    <p>
                    <img src="<?php echo base_url()."assets/images/seller_made_icon.png";?>">
                    <span class="become_seller_text">Become a <span class="blue_color">SELLER</span> on <span class="blue_color">MadeByUs4u.com</span> today!</span>&nbsp; <small class="small_text">Once you create your free account you will gain instant access to all of our Sellers features!</small>
-                   <span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Become a Seller!</a></span>
+                   <span class='buy_btn'><a href="<?php echo base_url('sell/become_seller');?>" class="btn btn-primary" role="button">Become a Seller!</a></span>
                    </p>
 
                  </div>
@@ -259,7 +254,7 @@ float: right;
                 </div> 
           
                   
-               <div class="sfd">
+             
                <div class="col-md-12 showing_text">
      
                     <div class="">
@@ -271,7 +266,7 @@ float: right;
                     </div>
             
             </div>
-            </div>   
+             
 
      <hr class="hr_border" style="width:100%;">
 

@@ -38,22 +38,27 @@
    background-color: white;
 }
 </style>
+<div class="border" style="border-top:1px solid #e9e9e9;">
 <div class="row row-footer-subscribe">
+
 <div class="container container-border">
+
     <div class="col-md-4">
-        <div class="text_content">
-            <h3>Follow Us </h3> 
-            <p><h3><small>Follow us on social networks</small></h3></p>
-        </div>
-        <div class='social_images'>
-            <img src="<?php echo base_url()."assets/images/social/twitter.png";?>" height="40">
-              <img src="<?php echo base_url()."assets/images/social/facebook.png";?>" height="40">
-                <img src="<?php echo base_url()."assets/images/social/google.png";?>" height="40">
-                  <img src="<?php echo base_url()."assets/images/social/pin.png";?>" height="40">
-                    <img src="<?php echo base_url()."assets/images/social/linkedin.png";?>" height="40">
-        </div>
-    </div>
+          <div class="text_content">
+              <h3>Follow Us </h3> 
+              <p><h3><small>Follow us on social networks</small></h3></p>
+          </div>
+          <div class='social_images'>
+              <img src="<?php echo base_url()."assets/images/social/twitter.png";?>" height="40">
+                <img src="<?php echo base_url()."assets/images/social/facebook.png";?>" height="40">
+                  <img src="<?php echo base_url()."assets/images/social/google.png";?>" height="40">
+                    <img src="<?php echo base_url()."assets/images/social/pin.png";?>" height="40">
+                      <img src="<?php echo base_url()."assets/images/social/linkedin.png";?>" height="40">
+          </div>
+  </div>
+
     <div class="col-md-6">
+        
         <div class="text_content">
                     <h3>Subscribe Us </h3> 
                         <p><h3><small>Get the latest updates & offers in your inbox</small></h3></p>
@@ -69,7 +74,7 @@
               <button type="submit" class="btn btn-default btn-lg">SUBSCRIBE</button>
             </form>
         </div> -->
-        <div class='email_subscribe'>
+   <div class='email_subscribe'>
         <?php
 $form_attributes_data = array('class' =>'form-inline', 'id' => 'subscribe_form');
 $form_email_input_data = array(
@@ -125,5 +130,6 @@ echo form_close();
         </div>
     </div>   
 
+</div>
 </div>
 </div>

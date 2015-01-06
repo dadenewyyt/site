@@ -1,13 +1,22 @@
+ <style type="text/css">
+.col-md-1 a ,.col-md-2 a {
+    color: white;
+    font-weight: 800;
+    font-size: 12px;
+}
+
+
+ </style>
  <div class='row row1'>
         <div class="container">
             <div class="col-md-2 col-left-border">
                 <b>Hi</b> <a href="#">Sign In</a> or <a href="<?php echo base_url('signup');?>">Register</a>
             </div>
             <div class="col-md-1 col-left-border">
-                <strong><a href="<?php echo base_url('sell');?>">Sell</a></strong>
+                <strong><a href="<?php echo base_url('buy');?>">Shop</a></strong>
             </div>
             <div class="col-md-1 col-left-border">
-                <strong><a href="<?php echo base_url('buy');?>">Buy</a></strong>
+                <strong><a href="<?php echo base_url('sell');?>">Sell</a></strong>
             </div>
             <div class="col-md-1 col-left-border">
                 <strong><a href="<?php echo base_url('bid');?>">Bid</a></strong>
