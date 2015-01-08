@@ -20,7 +20,7 @@
 <div class='row row1'>
     <div class="container">
     <div class="col-md-2 col-left-border">
-       <b>Hi</b> <a href="#">Sign In</a> or <a href="<?php echo base_url('signup');?>"/>Register</a>
+       <b>Hi</b> <a href="<?php echo base_url('users/login');?>">Sign In</a> or <a href="<?php echo base_url('signup');?>"/>Register</a>
     </div>
      <div class="col-md-1 col-left-border">
        <strong><a href="<?php echo base_url('sell');?>">Sell</a></strong>
