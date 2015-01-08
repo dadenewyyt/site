@@ -46,13 +46,25 @@ class Users extends MY_Controller {
 	//log the users in
 	function login()
 	{
-     /*
+     
+     
+     
+    
+
+      $data['footer_privacy'] = 'include/footer_privacy';
+      $data['footer_subscribe'] = 'include/footer_subscribe';
+      $data['signin_form'] = 'include/signin_form';
+      $data['new_to_madeby'] = 'include/new_to_madeby';
+
+  
+     
+
 		$this->data['title'] = "Login";
 
 		//validate form input
 		$this->form_validation->set_rules('identity', 'Identity', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-*/
+
 		if ($this->form_validation->run() == true)
 		{
 			//check to see if the users is logging in
@@ -90,7 +102,7 @@ class Users extends MY_Controller {
 				'type' => 'password',
 			);
 
-			$this->_render_page('users/login', $this->data);
+			$this->_render_page('users/login', $data);
 		}
 	}
 
