@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Welcome to MadebyUs4u.com | SignUp</title>
+    <title>Welcome to MadebyUs4u.com | Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -19,7 +19,8 @@
 <div class='row row1'>
     <div class="container">
         <div class="col-md-2 col-left-border">
-            <b>Hi</b> <a href="<?php echo base_url('users/login');?>">Sign In</a> or <a href="<?php echo base_url('signup');?>">Register</a>
+            <b>Hi</b> <a href="<?php echo base_url('users/login');?>">Sign In</a> or 
+            <a href="<?php echo base_url('signup');?>">Register</a>
         </div>
         <div class="col-md-1 col-left-border">
             <strong><a href="<?php echo base_url('sell');?>">Sell</a></strong>
@@ -47,7 +48,7 @@
 </div>
 
 
-<div class="row row2 paddings">
+<div class="row row2 paddings" style="background-color:white;">
 
     <div class="container">
         <div class="col-md-2" >
@@ -59,7 +60,7 @@
         </div>
 
         <div class="col-md-4 col-md-offset-3 ">
-              <a href="<?php echo base_url('welcome/home'); ?>"><img src="<?php echo base_url()."assets/images/logo_home.jpg";?>"/></a>
+              <a href="<?php echo base_url('welcome/home'); ?>"><img src="<?php echo base_url()."assets/images/logo_white.png";?>"/></a>
         </div>
 
         <div class="col-md-3 input_search" >
@@ -74,32 +75,99 @@
 </header>
 
 <section>
+<style type="text/css">
 
-<div class="row row3">
+    .container-content {
+         padding-bottom: 40px;
+   
+    }
+    .add-border {
+        border:1px solid #e6e6e6;
+        border-radius: 4px;
+        padding: 8px;
+    }
 
+    .col-md-background-image {
+        background-image: url('../../assets/images/users/editprofile.png');
+        background-attachment: content;
+        background-size: 100%;
+        background-clip: body;
+        background-repeat: no-repeat;
+        min-height:500px;
+        overflow: hidden;
+        border-radius: 8px;
+        border:1px solid #e4e4e4;
+    }
+    .get_noticed {
+        padding-top: 15px;
+        color: #226da0;
+        font-weight: 500;
+        text-transform: uppercase;
+        border-bottom: 2px dotted #226da0;
+        width: 70%;
+        padding-bottom: 10px;
+    }
+   .get_noticed_message
+   {
+        color: #747474;
+        text-align: justify;
+        border-bottom: 2px dotted #226da0;
+        width: 70%;
+        padding-bottom: 10px;
+        line-height: 25px;
+   }
+   .get_noticed_message_small {
+     color: #a0a0a0;
+    width: 70%;
+    text-align: justify;
+   }
+</style>
 
-    <?php $this->load->view($signup_form) ;?>
-  
-    <!--SELL TEXT-->
-
-    <div class="col-md-4 image_left_conent" style="margin-left:2%;">
-        <h1 style="color:white;">Shop, Sell, Bid Now!</h1> 
-                <p>We connect buyers with independent creators, sellers and business owners 
-        and businesses alike to find the very best in new, used, handmade, vintage 
-        and resalable consumer goods that fall in the Terms of Use policy. We’re glad 
-        you’re here. We’ll help you learn how to get started, how you’re protected, 
-        and how to get help when you need it. </p>
+    <div class="middle_naviagtion">
+        <?php $this->load->view($navigation_top); ?>
     </div>
 
-</div>
+    <div class="container container-content">
+     <div class="col-md-12 add-border">
+            <div class="col-md-6 col-md-background-image">
+                <h1 class='get_noticed'>Get more noticed!</h1>
+               <h4 class='get_noticed_message'>You Instantly have a 40% higher chance <br/>
+                                                of being noticed by uploading your <br/>
+                                                profile photo today! .
+                </h4>
+                <h5 class="get_noticed_message_small">By having a photo, you become more available visably 
+                        to existing users on the platform. Show your personality 
+                        with MBU4U members today  & upload a picture.</h5>
+            </div>
 
+            <div class="col-md-6" style="color:#999999;">
+               <h3>Profile Photo </h3>
+               <form>
+               <div class='form-group'>
+                   <img src='' height="80" width="80" ></img>
+         
+                   <input type='file'  value="Choose File">
+                  
+               </div>
+               <hr>
 
+                <h3>Change Password </h3>
+
+                <hr>
+
+                 <h3>Job Information </h3>
+                 <button class="btn btn-lg btn-default pull-right">SAVE</button>
+  </form>
+            </div>
+        </div>
+    </div>
 </section>
+
+
 
 <footer class="footer">
 
     <?php 
-
 
     $this->load->view($footer_subscribe);
     $this->load->view($footer_privacy);
