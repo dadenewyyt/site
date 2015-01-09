@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Welcome to MadebyUs4u.com | Login</title>
+    <title>Welcome to MadebyUs4u.com | Edit Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -121,6 +121,45 @@
     width: 70%;
     text-align: justify;
    }
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+#uploadFile {
+    margin-left: 20px;
+    margin-top: -50px;
+}
+.fileUpload{
+      margin-top: -50px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.fileUpload btn btn-primary{
+color: #fff;
+background-color: #060B0F;
+border-color: #0F0F0F;
+font-weight: 400;
+
+}
+.fileUpload {
+    margin-left: 10px;
+}
+.form-inline hr {
+margin-bottom: 10px;
+margin-top: 13px;
+}
+   
 </style>
 
     <div class="middle_naviagtion">
@@ -141,23 +180,86 @@
             </div>
 
             <div class="col-md-6" style="color:#999999;">
-               <h3>Profile Photo </h3>
-               <form>
-               <div class='form-group'>
-                   <img src='' height="80" width="80" ></img>
-         
-                   <input type='file'  value="Choose File">
+               <h4>Profile Photo </h4>
+               
+             <form class="form-inline">
+               
+                <img src='' height="80" width="80" style="background-color:black;">
+                
+                 <div class="form-group">
+
+                     <input id="uploadFile" class='form-control' placeholder="No file selected" disabled="disabled" />
+                      <div class="fileUpload btn btn-primary">
+                        <span>Choose File</span>
+                        <input id="uploadBtn" type="file" class="upload" />
+                    </div>
+
+                </div>
                   
-               </div>
                <hr>
 
-                <h3>Change Password </h3>
+                <h4>Change Password </h4>
+
+               
+                 <div class="form-group" style="margin-left:20px;">
+                 <label for="exampleInputEmail1">New Password</label>
+                 <input type="password" class="form-control" id="exampleInputEmail1">
+                </div>
+            
+               
+                  <div class="form-group" style="margin-top:10px;">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+      
 
                 <hr>
 
-                 <h3>Job Information </h3>
-                 <button class="btn btn-lg btn-default pull-right">SAVE</button>
-  </form>
+                <h4>Address Information </h4>
+                <div class="address" style="padding-bottom:50px;">
+                        <div class="col-sm-4">
+                <label class="col-sm-2 control-label">City</label>
+              <input type="text" class="form-control input-sm" id="inputPassword">
+
+                        </div>
+
+                         <div class="col-sm-4">
+                <label class="col-sm-2 control-label">State</label>
+                <?= form_dropdown('state', array_merge(array(''=>'Select State'), $states) ,'','class="form-control input-sm"  tabindex="7"' ) ;?>
+
+                        </div>
+                         <div class="col-sm-4">
+                <label class="col-sm-2 control-label">Zip</label>
+              <input type="text" class="form-control input-sm" id="inputPassword">
+
+                        </div>
+                </div>
+                 <hr>
+
+                 <h4>Job Information </h4>
+                <div class="jobinfo">
+                      <div class="form-group">
+                        <label class="sr-only">Job Title</label>
+                        <p class="">Job Title</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputPassword2" class="sr-only">Job Title</label>
+                        <input type="text" class="form-control input-sm" id="inputPassword2">
+                      </div>
+                    &nbsp;
+                       <div class="form-group">
+                        <label class="sr-only">CompanyName</label>
+                        <p class="">Company Name</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputPassword2" class="sr-only">Company Name</label>
+                        <input type="text" class="form-control input-sm" id="inputPassword2">
+                      </div>
+            </div>
+            <br/>
+                 <button class="btn btn-primary btn-default pull-right">SAVE</button>
+            </form>
+
             </div>
         </div>
     </div>
@@ -194,7 +296,15 @@
     $(document).ready(function() {
        var url =  "<?php echo site_url('welcome/subscribe');?>";
        subscribe_using_ajax(url);
+
+        document.getElementById("uploadBtn").onchange = function () 
+        {
+        document.getElementById("uploadFile").value = this.value;
+        };
+
     });
+
+
 
 </script>
 </body>

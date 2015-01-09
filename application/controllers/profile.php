@@ -16,7 +16,7 @@ class Profile extends  MY_Controller {
     public function index(){
 
     	
-        $this->load->view('profile/profile',$data);
+      redirect('profile/edit/1');
 
     }
 
@@ -26,6 +26,9 @@ class Profile extends  MY_Controller {
       $data['signin_form'] = 'include/signin_form';
       $data['new_to_madeby'] = 'include/new_to_madeby';
      $data['navigation_top'] = 'include/navigation_top'; 
+           $this->load->model('state_model','state');
+      $states = $this->state->populate_state_dropdown();
+     $data['states'] = $states;
       $this->load->view('profile/edit',$data);
 
     }

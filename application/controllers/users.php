@@ -56,8 +56,7 @@ class Users extends MY_Controller {
       $data['signin_form'] = 'include/signin_form';
       $data['new_to_madeby'] = 'include/new_to_madeby';
 
-  
-     
+
 
 		$this->data['title'] = "Login";
 
