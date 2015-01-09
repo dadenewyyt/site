@@ -184,16 +184,15 @@ margin-top: 13px;
                
              <form class="form-inline">
                
-                <img src='' height="80" width="80" style="background-color:black;">
+                <img id="preview" height="100" width="100" >
                 
                  <div class="form-group">
 
                      <input id="uploadFile" class='form-control' placeholder="No file selected" disabled="disabled" />
                       <div class="fileUpload btn btn-primary">
                         <span>Choose File</span>
-                        <input id="uploadBtn" type="file" class="upload" />
+                        <input id="uploadBtn" type="file" class="upload" accept="image/*" onchange="loadFile(event)" />
                     </div>
-
                 </div>
                   
                <hr>
@@ -294,12 +293,23 @@ margin-top: 13px;
      * Recive response
      */
     $(document).ready(function() {
+
+       /*prepare profile image to be previewd before actual upload 
+       /*this will be called on change even of the file / upload component
+        **/
+       var loadFile = function(event) {
+        var output = document.getElementById('preview');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        };
+
        var url =  "<?php echo site_url('welcome/subscribe');?>";
        subscribe_using_ajax(url);
 
         document.getElementById("uploadBtn").onchange = function () 
         {
         document.getElementById("uploadFile").value = this.value;
+        loadFile(event);
+       
         };
 
     });
