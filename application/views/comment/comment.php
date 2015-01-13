@@ -1,1 +1,0 @@
-div.col-md-4		
