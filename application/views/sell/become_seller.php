@@ -249,10 +249,10 @@ border-bottom: 1px solid #e9e9e9;
      
                     <div class="more_info">
                       
-                      <span class="showing">More <span class="small_text">Information</span> on becoming <span class="small_text">seller</span> !</span>
-
-                     
-                    
+                      <span class="showing">More 
+                      <span class="small_text">Information</span> 
+                      on becoming <span class="small_text">seller</span> !</span>               
+                
                     </div>
             
             </div>

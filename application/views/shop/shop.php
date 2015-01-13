@@ -13,6 +13,7 @@
 
 </head>
 <style type="text/css">
+
   .row2 {
     background-color: 
   }
@@ -27,6 +28,53 @@ background-color: transparent;
 .navbar-nav {
   width: 100%;
 }
+
+.rec {
+    border-radius: 2px; 
+  }
+.thumbnail hr {
+margin-top: 0px;
+margin-bottom: 0px;
+padding: 4px;
+border: 0;
+border-top: 1px solid #eee;
+font-family: font-family: 'Open Sans', sans-serif;
+}
+
+.img-thumbnail { border-radius: 2px;}
+
+  
+.buy_btn .btn-primary {
+color: #fff;
+background-color: #3E3F3F;
+border-color: #535658;
+border-radius: 2px;
+}
+ .buy_btn .btn {
+padding: 3px 9px;
+/* height: auto; */
+/* width: 73px; */
+}
+
+.custom_product_images .col-md-3 {
+width: 21%;
+}
+.span_buy_it_now p{
+margin-top: -10px;
+margin-left: 3px;
+font-size: 11px;
+font-family: font-family: 'Open Sans', sans-serif;
+}
+ .span_buy_it_now p a {
+  text-decoration: none;
+}
+.thumbnail .caption h4 {
+  margin-top: 0px;
+}
+.thumbnail .caption {
+  padding: 2px;
+}
+
 </style>
 
 <body>
@@ -136,75 +184,21 @@ background-color: transparent;
         </nav>
   </div>
 <div class="container ">
-<div class="row">
-<style type="text/css">
-  .col-md-2 {
-   
-
-  }
-  .thumbnail {
   
-  }
-  .rec {
-    border-radius: 2px;
-    
-  }
-.thumbnail hr {
-margin-top: 0px;
-margin-bottom: 0px;
-padding: 4px;
-border: 0;
-border-top: 1px solid #eee;
-font-family: font-family: 'Open Sans', sans-serif;
-}
-  .img-thumbnail { border-radius: 2px;}
-  .buy_btn_small {
-
-  }
-  
-  .buy_btn .btn-primary {
-color: #fff;
-background-color: #3E3F3F;
-border-color: #535658;
-border-radius: 2px;
-}
- .buy_btn .btn {
-padding: 3px 9px;
-/* height: auto; */
-/* width: 73px; */
-}
-
-.custom_product_images .col-md-3 {
-width: 21%;
-}
-.span_buy_it_now p{
-margin-top: -10px;
-margin-left: 3px;
-font-size: 11px;
-font-family: font-family: 'Open Sans', sans-serif;
-}
- .span_buy_it_now p a {
-  text-decoration: none;
-}
-
-.thumbnail .caption h4 {
-  margin-top: 0px;
-}
-
-.thumbnail .caption {
-  padding: 2px;
-}
-</style>
-
   <div class="row">
-  <div class="col-md-8 col-md-offset-4" style="border-bottom:1px dotted grey;padding-bottom:0px;">
-     <div class="col-md-4">
-     <h5>Showing ..</h5>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4" style="border-bottom:1px dotted grey;padding-bottom:0px;">
+           <div class="col-md-4">
+           <h5>Showing ..</h5>
+        </div>
+        <div class="col-md-4 col-md-offset-1">
+           <h5>Showing ..</h5>
+        </div>
+      </div>
+
   </div>
-  <div class="col-md-4 col-md-offset-1">
-     <h5>Showing ..</h5>
-  </div>
-</div></div>
+
 <div class="col-md-4">
   
      <div class="thumbnail rec">
