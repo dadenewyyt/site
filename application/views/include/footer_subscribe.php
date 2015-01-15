@@ -61,7 +61,7 @@
         
         <div class="text_content">
                     <h3>Subscribe Us </h3> 
-                        <p><h3><small>Get the latest updates & offers in your inbox</small></h3></p>
+                  <p><h3><small>Get the latest updates & offers in your inbox</small></h3></p>
         </div>
 
         <!--<div class='email_subscribe'>
@@ -75,28 +75,29 @@
             </form>
         </div> -->
    <div class='email_subscribe'>
-        <?php
-$form_attributes_data = array('class' =>'form-inline', 'id' => 'subscribe_form');
-$form_email_input_data = array(
-    'name'        => 'subscribe_email_input',
-    'id'          => 'subscribe_email_input',
-    'class'       =>'form-control',
-    'placeholder' => ''
-   
-);
-$form_submit_button_data = array(
-            'name'        => 'signup',
-            'id'          => 'signup',
-            'value'       => 'SUBSCRIBE',
-            'class'       => 'btn btn-default btn-lg'
-        );
 
-echo form_open('welcome/subscribe',$form_attributes_data);
-echo form_input($form_email_input_data);
+    <?php
+    $form_attributes_data = array('class' =>'form-inline', 'id' => 'subscribe_form');
+    $form_email_input_data = array(
+        'name'        => 'subscribe_email_input',
+        'id'          => 'subscribe_email_input',
+        'class'       =>'form-control',
+        'placeholder' => ''
+       
+    );
+    $form_submit_button_data = array(
+                'name'        => 'btn_subscribe',
+                'id'          => 'btn_subscribe',
+                'value'       => 'SUBSCRIBE',
+                'class'       => 'btn btn-default btn-lg'
+            );
 
-echo form_button($form_submit_button_data, 'SUBSCRIBE');
-echo form_close();
-?>
+    echo form_open('welcome/subscribe',$form_attributes_data);
+    echo form_input($form_email_input_data);
+
+    echo form_button($form_submit_button_data, 'SUBSCRIBE');
+    echo form_close();
+    ?>
 </div>
 
         

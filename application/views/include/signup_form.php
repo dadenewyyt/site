@@ -1,25 +1,3 @@
-<?php
-$form_attributes_data = array('class' =>'form', 'id' => 'singup_form');
-
-$form_fname_input_data = array(
-    'name'        => 'first_name',
-    'id'          => 'first_name',
-    'class'       => 'form-control input-sm'
-);
-$form_lname_input_data = array(
-    'name'        => 'lname',
-    'id'          => 'lname',
-    'class'       => 'form-control input-sm'
-);
-
-$form_lname_input_data = array(
-    'name'        => 'lname',
-    'id'          => 'lname',
-    'type'        => 'password',
-    'class'       => 'form-control input-sm'
-);
-echo form_open('signup/register',$form_attributes_data);
-?>
 <style type="text/css">
     .errorMessage {
       color:red;
@@ -47,14 +25,34 @@ echo form_open('signup/register',$form_attributes_data);
     }
 
 </style>
+
+<?php
+
+$form_attributes_data = array('class' =>'form', 'id' => 'singup_form');
+
+$form_fname_input_data = array(
+    'name'        => 'first_name',
+    'id'          => 'first_name',
+    'class'       => 'form-control input-sm'
+);
+
+$form_lname_input_data = array(
+    'name'        => 'lname',
+    'id'          => 'lname',
+    'type'        => 'password',
+    'class'       => 'form-control input-sm'
+);
+echo form_open('signup/register',$form_attributes_data);
+?>
+
 <div id="singup" class="col-md-3 col-md-offset-3 thumbnail " style="background-color:#ffffff;border-top:6px solid black;" >
         <h5>Register with MadeByUs4U.com Today!</h5>
-        <hr style="padding-bottom:2%;">
+        <hr style="padding-bottom:10px;">
 
      <?php if (isset($this->message)): ?>
         <?php if ($this->message['type'] == 'error'):?>
             <!--display errors-->
-             <div class="alert alert alert-error" >
+             <div class="alert alert-danger" style="font-size: 10px;" >
                  <a href="#" class="close" data-dismiss="alert">×</a>
                  <strong>Error!</strong> <?php echo $this->message['message'];?>.
              </div>
@@ -66,7 +64,7 @@ echo form_open('signup/register',$form_attributes_data);
                  <strong>Info!</strong> <?php echo $this->message['message'];?>.
              </div>
          <?php elseif ($this->message['type'] == 'success'): ?>
-             <div class="alert alert-success" >
+             <div class="alert alert-success" role='alert'>
                  <a href="#" class="close" data-dismiss="alert">×</a>
                  <strong>Success!</strong> <?php echo $this->message['message'];?>.
              </div>
@@ -130,8 +128,8 @@ echo form_open('signup/register',$form_attributes_data);
         <?php 
 
             $form_submit_button_data = array(
-                        'name'        => 'signup',
-                        'id'          => 'signup',
+                        'name'        => 'register',
+                        'id'          => 'register',
                         'type'        => 'submit',
                         'class'       => 'btn btn-default btn-primary',
                         'tabindex'    => '10'

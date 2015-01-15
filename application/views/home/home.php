@@ -59,7 +59,7 @@
 <div class="container container2">
 
 <div class="row row2"  >
- <div class="col-md-3 col-md-offset-5" style="background-color:balck;">  <a href="<?php echo base_url('welcome/home'); ?>"><img src="<?php echo base_url()."assets/images/logo_home.jpg";?>"/></a></div>
+ <div class="col-md-3 col-md-offset-5" style="background-color:balck;">  <a href="<?php echo base_url('welcome/home'); ?>"><img src="<?php echo base_url()."assets/images/logo_white.png";?>"/></a></div>
 
  <div class="col-md-2 col-md-offset-1 col-md-offset-1-1" style="margin-top: 1%;">
           <select class="form-control" size="width:100%;">

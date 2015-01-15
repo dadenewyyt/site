@@ -88,4 +88,30 @@ function send_activation_email($first_name,$user_id ,$activation_code,$email) {
     $sent = $ci->email->send();
 }
 
+function twitter_helper($count ,$numdays) {
+        $ci = &get_instance();
+        $ci->load->library('twitterfetcher');
+
+        $tweets = $ci->twitterfetcher->getTweets(array(
+            'consumerKey'       => 'FeVmw5zMQSLFH0dBO6TdGIBJh',
+            'consumerSecret'    => '49GuUWsqQADVWfEX9IFfrw0Uh6sWJPM8cW25HFtkIZ8ggqA3GF',
+            'accessToken'       => '2371707444-fq8K4Rhnk82qg3jtirWytcyMFR9WBunzlm43GEq',
+            'accessTokenSecret' => 'zD7Zmxs2uQqP344OEgwJ63rOStEKFOkwEJdtkJhQMNysb',
+            'usecache'          => true,
+            'count'             => intval($count),
+            'numdays'           => intval($numdays)
+        ));
+
+        //var_dump($tweets);die;
+       
+        $twee_texts = array(); 
+
+        foreach($tweets as $value)  {
+            
+          array_push($twee_texts,$value->text);
+
+        }
+
+        return $twee_texts; 
+}
 

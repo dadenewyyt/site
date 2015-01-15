@@ -19,10 +19,14 @@ class SignUp extends MY_Controller {
   public function index() {
 
       $states = $this->state->populate_state_dropdown();
-
+      
+      $data['notification_bar'] = 'include/notification_bar';
+      $data['header_black_menu'] = 'include/header_black_menu';
+      $data['header_logo_white'] = 'include/header_logo_white';
       $data['footer_privacy'] = 'include/footer_privacy';
       $data['footer_subscribe'] = 'include/footer_subscribe';
       $data['signup_form'] = 'include/signup_form';
+
       $data['states'] = $states;
       $this->load->view('signup/signup',$data);
   }
@@ -48,37 +52,52 @@ class SignUp extends MY_Controller {
               'lastname'  => $this->input->post('lastname'),
 
           );
-      }
-      if ($this->form_validation->run() == true)
-      {
+
           //check to see if we are creating the users
-          //redirect them back to the admin page
 
           $this->load->model('profile_model','profile');
           $post = $this->input->post(); //get post data
           $result = $this->profile->register($post);
 
-          if(!$result) {
+         //show error if a result of the 
+         //registartion process failed
+
+         if(!$result) {
 
               $this->message = array('type' => 'error', 'message' => "Unable to save new user account!");
               $this->session->set_flashdata('message', $this->message['message']);
+           
+         } else {
 
+               //redirect to success page we are successfully done with registration
 
-              $states = $this->state->populate_state_dropdown();
-              $data['footer_privacy'] = 'include/footer_privacy';
-              $data['footer_subscribe'] = 'include/footer_subscribe';
-              $data['signup_form'] = 'include/signup_form';
-              $data['states'] = $states;
-              $this->load->view('signup/signup', $data);
-          }
-      }
-      else {
+                $user_id =  $this->session->userdata('user_id');
+                $activation_code = $this->session->userdata('activation_code');
+                $data['header_black_menu'] = 'include/header_black_menu';
+                $data['header_logo_white'] = 'include/header_logo_white';
+                $data['notification_bar'] = 'include/notification_bar';
+                $data['data']['message_page_header'] = "Thankyou for Registration!" ;
+                $data['data']['message_page_title'] = "Your SignUp </small> was <span style=color:'#2770a2'>Successful!</span>";
+                $data['data']['message_page_message'] = "A message has been sent to your email.Please use the link provided in your email to activate your account.<p>Please check your spam folder.<P>If you dont please use below link to resend activation code to your email account.</p> " ;
+                $data['data']['message_page_message'].= "<strong>Resend Activation code</srong> <a href=". base_url('signup/resend_activation/') .'/'. $user_id.'/'. $activation_code . ">Resend Activation </a>";
+                 // var_dump($_POST);die;
+                $data['message_page'] = 'message_page';
+                $data['success_page'] = 'success';
+                $data['footer_page'] = 'include/footer_page';
+                $this->load->view('signup/success',$data);
+       }
+       
+       //if validation has errors     
+          
+      } else {
 
           $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
           $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
           $this->session->set_flashdata('message',  $this->message['message']);
-
           $states = $this->state->populate_state_dropdown();
+          $data['header_black_menu'] = 'include/header_black_menu';
+          $data['header_logo_white'] = 'include/header_logo_white';
+          $data['notification_bar'] = 'include/notification_bar';
           $data['footer_privacy'] = 'include/footer_privacy';
           $data['footer_subscribe'] = 'include/footer_subscribe';
           $data['signup_form'] = 'include/signup_form';
@@ -86,20 +105,9 @@ class SignUp extends MY_Controller {
           $this->load->view('signup/signup',$data);
       }
 
-      //redirect to success page
-     $user_id =  $this->session->userdata('user_id');
-     $activation_code = $this->session->userdata('activation_code');
+          
 
-      $data['data']['message_page_header'] = "Thankyou for Registration!" ;
-      $data['data']['message_page_title'] = "Your SignUp </small> was <span style=color:'#2770a2'>Successful!</span>";
-      $data['data']['message_page_message'] = "A message has been sent to your email.Please use the link provided in your email to activate your account.<p>Please check your spam folder.<P>If you dont please use below link to resend activation code to your email account.</p> " ;
-      $data['data']['message_page_message'].= "<strong>Resend Activation code</srong> <a href=". base_url('signup/resend_activation/') .'/'. $user_id.'/'. $activation_code . ">Resend Activation </a>";
-       // var_dump($_POST);die;
-      $data['message_page'] = 'message_page';
-      $data['success_page'] = 'success';
-      $data['footer_page'] = 'include/footer_page';
       
-      $this->load->view('signup/success',$data);
   }
 
     public function activate($user_id = null ,$activation_code = null) {
@@ -121,7 +129,9 @@ class SignUp extends MY_Controller {
                 );
 
                 $update_result = $this->users->update($user_id, $activate_user_data);
-
+                $data['header_black_menu'] = 'include/header_black_menu';
+                $data['header_logo_white'] = 'include/header_logo_white';
+                $data['notification_bar'] = 'include/notification_bar';
                 $data['data']['message_page_header'] = "Account activated!";
                 $data['data']['message_page_header'] = "Thankyou for Registration!";
                 $data['data']['message_page_title'] = "Your account is now <span style=color:'#2770a2'>Activated!</span>";
@@ -140,8 +150,6 @@ class SignUp extends MY_Controller {
 
 
       }
-
-
 
 
     public function resend_activation($user_id = null ,$activation_code = null) {
@@ -163,7 +171,7 @@ class SignUp extends MY_Controller {
             $email_result = send_activation_email($firstname,$user_id,$activation_code,$email);
 
             if($result) {
-
+             
                 $data['data']['message_page_header'] = "Resend Activation" ;
                 $data['data']['message_page_title'] = "Your resend activation email sent and </small> was <span style=color:'#2770a2'>Successful!</span>";
                 $data['data']['message_page_message'] = "A message has been sent to your email &nbsp;<strong>". $email . "</strong>&nbsp; Please use the link provided in your email to activate your account.<p>Please check your spam folder.<P>If you dont please use below link to resend activation code to your email account.</p> " ;
@@ -181,7 +189,9 @@ class SignUp extends MY_Controller {
 
 
              }
-
+            $data['header_black_menu'] = 'include/header_black_menu';
+            $data['header_logo_white'] = 'include/header_logo_white';
+            $data['notification_bar'] = 'include/notification_bar';
             $data['message_page'] = 'message_page';
             $data['success_page'] = 'success';
             $data['footer_page'] = 'include/footer_page';

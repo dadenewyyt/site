@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Welcome to MadebyUs4u.com | Registration Success</title>
+    <title>Welcome to MadebyUs4u.com | Registration Successfull!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,41 +16,8 @@
 <body>
 
 <header>
-
-<div class='row row1'>
-    <div class="container">
-    <div class="col-md-2 col-left-border">
-       <b>Hi</b> <a href="#">Sign In</a> or <a href="<?php echo base_url('/signup/');?>">Register</a>
-    </div>
-     <div class="col-md-1 col-left-border">
-       <strong><a href="#">Sell</a></strong>
-    </div>
-     <div class="col-md-1 col-left-border">
-        <strong><a href="#">Buy</a></strong>
-    </div>
-     <div class="col-md-1 col-left-border">
-         <strong><a href="#">Bid</a></strong>
-    </div>
-     <div class="col-md-3 col-md-offset-3 search-box">
-         <div class="input-group">
-          <input type="text" class="form-control input-sm" style="height:28px;" placeholder = "search . . .">
-          <span class="input-group-btn">
-            <button class="btn btn-default btn-xs" type="button">search</button>
-          </span>
-        </div><!-- /input-group -->
-    
-    </div>
-     <div class="col-md-1 col-left-border col-md-11">
-      <span class=" glyphicon glyphicon-bell" aria-hidden="true"></span>
-      </div>
-      <div class="col-md-1 col-left-border col-md-11 ">
-         <span class=" glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-
-       </div>
-    
-        </div>
-    </div>
-</div>
+         <?php $this->load->view($header_black_menu); ?>
+         <?php $this->load->view($header_logo_white); ?>
 </header>
 
 <!-- Responsive design
@@ -58,23 +25,7 @@
 <section id="responsive" >
 <div class="container container2">
 
-<div class="row row2"  >
- <div class="col-md-3 col-md-offset-5" style="background-color:balck;">  <a href="<?php echo base_url('welcome/home'); ?>"><img src="<?php echo base_url()."assets/images/logo_home.jpg";?>"/></a></div>
- <div class="col-md-2 col-md-offset-1 col-md-offset-1-1" style="margin-top: 1%;">
-          <select class="form-control" size="width:100%;">
-          <option>All Catagories</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          </select>
-  </div>
-  <div class="col-sm-1" style="margin-top: 1%;">  <input type='button' class="btn btn-primary form-control" value="search"> </div>
-
-  </div> 
-
-  <div class="row">
+ <div class="row">
 
           <div class="navbar navbar-default" role="navigation" style="min-height:40px;">
           <div class="container-fluid">
@@ -137,12 +88,5 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src=<?php base_url()."assets/js/holder.js";?>></script>
-<script src="path/to/js/star-rating.min.js" type="text/javascript"></script>
-
-
-
-
-
 </body>
 </html>

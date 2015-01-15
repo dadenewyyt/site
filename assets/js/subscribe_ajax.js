@@ -8,7 +8,7 @@ function subscribe_using_ajax(url) {
 	 var csrf = $('input[name="madebyus4u_csrf_test_name"]').val();  // <- get token value from hidden form input
      var server_url = url;
      var sEmail = $('#subscribe_email_input').val();
-        $('#signup').click(function() {
+        $('#btn_subscribe').click(function() {
 
            var sEmail = $('#subscribe_email_input').val();
             // Checking Empty Fields

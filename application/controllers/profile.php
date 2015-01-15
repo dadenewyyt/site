@@ -1,10 +1,13 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * Created by .
- * User: DEVELOPER4
+ * Created by Daniel Adenew.
+ * User: Daniel Adenew
  * Date: 12/31/2014
  * Time: 10:11 AM
+ * Craig Robinson 
+ * www.cytekservices.com 
  */
+
 
 class Profile extends  MY_Controller {
 

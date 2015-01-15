@@ -11,49 +11,33 @@ class Bid extends  MY_Controller {
     public function __construct() {
 
         parent::__construct();
+        $this->load->helper('general');
     }
 
     public function index(){
 
-    	$this->load->library('twitterfetcher');
-
-		$tweets = $this->twitterfetcher->getTweets(array(
-		    'consumerKey'       => 'FeVmw5zMQSLFH0dBO6TdGIBJh',
-		    'consumerSecret'    => '49GuUWsqQADVWfEX9IFfrw0Uh6sWJPM8cW25HFtkIZ8ggqA3GF',
-		    'accessToken'       => '2371707444-fq8K4Rhnk82qg3jtirWytcyMFR9WBunzlm43GEq',
-		    'accessTokenSecret' => 'zD7Zmxs2uQqP344OEgwJ63rOStEKFOkwEJdtkJhQMNysb',
-		    'usecache'          => true,
-		    'count'             => 2,
-		    'numdays'           => 1
-		));
-
-        //var_dump($tweets);die;
-       
-		$twee_texts = array(); 
-
- 		foreach($tweets as $value)  {
-            
-            array_push($twee_texts,$value->text);
-
-        }
-        
 
        $tweets_page = 'include/tweets';
        $paginate_page = 'include/paginate_page';
        $notification_bar = 'include/notification_bar';
-    
-    
+       $header_logo_white = 'include/header_logo_white';
+       $main_menu = 'include/main_menu';
 
-    
+      //acccess TWitter API
+       $twee_texts = twitter_helper(4,10);
        $tweetes_content = $twee_texts;
 
         $data['footer_privacy'] = 'include/footer_privacy';
         $data['footer_subscribe'] = 'include/footer_subscribe';
         $data['header_black_menu'] = 'include/header_black_menu';
         $data['tweets_page'] = $tweets_page;
-        $data['paginate_page'] = $paginate_page;
+        $data['paginate_page'] = $paginate_page;    
+        $data['header_logo_white'] = $header_logo_white;
+        $data['main_menu'] = $main_menu;
+
         $data['notification_bar'] = $notification_bar;
         $data['data']['tweetes_content'] = $tweetes_content;
+
         $this->load->view('bid/bid',$data);
 
     }

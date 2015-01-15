@@ -1,4 +1,12 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Created by Daniel Adenew.
+ * User: Daniel Adenew
+ * Date: 12/31/2014
+ * Time: 10:11 AM
+ * Craig Robinson 
+ * www.cytekservices.com 
+ */
 
 class Users extends MY_Controller {
 
@@ -44,22 +52,23 @@ class Users extends MY_Controller {
 	}
 
 	//log the users in
+	/**
+	 * Login / Sigin User ,Recives POST
+	 @var email/username
+	 @var password
+	 */
+
 	function login()
 	{
      
-     
-     
-    
-
-      $data['footer_privacy'] = 'include/footer_privacy';
-      $data['footer_subscribe'] = 'include/footer_subscribe';
-      $data['signin_form'] = 'include/signin_form';
-      $data['new_to_madeby'] = 'include/new_to_madeby';
-
-
+          
+		 $data['header_logo_white'] = 'include/header_logo_white';
+		 $data['footer_privacy'] = 'include/footer_privacy';
+		 $data['footer_subscribe'] = 'include/footer_subscribe';
+		 $data['signin_form'] = 'include/signin_form';
+		 $data['new_to_madeby'] = 'include/new_to_madeby';
 
 		$this->data['title'] = "Login";
-
 		//validate form input
 		$this->form_validation->set_rules('identity', 'Identity', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
