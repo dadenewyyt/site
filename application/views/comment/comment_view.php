@@ -121,7 +121,7 @@
                           </div>
 
                           <!--comment2-->
-                           <div class="media">
+                         
                                 <a class="media-left" href="#">
                                   <img class='pull-left user-small-image' src="<?php echo base_url()."assets/images/products/user.png"?>" height='100' alt="...">
                                 </a>
@@ -142,7 +142,7 @@
                                   &nbsp; &nbsp;
                                 <i class='glyphicon glyphicon-comment' style='color:#11619a;font-size:20px;'></i> &nbsp;<a href='#'>Comment</a> &nbsp; <span style='font-weight:400;'>(15)</span>
                                 </div>
-                               </div>
+                        
                           </div>
                           
                           <div class='col-md-12'>
