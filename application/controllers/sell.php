@@ -70,12 +70,15 @@ class Sell extends  MY_Controller {
         $paginate_page = 'include/paginate_page';
         $notification_bar = 'include/notification_bar';
         $header_logo_white = 'include/header_logo_white';
+        $main_menu = 'include/main_menu';
         $data['footer_privacy'] = 'include/footer_privacy';
         $data['footer_subscribe'] = 'include/footer_subscribe';
         $data['header_black_menu'] = 'include/header_black_menu';
+
         $data['paginate_page'] = $paginate_page;
         $data['notification_bar'] = $notification_bar;
         $data['header_logo_white'] = $header_logo_white;
+        $data['main_menu'] = $main_menu;
         $this->load->view('sell/seller',$data);
 
     }

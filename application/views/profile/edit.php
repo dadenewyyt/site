@@ -191,7 +191,7 @@ margin-top: 13px;
                      <input id="uploadFile" class='form-control' placeholder="No file selected" disabled="disabled" />
                       <div class="fileUpload btn btn-primary">
                         <span>Choose File</span>
-                        <input id="uploadBtn" type="file" class="upload" accept="image/*" onchange="loadFile(event)" />
+                        <input id="uploadBtn" type="file" class="upload" accept="image/*" />
                     </div>
                 </div>
                   
@@ -280,41 +280,23 @@ margin-top: 13px;
 <!-- Bootstrap and Jquery and Other JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="<?php echo base_url()."assets\plugins\jquery\jquery.min.js";?>"></script>
+<script src="<?php echo base_url()."assets/plugins/jquery/jquery.min.js";?>"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="<?php echo base_url()."assets\plugins\bootstrap\js\bootstrap.min.js";?>"></script> 
+<script src="<?php echo base_url()."assets/plugins/bootstrap/js/bootstrap.min.js";?>"></script> 
 <script src="<?php echo base_url()."assets/js/subscribe_ajax.js";?>"></script>
 <script type="text/javascript">
-    /***
-     * Created by Daniel Adenew
-     * Submit email subscription using ajax
-     * Send email address
-     * Send controller
-     * Recive response
-     */
-    $(document).ready(function() {
+ 
 
        /*prepare profile image to be previewd before actual upload 
        /*this will be called on change even of the file / upload component
         **/
-       var loadFile = function(event) {
+     $( "#uploadBtn" ).change(function(event) {
         var output = document.getElementById('preview');
         output.src = URL.createObjectURL(event.target.files[0]);
-        };
+      });
 
        var url =  "<?php echo site_url('welcome/subscribe');?>";
-       subscribe_using_ajax(url);
-
-        document.getElementById("uploadBtn").onchange = function () 
-        {
-        document.getElementById("uploadFile").value = this.value;
-        loadFile(event);
-       
-        };
-
-    });
-
-
+       subscribe_using_ajax(url);  
 
 </script>
 </body>

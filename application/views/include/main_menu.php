@@ -26,7 +26,7 @@ color: #a1a1a1;
 </style>
  <div class="row row-1">
 
-        <nav class="navbar navbar-default main-navigation" role="navigation">
+        <div class="nav navbar navbar-default main-navigation" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -66,6 +66,6 @@ color: #a1a1a1;
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
-        </nav>
+        </div>
 
   </div>

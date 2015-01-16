@@ -597,9 +597,9 @@ background-color:#ffffff;
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="<?php echo base_url()."assets\plugins\jquery\jquery.min.js";?>"></script>
+<script src="<?php echo base_url()."assets/plugins/jquery/jquery.min.js";?>"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="<?php echo base_url()."assets\plugins\bootstrap\js\bootstrap.min.js";?>"></script> 
+<script src="<?php echo base_url()."assets/plugins/bootstrap/js/bootstrap.min.js";?>"></script> 
 <script src="<?php echo base_url()."assets/js/subscribe_ajax.js";?>"></script>
 <script type="text/javascript">
     /***
@@ -609,11 +609,6 @@ background-color:#ffffff;
      * Send controller
      * Recive response
      */
-    $(document).ready(function() {
-
-      
-    });
-
        var url =  "<?php echo site_url('welcome/subscribe');?>";
        subscribe_using_ajax(url);
   

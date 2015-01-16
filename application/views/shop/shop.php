@@ -275,12 +275,10 @@ font-family: font-family: 'Open Sans', sans-serif;
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src=<?php base_url()."assets/js/holder.js";?>></script>
-<script src="path/to/js/star-rating.min.js" type="text/javascript"></script>
-
-
+<script src="<?php echo base_url()."assets/plugins/jquery/jquery.min.js";?>"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="<?php echo base_url()."assets/plugins/bootstrap/js/bootstrap.min.js";?>"></script> 
+<script src="<?php echo base_url()."assets/js/subscribe_ajax.js";?>"></script>
 
 
 
