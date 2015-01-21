@@ -277,8 +277,12 @@ background-color:#ffffff;
                      </div> 
                  </div>
  
-                 <div class="row" style="margin-left:4px;text-align:LEFT;">
+                 <div class="row twitter-loads" style="margin-left:4px;text-align:LEFT;">
                  <?php $this->load->view($tweets_page,$data); ?>
+                </div>
+                 
+                 <div class="row video-display">
+                <?php $this->load->view($video_page); ?>
                 </div>
             
             </div>

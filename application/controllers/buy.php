@@ -18,6 +18,7 @@ class Buy extends  MY_Controller {
       
    
        $tweets_page = 'include/tweets';
+       $video_page = 'include/video_page';
        $paginate_page = 'include/paginate_page';
        $notification_bar = 'include/notification_bar';
        $header_logo_white = 'include/header_logo_white';
@@ -33,6 +34,7 @@ class Buy extends  MY_Controller {
 
         $data['main_menu'] = $main_menu;
         $data['tweets_page'] = $tweets_page;
+         $data['video_page'] = $video_page;
         $data['paginate_page'] = $paginate_page;
         $data['notification_bar'] = $notification_bar;
         $data['data']['tweetes_content'] = $tweetes_content;

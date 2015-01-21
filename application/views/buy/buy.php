@@ -212,8 +212,8 @@ div.status_box_featured p
 }
 .left-catag-twitt {
 background-color:#ffffff;
-
 }
+
 </style>
 <body>
 
@@ -287,24 +287,29 @@ background-color:#ffffff;
                  <div class="row" style="margin-left:4px;text-align:LEFT;">
                  <?php $this->load->view($tweets_page,$data); ?>
                 </div>
+                <div class="row">
+                <?php $this->load->view($video_page); ?>
+          
+                </div>
             
             </div>
 
-               <div class="sfd">
-            <div class="col-md-9 showing_text">
-     
-                    <div class="col-md-offset-1 ">
-                      
-                      <span class='showing'>Showing &nbsp;( <span class='element_count'>201,201</span> )&nbsp;&nbsp;result in </span>
-                      Clothing  
+               <div class="showings">
 
-                      <span class='pull-right showing-item'>ITEM PER PAGE:&nbsp; (<span class='element_count'>201,201</span>)&nbsp;&nbsp;<a href="#">12</a>&nbsp;<a href="#">15</a>&nbsp;<a href="#">18</a>&nbsp;<a href="#">21</a></span>
-                    
-                    </div>
-                    
-                   
-            
-            </div>
+                        <div class="col-md-9 showing_text">
+                 
+                                <div class="col-md-offset-1 ">
+                                  
+                                  <span class='showing'>Showing &nbsp;( <span class='element_count'>201,201</span> )&nbsp;&nbsp;result in </span>
+                                  Clothing  
+
+                                  <span class='pull-right showing-item'>ITEM PER PAGE:&nbsp; (<span class='element_count'>201,201</span>)&nbsp;&nbsp;<a href="#">12</a>&nbsp;<a href="#">15</a>&nbsp;<a href="#">18</a>&nbsp;<a href="#">21</a></span>
+                                
+                                </div>
+                                
+                               
+                        
+                        </div>
             </div>   
 
      <hr class="hr_border">

@@ -18,6 +18,7 @@ class Bid extends  MY_Controller {
 
 
        $tweets_page = 'include/tweets';
+       $video_page = 'include/video_page';
        $paginate_page = 'include/paginate_page';
        $notification_bar = 'include/notification_bar';
        $header_logo_white = 'include/header_logo_white';
@@ -31,6 +32,7 @@ class Bid extends  MY_Controller {
         $data['footer_subscribe'] = 'include/footer_subscribe';
         $data['header_black_menu'] = 'include/header_black_menu';
         $data['tweets_page'] = $tweets_page;
+        $data['video_page'] = $video_page;
         $data['paginate_page'] = $paginate_page;    
         $data['header_logo_white'] = $header_logo_white;
         $data['main_menu'] = $main_menu;

@@ -378,7 +378,7 @@ padding-right: 2;
 </style>
     <div class="row row-under-container" >
       <div class="col-md-1">Web | <span class='webaddres'>www.google.com  </span>  </div>
-       <div class="col-md-2"><span class='' style='border-bottom: 2px solid #428bca;'>8 Listings</span></div>
+       <div class="col-md-2"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class='' style='border-bottom: 2px solid #428bca;'>8 Listings</a></span></div>
         <div class="col-md-2">0 Stores  </div>
          <div class="col-md-2">146 Likes  </div>
           <div class="col-md-2">22 Freinds  </div>
