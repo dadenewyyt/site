@@ -282,7 +282,7 @@ background-color: white;
                    <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person1.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <a href="<?php echo base_url('sell/seller/1');?>"><img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person1.png";?>" data-holder-rendered="true" style="height: 150px;display: block;"></a>
                         <div class='text_content'>
                         <div class="seller_name">
                          <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
@@ -314,7 +314,7 @@ background-color: white;
                   <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person2.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                         <a href="<?php echo base_url('sell/seller/1');?>"><img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person2.png";?>" data-holder-rendered="true" style="height: 150px;display: block;"></a>
                         <div class='text_content'>
                         <div class="seller_name">
                          <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
@@ -345,7 +345,7 @@ background-color: white;
                   <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person3.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                         <a href="<?php echo base_url('sell/seller/1');?>"><img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person3.png";?>" data-holder-rendered="true" style="height: 150px;display: block;"></a>
                         <div class='text_content'>
                         <div class="seller_name">
                          <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
@@ -376,7 +376,7 @@ background-color: white;
                   <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person4.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                        <a href="<?php echo base_url('sell/seller/1');?>"> <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person4.png";?>" data-holder-rendered="true" style="height: 150px;display: block;"></a>
                         <div class='text_content'>
                         <div class="seller_name">
                          <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
@@ -407,7 +407,7 @@ background-color: white;
                   <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person5.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                         <a href="<?php echo base_url('sell/seller/1');?>"><img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person5.png";?>" data-holder-rendered="true" style="height: 150px;display: block;"></a>
                         <div class='text_content'>
                         <div class="seller_name">
                          <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>
@@ -446,7 +446,7 @@ background-color: white;
                    <div class="col-sm-2 col-md-2 col-md-2-person">
 
                     <div class="thumbnail rec">
-                        <img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person1.png";?>" data-holder-rendered="true" style="height: 150px;display: block;">
+                         <a href="<?php echo base_url('sell/seller/1');?>"><img data-src="holder.js/100%x140" alt="100%x200"  class="img-thumbnail img-responsive" src="<?php echo base_url()."assets/images/users/person1.png";?>" data-holder-rendered="true" style="height: 150px;display: block;"></a>
                         <div class='text_content'>
                         <div class="seller_name">
                          <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name">Memeber Name</span></h4>

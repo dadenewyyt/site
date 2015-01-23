@@ -72,6 +72,7 @@ class Welcome extends MY_Controller {
     public function home() {
 
     $data['footer_page'] = 'include/footer_page';
+   $data['product_listing'] = 'product/product_listing';
     $this->load->view('home/home',$data);
     }
 

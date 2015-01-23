@@ -43,13 +43,6 @@ font-family: font-family: 'Open Sans', sans-serif;
 
   }
   
-.buy_btn .btn-primary {
-color: #fff;
-background-color: #3E3F3F;
-border-color: #535658;
-border-radius: 2px;
-float: right;
-}
 
 .apply_btn .btn-primary {
 color: #fff;
@@ -59,26 +52,7 @@ border-radius: 2px;
 padding: 1px 10px 1px 10px;
 }
 
- .buy_btn .btn {
-padding: 3px 9px;
-/* height: auto; */
-/* width: 73px; */
-}
-
-.custom_product_images .col-md-3 {
-/*width: 18%;*/
-}
-.span_buy_it_now p{
-margin-top: -10px;
-margin-left: 3px;
-font-size: 11px;
-font-family: font-family: 'Open Sans', sans-serif;
-}
- .span_buy_it_nowbtbybuy
-  p a {
-  text-decoration: none;
-}
-
+ 
 .thumbnail .caption h4 {
   margin-top: 0px;
 }

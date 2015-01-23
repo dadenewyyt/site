@@ -10,7 +10,7 @@ class MY_Controller extends CI_Controller {
 
     public $message;
     public $user_id ;
-
+    public $error = array();
     public function __construct()
     {
         parent::__construct();
