@@ -2,10 +2,14 @@
 .main-navigation {
     background-color: #ffffff;
 }
+div.row.row-1.main-nav {
+  max-height:40px;
+}
 .row-1 .navbar {
     min-height:40px;
     border-radius:0px;
     width:100%;   
+
 }
 .row-1 .navbar-default .navbar-nav>li>a {
 color: #000000;
