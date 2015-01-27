@@ -6,7 +6,7 @@
  * Time: 1:14 PM
  */
 
-class Profile_model extends MY_Model {
+class Media_model extends MY_Model {
 
     public function __construct() {
         parent::__construct() ;
@@ -26,9 +26,9 @@ class Profile_model extends MY_Model {
      * Many to Many if any
      */
 
-    public $belongs_to = array( 'user' => array( 'primary_key' => 'user_id' ,'model'=>'ion_auth_mode'),'state' => array( 'primary_key' => 'state' ,'model'=>'state_model'));
-    public $has_many = array('store' => array( 'primary_key' => 'memeber_id' ,'model'=>"product_model") );
-    public $has_one = array('media' => array( 'primary_key' => 'profile_image_id' ,'model'=>"media_model") );
+    public $has_one = array( 'product' => array( 'primary_key' => 'product_id' ,'model'=>"product_model"),
+                             'profile' => array( 'primary_key' => 'profile_id' ,'model'=>"profile_model"));
+
 
     public function register($post)
     {

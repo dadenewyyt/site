@@ -80,9 +80,6 @@
      * Recive response
      */
     $(document).ready(function() {
-
-        var url =  "<?php echo site_url('welcome/subscribe');?>";
-         alert(url);
         subscribe_using_ajax(url);
       
     });

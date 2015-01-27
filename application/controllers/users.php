@@ -25,30 +25,6 @@ class Users extends MY_Controller {
 	function index()
 	{
 
-		if (!$this->ion_auth->logged_in())
-		{
-			//redirect them to the login page
-			redirect('users/login', 'refresh');
-		}
-		elseif (!$this->ion_auth->is_admin()) //remove this elseif if you want to enable this for non-admins
-		{
-			//redirect them to the home page because they must be an administrator to view this
-			return show_error('You must be an administrator to view this page.');
-		}
-		else
-		{
-			//set the flash data error message if there is one
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-			//list the users
-			$this->data['users'] = $this->ion_auth->users()->result();
-			foreach ($this->data['users'] as $k => $user)
-			{
-				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
-			}
-
-			$this->_render_page('users/index', $this->data);
-		}
 	}
 
 	//log the users in
@@ -91,7 +67,7 @@ class Users extends MY_Controller {
 				//if the login was un-successful
 				//redirect them back to the login page
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect('users/login', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
+				$this->load->view('users/login', $data); //use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
 		}
 		else
@@ -114,17 +90,92 @@ class Users extends MY_Controller {
 		}
 	}
 
+	/**completed user authentication implementation **/
+	public function signin() {
+
+        $data['header_logo_white'] = 'include/header_logo_white';
+        $data['footer_privacy'] = 'include/footer_privacy';
+        $data['footer_subscribe'] = 'include/footer_subscribe';
+        $data['signin_form'] = 'include/signin_form';
+        $data['new_to_madeby'] = 'include/new_to_madeby';
+        //recived post variables
+
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $this->form_validation->set_rules('identity', 'Identity', 'required');
+            $this->form_validation->set_rules('password', 'Password', 'required');
+
+            if ($this->form_validation->run() == true) {
+                //check to see if the users is logging in
+                //check for "remember me"
+                $remember = (bool)$this->input->post('remember');
+                //fecth exact identity based on email or username
+
+                $this->load->model('ion_auth_model', 'users');
+                $user = $this->users->get_by('username',$this->input->post('identity'));
+                $identity = $user->email;
+
+                if ($this->ion_auth->login($identity, $this->input->post('password'), $remember)) {
+                    //if the login is successful
+                    //redirect them back to the home page
+
+                    $this->load->model('profile_model','profile');
+                    $user_data = $this->session->all_userdata() ;
+                    $this->profile_id  = $this->profile->get_by('user_id',$user_data['user_id'])->id;
+
+                    $this->session->set_userdata(
+                                    array(
+                                    'logged_in'=> TRUE,
+                                    'profile_id'=> $this->profile_id,
+                                    ));
+
+                    //$this->session->set_userdata('current_profile', $current_profile);
+                    $profile_url = site_url('profile/edit/'.$this->profile_id);
+
+                    redirect($profile_url, 'refresh',$data);
+
+
+                } else {
+                    //if the login was un-successful
+                    //redirect them back to the login page
+                    $this->message['message'] = $this->ion_auth->errors();
+                    $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
+                    $this->session->set_flashdata('message',  $this->message['message']);
+                    $this->load->view('users/login',$data); //use redirects instead of loading views for compatibility with MY_Controller libraries
+                }
+            } else {
+                //the users is not logging in so display the login page
+                //set the flash data error message if there is one
+
+                $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+                $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
+                $this->session->set_flashdata('message',  $this->message['message']);
+
+                $data['identity'] = array('name' => 'identity',
+                    'id' => 'identity',
+                    'type' => 'text',
+                    'value' => $this->form_validation->set_value('identity'),
+                );
+                $data['password'] = array('name' => 'password',
+                    'id' => 'password',
+                    'type' => 'password',
+                );
+
+                $this->load->view('users/login', $data);
+            }
+
+        }
+
+	}
+
 	//log the users out
 	function logout()
 	{
-		$this->data['title'] = "Logout";
-
 		//log the users out
 		$logout = $this->ion_auth->logout();
 
-		//redirect them to the login page
-		$this->session->set_flashdata('message', $this->ion_auth->messages());
-		redirect('users/login', 'refresh');
+		redirect('welcome/home', 'refresh');
 	}
 
 	//change password

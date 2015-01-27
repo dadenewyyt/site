@@ -57,7 +57,13 @@ color: #a1a1a1;
                 Checkout
             </div>
             <div class="col-md-1 col-left-border">
-                <a href="#">Login</a>
+             <?php $logged_in = (bool) $this->session->userdata('logged_in'); ?>
+             <?php if($logged_in===TRUE): ?>
+             <a href="<?php echo base_url('users/logout');?>">Logout</a>
+              <?php else: ?>
+              <a href="<?php echo base_url('users/login');?>">Login</a>
+              <?php  endif ?>
+
             </div>
 
         </div>

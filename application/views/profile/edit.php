@@ -15,6 +15,9 @@
 </head>
 
 <body>
+
+<?php $this->load->view($notification_bar); ?>
+
 <header>
 <div class='row row1'>
     <div class="container">
@@ -33,14 +36,18 @@
         </div>
         <div class="col-md-2 col-md-offset-3 col-left-border" style="text-align:right;">
            My Account
-       
         </div>
          
         <div class="col-md-1 col-left-border ">
           Checkout
         </div>
         <div class="col-md-1 col-left-border">
-          <a href="#">Login</a>
+            <?php $logged_in = (bool) $this->session->userdata('logged_in'); ?>
+            <?php if($logged_in===TRUE): ?>
+            <a href="<?php echo base_url('users/logout');?>">Logout</a>
+            <?php else: ?>
+                <a href="<?php echo base_url('users/login');?>">Login</a>
+            <?php  endif ?>
         </div>
        
     </div>
@@ -180,18 +187,49 @@ margin-top: 13px;
             </div>
 
             <div class="col-md-6" style="color:#999999;">
+                <?php if (isset($this->message)): ?>
+                    <?php if ($this->message['type'] == 'error'):?>
+                        <!--display errors-->
+                        <div class="alert alert-danger" style="font-size: 10px;" >
+                            <a href="#" class="close" data-dismiss="alert">×</a>
+                            <strong>Error!</strong> <?php echo $this->message['message'];?>.
+                        </div>
+                        <!-- <div class="errorMessage"></div> -->
+                    <?php elseif ($this->message['type'] == 'info'):?>
+                        <!--display errors-->
+                        <div class="alert alert-info" >
+                            <a href="#" class="close" data-dismiss="alert">×</a>
+                            <strong>Info!</strong> <?php echo $this->message['message'];?>.
+                        </div>
+                    <?php elseif ($this->message['type'] == 'success'): ?>
+                        <div class="alert alert-success" role='alert'>
+                            <a href="#" class="close" data-dismiss="alert">×</a>
+                            <strong>Success!</strong> <?php echo $this->message['message'];?>.
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
                <h4>Profile Photo </h4>
-               
-             <form class="form-inline">
-               
+
+                <?php
+                $attributes = array(
+                    'class'=>'form-inline',
+                    'id'=>'profile_edit',
+                );
+
+                echo form_open_multipart('/profile/save_profile',$attributes);
+
+                ?>
+
                 <img id="preview" height="100" width="100" >
-                
+
                  <div class="form-group">
 
-                     <input id="uploadFile" class='form-control' placeholder="No file selected" disabled="disabled" />
+                     <input type="text" id='file_path' name="file_path" class='form-control' placeholder="No file selected" disabled="disabled"
+                            style="margin-top: -47px;margin-left: 9px;" />
+
                       <div class="fileUpload btn btn-primary">
                         <span>Choose File</span>
-                        <input id="uploadBtn" type="file" class="upload" accept="image/*" />
+                        <input id="imgfile" name="imgfile" type="file" class="upload" accept="image/*" />
                     </div>
                 </div>
                   
@@ -202,13 +240,13 @@ margin-top: 13px;
                
                  <div class="form-group" style="margin-left:20px;">
                  <label for="exampleInputEmail1">New Password</label>
-                 <input type="password" class="form-control" id="exampleInputEmail1">
+                 <input type="password" name="password" class="form-control" id="exampleInputEmail1">
                 </div>
             
                
                   <div class="form-group" style="margin-top:10px;">
                     <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password"  id="confirm_password" name="confirm_password" class="form-control" id="exampleInputPassword1">
                   </div>
       
 
@@ -218,7 +256,7 @@ margin-top: 13px;
                 <div class="address" style="padding-bottom:50px;">
                         <div class="col-sm-4">
                 <label class="col-sm-2 control-label">City</label>
-              <input type="text" class="form-control input-sm" id="inputPassword">
+              <input type="text" name="city" class="form-control input-sm" id="inputPassword">
 
                         </div>
 
@@ -229,7 +267,7 @@ margin-top: 13px;
                         </div>
                          <div class="col-sm-4">
                 <label class="col-sm-2 control-label">Zip</label>
-              <input type="text" class="form-control input-sm" id="inputPassword">
+                <input type="text" name="zip" class="form-control input-sm" id="inputPassword">
 
                         </div>
                 </div>
@@ -242,8 +280,8 @@ margin-top: 13px;
                         <p class="">Job Title</p>
                       </div>
                       <div class="form-group">
-                        <label for="inputPassword2" class="sr-only">Job Title</label>
-                        <input type="text" class="form-control input-sm" id="inputPassword2">
+                        <label for="job_title" class="sr-only">Job Title</label>
+                        <input type="text" name="job_title" class="form-control input-sm" id="job_title">
                       </div>
                     &nbsp;
                        <div class="form-group">
@@ -251,13 +289,13 @@ margin-top: 13px;
                         <p class="">Company Name</p>
                       </div>
                       <div class="form-group">
-                        <label for="inputPassword2" class="sr-only">Company Name</label>
-                        <input type="text" class="form-control input-sm" id="inputPassword2">
+                        <label for="company_name" class="sr-only">Company Name</label>
+                        <input type="text" name="company_name" class="form-control input-sm" id="company_name">
                       </div>
             </div>
             <br/>
                  <button class="btn btn-primary btn-default pull-right">SAVE</button>
-            </form>
+                <?php  echo form_open_multipart('profile/save_profile',$attributes); ?>
 
             </div>
         </div>
@@ -290,9 +328,10 @@ margin-top: 13px;
        /*prepare profile image to be previewd before actual upload 
        /*this will be called on change even of the file / upload component
         **/
-     $( "#uploadBtn" ).change(function(event) {
+     $( "#imgfile" ).change(function(event) {
         var output = document.getElementById('preview');
         output.src = URL.createObjectURL(event.target.files[0]);
+        $( "#file_path").val('file selected');
       });
 
        var url =  "<?php echo site_url('welcome/subscribe');?>";

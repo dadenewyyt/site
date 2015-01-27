@@ -10,7 +10,7 @@
     <!-- Le styles -->
     <link href=<?php echo base_url()."assets/plugins/bootstrap/css/bootstrap.min.css";?> rel="stylesheet">
     <link href=<?php echo base_url()."assets/css/common.css";?> rel="stylesheet">
-    <link href=<?php echo base_url()."assets/css/signup.css";?> rel="stylesheet">
+    <link href=<?php echo base_url()."assets/css/login.css";?> rel="stylesheet">
 
 </head>
 
@@ -55,36 +55,6 @@
 </header>
 
 <section>
-<style type="text/css">
-header {
-    border-bottom: 1px solid #f0f0f0;
-}
-    .col-signin {
-       
-       
-        border:1px solid #f2f2f2;
-         border-top:8px solid #146098;
-         border-radius: 4px;
-         padding-bottom: 20px;
-
-    }
-    .col-signup {
-       
-         border:1px solid #f2f2f2;
-         border-top:8px solid #146098;
-         border-radius: 4px;
-
-
-    }
-    .col-md-master .col-md-4 {
-        margin-right:20px;
-    }
-  .col-signin , .col-signup {
-        background-color: white;
-     }
-   
-
-</style>
 
 <div class="row" style="margin-top:50px;">
     <div class="col-md-12 col-md-offset-2 col-md-master" style="padding-bottom:50px;">
