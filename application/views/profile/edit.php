@@ -152,7 +152,7 @@
     filter: alpha(opacity=0);
 }
 
-.fileUpload btn btn-primary{
+.fileUpload .btn .btn-primary{
 color: #fff;
 background-color: #060B0F;
 border-color: #0F0F0F;
@@ -220,7 +220,7 @@ margin-top: 13px;
 
                 ?>
 
-                <img id="preview" height="100" width="100" >
+                <img id="preview" height="100" width="100"  src="<?= base_url($profile_image);?>">
 
                  <div class="form-group">
 
@@ -240,13 +240,13 @@ margin-top: 13px;
                
                  <div class="form-group" style="margin-left:20px;">
                  <label for="exampleInputEmail1">New Password</label>
-                 <input type="password" name="password" class="form-control" id="exampleInputEmail1">
+                 <input type="password" name="password" class="form-control" required="true">
                 </div>
             
                
                   <div class="form-group" style="margin-top:10px;">
                     <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password"  id="confirm_password" name="confirm_password" class="form-control" id="exampleInputPassword1">
+                    <input type="password"  id="confirm_password" name="confirm_password" class="form-control" required="true">
                   </div>
       
 
@@ -256,7 +256,7 @@ margin-top: 13px;
                 <div class="address" style="padding-bottom:50px;">
                         <div class="col-sm-4">
                 <label class="col-sm-2 control-label">City</label>
-              <input type="text" name="city" class="form-control input-sm" id="inputPassword">
+              <input type="text" name="city" class="form-control input-sm" id="city" value="<?php echo $profile->city ;?>">
 
                         </div>
 
@@ -267,7 +267,7 @@ margin-top: 13px;
                         </div>
                          <div class="col-sm-4">
                 <label class="col-sm-2 control-label">Zip</label>
-                <input type="text" name="zip" class="form-control input-sm" id="inputPassword">
+                <input type="text" name="zip" class="form-control input-sm" id="zip" value="<?php echo $profile->zipcode ;?>">
 
                         </div>
                 </div>
@@ -281,7 +281,7 @@ margin-top: 13px;
                       </div>
                       <div class="form-group">
                         <label for="job_title" class="sr-only">Job Title</label>
-                        <input type="text" name="job_title" class="form-control input-sm" id="job_title">
+                        <input type="text" name="job_title" class="form-control input-sm" id="job_title" value="<?php echo $profile->job_title ;?>">
                       </div>
                     &nbsp;
                        <div class="form-group">
@@ -290,11 +290,12 @@ margin-top: 13px;
                       </div>
                       <div class="form-group">
                         <label for="company_name" class="sr-only">Company Name</label>
-                        <input type="text" name="company_name" class="form-control input-sm" id="company_name">
+                        <input type="text" name="company_name" class="form-control input-sm" id="company_name" value="<?php echo $profile->company_name ;?>">
                       </div>
             </div>
             <br/>
-                 <button class="btn btn-primary btn-default pull-right">SAVE</button>
+                 <button class="btn btn-primary btn-default pull-left">SAVE</button>
+                <a href="<?php echo base_url('payment/payment');?>" class="btn btn-default" style="margin-left:5px;">SKIP</a>
                 <?php  echo form_open_multipart('profile/save_profile',$attributes); ?>
 
             </div>

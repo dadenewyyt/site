@@ -938,7 +938,7 @@ class Ion_auth_model extends MY_Model
 		// Users table.
 		$data = array(
 		    'username'   => $username,
-		    'password'   => $password,
+            'password'   => $password,
 		    'email'      => $email,
 		    'ip_address' => $ip_address,
 		    'created_on' => time(),

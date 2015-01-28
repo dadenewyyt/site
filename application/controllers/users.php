@@ -122,6 +122,7 @@ class Users extends MY_Controller {
 
                     $this->load->model('profile_model','profile');
                     $user_data = $this->session->all_userdata() ;
+
                     $this->profile_id  = $this->profile->get_by('user_id',$user_data['user_id'])->id;
 
                     $this->session->set_userdata(

@@ -23,7 +23,17 @@ class Profile extends  MY_Controller {
 
     }
 
-    public function edit($id){
+    public function edit($id) {
+
+
+      $this->load->model('profile_model', 'profile');
+      $profile = $this->profile->with('media')->get($id);
+      $profile_image = '';
+
+      if(!empty($profile->media)) {
+          $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
+      }
+
       $data['footer_privacy'] = 'include/footer_privacy';
       $data['footer_subscribe'] = 'include/footer_subscribe';
       $data['signin_form'] = 'include/signin_form';
@@ -34,6 +44,8 @@ class Profile extends  MY_Controller {
       $this->load->model('state_model','state');
       $states = $this->state->populate_state_dropdown();
       $data['states'] = $states;
+      $data['profile'] = $profile;
+      $data['profile_image']=$profile_image;
       $this->load->view('profile/edit',$data);
 
     }
@@ -42,40 +54,24 @@ class Profile extends  MY_Controller {
 
 
         try {
-            //get the current user profile id to upload / create a folder by its id
-            $profile_id = $this->session->userdata('profile_id');
-            $this->profile_id = $profile_id;
+
 
             //path should be profile/profileid/avatar , profile/profileid/video , profile/profileid/products
-            $pathToUpload = "./uploads/profile/. $this->profile_id .'/avatar/";
+            $pathToUpload = "./uploads/profile/". $this->profile_id ."/avatar/";
+            //load the configuration
+            $upload_config = $this->config->item('upload_config_profile_edit');
 
-            $config = array(
-                'upload_path' => $pathToUpload,
-                'allowed_types' => "gif|jpg|png|mp4|3gp|flv",
-                'overwrite' => TRUE,
-                'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-                'max_height' => "768",
-                'max_width' => "1024"
-            );
+            //replace the upload path based to be based on profile id
 
-            $this->load->library('upload', $config);
-            $pathToUpload = $config['upload_path'];
+            $upload_config['upload_path'] = $pathToUpload;
 
-            if (!is_dir($config['upload_path']))
-                mkdir($config['upload_path'], 0777, TRUE);
+            $this->load->model('profile_model', 'profile');
+            $this->load->model('ion_auth_model', 'users');
+            $this->load->model('media_model', 'media');
 
-            $this->upload->initialize($config);
+            $profile_image_id = $this->media->save_or_update($this->profile_id,$upload_config);
 
-            if (!$this->upload->do_upload('imgfile')) {
-                // upload failedreturn array('error' => $this->upload->display_errors('<span>', '</span>'));
-            } else {
-                // upload success
-                $upload_data = $this->upload->data();
-
-            }
-            $file_name = $upload_data['file_name'];
-            $file_path = $upload_data['file_path'];
-
+            //TODO:need validation here
 
             $password = $this->input->post('password');
             $cpassword = $this->input->post('confirm_password');
@@ -86,30 +82,14 @@ class Profile extends  MY_Controller {
             $job_title = $this->input->post('job_title');
             $company_name = $this->input->post('company_name');
 
-            $this->load->model('profile_model', 'profile');
-            $this->load->model('ion_auth_model', 'users');
-            $this->load->model('media_model', 'media');
+            //update user account details
 
+            $updated_password = $this->users->hash_password($password,''); //can pass salt value here
 
-            //update priofile image details
-
-            $profile_image_id = $this->media->insert(array(
-                'type' => 'profile_image',
-                'file_name' => $file_name,
-                'full_path' => $file_path,
-                'profile_id' => $profile_id
-            ));
-
-            //update user accout details
-            $salt = $this->users->store_salt ? $this->users->salt() : FALSE;
-            $updated_password = $this->users->hash_password($password, $salt);
-            $user_id = $this->session->userdata('user_id');
-
-
-            $this->users->update($user_id, array('password' => $updated_password));
+            $this->users->update($this->user_id, array('password' => $password));
 
             //update profile information details
-            $this->profile->update($profile_id,
+            $this->profile->update($this->profile_id,
                 array('city' => $city,
                     'state' => $state,
                     'zipcode' => $zip,
@@ -120,10 +100,10 @@ class Profile extends  MY_Controller {
             );
 
             //TODO:success page must be displayed
-            //TODO:link must be provide to visit home, accout
+            //TODO:link must be provide to visit home, account
            //TODO:controller and self refreshing page
             //goto home
-            redirect('payment/payment','refresh');
+             redirect('payment/payment','refresh');
 
             }
             catch (Exception $e) {

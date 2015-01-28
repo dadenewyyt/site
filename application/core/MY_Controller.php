@@ -8,10 +8,10 @@
 
 class MY_Controller extends CI_Controller {
 
-    public $message;
-    public $user_id ;
-    public $profile_id;
-    public $error = array();
+    protected $message;
+    protected $user_id ;
+    protected $profile_id;
+    protected $error = array();
 
     public function __construct()
     {
@@ -22,6 +22,10 @@ class MY_Controller extends CI_Controller {
          * evey resource
          */
        $this->logged_in();
+
+        //make available useful variables
+        $this->get_session_variables();
+
 
     }
 
@@ -35,14 +39,21 @@ class MY_Controller extends CI_Controller {
         $this->load->library('ion_auth');
         $public_allowed_urls = $this->config->item('public_urls');
 
+        /*** this works but better below code
         //get the current URL
         $controller= $this->uri->segment(1); // controller
         $action = $this->uri->segment(2); // action
         $url = $controller . '/' . $action;
+       **/
+
+        $controller= $this->router->class ; //controller
+        $action =$this->router->method; // action
+        $url = $controller . '/' . $action;
 
         if(  ($this->ion_auth->logged_in()== false ) && !( in_array($url,$public_allowed_urls) ) ) {
-              redirect('users/login');
+            redirect('users/login');
         }
+
     }
 
     function _render_page($view, $data=null, $render=false)
@@ -53,6 +64,19 @@ class MY_Controller extends CI_Controller {
         $view_html = $this->load->view($view, $this->viewdata, $render);
 
         if (!$render) return $view_html;
+    }
+
+    public function get_session_variables(){
+
+        $profile_id = $this->session->userdata('profile_id');
+        $user_id = $this->session->userdata('user_id');
+
+        //get the current user profile id to upload / create a folder by its id
+        $this->profile_id =  isset($profile_id) ? $profile_id : null ;
+        //user_id
+        $this->user_id =  isset($user_id) ? $user_id : null ;
+
+
     }
 
 }

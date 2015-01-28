@@ -14,7 +14,11 @@
 </head>
 
 <body>
-
+<style type="text/css">
+    .nav .navbar-nav li {
+        padding-left: 0;
+    }
+</style>
 <header>
          <?php $this->load->view($header_black_menu); ?>
          <?php $this->load->view($header_logo_white); ?>
