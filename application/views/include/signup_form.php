@@ -51,7 +51,7 @@ echo form_open('signup/register',$form_attributes_data);
 
      <?php
 
-     if (isset($message)): ?>
+      if (isset($message)): ?>
         <?php if ($message['type'] == 'error'):?>
             <!--display errors-->
              <div class="alert alert-danger" style="font-size: 10px;" >

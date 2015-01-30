@@ -40,7 +40,7 @@ class Media_model extends MY_Model {
             $file_path = $upload_data['file_path'];
             //update profile image details
             $check_media_id = $this->get_by('profile_id', intval($profile_id),TRUE);
-            var_dump($check_media_id);
+
             if ( count($check_media_id) > 0) {
                 $profile_image_id = $this->update($check_media_id->id,
                     array(
@@ -49,6 +49,11 @@ class Media_model extends MY_Model {
                         'full_path' => $file_path,
                         'profile_id' => $profile_id
                     ));
+
+                if ($profile_image_id) {
+                    $profile_image_id = $check_media_id->id ;
+                }
+
             } else {
                 $profile_image_id = $this->insert(array(
                     'type' => 'profile_image',

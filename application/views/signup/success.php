@@ -11,19 +11,22 @@
     <link href=<?php echo base_url()."assets/plugins/bootstrap/css/bootstrap.min.css";?> rel="stylesheet">
     <link href=<?php echo base_url()."assets/css/home.css";?> rel="stylesheet">
 
+
+
 </head>
 
 <body>
-<style type="text/css">
-    .nav>li>a {
-        position: relative;
-        display: block;
-        padding: 0px -9px;
-        font-size: 13px;
-    }
-</style>
+
 <header>
-         <?php $this->load->view($header_black_menu); ?>
+    <style type="text/css">
+        .navbar-default .navbar-nav>li>a {
+            color: #000000;
+            padding-right: 40px;
+        }
+    </style>
+         <div class="menu_top"> <?php $this->load->view($header_black_menu); ?> </div>
+
+
          <?php $this->load->view($header_logo_white); ?>
 </header>
 

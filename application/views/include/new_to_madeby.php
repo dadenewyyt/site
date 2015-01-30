@@ -16,7 +16,7 @@
 }
 .new_to_madeby {
 	margin-top: 110px;
-	margin-bottom: 160px;
+	margin-bottom: 178px;
 	text-align: center;
 }
 

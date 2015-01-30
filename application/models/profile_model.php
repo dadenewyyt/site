@@ -41,8 +41,8 @@ class Profile_model extends MY_Model {
         $email = $post['email'];
 
         //check if user has been saved
-        $this->load->model('ion_auth_model', 'users');
-        $user_id = $this->users->register($post['username'], $post['password'], $post['email']);
+        $this->load->model('ion_auth_model', 'users_profile');
+        $user_id = $this->users_profile->register($post['username'], $post['password'], $post['email']);
 
 
         if ($this->ion_auth->errors()) {

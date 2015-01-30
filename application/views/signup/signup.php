@@ -29,8 +29,7 @@
 
 <div class="row row3">
 
-
-    <?php $this->load->view($signup_form) ;?>
+    <?php $this->load->view($signup_form,$data) ;?>
   
     <!--SELL TEXT-->
 

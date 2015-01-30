@@ -24,6 +24,7 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
         $data['email_form'] = 'include/email_form';
+
         $this->load->view('coming_soon',$data);
 
 	}
@@ -71,9 +72,19 @@ class Welcome extends MY_Controller {
 
     public function home() {
 
-    $data['footer_page'] = 'include/footer_page';
-   $data['product_listing'] = 'product/product_listing';
-    $this->load->view('home/home',$data);
+        //fetch categories from config
+        //and construct an array of [ STRING,STRING ]
+        $categories_all = $this->config->item('categories_all');
+
+        foreach($categories_all as  $cat=>$val){
+            $categories_all[$val] = $val;
+        }
+        //var_dump($categories_all);
+        $data['categories_all'] = $categories_all;
+        $data['footer_page'] = 'include/footer_page';
+        $data['product_listing'] = 'product/product_listing';
+        $data['catagories_all'] = $categories_all;
+        $this->load->view('home/home',$data);
     }
 
     public function shop() {

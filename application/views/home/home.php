@@ -59,18 +59,16 @@
 <div class="container container2">
 
 <div class="row row2"  >
- <div class="col-md-3 col-md-offset-5" style="background-color:balck;">  <a href="<?php echo base_url('welcome/home'); ?>"><img src="<?php echo base_url()."assets/images/logo_white.png";?>"/></a></div>
+ <div class="col-md-3 col-md-offset-5" style="background-color:balck;">
+         <a href="<?php echo base_url('welcome/home'); ?>">
+         <img src="<?php echo base_url()."assets/images/logo_home.jpg";?>"/></a>
+ </div>
 
  <div class="col-md-2 col-md-offset-1 col-md-offset-1-1" style="margin-top: 1%;">
-          <select class="form-control" size="width:100%;">
-          <option>All Catagories</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          </select>
-  </div>
+
+
+              <?= form_dropdown('catagories', array_merge(array(''=>'All  Catagories'), $catagories_all) ,'','class="form-control"  tabindex="7"' ) ;?>
+          </div>
   <div class="col-sm-1" style="margin-top: 1%;">  <input type='button' class="btn btn-primary form-control" value="search"> </div>
 
   </div> 

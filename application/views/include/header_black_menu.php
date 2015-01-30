@@ -1,6 +1,5 @@
  <style type="text/css">
 .col-md-1 a ,.col-md-2 a {
-
     font-weight: 800;
     font-size: 12px;
 }
@@ -17,7 +16,7 @@ background-color: #ffffff;
 
 .navbar-default .navbar-nav>li>a {
 color: #000000;
-padding-right: 40px;
+padding-right: 15px;
 }
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {

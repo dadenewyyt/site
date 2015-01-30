@@ -19,7 +19,7 @@ class SignUp extends MY_Controller {
   public function index() {
 
       $states = $this->state->populate_state_dropdown();
-      
+
       $data['notification_bar'] = 'include/notification_bar';
       $data['header_black_menu'] = 'include/header_black_menu';
       $data['header_logo_white'] = 'include/header_logo_white';
@@ -28,31 +28,32 @@ class SignUp extends MY_Controller {
       $data['signup_form'] = 'include/signup_form';
 
       $data['states'] = $states;
+      $data['data']['message'] = $this->message;
       $this->load->view('signup/signup',$data);
   }
 
   public function register() {
 
       $tables = $this->config->item('tables','ion_auth');
+
       //validate form input
-      $this->form_validation->set_rules('firstname', $this->lang->line('create_user_validation_fname_label'), 'required|xss_clean');
-      $this->form_validation->set_rules('lastname', $this->lang->line('create_user_validation_lname_label'), 'required|xss_clean');
+
       $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email|is_unique['.$tables['users'].'.email]');
       $this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[confirm]');
       $this->form_validation->set_rules('confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
 
       if ($this->form_validation->run() == true)
       {
-          $username = strtolower($this->input->post('firstname')) . ' ' . strtolower($this->input->post('lastname'));
-          $email    = strtolower($this->input->post('email'));
-          $password = $this->input->post('password');
 
-          $additional_data = array(
-              'firstname' => $this->input->post('firstname'),
-              'lastname'  => $this->input->post('lastname'),
+          $this->load->model('user_model','users');
+          $email_result = $this->users->get_by('email',strtolower($this->input->post('email')),TRUE);
 
-          );
+          //check if email is already existing or not
+          if( count($email_result) > 0 ) {
 
+              $this->message = array('type' => 'error', 'message' => "Unable to register ,email is already in use!");
+              $this->session->set_flashdata('message', $this->message['message']);
+          }
           //check to see if we are creating the users
 
           $this->load->model('profile_model','profile');
@@ -94,6 +95,8 @@ class SignUp extends MY_Controller {
           $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
           $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
           $this->session->set_flashdata('message',  $this->message['message']);
+          $data['data']['message'] = $this->message;
+
           $states = $this->state->populate_state_dropdown();
           $data['header_black_menu'] = 'include/header_black_menu';
           $data['header_logo_white'] = 'include/header_logo_white';

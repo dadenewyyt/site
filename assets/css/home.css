@@ -1,4 +1,3 @@
-<style type="text/css">
 
 body {
     background-color: #fafafa;
@@ -218,6 +217,7 @@ padding-left: 1%;
 }
 
 .footer_menufooter_menu a {
+
     display: block;
     width: 60px;
 }
@@ -259,6 +259,7 @@ padding-left: 1%;
     }
 
    @media(max-width:380px){
+
      .row3-background {height: 102px; }
    .span1{padding:0 4px;}
    .col-md-11 {width: auto;}
@@ -272,9 +273,6 @@ padding-left: 1%;
      .module_images_upload{z-index:-1;}
    .module_images_newarrival{z-index:-1;}
    .footer_menu {padding-right: 0;}
+
    }
 
-
-   
-
-</style>

@@ -120,7 +120,7 @@ background-color: #f7f7f7;
 margin-bottom: 2%;
 height: 135px;
 width: 140px;
-background: url(assets/images/payment/my_dadboard.png);
+background: url(../assets/images/payment/my_dadboard.png);
 background-repeat: no-repeat;
 }
 
@@ -131,7 +131,7 @@ background-color: #f7f7f7;
 margin-bottom: 2%;
 height: 135px;
 width: 140px;
-background: url(assets/images/payment/my_orders.png);
+background: url(../assets/images/payment/my_orders.png);
 background-repeat: no-repeat;
 }
 
@@ -142,7 +142,7 @@ background-color: #f7f7f7;
 margin-bottom: 2%;
 height: 135px;
 width: 140px;
-background: url(assets/images/payment/my_pursche.png);
+background: url(../assets/images/payment/my_pursche.png);
 background-repeat: no-repeat;
 }
 
