@@ -1,6 +1,6 @@
  <style type="text/css">
 .col-md-1 a ,.col-md-2 a {
-    color: white;
+
     font-weight: 800;
     font-size: 12px;
 }

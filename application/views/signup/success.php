@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Welcome to MadebyUs4u.com | Registration Successfull!</title>
+    <title>Welcome to MadebyUs4u.com | Registration Successful!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -15,8 +15,11 @@
 
 <body>
 <style type="text/css">
-    .nav .navbar-nav li {
-        padding-left: 0;
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 0px -9px;
+        font-size: 13px;
     }
 </style>
 <header>

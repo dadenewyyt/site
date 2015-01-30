@@ -69,8 +69,8 @@ function send_activation_email($first_name,$user_id ,$activation_code,$email) {
 
          $template_view = '
             <div style="width: 500px;">
-                <div style="background-color: #F3F3F3;border-radius: 10px 10px 00px  0px;">
-                    <img src="' . base_url() . 'assets/images/logo.jpg' . '" alt="MadeByus4u Logo"/>
+                <div style="background-color: #F3F3F3;border-radius: 10px 10px 00px  0px;padding:5px;">
+                    <img src="' . base_url() . 'assets/images/logo.jpg' . '" alt="MadeByus4u Logo" style="padding-left:30%;"/>
                 </div>
                 <div style="min-height: 210px;padding: 20px;background-color: #F8F8F6;color: #8C8C8C">
                     ' . $content .
