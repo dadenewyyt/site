@@ -8,7 +8,7 @@
 
 class MY_Controller extends CI_Controller {
 
-    protected $message;
+    protected $message = array('type'=>'','message'=>'');
     protected $user_id ;
     protected $profile_id;
     protected $error = array();

@@ -74,7 +74,7 @@
               <button type="submit" class="btn btn-default btn-lg">SUBSCRIBE</button>
             </form>
         </div> -->
-   <div class='email_subscribe'>
+   <div class='email_subscribe form-inline'>
 
     <?php
     $form_attributes_data = array('class' =>'form-inline', 'id' => 'subscribe_form');

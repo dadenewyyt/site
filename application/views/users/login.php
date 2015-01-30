@@ -59,8 +59,9 @@
 <div class="row" style="margin-top:50px;">
     <div class="col-md-12 col-md-offset-2 col-md-master" style="padding-bottom:50px;">
         <div class="col-md-4 col-signin">
-          
-            <?php $this->load->view($signin_form); ?>
+
+            <?php $this->load->view($signin_form,$data); ?>
+
         </div>
         <div class="col-md-4 col-signup">
             <?php $this->load->view($new_to_madeby); ?>
