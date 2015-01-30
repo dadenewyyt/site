@@ -19,7 +19,8 @@ class SignUp extends MY_Controller {
   public function index() {
 
       $states = $this->state->populate_state_dropdown();
-
+      $categories_all = $this->config->item('categories_all');
+      $data['categories_all'] = $categories_all;
       $data['notification_bar'] = 'include/notification_bar';
       $data['header_black_menu'] = 'include/header_black_menu';
       $data['header_logo_white'] = 'include/header_logo_white';
@@ -37,7 +38,9 @@ class SignUp extends MY_Controller {
       $tables = $this->config->item('tables','ion_auth');
 
       //validate form input
-
+      $this->form_validation->set_rules('firstname', $this->lang->line('create_user_validation_fname_label'), 'required|xss_clean');
+      $this->form_validation->set_rules('lastname', $this->lang->line('create_user_validation_lname_label'), 'required|xss_clean');
+      $this->form_validation->set_rules('username', $this->lang->line('create_user_validation_username_label'), 'required|xss_clean|is_unique['.$tables['users'].'.username]');
       $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email|is_unique['.$tables['users'].'.email]');
       $this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[confirm]');
       $this->form_validation->set_rules('confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
