@@ -97,9 +97,9 @@ overflow: hidden;
                    </p>
             <?php  endif ?>
         <span class="sr-only">(current)</span></a></li>
-        <li><a href="<?php echo base_url('buy/buy');?>">Shop</a></li>
-        <li><a href="<?php echo base_url('sell/sell');?>">Sell</a></li>
-        <li><a href="<?php echo base_url('bid/bid');?>">Bid</a></li>
+        <li><a href="<?php echo base_url('buy');?>">Shop</a></li>
+        <li><a href="<?php echo base_url('sell');?>">Sell</a></li>
+        <li><a href="<?php echo base_url('bid');?>">Bid</a></li>
        
       </ul>
      
