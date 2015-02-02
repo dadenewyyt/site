@@ -16,39 +16,10 @@
 
 <body>
 <header>
-<div class='row row1'>
-    <div class="container">
-        <div class="col-md-2 col-left-border">
-            <b>Hi</b> <a href="<?php echo base_url('users/login');?>">Sign In</a> or 
-            <a href="<?php echo base_url('signup');?>">Register</a>
-        </div>
-        <div class="col-md-1 col-left-border">
-            <strong><a href="<?php echo base_url('sell');?>">Sell</a></strong>
-        </div>
-        <div class="col-md-1 col-left-border">
-            <strong><a href="<?php echo base_url('buy');?>">Buy</a></strong>
-        </div>
-        <div class="col-md-1 col-left-border">
-          <strong><a href="<?php echo base_url('bid');?>">Bid</a></strong>
-        </div>
-        <div class="col-md-2 col-md-offset-3 col-left-border" style="text-align:right;">
-           My Account
-       
-        </div>
-         
-        <div class="col-md-1 col-left-border ">
-          Checkout
-        </div>
-        <div class="col-md-1 col-left-border">
-          <a href="#">Login</a>
-        </div>
-       
-    </div>
-
-</div>
-
-
+<?php $this->load->view($header_black_menu);?>
 <?php $this->load->view($header_logo_white); ?>
+
+
 
 </div>
 

@@ -18,70 +18,21 @@
 
 <?php $this->load->view($notification_bar); ?>
 
-<header>
-<div class='row row1'>
-    <div class="container">
-        <div class="col-md-2 col-left-border">
-            <b>Hi</b> <a href="<?php echo base_url('users/login');?>">Sign In</a> or 
-            <a href="<?php echo base_url('signup');?>">Register</a>
-        </div>
-        <div class="col-md-1 col-left-border">
-            <strong><a href="<?php echo base_url('sell');?>">Sell</a></strong>
-        </div>
-        <div class="col-md-1 col-left-border">
-            <strong><a href="<?php echo base_url('buy');?>">Buy</a></strong>
-        </div>
-        <div class="col-md-1 col-left-border">
-          <strong><a href="<?php echo base_url('bid');?>">Bid</a></strong>
-        </div>
-        <div class="col-md-2 col-md-offset-3 col-left-border" style="text-align:right;">
-           My Account
-        </div>
-         
-        <div class="col-md-1 col-left-border ">
-          Checkout
-        </div>
-        <div class="col-md-1 col-left-border">
-            <?php $logged_in = (bool) $this->session->userdata('logged_in'); ?>
-            <?php if($logged_in===TRUE): ?>
-            <a href="<?php echo base_url('users/logout');?>">Logout</a>
-            <?php else: ?>
-                <a href="<?php echo base_url('users/login');?>">Login</a>
-            <?php  endif ?>
-        </div>
-       
-    </div>
+<div class='header'>
+
+<?php $this->load->view($header_black_menu);?>
+<?php $this->load->view($header_logo_white); ?>
+
+
+
+
 
 </div>
 
 
-<div class="row row2 paddings" style="background-color:white;">
 
-    <div class="container">
-        <div class="col-md-2" >
-                <div class='shopping_cart'>
-                    <small style='padding-right:5px;font-size:1.3em;color:grey;'>Cart/ $ 0.00</small>
-                    <span class="glyphicon glyphicon-shopping-cart" ></span> 
-                    <sup class="badge">0</sup>
-                </div>
-        </div>
 
-        <div class="col-md-4 col-md-offset-3 ">
-              <a href="<?php echo base_url('welcome/home'); ?>"><img src="<?php echo base_url()."assets/images/logo_white.png";?>"/></a>
-        </div>
-
-        <div class="col-md-3 input_search" >
-               <input type="text" class="form-control" placeholder='search'>
-        </div>
-           
-    </div>
-</div>
-
-</div>
-
-</header>
-
-<section>
+<section >
 <style type="text/css">
 
     .container-content {
@@ -294,10 +245,10 @@ margin-top: 13px;
                       </div>
             </div>
             <br/>
-                 <button class="btn btn-primary btn-default pull-left">SAVE</button>
-                <a href="<?php echo base_url('payment/payment');?>" class="btn btn-default" style="margin-left:5px;">SKIP</a>
+                 <button class="btn btn-primary btn-sm btn-default pull-right" style="padding: 3px 45px;">SAVE</button>
+                <!--<a href="<?php echo base_url('payment/payment');?>" class="btn btn-default" style="margin-left:5px;">SKIP</a>
                 <?php  echo form_open_multipart('profile/save_profile',$attributes); ?>
-
+-->
             </div>
         </div>
     </div>

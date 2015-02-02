@@ -37,6 +37,7 @@ class Users extends MY_Controller {
 	function login()
 	{
 
+         $data['header_black_menu'] = 'include/header_black_menu';
 		 $data['header_logo_white'] = 'include/header_logo_white';
 		 $data['footer_privacy'] = 'include/footer_privacy';
 		 $data['footer_subscribe'] = 'include/footer_subscribe';
@@ -67,10 +68,22 @@ class Users extends MY_Controller {
           //check to see if the users is logging in
           //check for "remember me"
           $remember = (bool)$this->input->post('remember');
-          //fecth exact identity based on email or username
+          //fetch exact identity based on email or username
 
           $this->load->model('ion_auth_model', 'users');
-          $user = $this->users->get_by('username', $this->input->post('identity'));
+          $email_or_user_name = $this->input->post('identity');
+
+          //login by user name / email
+          if(isset($email_or_user_name)){
+
+              $user = $this->users->get_by('username', $email_or_user_name);
+
+              if(!count($user)){
+                  //check by email
+                  $user = $this->users->get_by('email', $email_or_user_name);
+              } //at least username/email will going to be used
+          }
+
 
           if (count($user) > 0) {
 

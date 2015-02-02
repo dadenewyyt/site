@@ -25,9 +25,7 @@ color: white;
 color: #4b9ad1;
 background-color: transparent;
 }
-.navbar-nav {
-  width: 100%;
-}
+
 
 .rec {
     border-radius: 2px; 
@@ -80,41 +78,9 @@ font-family: font-family: 'Open Sans', sans-serif;
 <body>
 
 <header>
+<?php $this->load->view($header_black_menu);?>
+<?php $this->load->view($header_white_logo);?>
 
-<div class='row row1' >
-    <div class="container">
-    <div class="col-md-2 col-left-border">
-       <b>Hi</b> <a href="#">Sign In</a> or <a href="#">Register</a>
-    </div>
-     <div class="col-md-1 col-left-border">
-       <strong><a href="#">Sell</a></strong>
-    </div>
-     <div class="col-md-1 col-left-border">
-        <strong><a href="#">Buy</a></strong>
-    </div>
-     <div class="col-md-1 col-left-border">
-         <strong><a href="#">Bid</a></strong>
-    </div>
-     <div class="col-md-3 col-md-offset-3 search-box">
-         <div class="input-group">
-          <input type="text" class="form-control input-sm" style="height:28px;" placeholder = "search . . .">
-          <span class="input-group-btn">
-            <button class="btn btn-default btn-xs" type="button">search</button>
-          </span>
-        </div><!-- /input-group -->
-    
-    </div>
-     <div class="col-md-1 col-left-border col-md-11">
-      <span class=" glyphicon glyphicon-bell" aria-hidden="true"></span>
-      </div>
-      <div class="col-md-1 col-left-border col-md-11 ">
-         <span class=" glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-
-       </div>
-    
-        </div>
-    </div>
-</div>
 </header>
 
 <!-- Responsive design

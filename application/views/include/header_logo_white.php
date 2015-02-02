@@ -3,7 +3,7 @@
         background-color: #ffffff;
     }
 </style>
-<div class="row row2 paddings">
+<div class="row row2 paddings" style="margin-top:50px;">
 
     <div class="container">
         <div class="col-md-2" >

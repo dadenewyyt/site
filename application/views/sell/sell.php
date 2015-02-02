@@ -18,7 +18,7 @@
 .navbar {
     min-height:40px;
     border-radius:0px;
-    width:100%;   
+
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -31,7 +31,7 @@ color: #a1a1a1;
 
 }
 .navbar-nav {
-  width: 100%;
+
   margin-left: -16px;
 }
  .col-md-2-person {

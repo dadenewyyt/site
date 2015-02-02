@@ -34,6 +34,9 @@ class Profile extends  MY_Controller {
           $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
       }
 
+      $data['header_black_menu'] = 'include/header_black_menu';
+      $data['header_logo_white'] = 'include/header_logo_white';
+      
       $data['footer_privacy'] = 'include/footer_privacy';
       $data['footer_subscribe'] = 'include/footer_subscribe';
       $data['signin_form'] = 'include/signin_form';
