@@ -82,11 +82,15 @@ overflow: hidden;
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="">
-        <?php $logged_in = (bool) $this->session->userdata('logged_in'); ?>
+        <?php 
+              $logged_in = (bool) $this->session->userdata('logged_in');
+              $uname = $this->session->userdata('username'); 
+              $profile_fname = $this->session->userdata('profile_fname'); 
+        ?>
             <?php if($logged_in===TRUE): ?>
                    <p class="navbar-text greeting-text">
                     Welcome &nbsp;<span style="color:#2a78ac;">
-                   <?php echo ucfirst(strtolower($profile->fname));?> </span>!!
+                   <?php echo ucfirst(strtolower($profile_fname));?> </span>!!
                    </p>
             <?php else: ?>
                <p class="navbar-text greeting-text">

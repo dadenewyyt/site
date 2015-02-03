@@ -52,6 +52,7 @@ class Users extends MY_Controller {
 	public function signin() {
 
         $data['header_logo_white'] = 'include/header_logo_white';
+        $data['header_black_menu'] = 'include/header_black_menu';
         $data['footer_privacy'] = 'include/footer_privacy';
         $data['footer_subscribe'] = 'include/footer_subscribe';
         $data['signin_form'] = 'include/signin_form';
@@ -96,12 +97,14 @@ class Users extends MY_Controller {
                   $this->load->model('profile_model', 'profile');
                   $user_data = $this->session->all_userdata();
 
-                  $this->profile_id = $this->profile->get_by('user_id', $user_data['user_id'])->id;
+                  $profile = $this->profile->get_by('user_id', $user_data['user_id']);
+                  $this->profile_id = $profile->id;
 
                   $this->session->set_userdata(
                       array(
                           'logged_in' => TRUE,
                           'profile_id' => $this->profile_id,
+                          'profile_fname'=>$profile->fname,
                       ));
 
                   //$this->session->set_userdata('current_profile', $current_profile);
