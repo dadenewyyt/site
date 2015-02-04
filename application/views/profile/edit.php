@@ -66,8 +66,15 @@ margin-bottom: 5px;
                         to existing users on the platform. Show your personality 
                         with MBU4U members today  & upload a picture.</h5>
             </div>
+         <style class="text/css">
 
-            <div class="col-md-6" style="color:#999999;">
+             .edit-profile .form-control {
+                     background-color:#E4E7EA;;
+
+             }
+         </style>
+
+            <div class="col-md-6 edit-profile" style="color:#999999;">
               <?php $this->load->view($show_error_page,$data);?>
 
               <h4 class="heading_color">Personal Information </h4> 
@@ -122,7 +129,7 @@ margin-bottom: 5px;
                 <div class="form-group">
                   <label class="profile_info_text"> A Little About Myself</label>
                  <br/>
-                  <textarea class="form-control" cols="70" rows="2" id="bioinfo" name='bioinfo'></textarea>
+                  <textarea class="form-control" cols="70" rows="2" id="bioinfo" name='bioinfo'> <?php echo $profile->bioinfo;?></textarea>
                 </div>
 
                 <h4 class="heading_color">Email Information </h4>
