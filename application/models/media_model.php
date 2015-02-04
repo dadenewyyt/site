@@ -35,7 +35,7 @@ class Media_model extends MY_Model {
 
         $upload_data = $this->upload_media($upload_config);
 
-        if (isset($upload_data)) {
+        if (isset($upload_data['file_name'])) {
             $file_name = $upload_data['file_name'];
             $file_path = $upload_data['file_path'];
             //update profile image details

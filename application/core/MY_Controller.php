@@ -59,6 +59,32 @@ class MY_Controller extends CI_Controller {
     function _render_page($view, $data=null, $render=false)
     {
 
+        $tweets_page = 'include/tweets';
+        $video_page = 'include/video_page';
+        $paginate_page = 'include/paginate_page';
+        $notification_bar = 'include/notification_bar';
+        $header_logo_white = 'include/header_logo_white';
+        $main_menu = 'include/main_menu';
+
+        $paginate_page = 'include/paginate_page';
+        $notification_bar = 'include/notification_bar';
+
+        $data['footer_privacy'] = 'include/footer_privacy';
+        $data['footer_subscribe'] = 'include/footer_subscribe';
+        $data['header_black_menu'] = 'include/header_black_menu';
+        $data['paginate_page'] = $paginate_page;
+        $data['notification_bar'] = $notification_bar;
+
+        $data['header_black_menu'] = 'include/header_black_menu';
+        $data['header_logo_white'] = 'include/header_logo_white';
+        $data['show_error_page'] = 'include/show_error_page';
+        $data['footer_privacy'] = 'include/footer_privacy';
+        $data['footer_subscribe'] = 'include/footer_subscribe';
+        $data['signin_form'] = 'include/signin_form';
+        $data['new_to_madeby'] = 'include/new_to_madeby';
+        $data['navigation_top'] = 'include/navigation_top';
+        $data['notification_bar'] = 'include/notification_bar';
+
         $this->viewdata = (empty($data)) ? $this->data: $data;
 
         $view_html = $this->load->view($view, $this->viewdata, $render);

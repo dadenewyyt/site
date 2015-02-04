@@ -24,19 +24,17 @@ class Profile extends  MY_Controller {
 
     public function index(){
 
-    	
-      redirect('profile/edit/1');
 
     }
 
     public function edit($id) {
 
-
+      $this->output->enable_profiler(TRUE);
 
       $profile = $this->profile->with('media')->get($id);
       $profile_image = '';
 
-      if(!empty($profile->media)) {
+      if(count($profile->media) > 0)  {
           $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
       }
 
@@ -62,7 +60,7 @@ class Profile extends  MY_Controller {
 
     public function save_profile(){
 
-
+      $this->output->enable_profiler(TRUE);
       //validation
       $tables = $this->config->item('tables','ion_auth');
       //validate form input
@@ -85,33 +83,35 @@ class Profile extends  MY_Controller {
 
             $upload_config['upload_path'] = $pathToUpload;
 
-
-            $profile_image_id = $this->media->save_or_update($this->profile_id,$upload_config);
+            $profile_image_id = $this->media->save_or_update($this->profile_id ,$upload_config);
 
           //receive the post available after validate and update profile
             $password = $this->input->post('password');
             $new_email = $this->input->post('new_email');
             $bioinfo = $this->input->post('bioinfo');
 
-           //update user account details
-           // $updated_password = $this->users->hash_password($password,''); //can pass salt value here
+            //update user account details
+            // $updated_password = $this->users->hash_password($password,''); //can pass salt value here
 
           /**
            * check if email is empty or not then update
            */
-          if(isset($new_email)) {
+          if(!empty($new_email)) {
               $this->users->update($this->user_id, array('password' => $password, 'email' => $new_email));
           }
 
           $this->users->update($this->user_id, array('password' => $password));
 
-            //update profile information details
-            $this->profile->update($this->profile_id,
-                array(
-                    'bioinfo' => $bioinfo,
-                    'profile_image_id' => $profile_image_id
-                )
-            );
+          if ( $profile_image_id != -1 ) {
+              //update profile information details
+              $this->profile->update($this->profile_id,
+                  array(
+                      'bioinfo' => $bioinfo,
+                      'profile_image_id' => $profile_image_id
+                  )
+              );
+          }
+            $result = $this->profile->update($this->profile_id, array('bioinfo' => $bioinfo));
 
             //TODO:success page must be displayed
             //TODO:link must be provide to visit home, account
