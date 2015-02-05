@@ -36,11 +36,11 @@
 
 <div class="row row-details">
       
-      <div class="col-md-8 detail_info pull-left">
+      <div class="col-md-10 detail_info pull-left">
      
         <div class="media">
 
-              <a class="media-left media-top" href="#">
+              <a class="media-left media-top" href="#" style="padding-bottom: 9px">
                   <img class='pull-left user-small-image' src="<?php echo base_url()."assets/images/products/user.png"?>" height='180' alt="...">
               </a>
 
@@ -48,7 +48,17 @@
 
              <div class="media-body">
  <div class='bodys'>
-               <h3 class="media-heading">Fashion Unique</h3>
+ <style type="text/css">
+.likes_count {
+  color: #2676af;
+  font-weight: 500;
+}
+.bio p {
+  color:#8c8c8c;
+  text-align: justify;
+}
+ </style>
+               <h3 class="media-heading">Fashion Unique <small>| &nbsp;<i class='glyphicon glyphicon-thumbs-up' style='color:#2676af;'></i>&nbsp;<span class='likes'>Likes <span class='likes_count'>( 143 )</span></span></small></h3>
                    <p><i class='glyphicon glyphicon-briefcase'></i>
                    <span class='jobtitle'>Creative Director</span> | 
                    <span class='companyname'>Fashion Unique Apprell,LLC</span>
@@ -58,26 +68,14 @@
                    <span class='country'><i class='glyphicon glyphicon-map-marker'></i>United States</span>
                    </p> 
 
-                <div class="col-md rating_chat" style="padding-top:6%;">
+                <div class="" style="">
+                 <div class="bio">
+                  <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod teincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniat, 
+                quisexercitation ullamco laboris nisi ut aliquip ex ea commodo."Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod teincidid
                  
-                  <p>  <span class="rating">
-                             <i class='glyphicon glyphicon-star'></i>
-                             <i class='glyphicon glyphicon-star'></i>
-                             <i class='glyphicon glyphicon-star'></i>
-                             <i class='glyphicon glyphicon-star-empty'></i>
-                             <i class='glyphicon glyphicon-star-empty'></i>
-                    </span>                     
-                           
-                    <a href="#" class="btn btn-default btn-rate"><i class='glyphicon glyphicon-star'></i>Rate</a>
-                     <a href="#" class="btn btn-default btn-start-chat "><i class='glyphicon glyphicon-comment'></i>Start Chat</a>
-                    </p>       
-                     <div class="memeber_month">
-                         <p>
-                           <span class='memeber'>Member Since |</span>  
-                           <span class="month">February 2014</span>
-
-                         </p>
-                     </div>
+                 </div>
+                       
+                    
                    
                      
 
@@ -94,22 +92,24 @@
 
 
 
-        <div class="col-md-4 buttons ">
+        <div class="col-md-2 buttons ">
             <div class="form-inline pull-right">
              <div class="form-groups">
-               <a href="#" class="btn btn-default btn-sm"><i class='glyphicon glyphicon-user'></i>Send Friend Request</a>
-               <a href="#" class="btn btn-default btn-sm"><i class='glyphicon glyphicon-envelope'></i>Send a Message</a>
+
+               <a href="#" class="btn btn-default btn-sm"><i class='glyphicon glyphicon-bullhorn'></i>Refer a Friend Today</a>
             
              </div>
               </div>
-             <a href="#" class="btn btn-default btn-chat-status btn-sm pull-right"><i class='glyphicon glyphicon-record' style='color:#69DA32;'></i>This user is online</a>
+
       </div>
+
+
 
 </div> <!--end of row -->
 
           <div class="row row-under-container" >
             
-             <div class="col-md-1">Web| <span class='webaddres'>www.google.com  </span>  </div>
+             <div class="col-md-1"><i class='glyphicon glyphicon-edit'></i> <span class='webaddres'>Edit Profile  </span>  </div>
               <div class="col-md-2"><a href="#listing" aria-controls="listing" role="tab" data-toggle="tab" class="active"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>5 Listings</a></span>  </div>
               <div class="col-md-2"><a href="#store" aria-controls="store" role="tab" data-toggle="tab"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>2 Store</a></span></div>
               <div class="col-md-2"><a href="#likes" aria-controls="likes" role="tab" data-toggle="tab"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>10 Likes</a></span></div>

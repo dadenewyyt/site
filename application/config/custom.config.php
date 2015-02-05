@@ -23,7 +23,6 @@ $config['public_urls'] = array (
 'sell/sell',
 'sell/index',
 'bid/',
-
 'bid/index',
 'buy/index',
 'buy/buy',
