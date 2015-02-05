@@ -41,8 +41,6 @@ color: #a1a1a1;
 
 }
 
-
-
 </style>
  <div class="row row-1">
 

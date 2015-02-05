@@ -48,16 +48,7 @@
 
              <div class="media-body">
  <div class='bodys'>
- <style type="text/css">
-.likes_count {
-  color: #2676af;
-  font-weight: 500;
-}
-.bio p {
-  color:#8c8c8c;
-  text-align: justify;
-}
- </style>
+
                <h3 class="media-heading">Fashion Unique <small>| &nbsp;<i class='glyphicon glyphicon-thumbs-up' style='color:#2676af;'></i>&nbsp;<span class='likes'>Likes <span class='likes_count'>( 143 )</span></span></small></h3>
                    <p><i class='glyphicon glyphicon-briefcase'></i>
                    <span class='jobtitle'>Creative Director</span> | 
@@ -109,7 +100,7 @@
 
           <div class="row row-under-container" >
             
-             <div class="col-md-1"><i class='glyphicon glyphicon-edit'></i> <span class='webaddres'>Edit Profile  </span>  </div>
+             <div class="col-md-1"><i class='glyphicon glyphicon-pencil'></i> <span class='webaddres'>Edit Profile  </span>  </div>
               <div class="col-md-2"><a href="#listing" aria-controls="listing" role="tab" data-toggle="tab" class="active"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>5 Listings</a></span>  </div>
               <div class="col-md-2"><a href="#store" aria-controls="store" role="tab" data-toggle="tab"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>2 Store</a></span></div>
               <div class="col-md-2"><a href="#likes" aria-controls="likes" role="tab" data-toggle="tab"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>10 Likes</a></span></div>

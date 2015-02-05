@@ -64,6 +64,13 @@ overflow: hidden;
     top: 30%;
     background: #808080;
 }
+
+
+
+.shopping_cart .glyphicon {
+font-size: 16px;
+color: #ffffff;
+}
 </style>
 <nav class="navbar-topmenu navbar navbar-inverse navbar-fixed-top" >
   <div class="container">
@@ -108,6 +115,15 @@ overflow: hidden;
       </ul>
      
       <ul class="nav navbar-nav navbar-right navbar-dropmenu">
+<li>
+       <div class='shopping_cart'>
+                    <small style='font-weight: 600;
+font-size: 14px;'>Cart/ $ 0.00</small>
+                    <span class="glyphicon glyphicon-shopping-cart" style='color: #ffffff;
+'></span> 
+                    <sup class="badge">0</sup>
+                </div>
+                </li>
         <li><a href="#">My Account</a></li>
          <li><a href="#">Checkout</a></li>
         
