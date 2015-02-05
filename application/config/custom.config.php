@@ -18,9 +18,12 @@ $config['public_urls'] = array (
 'signup/resend_activation',
 'buy/',
 'sell/',
-'bid/',
+'sell/seller',
+'sell/become_seller',
 'sell/sell',
 'sell/index',
+'bid/',
+
 'bid/index',
 'buy/index',
 'buy/buy',
