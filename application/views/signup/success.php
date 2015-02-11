@@ -18,12 +18,13 @@
 <body>
 
 <header>
-    <style type="text/css">
+    <!--<style type="text/css">
         .navbar-default .navbar-nav>li>a {
             color: #000000;
             padding-right: 40px;
         }
     </style>
+    -->
          <div class="menu_top"> <?php $this->load->view($header_black_menu); ?> </div>
 
 

@@ -195,6 +195,7 @@ text-align:center;padding-bottom:8%;
 }
 
 .buy_btn {float: right;}
+.browse-btn {  margin: 22%;   background:  cover;}
 .price { padding-top: 1%;margin-left: 3%;font-size: 17px;font-weight: 600;}
 .caption p {
     padding: 1%;

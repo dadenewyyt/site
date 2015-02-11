@@ -10,129 +10,8 @@
     <!-- Le styles -->
     <link href=<?php echo base_url()."assets/plugins/bootstrap/css/bootstrap.min.css";?> rel="stylesheet">
     <link href=<?php echo base_url()."assets/css/common.css";?> rel="stylesheet">
-<style type="text/css">
-.col-md-small-images{
-  padding-left: 0px;
-}
-.col-md-large-image {
-  padding-right: 0px;
-  height: 300px;
-}
-.thmbnail-large {
-border:none;
+    <link href=<?php echo base_url()."assets/css/product.css";?> rel="stylesheet">
 
-}
-.img-responsive {
-  border:none;
-}
-.small-images img {
-  border-radius: 1px;
-
-}
-.col-md-border {
-  border-radius: 1px;
-  border:1px solid grey;
-}
-
-.rating_class {
-padding-left:10px;
-
-  }
-.rating_class i {
-    color:#2676af;
-}
-.hr_border {
-border-top: 2px dotted #818181;
-width: 100%;
-margin-top: 0px;
-margin-bottom:4px;
-}
-.hr_line {
-  margin-top: 0px;
-  color: #dfdfdf;
-  border:1px solid #dfdfdf;
-  margin-bottom: 5px;
-}
-.price_1 {
-  font-weight: 500;
-  font-size: 22px;
-  padding-left: 20px;
-  color: #595959;
-}
-.timeleft {
- float: right;
-}
-.left_text {
-  padding-left: 4px;
-  color: #387cb0;
-}
- .col-md-7{
-  padding-right: 0px;
- padding-left: 0px;
-}
-
-.btn_black {
-  color: #fff;
-  background-color: #2D2E2F;
-  border-color: #8D9092;
-   border-radius:3px;
-  }
-.buttons .btn:hover, .btn:focus, .btn.focus {
-  color: #fff;
-  background-color: #2D2E2F;
-  border-color: #8D9092;
-  }
- .buttons .btn {
-  border-radius:3px;
-
- }
- .btn-bid {
- background-color: #276e9f;
- }
-
-.col-give-margin-top {
-  margin-top: 20px;
-  text-align: left;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.col-give-margin-top .username {
-  color: #226da0;
-}
-.col-give-margin-top b {
-  color: #226da0;
-}
-.Numbers {
-    font-weight: 800;
-    font-size: 30px;
-  }
-.col-md-12-2 {
-    margin-bottom: 10px;
-  }
-.short_text {
-     font-size: 17px;
-     text-transform: uppercase;
-     font-weight: 400;
-  }
-.badge-product-details {
-padding: 11px 17px;
-font-size: 24px;
-}
-.user_text {
-  font-weight: 500;
-  font-size: 15px;
-  padding-top: 3px;
-}
-  .main_content_text  {
-    padding-bottom: 4%;
-  }
-  .main_content_text p {
-    text-align: justify;
-    color: #595959;
-  }
-
-</style>
 </head>
 
 <body>
@@ -338,18 +217,14 @@ font-size: 24px;
 <script src="<?php echo base_url()."assets/plugins/bootstrap/js/bootstrap.min.js";?>"></script> 
 <script src="<?php echo base_url()."assets/js/subscribe_ajax.js";?>"></script>
 <script type="text/javascript">
+
     /***
      * Created by Daniel Adenew
      * Submit email subscription using ajax
      * Send email address
      * Send controller
-     * Recive response
+     * Receive response
      */
-    $(document).ready(function() {
-
-      
-    });
-
        var url =  "<?php echo site_url('welcome/subscribe');?>";
        subscribe_using_ajax(url);
   

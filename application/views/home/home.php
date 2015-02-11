@@ -140,15 +140,15 @@
          </div>
 
           <div class="col-md-4 col-md-offset-1 col-sm-4 col-xs-4 module_images_newarrival img-responsive module_border_style">
-             
-               <button class="btn btn-primary">NEW ARRIVALS</button>
+
+              <a href="<?php echo base_url('product/detail/') ;?>" class="btn btn-primary">NEW ARRIVALS</a>
          
           </div>
 
          <div class="col-md-4 col-sm-4 col-xs-4 col-md-offset-1 module_images_meet_people img-responsive module_border_style" > 
 
                 <h4>MEET NEW MEMBERS DAILY</h4>
-
+                <a href="<?php echo base_url('sell') ;?>" class="btn btn-primary browse-btn">BROWSE</a>
          </div>
     
      </div>
@@ -176,9 +176,7 @@
 
 </div>
 
-<?php $this->load->view($product_listing); ?>
-  
-
+    <?php $this->load->view($product_listing); ?>
 
   </div>
 

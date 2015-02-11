@@ -1,0 +1,164 @@
+.navbar {
+    min-height:40px;
+    border-radius:0px;
+
+}
+
+.navbar-default .navbar-nav>li>a {
+color: #000000;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+
+color: #a1a1a1;
+
+}
+.navbar-nav {
+
+  margin-left: -16px;
+}
+ .col-md-2-person {
+   
+width: 21.666667%;
+  }
+
+.thumbnail hr {
+margin-top: 0px;
+margin-bottom: 0px;
+padding: 4px;
+border: 0;
+border-top: 1px solid #eee;
+font-family: font-family: 'Open Sans', sans-serif;
+
+}
+.img-thumbnail { border-radius: 2px;}
+  
+.buy_btn .btn-primary {
+color: #fff;
+background-color: #3E3F3F;
+border-color: #535658;
+border-radius: 2px;
+float: right;
+}
+
+
+.thumbnail .caption h4 {
+  margin-top: 0px;
+}
+
+.thumbnail .caption {
+  padding: 2px;
+}
+.row-heading {
+margin-top: -5px;
+}
+
+.showing_text {
+    margin-left: 0;
+    padding-bottom: 10px;
+}
+.hr_border {
+border-top: 2px dotted #818181;
+margin-top: 33px;
+margin-bottom: 22px;
+width: 100%;
+}
+
+.hr_border_bottom {
+border-top: 2px dotted #818181;
+width: 100%;
+}
+.showing_text .showing {
+font-weight: 800;
+font-size: 20px;
+color:#595959;
+}
+
+.showing_text .small_text{
+font-size: 18px;
+font-weight: normal;
+}
+.showing_text .showing-item {
+   color:#bfbfbf;
+   font-weight: 600;
+}
+
+.img-responsive {
+  border: none;
+}
+.thumbnail {
+  border-radius: 1px;
+}
+/**column width**/
+.col-md-2-person {
+width: 19.7777%;
+padding-left: 2;
+padding-right:6px; 
+}
+
+.container-pattern_image {
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+  .pattern_holder_div {
+  width: 100%;
+  background-color: white;
+  height: 70px;
+  padding: 10px;
+
+  }
+
+  .pattern {
+    background-image: url('assets/images/pattern.png');
+     height: 50px;
+    background-repeat: repeat-x;
+    padding: 7px;
+  }
+.become_seller_text{
+font-size: 18px;
+font-weight: 600;
+}
+.become_seller_text .blue_color{
+color: #184878;
+}
+
+ .small_text{
+color: #6c6c6c;
+font-weight: bold;
+
+}
+.buy_btn .btn-primary {
+color: #fff;
+background-color: #3E3F3F;
+border-color: #535658;
+border-radius: 2px;
+float: right;
+}
+
+ .seller_name .member_name{
+  font-size: 17px;
+  font-weight: normal;
+  padding-left: 5px;
+
+  color: #343434;
+ }
+ .seller_name i {
+    color: #343434;
+ }
+ .seller_location {
+   text-align: left;
+  
+ }
+ .text_content {
+  padding-left: 8px;
+    padding-right: 4px;
+ }
+ .rating {
+  color: #828282;
+ }
+.rating_star{
+  color: #2676af;
+}
+.main-nav nav{
+background-color: white;
+}

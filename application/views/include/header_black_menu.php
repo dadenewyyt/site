@@ -104,7 +104,7 @@ color: #ffffff;
                     Hi &nbsp;<span style="color:#2a78ac;">
                     <a href="<?php echo base_url('users/login');?>">Sigin In</a></span>
                     Or <span style="color:#2a78ac;">
-                    <a href="<?php echo base_url('users/register');?>">Register</a></span>
+                    <a href="<?php echo base_url('signup');?>">Register</a></span>
                    </p>
             <?php  endif ?>
         <span class="sr-only">(current)</span></a></li>

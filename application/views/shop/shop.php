@@ -9,72 +9,13 @@
 
     <!-- Le styles -->
     <link href=<?php echo base_url()."assets/plugins/bootstrap/css/bootstrap.min.css";?> rel="stylesheet">
-    <link href=<?php echo base_url()."assets/css/home.css";?> rel="stylesheet">
+
+    <link href=<?php echo base_url()."assets/css/shop.css";?> rel="stylesheet">
 
 </head>
-<style type="text/css">
-
-  .row2 {
-    background-color: 
-  }
-.navbar-default .navbar-nav>li>a {
-color: white;
-}
-
-.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-color: #4b9ad1;
-background-color: transparent;
-}
 
 
-.rec {
-    border-radius: 2px; 
-  }
-.thumbnail hr {
-margin-top: 0px;
-margin-bottom: 0px;
-padding: 4px;
-border: 0;
-border-top: 1px solid #eee;
-font-family: font-family: 'Open Sans', sans-serif;
-}
-
-.img-thumbnail { border-radius: 2px;}
-
-  
-.buy_btn .btn-primary {
-color: #fff;
-background-color: #3E3F3F;
-border-color: #535658;
-border-radius: 2px;
-}
- .buy_btn .btn {
-padding: 3px 9px;
-/* height: auto; */
-/* width: 73px; */
-}
-
-.custom_product_images .col-md-3 {
-width: 21%;
-}
-.span_buy_it_now p{
-margin-top: -10px;
-margin-left: 3px;
-font-size: 11px;
-font-family: font-family: 'Open Sans', sans-serif;
-}
- .span_buy_it_now p a {
-  text-decoration: none;
-}
-.thumbnail .caption h4 {
-  margin-top: 0px;
-}
-.thumbnail .caption {
-  padding: 2px;
-}
-
-</style>
-
+ 
 <body>
 
 <header>

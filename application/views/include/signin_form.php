@@ -59,12 +59,12 @@ background-color: #f2f2f2;
 	       <div class="form-group">
 	          <label for="Password">Password</label>
 	          <input type="password" class="form-control" id="password" name="password" placeholder="">
-	          <p class="help-block"><a href="#"><strong>Forgot Password?</strong></a>.</p>
+	          <p class="help-block"><a href="<?php echo base_url('users/forgot_password');?>"><strong>Forgot Password?</strong></a>.</p>
 	      </div>
 	      <div class="checkbox">
 	      	<label>
 	      	<?php 
-	      	echo form_checkbox('remember', '1', FALSE, 'id="remember"');
+	      	echo form_checkbox('remember', '1', FALSE, 'id="remember" name="remember"');
 	      	?>
              <strong>Stay Signed in</strong>
 	      	<p class="help-block">

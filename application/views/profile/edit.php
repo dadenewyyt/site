@@ -29,25 +29,7 @@ $email = $this->session->userdata('email');
 <?php $this->load->view($header_logo_white); ?>
 
 </div>
-<style type="text/css">
-.hr_below_heading {
-margin-top: -7px;
-margin-bottom: 14px;
-border: 0;
-border-top: 1px solid #eee;
-}
-.heading_color{
-  color: #226da0;
-}
-.profile_info_text {
-  color:#404040;
-  font-weight: 400;
-}
-.form-group-edit {
-margin-top: -14px;
-margin-bottom: 5px;
-}
-</style>
+
 <section >
 
     <div class="middle_naviagtion">
