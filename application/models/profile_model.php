@@ -30,6 +30,8 @@ class Profile_model extends MY_Model {
     public $has_many = array('store' => array( 'primary_key' => 'profile_id' ,'model'=>"store_model") );
 
 
+
+
     public function register($post)
     {
 

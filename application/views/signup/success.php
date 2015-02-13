@@ -16,15 +16,21 @@
 <body>
 
 <header>
-    <!--<style type="text/css">
+<style type="text/css">
         .navbar-default .navbar-nav>li>a {
             color: #000000;
             padding-right: 40px;
+
+        }
+        nav .navbar-nav {
+          margin-top: 10px;
         }
     </style>
-    -->
+
         
-         <div class="menu_top"> <?php $this->load->view($header_black_menu); ?> </div>
+         <div class="menu_top">
+   <?php $this->load->view($header_black_menu); ?> 
+           </div>
          <?php $this->load->view($header_logo_white); ?>
 
 </header>
@@ -32,12 +38,22 @@
 <!-- Responsive design
 ================================================== -->
 <section id="responsive" >
-
+<style type="text/css">
+  .navbar-default .navbar-nav>li>a {
+    color: #000000;
+ padding-right: 0px
+}
+  .navbar {
+    height:37px;
+    margin-bottom: 20px;
+   
+}
+</style>
   <div class="container container2">
 
    <div class="row">
 
-          <div class="navbar navbar-default" role="navigation" style="min-height:40px;">
+          <div class="navbar navbar-default navbar-home " role="navigation" style="min-height:40px;">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">

@@ -52,7 +52,9 @@
     </div>
 </div>
 </header>
+<style type="text/css">
 
+</style>
 <!-- Responsive design
 ================================================== -->
 <section id="responsive" >

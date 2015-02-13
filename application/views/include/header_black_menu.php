@@ -92,7 +92,8 @@ color: #ffffff;
         <?php 
               $logged_in = (bool) $this->session->userdata('logged_in');
               $uname = $this->session->userdata('username'); 
-              $profile_fname = $this->session->userdata('profile_fname'); 
+              $profile_fname = $this->session->userdata('profile_fname');
+              $profile_id = $this->session->userdata('profile_id'); 
         ?>
             <?php if($logged_in===TRUE): ?>
                    <p class="navbar-text greeting-text">
@@ -132,9 +133,11 @@ font-size: 14px;'>Cart/ $ 0.00</small>
                 <li class="dropdown navbar-dropmenu ">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#"><i class='glyphicon glyphicon-cog'></i>&nbsp;My Account</a></li>
+                    <li><a href="<?php echo base_url('sell/seller').'/'.$profile_id;?>"><i class='glyphicon glyphicon-cog'></i>&nbsp;My Account</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class='glyphicon glyphicon-user'></i>&nbsp;Edit Profile</a></li>
+                    <li><a href="<?php echo base_url('payment/payment');?>"><i class='glyphicon glyphicon-dashboard'></i>&nbsp;Dashboard</a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo base_url('profile/edit').'/'.$profile_id;?>"><i class='glyphicon glyphicon-user'></i>&nbsp;Edit Profile</a></li>
                     <li class="divider"></li>
                     <li><a href="#"><i class='glyphicon glyphicon-shopping-cart'></i>&nbsp;Edit Store</a></li>
                     <li class="divider"></li>

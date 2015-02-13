@@ -196,11 +196,12 @@ $email = $this->session->userdata('email');
                         <input type="text" name="company_name" class="form-control input-sm" id="company_name" value="<?php echo $profile->company_name ;?>">
                       </div>
             </div>
-            <br/>--> <br/>
+            <br/>-->
+                <br/>
                  <button class="btn btn-primary btn-sm btn-default pull-right" style="padding: 3px 45px;">SAVE</button>
                 <!--<a href="<?php echo base_url('payment/payment');?>" class="btn btn-default" style="margin-left:5px;">SKIP</a>
-                <?php  echo form_open_multipart('profile/save_profile',$attributes); ?>
--->
+               -->
+                <?php  echo form_close(); ?>
             </div>
         </div>
     </div>

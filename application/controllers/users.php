@@ -107,10 +107,23 @@ class Users extends MY_Controller {
                           'profile_fname'=>$profile->fname,
                       ));
 
-                  //$this->session->set_userdata('current_profile', $current_profile);
-                  $profile_url = site_url('profile/edit/' . $this->profile_id);
+
+
+                  /**check for previous login **/
+                  $current_user = $this->users->get($this->user_id);
+
+                  $profile_url = site_url('sell/seller/' . $this->profile_id);
+
+                 if(count($current_user) > 0) { 
+                
+                  if (null == $current_user->last_login || $current_user->last_login == 'NULL' || empty($current_user->last_login)) {
+                      //$this->session->set_userdata('current_profile', $current_profile);
+                      $profile_url = site_url('profile/edit/' . $this->profile_id);
+                  }
+              }
 
                   redirect($profile_url, 'refresh', $data);
+
               } else {
                   //if the login was un-successful
                   //redirect them back to the login page

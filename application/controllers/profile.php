@@ -29,14 +29,16 @@ class Profile extends  MY_Controller {
 
     public function edit($id) {
 
-      $this->output->enable_profiler(TRUE);
+      //$this->output->enable_profiler(TRUE);
 
       $profile = $this->profile->with('media')->get($id);
       $profile_image = '';
 
-      if(count($profile->media) > 0)  {
+        if(count($profile->media) > 0)  {
           $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
-      }
+         } else {
+           $profile_image = "/uploads/profile/no-photo.jpg";
+         }
 
       $data['header_black_menu'] = 'include/header_black_menu';
       $data['header_logo_white'] = 'include/header_logo_white';
@@ -60,7 +62,7 @@ class Profile extends  MY_Controller {
 
     public function save_profile(){
 
-      $this->output->enable_profiler(TRUE);
+      //$this->output->enable_profiler(TRUE);
       //validation
       $tables = $this->config->item('tables','ion_auth');
       //validate form input
@@ -117,7 +119,9 @@ class Profile extends  MY_Controller {
             //TODO:link must be provide to visit home, account
             //TODO:controller and self refreshing page
             //goto home
-             redirect('payment/payment','refresh');
+
+
+             redirect('sell/seller/'.$this->profile_id,'refresh');
 
             } else {
                 

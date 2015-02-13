@@ -41,28 +41,26 @@
         <div class="media">
 
               <a class="media-left media-top" href="#" style="padding-bottom: 9px">
-                  <img class='pull-left user-small-image' src="<?php echo base_url()."assets/images/products/user.png"?>" height='180' alt="...">
+                  <img class='pull-left user-small-image' src="<?php echo base_url($profile_image);?>" height='150' alt="...">
               </a>
 
              <div class="media-body">
                   
                   <div class='bodys'>
 
-                        <h3 class="media-heading">Fashion Unique <small>| &nbsp;<i class='glyphicon glyphicon-thumbs-up' style='color:#2676af;'></i>&nbsp;<span class='likes'>Likes <span class='likes_count'>( 143 )</span></span></small></h3>
+                        <h3 class="media-heading"><?php echo ucfirst($profile->fname) .' ' .ucfirst($profile->lname) ;?> <small>| &nbsp;<i class='glyphicon glyphicon-thumbs-up' style='color:#2676af;'></i>&nbsp;<span class='likes'>Likes <span class='likes_count'>( 143 )</span></span></small></h3>
                        <p><i class='glyphicon glyphicon-briefcase'></i>
                        <span class='jobtitle'>Creative Director</span> | 
                        <span class='companyname'>Fashion Unique Apprell,LLC</span>
                        </p>
                        <p class="located"><span>Located In:</span>
-                       <span class='location'>Las Vegas ,NV</span> | 
-                       <span class='country'><i class='glyphicon glyphicon-map-marker'></i>United States</span>
+                       <span class='location'><?php echo $profile->state ; ?></span> | 
+                       <span class='country'><i class='glyphicon glyphicon-map-marker'></i><?php echo $profile->city ; ?></span>
                        </p> 
 
                       <div class="" style="">
                        <div class="bio">
-                        <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod teincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniat, 
-                      quisexercitation ullamco laboris nisi ut aliquip ex ea commodo."Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod teincidid
-                       </div>                    
+                        <p><?php echo $profile->bioinfo ;?> </p>                       </div>                    
                   </div>
                 </div>
              </div>
@@ -86,7 +84,7 @@
 
           <div class="row row-under-container" >
             
-             <div class="col-md-1"><i class='glyphicon glyphicon-pencil'></i> <span class='webaddres'>Edit Profile  </span>  </div>
+             <div class="col-md-1"><i class='glyphicon glyphicon-pencil'></i> <span class='webaddres'><a href="<?php echo base_url('profile/edit').'/'.$profile->id;?>">Edit Profile</a>  </span>  </div>
               <div class="col-md-2"><a href="#listing" aria-controls="listing" role="tab" data-toggle="tab" class="active"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>5 Listings</a></span>  </div>
               <div class="col-md-2"><a href="#store" aria-controls="store" role="tab" data-toggle="tab"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>2 Store</a></span></div>
               <div class="col-md-2"><a href="#likes" aria-controls="likes" role="tab" data-toggle="tab"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>10 Likes</a></span></div>
@@ -164,14 +162,14 @@
               <!--start of row-->
           <div class="row-storesetup row" >
 
-          <div id='divstoresetup' class="store-setup-col col-md-8 col-md-offset-2 center-header" style="display:none;">
+          <div id='divstoresetup' class="store-setup-col col-md-8 col-md-offset-2 center-header" style="display:block;">
            <h3>Store Setup </h3>
            <hr>
             <p style="font-weight:400;font-size:15px;">You currently have no stores to create you must verify your account.To begin the store setup process</p>
             <a href="#" id="btnstoresetup" name="btnstoresetup" class="btn btn-primary btn-lg"> Setup Your Store Now </a>
          </div>
 
-         <div id="divsetup-content" name="divsetup-content" class="divsetup-content col-md-12" style="display:block;">
+         <div id="divsetup-content" name="divsetup-content" class="divsetup-content col-md-12" style="display:none;">
            <h3>Store Setup <small class='pull-right' style='color:rgb(216, 62, 62);margin-top: 14px;'>* ( Mandatory filed )</small>  </h3>
             <hr>
             <style type="text/css">
