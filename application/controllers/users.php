@@ -110,13 +110,14 @@ class Users extends MY_Controller {
 
 
                   /**check for previous login **/
-                  $current_user = $this->users->get($this->user_id);
+                  $current_user = $this->users->get(intval($user_data['user_id']));
 
                   $profile_url = site_url('sell/seller/' . $this->profile_id);
 
+                 // $current_time = str
                  if(count($current_user) > 0) { 
                 
-                  if (null == $current_user->last_login || $current_user->last_login == 'NULL' || empty($current_user->last_login)) {
+                  if ( empty($profile->bioinfo) ) {
                       //$this->session->set_userdata('current_profile', $current_profile);
                       $profile_url = site_url('profile/edit/' . $this->profile_id);
                   }
