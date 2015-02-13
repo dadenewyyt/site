@@ -11,8 +11,6 @@
     <link href=<?php echo base_url()."assets/plugins/bootstrap/css/bootstrap.min.css";?> rel="stylesheet">
     <link href=<?php echo base_url()."assets/css/home.css";?> rel="stylesheet">
 
-
-
 </head>
 
 <body>
@@ -25,18 +23,19 @@
         }
     </style>
     -->
+        
          <div class="menu_top"> <?php $this->load->view($header_black_menu); ?> </div>
-
-
          <?php $this->load->view($header_logo_white); ?>
+
 </header>
 
 <!-- Responsive design
 ================================================== -->
 <section id="responsive" >
-<div class="container container2">
 
- <div class="row">
+  <div class="container container2">
+
+   <div class="row">
 
           <div class="navbar navbar-default" role="navigation" style="min-height:40px;">
           <div class="container-fluid">

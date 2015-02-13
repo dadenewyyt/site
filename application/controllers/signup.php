@@ -38,10 +38,9 @@ class SignUp extends MY_Controller {
       $tables = $this->config->item('tables','ion_auth');
 
       //validate form input
-      $this->form_validation->set_rules('bioinfo', $this->lang->line('create_user_validation_fname_label'), 'required|xss_clean');
-    
-      $this->form_validation->set_rules('new_email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email|is_unique['.$tables['users'].'.email]');
-       $this->form_validation->set_rules('new_email', $this->lang->line('create_user_validation_email_label'), 'required');
+      $this->form_validation->set_rules('firstname', $this->lang->line('create_user_validation_fname_label'), 'required|xss_clean');
+      $this->form_validation->set_rules('lastname', $this->lang->line('create_user_validation_lname_label'), 'required|xss_clean');
+      $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email|is_unique['.$tables['users'].'.email]');
       $this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[confirm]');
       $this->form_validation->set_rules('confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
 
