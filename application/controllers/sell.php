@@ -73,6 +73,18 @@ class Sell extends  MY_Controller {
         $notification_bar = 'include/notification_bar';
         $header_logo_white = 'include/header_logo_white';
         $product_listing = 'product/product_listing_pages';
+        /**tabs***/
+        $store_page = 'include/store_page';
+        $addproduct_page = 'storesetup/addproduct';
+        $getpaid_page = 'storesetup/getpaid';
+        $openstore_page = 'storesetup/openstore';
+        $launchstore_page = 'storesetup/launchstore';
+        $data['store_page'] = $store_page;
+        $data['addproduct_page'] = $addproduct_page;
+        $data['getpaid_page'] = $getpaid_page;
+        $data['openstore_page'] = $openstore_page;
+        $data['launchstore_page'] = $launchstore_page;
+        //*end**tab*/
         $main_menu = 'include/main_menu';
         $data['footer_privacy'] = 'include/footer_privacy';
         $data['footer_subscribe'] = 'include/footer_subscribe';
@@ -83,6 +95,7 @@ class Sell extends  MY_Controller {
         $data['notification_bar'] = $notification_bar;
         $data['header_logo_white'] = $header_logo_white;
         $data['main_menu'] = $main_menu;
+       
 
         $this->load->model('profile_model','profile');
 
@@ -94,7 +107,6 @@ class Sell extends  MY_Controller {
           $profile_image = "/uploads/profile/no-photo.jpg";
          }
 
-       
         $data['profile']  = $profile ;
         $data['profile_image']  = $profile_image ;
 

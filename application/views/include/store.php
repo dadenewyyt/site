@@ -13,55 +13,7 @@
     <link href=<?php echo base_url()."assets/css/collective_common.css";?> rel="stylesheet">
 
 </head>
-  <style type="text/css">
-              .center-header {
-                text-align: center;
-              } 
-              .store-setup-col {
-                padding-bottom: 2%;
-              }
-              
-              .store-setup-col h3{
-              margin-bottom: -11px;
 
-            }
-             .store-setup-col hr{
-              border-top:1px solid rgb(222, 223, 231);
-              margin-bottom: 12px;
-            }
-            .store-setup-col p {
-              margin-bottom: 10px;
-            }
-            .row-storesetup {
-              background-color: white;
-              margin-bottom: 10%;
-              margin-top: 1%;
-             /* border: 1px solid #F2F6F9;*/
-             border: 1px solid #EDEAEA;
-            }
-            .divsetup-content h3 {
-              margin-top: 5px;
-            
-            }
-            .divsetup-content hr {
-              margin-top: 10px;
-            }
- 
-  
-.tabpane-storesetup .nav-pills>li>a {
-border-radius: 1px;
-}
-
-.tabpane-storesetup .nav>li>a {
-background-color: #e3e3e3;
-}
-.tabpane-storesetup .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
-color: #fff;
-background-color: #1c6aa0;
-font-weight: 700;
-}
-
-            </style>
 <body>
 
      <?php $this->load->view($notification_bar); ?>
@@ -172,49 +124,101 @@ font-weight: 700;
 
     <!--store setup-->
     <div role="tabpanel" class="tab-pane active" id="store">
-         
+          <style type="text/css">
+              .center-header {
+                text-align: center;
+              } 
+              .store-setup-col {
+                padding-bottom: 2%;
+              }
+              
+              .store-setup-col h3{
+              margin-bottom: -11px;
+
+            }
+             .store-setup-col hr{
+              border-top:1px solid rgb(222, 223, 231);
+              margin-bottom: 12px;
+            }
+            .store-setup-col p {
+              margin-bottom: 10px;
+            }
+            .row-storesetup {
+              background-color: white;
+              margin-bottom: 10%;
+              margin-top: 1%;
+             /* border: 1px solid #F2F6F9;*/
+             border: 1px solid #EDEAEA;
+            }
+            .divsetup-content h3 {
+              margin-top: 5px;
+            
+            }
+            .divsetup-content hr {
+              margin-top: 10px;
+            }
+          </style>
+
               <!--start of row-->
           <div class="row-storesetup row" >
 
-          <div id='divstoresetup' class="store-setup-col col-md-8 col-md-offset-2 center-header" style="display:block;">
+          <div id='divstoresetup' class="store-setup-col col-md-8 col-md-offset-2 center-header" style="display:none;">
            <h3>Store Setup </h3>
            <hr>
             <p style="font-weight:400;font-size:15px;">You currently have no stores to create you must verify your account.To begin the store setup process</p>
             <a href="#" id="btnstoresetup" name="btnstoresetup" class="btn btn-primary btn-lg"> Setup Your Store Now </a>
          </div>
 
-         <div id="divsetup-content" name="divsetup-content" class="divsetup-content col-md-12" style="display:none;">
+         <div id="divsetup-content" name="divsetup-content" class="divsetup-content col-md-12" style="display:block;">
            <h3>Store Setup <small class='pull-right' style='color:rgb(216, 62, 62);margin-top: 14px;'>* ( Mandatory filed )</small>  </h3>
             <hr>
- 
-<div role="tabpanel" class="tabpane-storesetup">
+            <style type="text/css">
+.tabpane-storesetup .nav-pills>li>a {
+border-radius: 1px;
+}
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-pills" role="tablist">
+.tabpane-storesetup .nav>li>a {
+background-color: #e3e3e3;
+}
+.tabpane-storesetup .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+color: #fff;
+background-color: #1c6aa0;
+font-weight: 700;
+}
+            </style>
+              <div role="tabpane-storesetup" class="tabpane-storesetup">
+  
+                <!-- Nav tabs -->
+                <ul class="nav nav-pills" role="tablist">
+               
+                  <li role="presentation" class="active">
 
-    <li role="presentation" class="active">
-        <a href="#storename" aria-controls="storename" role="tab" data-toggle="tab" style="width: 220px;">
-        <!--store page-->
-        Store Name
-        </a>
-   </li> 
-  <li role="presentation"><a href="#addproduct" aria-controls="addproduct" role="tab" data-toggle="tab" style="width: 220px;">Add Product</a></li>
-  <li role="presentation"><a href="#getpaid" aria-controls="getpaid" role="tab" data-toggle="tab" style="width: 220px;">Get Paid</a></li>
-  <li role="presentation"><a href="#openstore" aria-controls="openstore" role="tab" data-toggle="tab" style="width: 220px;">Open Store</a></li>
-  <li role="presentation"><a href="#launchstore" aria-controls="launchstore" role="tab" data-toggle="tab" style="width: 220px;">Launch Store</a></li>
-</ul>
+                  <a href="#storename" aria-controls="home" role="tab" data-toggle="tab" style="width: 220px;">
+ <!--store page-->
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="storename"><?php $this->load->view($store_page);?></div>
-    <div role="tabpanel" class="tab-pane" id="addproduct"><?php $this->load->view($addproduct_page);?></div>
-    <div role="tabpanel" class="tab-pane" id="getpaid"><?php $this->load->view($getpaid_page);?></div>
-    <div role="tabpanel" class="tab-pane" id="openstore"><?php $this->load->view($openstore_page);?></div>
-    <div role="tabpanel" class="tab-pane" id="launchstore"><?php $this->load->view($launchstore_page);?></div>
-  </div>
+                  </a>
 
-</div>
-              
+
+                  </li>
+               
+                  <li role="presentation"><a href="#profile" aria-controls="addproduct" role="tab" data-toggle="tab" style="width: 220px;">Add Product</a></li>
+                  <li role="presentation"><a href="#messages" aria-controls="getpaid" role="tab" data-toggle="tab" style="width: 220px;">Get Paid</a></li>
+                  <li role="presentation"><a href="#settings" aria-controls="openstore" role="tab" data-toggle="tab" style="width: 220px;">Open Store</a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="launchstore" role="tab" data-toggle="tab" style="width: 220px;">Launch Store</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpane-storesetup" class="tab-pane active" id="storename">...</div>
+                  <div role="tabpane-storesetup" class="tab-pane" id="addproduct">...</div>
+                  <div role="tabpane-storesetup" class="tab-pane" id="getpaid">...</div>
+                  <div role="tabpane-storesetup" class="tab-pane" id="openstore">...</div>
+                   <div role="tabpane-storesetup" class="tab-pane" id="launchstore">...</div>
+                </div>
+
+               
+
+            </div><!--end of tab panels-->
 
          </div>
 
