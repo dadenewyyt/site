@@ -12,9 +12,11 @@ class Product_model extends MY_Model {
                                 'media' => array( 'model' => 'media_model' ));
 
 
-   // public $has_many = array( 'comments' => array( 'primary_key' => 'parent_post_id' ) );
-  //  public $belongs_to = array( 'users' => array( 'model' => 'user_model') );
-    //public $has_many = array( 'comments' => array( 'primary_key' => 'parent_post_id' ) );
+    public $has_many = array(
+                              'comments' => array( 'primary_key' => 'parent_post_id' ),
+                              'category' => array( 'primary_key' => 'parent_post_id' )
+
+    );
 
     public $primary_key = 'id';
 

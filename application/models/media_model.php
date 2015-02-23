@@ -26,8 +26,11 @@ class Media_model extends MY_Model {
      * Many to Many if any
      */
 
-    public $belongs_to = array( 'product' => array( 'primary_key' => 'product_id' ,'model'=>"product_model"),
-                             'profile' => array( 'primary_key' => 'profile_id' ,'model'=>"profile_model"));
+    public $belongs_to = array (
+                             'product' => array( 'primary_key' => 'product_id' ,'model'=>"product_model"),
+                             'profile' => array( 'primary_key' => 'profile_id' ,'model'=>"profile_model"),
+                             'store'=>array('primary_key'=>'store_image_id','model'=>'store_model'),
+                           );
 
 
     public function save_or_update($profile_id,$upload_config)

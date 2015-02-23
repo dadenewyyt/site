@@ -91,7 +91,7 @@ deposited.This is done for your protection to ensure that there is time to resol
 
       <div class="form-group">
            <h3>Pic of Check</h3>               
-            <img src="../../assets/images/storesetup/check.jpg">
+            <img src="assets/images/storesetup/check.jpg">
           </div>
   </form>
 </div>

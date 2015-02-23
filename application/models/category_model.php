@@ -14,7 +14,7 @@ class Category_model extends My_Model {
     }
 
    // protected $return_type = 'array';
-    public $belongs_to = array( 'produts' => array( 'primary_key' => 'state' ,'model'=>'state_model'));
+    public $belongs_to = array( 'products' => array( 'primary_key' => 'state' ,'model'=>'state_model'));
 
     public function populate_state_dropdown(){
 

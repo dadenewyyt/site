@@ -11,7 +11,7 @@
     <link href=<?php echo base_url()."assets/plugins/bootstrap/css/bootstrap.min.css";?> rel="stylesheet">
     <link href=<?php echo base_url()."assets/css/common.css";?> rel="stylesheet">
     <link href=<?php echo base_url()."assets/css/collective_common.css";?> rel="stylesheet">
-
+   
 </head>
   <style type="text/css">
               .center-header {
@@ -258,15 +258,30 @@ font-weight: 700;
      * Submit email subscription using ajax
      * Send email address
      * Send controller
-     * Recive response
+     * Receive response
      */
        var url =  "<?php echo site_url('welcome/subscribe');?>";
        subscribe_using_ajax(url);
 
+
+      /*
+      *  prepare store  image to be previewd before actual upload 
+      *  this will be called on change even of the file / upload component
+      *
+      */
+
+     $( "#imgfile_store" ).change(function(event) {
+        var output = document.getElementById('preview_store_image');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        $( "#store_image_file_path").val('file selected');
+      });
+
+
   $('#btnstoresetup').click( function() {
     $('#divstoresetup').hide("400",function(){
       // alert( "Animation complete." );
-        $('#divsetup-content').css('display','block');
+       // $('#divsetup-content').css('display','block');
+        window.location="<?php echo base_url('store');?>";
     });
   }) ;
 

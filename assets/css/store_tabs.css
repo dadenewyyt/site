@@ -1,0 +1,157 @@
+
+.center-header {
+
+    text-align: center;
+}
+.store-setup-col {
+    padding-bottom: 2%;
+}
+.store-setup-col h3 {
+    margin-bottom: -11px;
+}
+.store-setup-col hr {
+    border-top: 1px solid rgb(222, 223, 231);
+    margin-bottom: 12px;
+}
+.store-setup-col p {
+    margin-bottom: 10px;
+}
+.row-storesetup {
+    background-color: white;
+    margin-bottom: 10%;
+    margin-top: 1%;
+    /* border: 1px solid #F2F6F9;*/
+
+border: 1px solid #EDEAEA;
+}
+.divsetup-content h3 {
+    margin-top: 5px;
+}
+.divsetup-content hr {
+    margin-top: 10px;
+}
+.tabpane-storesetup .nav-pills>li>a {
+    border-radius: 1px;
+}
+.tabpane-storesetup .nav>li>a {
+    background-color: #e3e3e3;
+}
+.tabpane-storesetup .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: #1c6aa0;
+    font-weight: 700;
+}
+.tabpane-storesetup .nav>li>a {
+    width: 183px;
+}
+.col-md-store-content {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.row-table-p {
+    background-color: #f3f3f3;
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid #EDEDED;;
+    border-radius: 2px;
+}
+.required_star {
+    color: red;
+    padding-right: 6px;
+}
+.col-md-select {
+    padding-left: 0;
+}
+.btn_on_tabs {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+.tab_content_title {
+    margin-left: -26px;
+    color: #106098;
+    font-size: small;
+    font-weight: bold;
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+#uploadFile {
+    margin-left: 20px;
+    margin-top: -50px;
+}
+.fileUpload {
+    margin-top: -1px;
+    margin-left: 4px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.fileUpload .btn .btn-primary {
+    color: #fff;
+    background-color: #060B0F;
+    border-color: #0F0F0F;
+    font-weight: 400;
+}
+.fileUpload {
+    margin-left: 10px;
+}
+.form-inline hr {
+    margin-bottom: 4px;
+    margin-top: 7px;
+}
+.fileUpload {
+    margin-left: 10px;
+}
+.fileUpload {
+    margin-top: -1px;
+    margin-left: 4px;
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.fileUpload {
+    margin-top: 14px;
+    float: left;
+    margin-bottom: 5px;
+}
+.tab_content_p {
+    font-size: 12px;
+    margin-left: -25px;
+}
+.column_margin {
+    margin-top: 2%;
+}
+.heading {
+    padding: 5px;
+    color: rgb(201, 201, 203);
+}
+
+.hr_store_form {
+    margin-top:5px;
+
+    border-top:1px solid rgb(228, 223, 223);
+    width:85%;
+}
+
+.popover{
+background-color: rgb(69, 69, 69);
+width: 120px;
+height: 85px;
+
+}
+
+.popover-title {
+    background-color: rgb(69, 69, 69);
+    color: white;
+
+}
