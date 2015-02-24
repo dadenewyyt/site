@@ -37,13 +37,13 @@ class Store extends  MY_Controller {
         $store_page = 'storesetup/store_page';
         $addproduct_page = 'storesetup/addproduct';
         $getpaid_page = 'storesetup/getpaid';
-        $openstore_page = 'storesetup/openstore';
+        $previewstore_page = 'storesetup/previewstore';
         $launchstore_page = 'storesetup/launchstore';
         $data['identity_validation_page'] = $identity_validation_page;
         $data['store_page'] = $store_page;
         $data['addproduct_page'] = $addproduct_page;
         $data['getpaid_page'] = $getpaid_page;
-        $data['openstore_page'] = $openstore_page;
+        $data['previewstore_page'] = $previewstore_page;
         $data['launchstore_page'] = $launchstore_page;
         //*end**tab*/
         $main_menu = 'include/main_menu';

@@ -52,7 +52,8 @@ border: 1px solid #EDEAEA;
     background-color: #f3f3f3;
     padding-left: 0;
     padding-right: 0;
-    border: 1px solid #EDEDED;;
+    border: 1px solid #EDEDED;
+    ;
     border-radius: 2px;
 }
 .required_star {
@@ -135,23 +136,118 @@ border: 1px solid #EDEAEA;
     padding: 5px;
     color: rgb(201, 201, 203);
 }
-
 .hr_store_form {
-    margin-top:5px;
-
-    border-top:1px solid rgb(228, 223, 223);
-    width:85%;
+    margin-top: 5px;
+    border-top: 1px solid rgb(228, 223, 223);
+    width: 85%;
 }
-
-.popover{
-background-color: rgb(69, 69, 69);
-width: 120px;
-height: 85px;
-
+.popover {
+    background-color: rgb(69, 69, 69);
+    width: 120px;
+    height: 85px;
 }
-
 .popover-title {
     background-color: rgb(69, 69, 69);
     color: white;
+}
+.col-price {
+    margin-left: -28px;
+    padding-bottom: 10px;
+}
+/**get paid noticed ***/
 
+.getpaid_notice {
+    color: #5585ad;
+    text-align: justify center;
+    font-weight: 600;
+    line-height: 1px;
+}
+.intro_table_text {
+    font-size: 13px;
+    color: #8d8d8d;
+    padding-top: 4px;
+    font-size: 13px;
+    margin-left: -26px;
+}
+.btn_on_tabs {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+.tab_content_title {
+    margin-left: -26px;
+    color: #106098;
+    font-size: medium;
+}
+/**previwe store **/
+
+.btn_on_tabs {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+.col-md-store-content {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.tab_content_title {
+    margin-left: -26px;
+    color: #106098;
+    font-size: medium;
+}
+.borders {
+    border-radius: 2px;
+    border: 1px solid #E8E8E8;;
+    padding-bottom: 12px;
+}
+.social_component {
+    font-weight: 600;
+    color: #2f2f2f;
+    margin-bottom: 30px;
+}
+.social_component p {
+    font-size: 16px;
+    color: #b3b3b3;
+    border-bottom: 2px solid #217dbf;
+}
+.social_component .number {
+    font-weight: 500;
+    font-size: 20px;
+}
+.btn_buy {
+    color: #fff;
+    background-color: #484848;
+    border-color: #484848;
+    font-weight: 600;
+}
+.rating i {
+    color: #f0bb03;
+    font-size: 20px;
+}
+.row-table-p {
+    background-color: #f3f3f3;
+    padding-left: 0;
+    padding-right: 0;
+}
+.required_star {
+    color: red;
+    padding-right: 6px;
+}
+.col-md-select {
+    padding-left: 0;
+}
+.btn_on_tabs {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+.col-md-store-content {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.tab_content_title {
+    margin-left: -26px;
+    color: #106098;
+    font-size: medium;
+}
+.three-columns-preview {
+    padding-bottom: 14px;
+    margin-top: 12px
 }

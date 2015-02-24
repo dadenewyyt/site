@@ -54,6 +54,7 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="form-group row col-md-12">
 
                    <!-- Upload popup hover html hidden content -->
@@ -82,36 +83,67 @@
                             <img id='preview_product_image' name='preview_product_image' src="uploads/profile/no-photo.jpg" alt="...">
                             </a>
                         </div>
+
                         <div class="col-xs-4 col-md-2">
                             <a href="#" class="thumbnail" id="popup_upload">
                             <img src="uploads/profile/no-photo.jpg" alt="...">
                             </a>
                         </div>
+
                         <div class="col-xs-4 col-md-2">
                             <a href="#" class="thumbnail" id="popup_upload1">
                             <img src="uploads/profile/no-photo.jpg" alt="...">
                             </a>
                         </div>
+
                         <div class="col-xs-4 col-md-2">
                             <a href="#" class="thumbnail" id="popup_upload2">
                             <img src="uploads/profile/no-photo.jpg" alt="...">
                             </a>
                         </div>
+
                         <div class="col-xs-4 col-md-2">
                             <a href="#" class="thumbnail" id="popup_upload3">
                             <img src="uploads/profile/no-photo.jpg" alt="...">
                             </a>
                         </div>
-                        <div class="col-xs-4 col-md-2">
-                            <a href="#" class="thumbnail" id="popup_upload4>
-                            <img src="uploads/profile/no-photo.jpg" alt="...">
-                            </a>
-                        </div>
+                       
 
                     </div>
+
+                    <label>Upload clear and good quality pictures</label>
+                    <p>
+                    <span class='required_star'>*</span>
+                    At least one image is manadatory</p>
                 </div>
-              
+
+                 <div class="row col-md-4 form-group">
+                        <span class='required_star'>*</span>
+                        <label for="descritpion">Quantity</label>
+                       <input type="text" class="form-control" name='quantity' id="quanity">
+                </div>
+
+                 <div class="col-md-12 col-price">
+
+                    <div class="col-md-4 form-group">
+                        <span class='required_star'>*</span>
+                        <label for="descritpion">Price Before Tax</label>
+                       <input type="text" class="form-control" name='price' id="price">
+                   </div>
+
+                <div class="col-md-4 form-group">
+                        <span class='required_star'>*</span>
+                        <label for="descritpion">Special Price </label>
+                       <input type="text" class="form-control" name='sprice' id="sprice">
+                </div>
+                       
+                </div>
+             
             </form>
         </div>
+         <hr  class='hr_store_form'>
+              <div class="form-group col-md-2 col-md-offset-5">
+              <button class="btn btn-primary btn-lg">Continue</button>
+            </div>
     </div>
 </div>

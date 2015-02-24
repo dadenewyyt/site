@@ -2,7 +2,7 @@
     <div class="col-md-12 pull-left">
         <p>
         <span class='tab_content_title'>Enter Credit Card Info To Validate Your Identity</span>
-        <p class='tab_content_p'>To ensure that the identitiy of our sellers match thier profile.We require that you verify your self with your credit card information</p>
+        <p class='intro_table_text'>To ensure that the identitiy of our sellers match thier profile.We require that you verify your self with your credit card information</p>
         </p>
     </div>
 
