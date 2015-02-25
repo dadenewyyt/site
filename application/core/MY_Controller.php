@@ -8,10 +8,10 @@
 
 class MY_Controller extends CI_Controller {
 
-    protected $message = array('type'=>'','message'=>'');
-    protected $user_id ;
-    protected $profile_id;
-    protected $error = array();
+    public $message = array('type'=>'','message'=>'');
+    public $user_id ;
+    public $profile_id;
+    public $error = array();
 
     public function __construct()
     {
@@ -102,7 +102,15 @@ class MY_Controller extends CI_Controller {
         //user_id
         $this->user_id =  isset($user_id) ? $user_id : null ;
 
+    }
 
+    /**
+     * Sanitize function for input post variables
+     * @param $value
+     * @return string
+     */
+    function sanitize($value) {
+        return trim(strip_tags($value));
     }
 
 }

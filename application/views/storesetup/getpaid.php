@@ -16,7 +16,7 @@
     <div class='row row-table-p col-md-12' style="padding-top: 20px;">
         <div class='col-md-12' style="padding-bottom:10px;">
             <div class="col-md-6">
-                <form>
+             
                     <div class="col-md-6 form-group">
                         <span class='required_star'>*</span>
                         <label for="descritpion">Account Type</label>
@@ -71,7 +71,7 @@
             <div class="form-group col-md-2 col-md-offset-5">
               <button class="btn btn-primary btn-lg">Continue</button>
             </div>
-            <?php echo form_close(); ?>
+         
     </div>
 
 </div>

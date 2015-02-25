@@ -8,7 +8,7 @@
     <div class='row row-table-p col-md-12'>
         
         <div class="col-md-10 col-md-offset-1" style="margin-top:2%;">
-            <form>
+           
 
              <div class="form-group row col-md-4">
                     <span class='required_star'>*</span><label for="pname">Product Name</label>
@@ -139,7 +139,7 @@
                        
                 </div>
              
-            </form>
+          
         </div>
          <hr  class='hr_store_form'>
               <div class="form-group col-md-2 col-md-offset-5">

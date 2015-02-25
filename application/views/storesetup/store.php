@@ -36,21 +36,29 @@
                             <div role="tabpanel" class="tabpane-storesetup">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-pills" role="tablist">
-                                    <li role="presentation"><a href="#identity" aria-controls="identity" role="tab" data-toggle="tab" ><!--validate page-->1. Validate Identity</a></li>
-                                    <li role="presentation" class="active"><a href="#storename" aria-controls="storename" role="tab" data-toggle="tab" ><!--store page--> 2. Store Name</a></li>
-                                    <li role="presentation"><a href="#addproduct" aria-controls="addproduct" role="tab" data-toggle="tab">3. Add Listing</a></li>
-                                    <li role="presentation"><a href="#getpaid" aria-controls="getpaid" role="tab" data-toggle="tab" >4. Get Paid</a></li>
-                                    <li role="presentation"><a href="#openstore" aria-controls="openstore" role="tab" data-toggle="tab" >5. Preview Store</a></li>
-                                    <li role="presentation"><a href="#launchstore" aria-controls="launchstore" role="tab" data-toggle="tab" >6. Launch Store</a></li>
-                                </ul>
+                                    <li role="presentation" class="active" ><a href="#verify-tab" aria-controls="verify-tab" role="tab" data-toggle="tab" ><!--validate page-->1. Validate Identity</a></li>
+                                   
+                                    <li role="presentation" ><a href="#store-tab" aria-controls="store-tab" role="tab" data-toggle="tab" ><!--store page--> 2. Store Name</a></li>
+                                    <li role="presentation"><a href="#product-tab" aria-controls="product-tab" role="tab" data-toggle="tab">3. Add Listing</a></li>
+                                    <li role="presentation"><a href="#getpaid-tab" aria-controls="getpaid-tab" role="tab" data-toggle="tab" >4. Get Paid</a></li>
+                                    <li role="presentation"><a href="#openstore-tab" aria-controls="openstore-tab" role="tab" data-toggle="tab" >5. Preview Store</a></li>
+                                    <li role="presentation"><a href="#launchstore-tab" aria-controls="launchstore-tab" role="tab" data-toggle="tab" >6. Launch Store</a></li>
+                                     
+                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane " id="identity"><?php $this->load->view($identity_validation_page);?></div>
-                                    <div role="tabpanel" class="tab-pane active " id="storename"><?php $this->load->view($store_page);?></div>
-                                    <div role="tabpanel" class="tab-pane" id="addproduct"><?php $this->load->view($addproduct_page);?></div>
-                                    <div role="tabpanel" class="tab-pane" id="getpaid"><?php $this->load->view($getpaid_page);?></div>
-                                    <div role="tabpanel" class="tab-pane" id="openstore"><?php $this->load->view($previewstore_page);?></div>
-                                    <div role="tabpanel" class="tab-pane" id="launchstore"><?php $this->load->view($launchstore_page);?></div>
+                                    <div role="tabpanel" class="fade in tab-pane active " id="verify-tab"><?php $this->load->view($identity_validation_page);?></div>
+                                  
+                                   <!--DISABLE TAB -->
+                                   <?php if ($tab_status): ?>
+
+                                    <div role="tabpanel" class="fade tab-pane  " id="store-tab"><?php $this->load->view($store_page);?></div>
+                                    <div role="tabpanel" class="fade tab-pane" id="product-tab"><?php $this->load->view($addproduct_page);?></div>
+                                    <div role="tabpanel" class="fade tab-pane" id="getpaid-tab"><?php $this->load->view($getpaid_page);?></div>
+                                    <div role="tabpanel" class="fade tab-pane" id="openstore-tab"><?php $this->load->view($previewstore_page);?></div>
+                                    <div role="tabpanel" class="fade tab-pane" id="launchstore-tab"><?php $this->load->view($launchstore_page);?></div>
+                                
+                                 <?php endif;  ?>  
                                 </div>
                             </div>
                         </div>
@@ -73,29 +81,79 @@
                 <script src="<?php echo base_url()."assets/plugins/bootstrap/js/bootstrap.min.js";?>"></script>
                 <script src="<?php echo base_url()."assets/js/subscribe_ajax.js";?>"></script>
                 <script type="text/javascript">
-                                        /***
-                                        * Created by Daniel Adenew
-                                        * Submit email subscription using ajax
-                                        * Send email address
-                                        * Send controller
-                                        * Receive response
-                                        */
-                                        $( document ).ready(function() {
-                                            $('[data-toggle="popover"]').popover();
-                                            // Enabling Popover  (hidden content and title capturing)
-                                            $("#popup_upload").popover({
-                                                html : true,
-                                                content: function() {
-                                                return $('#popup_upload_html').html();
-                                                },
-                                                title: function() {
-                                                return $('#popup_upload_html_title').html();
-                                                }
-                                                
-                                            });
-                                
-                                    });
-                                
+                   
+                    /***
+                    * Created by Daniel Adenew
+                    * Submit email subscription using ajax
+                    * Send email address
+                    * Send controller
+                    * Receive response
+                    */
+
+                    $( document ).ready(function() {
+
+                        $('#verify-tab a:first').tab('show')
+                         $('#store-tab a:first').tab('hidden')
+
+                       /*
+                       *Disable tabs except varfication at fidt load
+
+                       */
+                   
+                       /*
+    
+                      
+
+                         $('#store-tab').click(function(event){
+                            if ($(this).hasClass('disabled')) {
+                                return false;
+                            }
+                             $('#store-tab').attr('class', 'active');
+                        });
+                          $('#product-tab').click(function(event){
+                            if ($(this).hasClass('disabled')) {
+                                return false;
+                            }
+                             $('#product-tab').attr('class', 'active');
+                        });
+
+                        $('#getpaid-tab').click(function(event){
+                            if ($(this).hasClass('disabled')) {
+                                return false;
+                            }
+                             $('#getpaid-tab').attr('class', 'active');
+                        });
+
+                        $('#openstore-tab').click(function(event){
+                            if ($(this).hasClass('disabled')) {
+                                return false;
+                            }
+                            $('#openstore-tab').attr('class', 'active');
+                        });
+                         
+                        $('#launchstore-tab').click(function(event){
+                            if ($(this).hasClass('disabled')) {
+                                return false;
+                            }
+                          $('#launchstore-tab').attr('class', 'active');
+                        });
+
+
+                        $('[data-toggle="popover"]').popover();
+                        // Enabling Popover  (hidden content and title capturing)
+                        $("#popup_upload").popover({
+                            html : true,
+                            content: function() {
+                            return $('#popup_upload_html').html();
+                            },
+                            title: function() {
+                            return $('#popup_upload_html_title').html();
+                            }
+                            
+                        });
+            
+                });*/
+            
                 var url =  "<?php echo site_url('welcome/subscribe');?>";
                 subscribe_using_ajax(url);
 

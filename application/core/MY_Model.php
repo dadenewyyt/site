@@ -938,4 +938,11 @@ class MY_Model extends CI_Model
         $method = ($multi) ? 'result' : 'row';
         return $this->_temporary_return_type == 'array' ? $method . '_array' : $method;
     }
+
+    /**
+     * add sanitation function to every model insatnce
+     * */
+    function sanitize($value) {
+        return trim(strip_tags($value));
+    }
 }

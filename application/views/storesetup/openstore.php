@@ -40,7 +40,7 @@ font-size: medium;
    <div class='col-md-6' style="padding-top:20px;">
 
    <div class="col-md-10 col-md-offset-1">
-        <form>
+     
          <div class="form-group">
               <span class='required_star'>*</span>
               <label class="control-label" for="card-holder-name">Name on Card</label>
@@ -120,7 +120,7 @@ font-size: medium;
       </div>
 
       </div>
-    </form>
+  
   </div>
 
 </div>

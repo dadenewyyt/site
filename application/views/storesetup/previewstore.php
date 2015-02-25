@@ -90,6 +90,6 @@
             <div class="form-group col-md-2 col-md-offset-5">
               <button class="btn btn-primary btn-lg">Continue</button>
             </div>
-            <?php echo form_close(); ?>
+           
     </div>
 </div>

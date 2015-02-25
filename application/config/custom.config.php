@@ -37,3 +37,8 @@ $config['upload_config_profile_edit'] = array (
         'max_height' => "768",
         'max_width' => "1024"
     );
+
+$config['fee_setting'] = array (
+    'create_store'=>'1.00',
+);
+

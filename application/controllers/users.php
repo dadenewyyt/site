@@ -122,7 +122,6 @@ class Users extends MY_Controller {
                       $profile_url = site_url('profile/edit/' . $this->profile_id);
                   }
               }
-
                   redirect($profile_url, 'refresh', $data);
 
               } else {
