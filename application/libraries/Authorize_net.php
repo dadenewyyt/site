@@ -27,8 +27,8 @@ class Authorize_net
 	 * from the array below for better security.
 	 */
     private $curl_options = array(		// Additional cURL Options
-		CURLOPT_SSL_VERIFYHOST => 0,
-		CURLOPT_SSL_VERIFYPEER => 0,
+		//CURLOPT_SSL_VERIFYHOST => 0,
+		//CURLOPT_SSL_VERIFYPEER => 0,
 		);
 	
     private $response = '';				// Response from Authorize.net
