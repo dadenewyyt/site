@@ -129,7 +129,8 @@ class Store extends  MY_Controller {
         $notification_bar = 'include/notification_bar';
         $header_logo_white = 'include/header_logo_white';
         $product_listing = 'product/product_listing_pages';
-        /**tabs***/
+
+        /**Tabs***/
         $identity_validation_page = 'storesetup/identity_validation_page';
         $store_page = 'storesetup/store_page';
         $addproduct_page = 'storesetup/addproduct';

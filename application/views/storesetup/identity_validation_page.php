@@ -1,9 +1,22 @@
 <div class="col-md-12 col-md-store-content">
     <div class="col-md-12 pull-left">
-        <p>
-        <span class='tab_content_title'>Enter Credit Card Info To Validate Your Identity</span>
-        <p class='intro_table_text'>To ensure that the identitiy of our sellers match thier profile.We require that you verify your self with your credit card information</p>
+         <p>
+
+           <?php if($tab_status): ?>
+        
+          <span class='tab_content_title'>You Have Validate Your Identity</span>  
+       
+          <?php endif; ?>
+
+          <?php if(!$tab_status): ?>
+
+         <span class='tab_content_title'>Enter Credit Card Info To Validate Your Identity</span>
+         <p class='intro_table_text'>To ensure that the identitiy of our sellers match thier profile.We require that you verify your self with your credit card information</p>
+        
+         <?php endif; ?>
+
         </p>
+
     </div>
 
     <div class='row row-table-p col-md-12'>
@@ -22,6 +35,8 @@
               </div>
 
           <!--END OF ERROR MESSAGE-->
+
+    <?php if (!$tab_status): ?>
 
         <div class='col-md-6 column_margin'><!--column1-->                                  
                 
@@ -179,8 +194,8 @@
             <?php  
       
                $form_submit_button_data = array(
-                        'name'        => 'signin',
-                        'id'          => 'signin',
+                        'name'        => 'submit_payment',
+                        'id'          => 'submit_payment',
                         'type'        => 'submit',
                         'class'       => 'btn btn-primary btn-lg',
                         'tabindex'    => '10'
@@ -190,8 +205,18 @@
             
             </div>
             <?php echo form_close(); ?>
+            <?php endif; ?>
+
+
+            <hr  class='hr_store_form'>
+            <div class="form-group col-md-2 col-md-offset-5">
+            <?php if($tab_status): ?>
+            
+           <a class="btn btn-primary btn-lg" href="#" id="btn_next_page">Continue</a>
+
+           <?php endif; ?>
+            </div>
             </div>
            
-
 
         </div>

@@ -47,6 +47,7 @@
                                  </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
+                                    
                                     <div role="tabpanel" class="fade in tab-pane active " id="verify-tab"><?php $this->load->view($identity_validation_page);?></div>
                                   
                                    <!--DISABLE TAB -->
@@ -92,52 +93,11 @@
 
                     $( document ).ready(function() {
 
-                        $('#verify-tab a:first').tab('show')
-                         $('#store-tab a:first').tab('hidden')
-
-                       /*
-                       *Disable tabs except varfication at fidt load
-
-                       */
-                   
-                       /*
-    
-                      
-
-                         $('#store-tab').click(function(event){
-                            if ($(this).hasClass('disabled')) {
-                                return false;
-                            }
-                             $('#store-tab').attr('class', 'active');
-                        });
-                          $('#product-tab').click(function(event){
-                            if ($(this).hasClass('disabled')) {
-                                return false;
-                            }
-                             $('#product-tab').attr('class', 'active');
-                        });
-
-                        $('#getpaid-tab').click(function(event){
-                            if ($(this).hasClass('disabled')) {
-                                return false;
-                            }
-                             $('#getpaid-tab').attr('class', 'active');
-                        });
-
-                        $('#openstore-tab').click(function(event){
-                            if ($(this).hasClass('disabled')) {
-                                return false;
-                            }
-                            $('#openstore-tab').attr('class', 'active');
-                        });
-                         
-                        $('#launchstore-tab').click(function(event){
-                            if ($(this).hasClass('disabled')) {
-                                return false;
-                            }
-                          $('#launchstore-tab').attr('class', 'active');
-                        });
-
+                       
+                      $('#btn_next_page').click( function() {
+                        $('.nav-pills > .active').next('li').find('a').trigger('click');
+                      });
+                        
 
                         $('[data-toggle="popover"]').popover();
                         // Enabling Popover  (hidden content and title capturing)
@@ -152,7 +112,7 @@
                             
                         });
             
-                });*/
+                });
             
                 var url =  "<?php echo site_url('welcome/subscribe');?>";
                 subscribe_using_ajax(url);
