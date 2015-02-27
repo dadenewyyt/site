@@ -28,7 +28,7 @@ class Payment_service {
 
         //load payment for store
         $store_creation_fee = $this->CI->config->item('fee_setting');
-
+        $amount = $store_creation_fee['create_store'] ;
         $post = $this->CI->input->post();
         //retrieve form data and sanitize
         $card_number = $this->CI->sanitize($post['x_card_num']);
@@ -85,7 +85,7 @@ class Payment_service {
                 'x_exp_date'			=> $expiration_date,
                 'x_card_code'			=> $ccv_code,
                 'x_description'			=> 'Madebyus4u.com Account verification',
-                'x_amount'				=> $store_creation_fee['create_store'],
+                'x_amount'				=> $amount ,
                 'x_first_name'			=> explode(" ",$user_full_name)[0],
                 'x_last_name'			=> explode(" ",$user_full_name)[1],
                 'x_address_1'			=> $address_line_1,
@@ -102,17 +102,48 @@ class Payment_service {
             $this->CI->authorize_net->setData($auth_net);
 
             // Try to AUTH_CAPTURE
-            if( $this->CI->authorize_net->authorizeAndCapture() )
-            {
+            if( $this->CI->authorize_net->authorizeAndCapture() ) {
+
                /* echo '<h2>Success!</h2>';
                 echo '<p>Transaction ID: ' . $this->CI->authorize_net->getTransactionId() . '</p>';
                 echo '<p>Approval Code: ' . $this->CI->authorize_net->getApprovalCode() . '</p>';
                 */
 
                 //TODO:update profile verify to true
+                $this->update_profile_status($profile->id);
+
                 //TODO:save_payment information
+                //save payment information
+
+                $payment_data = array(
+
+                    'payment_type'=>'create_store',
+                    'profile_id'=>$profile->id,
+                    'city'=>$city,
+                    'state'=>$state,
+                    'country'=>$country,
+                    'address1'=>$address_line_1,
+                    'address2'=>$address_line_2,
+                    'phone'=>$phone_no,
+                    'pamount'=>$amount,
+                    'is_success'=>1,
+                    'payment_gatway'=>'authorize.net',
+                );
+
+                $payment_id =  $this->save_payment_info($payment_data) ;
+
+                if(!$payment_id) {
+
+                    $this->CI->message = array('type' => 'error', 'message' => "saving payment information ,has failed!.This is local database save error.");
+                    return FALSE;
+                }
+
+
                 //TODO:SHOW success message to user alert success
                 //TODO:Enable the rest of the tabs
+
+                return TRUE ; //so at this place everything assumed to be  safe :)
+
             }
 
             else
@@ -123,12 +154,8 @@ class Payment_service {
 
                 $this->CI->message = array('type' => 'error', 'message' => '<h2>Fail!</h2>
                                                                             <p>'.$this->CI->authorize_net->getError().'</p>');
-
                 return FALSE;
             }
-
-            return TRUE;
-
 
 
             } else {
@@ -136,63 +163,47 @@ class Payment_service {
                     //TODO:collect error and validation message
                     $this->CI->message = array('type' => 'error', 'message' => validation_errors());
                     return FALSE;
-                }
-
-                   /* $this->verify();
-                } else {
-            $total = 1.00;
-            $this->load->library('anet_php_sdk/AuthorizeNet');
-            $this->load->config('credentials');
-            $transaction = new AuthorizeNetAIM;
-            $transaction->setSandbox(AUTHORIZENET_SANDBOX);
-            $transaction->setFields(
-            array(
-            'amount' => $total,
-            'card_num' => $card_number,
-            'exp_date' => $expiration_date,
-            'card_code' => $ccv_code,
-            'first_name' => $name_on_card,
-            'last_name' => $last_name,
-            'address' => $address_line_1,
-            'city' => $city,
-            'state' => $state,
-            'country' => $country,
-            'zip' => $zip,
-            'email' => 'vegascraig11@gmail.com',
-            )
-            );
-            $response = $transaction->authorizeAndCapture();
-            if ($response->approved) {
-                //todo:SUCCESS PAGE AND OTHER LOGIC AFTER PAYEMNT
-            $post['userType'] = 1;
-            $post['isVerifiedSeller'] = 1;
-            if ($this->db_helper->update($post, 'profile', array('id' => $this->profile->id))) {
-            $data['profile_id'] = $this->profile->id;
-            $data['page'] = 'store/store_name';
-            $this->load->view('index_view', $data);
-            $this->message = array('type' => 'info', 'message' => 'You are successfully validated');
-                //$this->index(true);
-            } else {
-                if ($this->db_helper->error_no == 1062) {
-                    $this->message = array('type' => 'info', 'message' => 'You Alrady Signup if you forget your password reset your account click <a href="' . base_url('signup/forget_password') . '">here</a>');
-                }
             }
-            //echo "<p> Success " . $response->transaction_id . "</p>";
-            //header('Location: thank_you_page.php?transaction_id=' . $response->transaction_id);
-            } elseif ($response->declined()) {
-                // echo "<p> declined because of </p>".$response->error;
-            } else {
-                //echo "<p> ccv code is : >This transaction is not approved error or any thing else</p>";
 
-                $data['profile_id'] = $this->profile->id;
-                $data['page'] = 'card/validate_identity';
-                $this->load->view('index_view', $data);
-            }
-                    }*/
+
     }
 
-       function validateCreditcard_number($credit_card_number) {
 
+     /**
+     * Update Status Like
+     * Is_Verified , IsSeller
+     * of a give profile by Id
+     * @param $id
+     */
+
+    public function update_profile_status($id) {
+
+        $this->CI->load->model('profile_model','profile');
+
+        $update_array_data = array(
+            'is_profile_verified'=>1,
+            'is_seller'=>1,
+        );
+
+        $this->CI->profile->update($id ,$update_array_data);
+
+    }
+
+     /**
+     * @param $data
+     * @return $payment_id . database insert result
+     */
+
+    public function save_payment_info($data) {
+
+        $this->CI->load->model('payment_model','payment');
+
+        $payment_id = $this->CI->payment->insert($data);
+
+       return $payment_id;
+    }
+
+    function validateCreditcard_number($credit_card_number) {
 
         $firstnumber = substr($credit_card_number, 0, 1);
 
@@ -290,5 +301,6 @@ class Payment_service {
         }
         return true;
     }
+
 
 } 

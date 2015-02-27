@@ -10,7 +10,6 @@
 class MY_Model extends CI_Model
 {
 
-
     /* --------------------------------------------------------------
      * VARIABLES
      * ------------------------------------------------------------ */
@@ -940,8 +939,10 @@ class MY_Model extends CI_Model
     }
 
     /**
-     * add sanitation function to every model insatnce
-     * */
+     * Sanitize function for input post variables
+     * @param $value
+     * @return string
+     */
     function sanitize($value) {
         return trim(strip_tags($value));
     }

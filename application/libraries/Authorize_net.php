@@ -26,10 +26,11 @@ class Authorize_net
 	 * and "CURLOPT_SSL_VERIFYPEER" options disabled, then remove them
 	 * from the array below for better security.
 	 */
+
     private $curl_options = array(		// Additional cURL Options
-		//CURLOPT_SSL_VERIFYHOST => 0,
-		//CURLOPT_SSL_VERIFYPEER => 0,
+
 		);
+
 	
     private $response = '';				// Response from Authorize.net
     private $transation_id = '';		// The transation ID from Authorize.net
@@ -93,6 +94,21 @@ class Authorize_net
 	// Authorize and capture a card
 	public function authorizeAndCapture()
 	{
+         $env="production";
+        //enable curl_options only for development
+        if( isset( $_SERVER['HTTP_HOST']) ) {
+            if( $_SERVER['HTTP_HOST']=="localhost"){
+                $env ="development";
+            }
+        }
+        if($env==="development"){
+            $this->curl_options = array( 	// Additional cURL Options
+
+                CURLOPT_SSL_VERIFYHOST => 0,
+                CURLOPT_SSL_VERIFYPEER => 0,
+            );
+        }
+
 		// Load cURL lib
 		$this->CI->load->library('curl');
 		$this->response = $this->CI->curl->simple_post(
