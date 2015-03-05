@@ -10,37 +10,8 @@
         <link href=<?php echo base_url()."assets/plugins/bootstrap/css/bootstrap.min.css";?> rel="stylesheet">
         <link href=<?php echo base_url()."assets/css/common.css";?> rel="stylesheet">
         <link href=<?php echo base_url()."assets/css/collective_common.css";?> rel="stylesheet">
- <style type="text/css">
-    
-                .center-header {
-                    text-align: center;
-                }
-                .store-setup-col {
-                    padding-bottom: 2%;
-                }
-                
-                .store-setup-col h3{
-                margin-bottom: -11px;
-                }
-                .store-setup-col hr{
-                border-top:1px solid rgb(222, 223, 231);
-                margin-bottom: 12px;
-                }
-                .store-setup-col p {
-                margin-bottom: 10px;
-                }
-                
-                .divsetup-content h3 {
-                margin-top: 5px;
-                
-                }
-                .divsetup-content hr {
-                margin-top: 10px;
-                }
-
-
-    
-    </style>
+          <link href=<?php echo base_url()."assets/css/seller.css";?> rel="stylesheet">
+  
     </head>
    
        <body>

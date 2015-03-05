@@ -90,6 +90,8 @@
             <div class="form-group col-md-2 col-md-offset-5">
               <button class="btn btn-primary btn-lg">Continue</button>
             </div>
-           
-    </div>
+ 
 </div>
+  <div class="col-lg-5 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary">Validate</button>
+                            </div>

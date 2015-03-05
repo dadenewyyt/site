@@ -96,7 +96,7 @@ class Store extends  MY_Controller {
         $data['data']['message'] = $this->message;
 
         //disable other tabs except verification tab
-        $tab_status = FALSE ;
+        $tab_status = TRUE ;
         $data['tab_status'] = $tab_status;
 
         $this->load->view('storesetup/store',$data);

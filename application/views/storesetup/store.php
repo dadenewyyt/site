@@ -11,6 +11,7 @@
         <link href=<?php echo base_url()."assets/css/common.css";?> rel="stylesheet">
         <link href=<?php echo base_url()."assets/css/collective_common.css";?> rel="stylesheet">
         <link href=<?php echo base_url()."assets/css/store_tabs.css";?> rel="stylesheet">
+       <link rel="stylesheet" href="<?php echo base_url()."assets/css/bootstrapValidator.css";?>"/>
     </head>
     <body>
         <?php $this->load->view($notification_bar); ?>
@@ -27,7 +28,7 @@
                 <!--store setup-->
                 <div role="tabpanel" class="tab-pane active" id="store">
                     <!--start of row-->
-                    <div class="row-storesetup row" >
+                    <div class="row-storesetup row">
                         <div id="divsetup-content" name="divsetup-content" class="divsetup-content col-md-12" style="display:block;">
                             <h2 style="font-size: 26px;font-weight: 600;">Store <span style='font-weight: 400;'>Setup</span>
                             <sup style='font-weight:400;top:-3.79px;font-size:13px;'>- Step 1. Validate Identity</sup>
@@ -35,16 +36,22 @@
                             <hr>
                             <div role="tabpanel" class="tabpane-storesetup">
                                 <!-- Nav tabs -->
+                                  
+                              
                                 <ul class="nav nav-pills" role="tablist">
                                     <li role="presentation" class="active" ><a href="#verify-tab" aria-controls="verify-tab" role="tab" data-toggle="tab" ><!--validate page-->1. Validate Identity</a></li>
-                                   
+                                   <!--this is a form for all tab submission after verfiication-->
+                              
+
                                     <li role="presentation" ><a href="#store-tab" aria-controls="store-tab" role="tab" data-toggle="tab" ><!--store page--> 2. Store Name</a></li>
                                     <li role="presentation"><a href="#product-tab" aria-controls="product-tab" role="tab" data-toggle="tab">3. Add Listing</a></li>
                                     <li role="presentation"><a href="#getpaid-tab" aria-controls="getpaid-tab" role="tab" data-toggle="tab" >4. Get Paid</a></li>
                                     <li role="presentation"><a href="#openstore-tab" aria-controls="openstore-tab" role="tab" data-toggle="tab" >5. Preview Store</a></li>
                                     <li role="presentation"><a href="#launchstore-tab" aria-controls="launchstore-tab" role="tab" data-toggle="tab" >6. Launch Store</a></li>
-                                     
+                                  
                                  </ul>
+                                                         
+                                   <form id='myForm'  name='myForm' method="post" action="<?= base_url('store/save');?>">
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     
@@ -60,7 +67,16 @@
                                     <div role="tabpanel" class="fade tab-pane" id="launchstore-tab"><?php $this->load->view($launchstore_page);?></div>
                                 
                                  <?php endif;  ?>  
+
+
                                 </div>
+                                 <div class="form-group">
+                            <div class="col-lg-5 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary">Validate</button>
+                            </div>
+                        </div>
+                
+                                  </form>
                             </div>
                         </div>
                         </div><!--end of row-->
@@ -81,6 +97,9 @@
                 <script src="<?php echo base_url()."assets/plugins/bootstrap/js/tooltip.js";?>"></script>
                 <script src="<?php echo base_url()."assets/plugins/bootstrap/js/bootstrap.min.js";?>"></script>
                 <script src="<?php echo base_url()."assets/js/subscribe_ajax.js";?>"></script>
+                <script src="<?php echo base_url()."assets/js/multiple_image_uploads.js";?>"></script>
+                <script src="<?php echo base_url()."assets/js/bootstrapValidator.js";?>"></script>
+                <script src="<?php echo base_url()."assets/js/validate_store_setup.js";?>"></script>
                 <script type="text/javascript">
                    
                     /***
@@ -90,44 +109,52 @@
                     * Send controller
                     * Receive response
                     */
+        
 
                     $( document ).ready(function() {
 
-                       
-                      $('#btn_next_page').click( function() {
+                       validate1();
+                       /**
+                       this a continue button after successfull identity verfication
+                       **/
+                       $('#btn_next_page').click( function() {
                         $('.nav-pills > .active').next('li').find('a').trigger('click');
                       });
-                        
 
-                        $('[data-toggle="popover"]').popover();
-                        // Enabling Popover  (hidden content and title capturing)
-                        $("#popup_upload").popover({
-                            html : true,
-                            content: function() {
-                            return $('#popup_upload_html').html();
-                            },
-                            title: function() {
-                            return $('#popup_upload_html_title').html();
-                            }
-                            
-                        });
-            
+                      //next page for store
+                       $('#btn_store_next_page').click( function() {
+
+    validate1();
+                       if(validation_store()) {
+ 
+                         $('.nav-pills > .active').next('li').find('a').trigger('click');
+                        }
+
+                      });
+
+                    //next page for product
+                        $('#btn_product_next_page').click( function() {
+                       
+                       validate1();
+                    /* if(validation_add_products()) {
+ 
+                         $('.nav-pills > .active').next('li').find('a').trigger('click');
+                        }*/
+                       
+
+                      });
+                        
+                        //call function for image upload
+                       multiple_image_upload();
+                        
+                                   
                 });
             
+        
                 var url =  "<?php echo site_url('welcome/subscribe');?>";
                 subscribe_using_ajax(url);
 
-                /*
-                *  prepare store  image to be previewd before actual upload
-                *  this will be called on change even of the file / upload component
-                *
-                */
-                $("#imgfile_store" ).change(function(event) {
-                alert('ello store');
-                var output = document.getElementById('preview_store_image');
-                output.src = URL.createObjectURL(event.target.files[0]);
-                $( "#store_image_file_path").val('file selected');
-                });
+                
 
                 $('#btnstoresetup').click( function() {
                 $('#divstoresetup').hide("400",function(){
@@ -136,6 +163,101 @@
                 window.location="<?php echo base_url('store');?>";
                 });
                 }) ;
+
+
+              
+                 /*
+                 * Validate the store page 
+                 * before continuing to next page
+                 */
+
+
+
+
+                function validation_store(){
+
+                var storeimgfile = $('#imgfile_store').val();
+                var storename = $('#storename').val();
+                var store_description = $("#store_descritpion").val();
+                    
+                    
+                    if(storeimgfile==''){
+                        return false;
+                    }
+                     if(storename==''){
+                        return false;
+                    }
+                   if(store_description==''){
+                        return false;
+                    }
+
+                    return true;
+                }
+
+
+
+                //validate add products
+
+                  function validation_add_products(){
+
+                var product_image = $('#preview_product_image').attr('src');
+                var product_name = $('#product_name').val();
+                var product_description = $("#product_descritpion").val();
+                var category = $('#category').attr('value');
+                var variation = $('#variation').attr('value');
+                var sub_varaition = $("#sub_varaition").attr('value');
+                var quantity = $("#quantity").val();
+                var sprice = $("#sprice").val();
+
+                //console.log (document.getElementById("myForm").elements);
+                      
+
+                    if(product_image=='uploads/profile/no-photo.jpg'){
+                        alert('at least on product image need to be attached');
+                        return false;
+                    }
+                     if(product_name==''){
+                          alert('please,');
+                        return false;
+                    }
+                   if(product_description==''){
+                      alert('desc'+product_description);
+                        return false;
+                    }
+
+ 
+                    if(category==''){
+                          alert('pcat'+category);
+                        return false;
+                    }
+                     if(variation==''){
+                        alert('vvar'+variation);
+                        return false;
+                    }
+
+                    if(sub_varaition==''){
+                              alert('subvvar'+sub_varaition);
+                        return false;
+                    }
+
+
+                    if(quantity==''||isNaN(quantity)==false){
+                        alert('isNaN(quantity)===false'+isNaN(quantity)===false);
+                        return false;
+                    }
+                     if(sprice==''||isNaN(sprice)){
+                        alert('isNaN(quantity)===false'+isNaN(sprice)==false);
+                        return false;
+                    }
+                    if(price==''||!isNaN(price)==false){
+                        alert('isNaN(quantity)===false'+isNaN(price)==false);
+                        return false;
+                    }
+                    alert(isNaN(price)==false+isNaN(sprice)==false+isNaN(quantity)==false);
+
+                    return true;
+                }
+
                 </script>
             </body>
         </html>
