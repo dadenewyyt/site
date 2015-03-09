@@ -68,8 +68,8 @@
             <div class="col-md-3 sell_info" style="width: 33%;">
                 <div class='money col-md-6'>$ 35.00</div>
                 <a href="#" class="btn btn-primary col-md-2 buybtn" style="margin-right:4px;width:80px;">Buy</a>
-                <a href="#" class="btn btn-primary col-md-2 save_btn" style="width:24%;">Save</a>
-
+                <button id='btn_save' name='btn_save'type='submit' class="btn btn-primary col-md-2 save_btn" style="width:24%;">Save</button>
+            
                 <hr class='col-md-11' style="border-top:2px dotted #d5d5d5;margin-top:10px;margin-left: 10px;">
 
                 <div class="col-md-12">
@@ -86,12 +86,10 @@
             </div>
 
         </div>
-          <hr  class='hr_store_form'>
+           <hr  class='hr_store_form'>
             <div class="form-group col-md-2 col-md-offset-5">
               <button class="btn btn-primary btn-lg">Continue</button>
             </div>
  
 </div>
-  <div class="col-lg-5 col-lg-offset-3">
-                                <button type="submit" class="btn btn-primary">Validate</button>
-                            </div>
+</div>

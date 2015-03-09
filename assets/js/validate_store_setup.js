@@ -1,6 +1,6 @@
 function validate1() {
     // Generate a simple captcha
-    alert('hi');
+  
     function randomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     };
@@ -20,10 +20,19 @@ function validate1() {
                
                 validators: {
                     notEmpty: {
-                        message: 'The first name is required and cannot be empty'
+                        message: 'The store name is required and cannot be empty'
                     }
                 }
             },
+             'store_descritpion': {
+               
+                validators: {
+                    notEmpty: {
+                        message: 'The store description is required and cannot be empty'
+                    }
+                }
+            },
+  
             'imgfile_store': {
                 
                 validators: {
@@ -36,56 +45,64 @@ function validate1() {
                 
                 validators: {
                     notEmpty: {
-                        message: 'Please attache a store image ,cannot be empty'
+                        message: 'The production description is required and cannot be empty'
                     }
                 }
             },
+
             product_name: {
-                message: 'The username is not valid',
+                message: 'The product name is not valid',
                 validators: {
                     notEmpty: {
-                        message: 'The username is required and cannot be empty'
+                        message: 'The product name is required and cannot be empty'
                     },
                     stringLength: {
                         min: 6,
                         max: 30,
                         message: 'The username must be more than 6 and less than 30 characters long'
                     },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_\.]+$/,
-                        message: 'The username can only consist of alphabetical, number, dot and underscore'
-                    },
-                    remote: {
-                        type: 'POST',
-                        url: 'remote.php',
-                        message: 'The username is not available'
-                    },
-                    different: {
-                        field: 'password,confirmPassword',
-                        message: 'The username and password cannot be the same as each other'
-                    }
+                    
                 }
             },
-            email: {
-                validators: {
-                    emailAddress: {
-                        message: 'The input is not a valid email address'
-                    }
-                }
-            },
-            password: {
+
+             accountnumber: {
+                message: 'The account number is not valid',
                 validators: {
                     notEmpty: {
-                        message: 'The password is required and cannot be empty'
+                        message: 'The account number is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The account number must be more than 6 and less than 30 characters long'
+                    }
+                    
+                    
+                }
+            },
+            routenumber: {
+                validators: {
+                     notEmpty: {
+                        message: 'The route number is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The route number must be more than 6 and less than 30 characters long'
+                    }
+                    
+                }
+            },
+            accountnumber: {
+                validators: {
+                    notEmpty: {
+                        message: 'The account number is required and cannot be empty'
                     },
                     identical: {
-                        field: 'confirmPassword',
-                        message: 'The password and its confirm are not the same'
-                    },
-                    different: {
-                        field: 'username',
-                        message: 'The password cannot be the same as username'
+                        field: 'reaccountnumber',
+                        message: 'The account number and its confirm are not the same'
                     }
+                   
                 }
             },
             confirmPassword: {
@@ -103,38 +120,7 @@ function validate1() {
                     }
                 }
             },
-            birthday: {
-                validators: {
-                    date: {
-                        format: 'YYYY/MM/DD',
-                        message: 'The birthday is not valid'
-                    }
-                }
-            },
-            gender: {
-                validators: {
-                    notEmpty: {
-                        message: 'The gender is required'
-                    }
-                }
-            },
-            'languages[]': {
-                validators: {
-                    notEmpty: {
-                        message: 'Please specify at least one language you can speak'
-                    }
-                }
-            },
-            'programs[]': {
-                validators: {
-                    choice: {
-                        min: 2,
-                        max: 4,
-                        message: 'Please choose 2 - 4 programming languages you are good at'
-                    }
-                }
-            },
-            captcha: {
+              captcha: {
                 validators: {
                     callback: {
                         message: 'Wrong answer',

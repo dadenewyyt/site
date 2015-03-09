@@ -11,7 +11,7 @@
         <link href=<?php echo base_url()."assets/css/common.css";?> rel="stylesheet">
         <link href=<?php echo base_url()."assets/css/collective_common.css";?> rel="stylesheet">
         <link href=<?php echo base_url()."assets/css/store_tabs.css";?> rel="stylesheet">
-       <link rel="stylesheet" href="<?php echo base_url()."assets/css/bootstrapValidator.css";?>"/>
+      
     </head>
     <body>
         <?php $this->load->view($notification_bar); ?>
@@ -38,7 +38,7 @@
                                 <!-- Nav tabs -->
                                   
                               
-                                <ul class="nav nav-pills" role="tablist">
+                                <ul class="nav nav-pills" role="tablist" id='createNotTab'>
                                     <li role="presentation" class="active" ><a href="#verify-tab" aria-controls="verify-tab" role="tab" data-toggle="tab" ><!--validate page-->1. Validate Identity</a></li>
                                    <!--this is a form for all tab submission after verfiication-->
                               
@@ -51,7 +51,7 @@
                                   
                                  </ul>
                                                          
-                                   <form id='myForm'  name='myForm' method="post" action="<?= base_url('store/save');?>">
+                                   <form id='myForm' novalidate name='myForm' method="post" action="<?= base_url('store/save');?>">
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     
@@ -69,14 +69,11 @@
                                  <?php endif;  ?>  
 
 
-                                </div>
-                                 <div class="form-group">
-                            <div class="col-lg-5 col-lg-offset-3">
-                                <button type="submit" class="btn btn-primary">Validate</button>
-                            </div>
-                        </div>
-                
-                                  </form>
+                                </div> 
+                                 </form>                                                         
+                              </div> 
+
+                                 
                             </div>
                         </div>
                         </div><!--end of row-->
@@ -113,10 +110,15 @@
 
                     $( document ).ready(function() {
 
-                       validate1();
+          
+                     //disable tabs not active so that enable them when validated
+                     //$('.nav li').not('.active').find('a').removeAttr("data-toggle");
+
+                    
                        /**
                        this a continue button after successfull identity verfication
                        **/
+
                        $('#btn_next_page').click( function() {
                         $('.nav-pills > .active').next('li').find('a').trigger('click');
                       });
@@ -124,29 +126,46 @@
                       //next page for store
                        $('#btn_store_next_page').click( function() {
 
-    validate1();
-                       if(validation_store()) {
- 
-                         $('.nav-pills > .active').next('li').find('a').trigger('click');
-                        }
-
+                         validate1();
+                         //$('.nav-pills > .active').next('li').find('a').trigger('click');
                       });
+                       
 
                     //next page for product
                         $('#btn_product_next_page').click( function() {
                        
-                       validate1();
-                    /* if(validation_add_products()) {
+                         validate1();
+
+                         /*enable next tab*/
+                         // $('.nav li.active').next('li').removeClass('disabled');
+                         // $('.nav li.active').next('li').find('a').attr("data-toggle","tab")
+                    
+                         /* if(validation_add_products()) {
  
                          $('.nav-pills > .active').next('li').find('a').trigger('click');
                         }*/
                        
 
                       });
-                        
+                    
+                      //next page for store
+                       $('#btn_next_page_getpaid').click( function() {
+
+                         validate1();
+                       
+                      });
+
+                    //next page for store
+                       $('#btn_save').click( function() {
+
+                         validate1();
+                         
+                      });
+                      
                         //call function for image upload
                        multiple_image_upload();
-                        
+                       
+
                                    
                 });
             

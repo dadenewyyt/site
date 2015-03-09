@@ -20,7 +20,7 @@
               <button class="btn btn-primary btn-lg">VIEW YOUR LIVE STORE</button>
             </div>
  </div>
-
+ </form>
 
   
 

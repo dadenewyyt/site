@@ -54,7 +54,7 @@
         <hr  class='hr_store_form'>
         <div class="form-group col-md-2 col-md-offset-5">
             <button id='btn_store_next_page' class="btn btn-primary btn-lg">Continue</button>
-            <button type="button" class="btn btn-info" id="validateBtn">Manual validate</button>
+        
         </div>
         <?php  //echo form_close(); ?>
     </div>

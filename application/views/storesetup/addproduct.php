@@ -193,8 +193,8 @@
         </div>
          <hr  class='hr_store_form'>
               <div class="form-group col-md-2 col-md-offset-5">
-              <button type='submit' id='btn_product_next_page' name='btn_product_next_page' class="btn btn-primary btn-lg">Continue</button>
-             <button type="button" class="btn btn-info" id="validateBtn">Manual validate</button>
+              <button id='btn_product_next_page' name='btn_product_next_page' class="btn btn-primary btn-lg">Continue</button>
+            
             </div>
     </div>
 </div>

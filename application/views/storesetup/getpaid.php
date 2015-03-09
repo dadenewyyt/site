@@ -69,7 +69,7 @@
         </div>
          <hr  class='hr_store_form'>
             <div class="form-group col-md-2 col-md-offset-5">
-              <button class="btn btn-primary btn-lg">Continue</button>
+              <button id='btn_next_page_getpaid' name='btn_next_page_getpaid' class="btn btn-primary btn-lg">Continue</button>
             </div>
          
     </div>
