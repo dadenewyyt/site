@@ -42,3 +42,7 @@ $config['fee_setting'] = array (
     'create_store'=>'1.00',
 );
 
+$config['account_types'] =
+    array("Checking"=>"Checking", "Saving"=>"Saving");
+?>
+

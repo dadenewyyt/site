@@ -20,11 +20,7 @@
                     <div class="col-md-6 form-group">
                         <span class='required_star'>*</span>
                         <label for="descritpion">Account Type</label>
-                        <select class='form-control'>
-                            <option>Shoe</option>
-                            <option>Car</option>
-                            <option>House</option>
-                        </select>
+                          <?= form_dropdown('account_type', array_merge(array(''=>'Select account type'), $account_types) ,'','class="form-control"  tabindex="7"' ) ;?>
                     </div>
                     <div class="col-md-6 form-group">
                         <span class='required_star'>*</span>
@@ -36,7 +32,7 @@
                     <div class="col-md-6 form-group">
                         <span class='required_star'>*</span>
                         <label for="storename">Account Owners Name</label>
-                        <input type="text" id="storename" name='storename' class="form-control" required>
+                        <input type="text" id="account_owner" name='account_owner' class="form-control" required>
                         <p class="help-block">same as your bank book account .</p>
                     </div>
 

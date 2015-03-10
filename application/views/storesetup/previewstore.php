@@ -15,11 +15,11 @@
                     <div class="media">
                         <div class="media-left" style="padding:4px;">
                             <a href="#">
-                            <img class="media-object" src="<?php echo base_url()."assets/images/products/user.png"?>" alt="..." height="100">
+                            <img class="media-object" src="<?php echo base_url($profile_image);?>" alt="..." height="100">
                             </a>
                         </div>
                         <div class="media-body" style="padding:4px;">
-                            <h4 class="media-heading">Username</h4>
+                            <h4 class="media-heading"><?php echo ucfirst($profile->fname) .' ' .ucfirst($profile->lname) ;?></h4>
                             <p>Joined October 31 2014</p>
                             <button class="btn btn-primary btn-sm btn_buy" style="margin-bottom:15px;">Send Friend Request</button>
                             <span class="rating pull-left">
@@ -46,8 +46,8 @@
             </div>
             <!--col2-->
             <div class="col-md-4 borders" style="background-color:white;margin-left:3px;" >
-                <h4 style="text-align:center">Product Name</h4>
-                <img class="col-md-12 thumbnail" src="assets/images/products/product001.png" alt="..." height="220">
+                <h4 style="text-align:center" id="product_name_h4">Product Name</h4>
+                <img class="col-md-12 thumbnail" id="product_preview_image"src="uploads/profile/no-photo.jpg" alt="..." height="220">
             </div>
             <!--col2-->
             <style type="text/css">
@@ -66,7 +66,7 @@
             </style>
 
             <div class="col-md-3 sell_info" style="width: 33%;">
-                <div class='money col-md-6'>$ 35.00</div>
+                <div class='money col-md-6'><label id='price_tag_label'>$ 35.00</label></div>
                 <a href="#" class="btn btn-primary col-md-2 buybtn" style="margin-right:4px;width:80px;">Buy</a>
                 <button id='btn_save' name='btn_save'type='submit' class="btn btn-primary col-md-2 save_btn" style="width:24%;">Save</button>
             
@@ -74,13 +74,13 @@
 
                 <div class="col-md-12">
                     <h4>Desciption</h4>
-                    <p calss='description'>Lorem ipsum dolor sit amet, cocterut adipiscing elit. Loret
+                    <p calss='description' id='descritpion_paragraph'>Lorem ipsum dolor sit amet, cocterut adipiscing elit. Loret
                     sem ipsum dolor sit adipiscing elit edam itis. Lorem ipsum
                     dolor sit amet, cocterut adipiscing elit. Loret sem ipsum di
                     dolor sit adipiscing elit edam itis. </p>
                     <p><a href="#">Read more ...</a></p>
                     <h4>DETAILS</h4>
-                    <p>Catgory: <span>Bags</span> <span class='pull-right'>Shipping: 4 Days</span></p>
+                    <p>Catgory: <span id='category_label'>Bags</span> <span class='pull-right'>Shipping: 4 Days</span></p>
                 </div>
 
             </div>

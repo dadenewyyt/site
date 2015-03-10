@@ -12,6 +12,7 @@ class MY_Controller extends CI_Controller {
     public $user_id ;
     public $profile_id;
     public $error = array();
+    public $data = array();
 
     public function __construct()
     {
@@ -111,6 +112,22 @@ class MY_Controller extends CI_Controller {
      */
     function sanitize($value) {
         return trim(strip_tags($value));
+    }
+
+   public function load_profile($value='')
+    {
+         $this->load->model('profile_model','profile');
+
+         $profile = $this->profile->with('media')->get($this->profile_id);
+
+         if(count($profile->media) > 0)  {
+          $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
+         } else {
+          $profile_image = "/uploads/profile/no-photo.jpg";
+         }
+
+        $this->data['profile']  = $profile ;
+        $this->data['profile_image']  = $profile_image ;
     }
 
 }

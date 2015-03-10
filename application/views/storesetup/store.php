@@ -50,8 +50,20 @@
                                     <li role="presentation"><a href="#launchstore-tab" aria-controls="launchstore-tab" role="tab" data-toggle="tab" >6. Launch Store</a></li>
                                   
                                  </ul>
-                                                         
-                                   <form id='myForm' novalidate name='myForm' method="post" action="<?= base_url('store/save');?>">
+
+                                <?php
+                                    $attributes = array(
+                                        'class'=>'form',
+                                         
+                                        'id'=>'myForm',
+                                        'name'=>'myForm',
+
+                                    );
+
+                                    echo form_open_multipart('store/save?XDEBUG_SESSION_START=17431',$attributes);
+                                   ?>   
+
+                                  
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     
@@ -80,6 +92,7 @@
                         </div><!--end of store setup-->
                     </div>
                 </section>
+               
                 <footer class="footer">
                     <?php
                                                 $this->load->view($footer_subscribe);
@@ -99,6 +112,8 @@
                 <script src="<?php echo base_url()."assets/js/validate_store_setup.js";?>"></script>
                 <script type="text/javascript">
                    
+
+
                     /***
                     * Created by Daniel Adenew
                     * Submit email subscription using ajax
@@ -107,68 +122,113 @@
                     * Receive response
                     */
         
+                     function disable_tabs_when_completed() {
+                                          
+                                             var store_setup_completed = '<?php echo $store_setup_completed ;?>';
+
+                                                        if(store_setup_completed) {
+                                                                                        
+                                                              $('.nav-pills a[href="#' + 'launchstore-tab' + '"]').tab('show');
+                                                              $('.nav-pills li').not('.active').find('a').removeAttr("data-toggle");
+                                                        }
+                                        }
+
+                    function misellenous_help_preview_store_and_image() {
+                                          //change the produt name div conetnt to same as this one
+                    // $('.product_name').text($(e.currentTarget).data('asdasdasd');
+                    $( "#product_name" ).change(function(e) {
+                       
+                         $('#product_name_h4').text( $(this).val());
+
+                         
+                    });
+                    $( "#product_descritpion" ).change(function(e) {
+                       
+                         $('#descritpion_paragraph').text( $(this).val());
+
+                         
+                    });
+
+                     $( "#price" ).change(function(e) {
+                       
+                         $('#price_tag_label').text( "$"+$(this).val());
+
+                         
+                    });
+
+                      $( "#category" ).change(function(e) {
+                       
+                         $('#category_label').text( $(this).val());
+                         
+                    });
+                                          
+
+
+
+                     //display the image on previw store page as 
+
+                     $(document).on('change', '#product_image', function(event) {
+                     var output = document.getElementById("product_preview_image");
+                     output.src = URL.createObjectURL(event.target.files[0]);
+                    });
+            
+             
+                                        }
 
                     $( document ).ready(function() {
 
-          
-                     //disable tabs not active so that enable them when validated
-                     //$('.nav li').not('.active').find('a').removeAttr("data-toggle");
+                     disable_tabs_when_completed();
 
-                    
+                     misellenous_help_preview_store_and_image();
+
+                         
+                     //disable tabs not active so that enable them when validated
+                                       
                        /**
                        this a continue button after successfull identity verfication
                        **/
 
                        $('#btn_next_page').click( function() {
-                        $('.nav-pills > .active').next('li').find('a').trigger('click');
+                        
+                        $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
+                    
                       });
 
                       //next page for store
                        $('#btn_store_next_page').click( function() {
-
                          validate1();
+                         $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
+                         // $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
                          //$('.nav-pills > .active').next('li').find('a').trigger('click');
                       });
                        
 
                     //next page for product
                         $('#btn_product_next_page').click( function() {
-                       
-                         validate1();
-
-                         /*enable next tab*/
-                         // $('.nav li.active').next('li').removeClass('disabled');
-                         // $('.nav li.active').next('li').find('a').attr("data-toggle","tab")
-                    
-                         /* if(validation_add_products()) {
- 
-                         $('.nav-pills > .active').next('li').find('a').trigger('click');
-                        }*/
-                       
-
+                          validate1();
+                         $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
                       });
-                    
+
+
+                                         
                       //next page for store
                        $('#btn_next_page_getpaid').click( function() {
-
+                        //$('#myForm').bootstrapValidator().enableFieldValidators('userfile[]', false);
                          validate1();
-                       
-                      });
+                       });
 
                     //next page for store
                        $('#btn_save').click( function() {
+                           //  $('#myForm').bootstrapValidator().enableFieldValidators('userfile[]', false);
+                       validate1();
+                     });
 
-                         validate1();
-                         
-                      });
-                      
-                        //call function for image upload
-                       multiple_image_upload();
-                       
-
-                                   
+                     //call function for image upload
+                    // multiple_image_upload();
+                                                          
                 });
-            
+
+          
         
                 var url =  "<?php echo site_url('welcome/subscribe');?>";
                 subscribe_using_ajax(url);
@@ -184,99 +244,35 @@
                 }) ;
 
 
-              
-                 /*
-                 * Validate the store page 
-                 * before continuing to next page
-                 */
+                      $("#upload_2").on("click", function() {
+                         var csrf = $('input[name="madebyus4u_csrf_test_name"]').val();  // <- get token value from hidden form input
+                         var storename = $('input[name="storename"]').val(); 
+                        var storedesc = $('input[name="store_description"]').val(); 
 
+                        var file_data = $("#imgfile_store").prop("files");   
+                     
+                        var form_data = new FormData();                  
+                        form_data.append("file", file_data);
+                        form_data.append("madebyus4u_csrf_test_name", csrf);
+                        form_data.append("storename", storename);
+                        form_data.append("storedesc", storedesc);
 
+                        alert(form_data);                             
+                        $.ajax({
+                                    url: "<?php echo base_url('store/save');?>",
+                                    async: false,
+                                    cache: false,
+                                    contentType: false,
+                                    processData: false,
+                                    data: form_data,        
+                                    enctype: 'multipart/form-data',                 
+                                    type: 'post',
+                                    success: function(response){
+                                        alert(response); 
+                                    }
+                         });
 
-
-                function validation_store(){
-
-                var storeimgfile = $('#imgfile_store').val();
-                var storename = $('#storename').val();
-                var store_description = $("#store_descritpion").val();
-                    
-                    
-                    if(storeimgfile==''){
-                        return false;
-                    }
-                     if(storename==''){
-                        return false;
-                    }
-                   if(store_description==''){
-                        return false;
-                    }
-
-                    return true;
-                }
-
-
-
-                //validate add products
-
-                  function validation_add_products(){
-
-                var product_image = $('#preview_product_image').attr('src');
-                var product_name = $('#product_name').val();
-                var product_description = $("#product_descritpion").val();
-                var category = $('#category').attr('value');
-                var variation = $('#variation').attr('value');
-                var sub_varaition = $("#sub_varaition").attr('value');
-                var quantity = $("#quantity").val();
-                var sprice = $("#sprice").val();
-
-                //console.log (document.getElementById("myForm").elements);
-                      
-
-                    if(product_image=='uploads/profile/no-photo.jpg'){
-                        alert('at least on product image need to be attached');
-                        return false;
-                    }
-                     if(product_name==''){
-                          alert('please,');
-                        return false;
-                    }
-                   if(product_description==''){
-                      alert('desc'+product_description);
-                        return false;
-                    }
-
- 
-                    if(category==''){
-                          alert('pcat'+category);
-                        return false;
-                    }
-                     if(variation==''){
-                        alert('vvar'+variation);
-                        return false;
-                    }
-
-                    if(sub_varaition==''){
-                              alert('subvvar'+sub_varaition);
-                        return false;
-                    }
-
-
-                    if(quantity==''||isNaN(quantity)==false){
-                        alert('isNaN(quantity)===false'+isNaN(quantity)===false);
-                        return false;
-                    }
-                     if(sprice==''||isNaN(sprice)){
-                        alert('isNaN(quantity)===false'+isNaN(sprice)==false);
-                        return false;
-                    }
-                    if(price==''||!isNaN(price)==false){
-                        alert('isNaN(quantity)===false'+isNaN(price)==false);
-                        return false;
-                    }
-                    alert(isNaN(price)==false+isNaN(sprice)==false+isNaN(quantity)==false);
-
-                    return true;
-                }
-
+                        });
                 </script>
             </body>
         </html>

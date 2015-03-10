@@ -8,13 +8,13 @@
 
 class Product_model extends MY_Model {
 
-    public $belongs_to = array( 'profile' => array( 'model' => 'profile_model' ) ,
-                                'media' => array( 'model' => 'media_model' ));
+    public $belongs_to = array( 'profile' => array( 'model' => 'profile_model' ));
 
 
     public $has_many = array(
                               'comments' => array( 'primary_key' => 'parent_post_id' ),
-                              'category' => array( 'primary_key' => 'parent_post_id' )
+                              'categories' => array( 'primary_key' => 'catag' ),
+                              'medias' => array( 'model' => 'media_model' )
 
     );
 
@@ -22,14 +22,42 @@ class Product_model extends MY_Model {
 
 
     public $validate = array(
-        array( 'field' => 'fname',
-            'label' => 'firstname',
-            'rules' => 'required' ),
-        array( 'field' => 'lname',
-            'label' => 'lastname',
-            'rules' => 'required' ),
+
     );
 
+    /**
+     * @param $post
+     * @param $profile_id
+     * @return bool
+     */
+    public function add_lisiting($post,$profile_id)
+    {
+        $product_name = $post['product_name'];
+        $product_description = $post['product_description'];
+        $category = $post['category'];
+        $variation = $post['variation'];
+        $sub_variation = $post['sub_varaition'];
+        $quantity = $post['quantity'];
+        $price = $post['price'];
+        $sprice = $post['sprice'];
+
+
+        $insert_data = array(
+                      'name' =>$product_name ,
+                      'desc' =>$product_description ,
+                      'price' =>$price ,
+                      'sprice' =>$sprice ,
+                      'category'=>$category,
+                      'variation'=>$variation,
+                      'sub_variation'=>$sub_variation,
+                      'profile_id' => $profile_id,
+                      'quantity'=>$quantity );
+
+        $product_id = $this->insert($insert_data);
+
+        return $product_id;
+
+    }
 
 
 

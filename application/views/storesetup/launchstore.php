@@ -15,7 +15,20 @@
  
 
 <div class="col-md-12" style="padding-bottom: 14px;" >
+    <!--ERROR MESSAGE-->
 
+    <style type="text/css">
+        .error-message {
+            margin-top: 1%;
+
+        }
+    </style>
+
+    <div class="error-message col-md-12">
+        <?php $this->load->view($show_error_page,$data);?>
+    </div>
+
+    <!--END OF ERROR MESSAGE-->
    <div class="form-group col-md-2 col-md-offset-5" style="padding-top: 18px;">
               <button class="btn btn-primary btn-lg">VIEW YOUR LIVE STORE</button>
             </div>

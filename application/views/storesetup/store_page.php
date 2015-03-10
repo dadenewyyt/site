@@ -27,7 +27,7 @@
                     style="margin-top: 13px;" />
                      <div class="fileUpload row btn btn-sm btn-primary">
                         <span>Upload Image</span>
-                        <input id="imgfile_store" name="imgfile_store" type="file" class="upload" accept="image/*"  required/>
+                        <input id="imgfile_store" name="userfile[]" type="file" required class="upload" accept="image/*"/>
                     </div>
                 </div>
 
@@ -47,13 +47,14 @@
         <div class='col-md-5' style="margin-top:2%;">
             <div class="form-group">
                 <span class='required_star'>*</span><label for="store_descritpion">Store Description</label>
-                <textarea class="form-control" name='store_descritpion' id='store_descritpion' rows="4"></textarea>
+                <textarea class="form-control" name='store_description' id='store_description' rows="4"></textarea>
             </div>
 
         </div>
         <hr  class='hr_store_form'>
         <div class="form-group col-md-2 col-md-offset-5">
             <button id='btn_store_next_page' class="btn btn-primary btn-lg">Continue</button>
+           
         
         </div>
         <?php  //echo form_close(); ?>

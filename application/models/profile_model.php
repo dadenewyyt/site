@@ -26,10 +26,15 @@ class Profile_model extends MY_Model {
      * Many to Many if any
      */
 
-    public $belongs_to = array( 'media' => array( 'primary_key' => 'profile_image_id' ,'model'=>"media_model"),'user' => array( 'primary_key' => 'user_id' ,'model'=>'ion_auth_mode'),'state' => array( 'primary_key' => 'state' ,'model'=>'state_model'));
-    public $has_many = array(   'store' => array( 'primary_key' => 'profile_id' ,'model'=>"store_model") ,
-                                'payment' => array( 'primary_key' => 'profile_id' ,'model'=>"payment_model") );
+    public $belongs_to = array( 'media' => array( 'primary_key' => 'profile_image_id' ,'model'=>"media_model"),
+                                'user' => array( 'primary_key' => 'user_id' ,'model'=>'ion_auth_mode'),
+                                'state' => array( 'primary_key' => 'state' ,'model'=>'state_model'),
+                                'account' => array( 'primary_key' => 'account' ,'model'=>'account_model')
 
+                                );
+    public $has_many = array(   'stores' => array( 'primary_key' => 'profile_id' ,'model'=>"store_model") ,
+                                'payments' => array( 'primary_key' => 'profile_id' ,'model'=>"payment_model"),
+                                'products' => array( 'primary_key' => 'product_id' ,'model'=>"product_model"),);
 
 
     public function register($post)

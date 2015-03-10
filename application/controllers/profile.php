@@ -85,9 +85,11 @@ class Profile extends  MY_Controller {
 
             $upload_config['upload_path'] = $pathToUpload;
 
-            $profile_image_id = $this->media->save_or_update($this->profile_id ,$upload_config);
+            $file_post_name = 'imgfile';
 
-          //receive the post available after validate and update profile
+            $profile_image_id = $this->media->save_or_update($this->profile_id ,$upload_config,$file_post_name);
+
+           //receive the post available after validate and update profile
             $password = $this->input->post('password');
             $new_email = $this->input->post('new_email');
             $bioinfo = $this->input->post('bioinfo');

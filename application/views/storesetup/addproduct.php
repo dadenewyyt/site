@@ -11,7 +11,8 @@
            
 
              <div class="form-group row col-md-4">
-                    <span class='required_star'>*</span><label class='control-lable' for="product_name">Product Name</label>
+                    <span class='required_star'>*</span>
+                    <label class='control-lable' for="product_name">Product Name</label>
                     <input type="text" id='product_name' name="product_name" class='form-control' placeholder="Product Name" 
                     length="20"  style="margin-top: 13px;" required>
                       
@@ -57,68 +58,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row col-md-12 ">
-
-                   <!-- Upload popup hover html hidden content -->
-                    <div id="popup_upload_html" style="display: none;">
-                  
-                                      
-                     <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
-                        <span>Upload Image</span>
-                        <input id="product_image" name="product_image" type="file" class="upload" accept="image/*" >
-                    </div>
-                    
-                    </div>  
-
-                    <!-- Upload popup hover html hidden content -->
-                    <div id="popup_upload_html1" style="display: none;">
-                  
-                                      
-                     <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
-                        <span>Upload Image</span>
-                        <input id="product_image1" name="product_image1" type="file" class="upload" accept="image/*" >
-                    </div>
-                    
-                    </div>  
-
-                    <!-- Upload popup hover html hidden content -->
-                    <div id="popup_upload_html2" style="display: none;">
-                  
-                                      
-                     <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
-                        <span>Upload Image</span>
-                        <input id="product_image2" name="product_image2" type="file" class="upload" accept="image/*" >
-                    </div>
-                    
-                    </div>  
-
-                    <!-- Upload popup hover html hidden content -->
-                    <div id="popup_upload_html3" style="display: none;">
-                  
-                                      
-                     <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
-                        <span>Upload Image</span>
-                        <input id="product_image3" name="product_image3" type="file" class="upload" accept="image/*" >
-                    </div>
-                    
-                    </div>  
-
-                    <!-- Upload popup hover html hidden content -->
-                    <div id="popup_upload_html4" style="display: none;">
-                  
-                                      
-                     <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
-                        <span>Upload Image</span>
-                        <input id="product_image4" name="product_image4" type="file" class="upload" accept="image/*" >
-                    </div>
-                    
-                    </div>  
-
-
-                    <!-- Upload popup hover html hidden title -->
-                    <div id="popup_upload_html_title" style="display: none;color:white;">
-                       Upload file
-                    </div> 
+                <div class="form-group row col-md-12 ">                                
 
 
                     <label for="preview_produt_image">Photos</label>
@@ -129,31 +69,51 @@
                         <div class="col-xs-4 col-md-3">
 
                            <a class="thumbnail" id="popup_upload">
-                            <img id='preview_product_image' name='preview_product_image' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                            <img id='preview_product_image'  name='preview_product_image' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                              <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
+                             <span>Upload Image</span>
+                           <input id="product_image" name="userfile[]" type="file" class="upload" accept="image/*">
+                             </div>
                             </a>
                         </div>
 
                         <div class="col-xs-4 col-md-2">
                             <a class="thumbnail" id="popup_upload1">
                              <img id='preview_product_image1' name='preview_product_image1' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                            <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
+                             <span>Upload Image</span>
+                           <input id="product_image1" name="userfile[]" type="file" class="upload" accept="image/*" >
+                             </div>
                             </a>
                         </div>
 
                         <div class="col-xs-4 col-md-2">
                             <a  class="thumbnail" id="popup_upload2">
                              <img id='preview_product_image2' name='preview_product_image2' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                             <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
+                             <span>Upload Image</span>
+                           <input id="product_image2" name="userfile[]" type="file" class="upload" accept="image/*" >
+                             </div>
                             </a>
                         </div>
 
                         <div class="col-xs-4 col-md-2">
                             <a  class="thumbnail" id="popup_upload3">
                             <img id='preview_product_image3' name='preview_product_image3' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                             <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
+                             <span>Upload Image</span>
+                           <input id="product_image3" name="userfile[]" type="file" class="upload" accept="image/*" >
+                             </div>
                             </a>
                         </div>
 
                         <div class="col-xs-4 col-md-2">
                             <a class="thumbnail" id="popup_upload4">
                               <img id='preview_product_image4' name='preview_product_image4' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                             <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
+                             <span>Upload Image</span>
+                           <input id="product_image4" name="userfile[]" type="file" class="upload" accept="image/*" >
+                             </div>
                             </a>
                         </div>
                        

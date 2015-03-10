@@ -1,67 +1,3 @@
-function multiple_image_upload() {
-    $('[data-toggle="popover"]').popover();
-
-    // Enabling Popover  (hidden content and title capturing)
-    $("#popup_upload").popover({
-        html: true,
-        content: function() {
-            return $('#popup_upload_html').html();
-        },
-        title: function() {
-            return $('#popup_upload_html_title').html();
-        }
-    });
-
-    //1
-    $("#popup_upload1").popover({
-        html: true,
-        content: function() {
-            return $('#popup_upload_html1').html();
-        },
-        title: function() {
-            return $('#popup_upload_html_title').html();
-        }
-    });
-
-    //2
-    $("#popup_upload2").popover({
-        html: true,
-        content: function() {
-            return $('#popup_upload_html2').html();
-        },
-        title: function() {
-            return $('#popup_upload_html_title').html();
-        }
-    });
-  
-
-  //3
-    $("#popup_upload3").popover({
-        html: true,
-        content: function() {
-            return $('#popup_upload_html3').html();
-        },
-        title: function() {
-            return $('#popup_upload_html_title').html();
-        }
-    });
-
-
-    //4
-    $("#popup_upload4").popover({
-        html: true,
-        content: function() {
-            return $('#popup_upload_html4').html();
-        },
-        title: function() {
-            return $('#popup_upload_html_title').html();
-        }
-    });
-  
-
-  
-}
-
 /*
              *  prepare store  image to be previewd before actual upload
              *  this will be called on change even of the file / upload component
@@ -102,3 +38,5 @@ function multiple_image_upload() {
         var output = document.getElementById("preview_product_image4");
         output.src = URL.createObjectURL(event.target.files[0]);
     });
+
+    

@@ -99,21 +99,8 @@ class Sell extends  MY_Controller {
         $data['main_menu'] = $main_menu;
        
 
-        $this->load->model('profile_model','profile');
-
-        $profile = $this->profile->with('media')->get($this->profile_id);
-
-         if(count($profile->media) > 0)  {
-          $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
-         } else {
-          $profile_image = "/uploads/profile/no-photo.jpg";
-         }
-
-        $data['profile']  = $profile ;
-        $data['profile_image']  = $profile_image ;
-
-
-
+        $this->load_profile();
+        $data = array_merge($data,$this->data);
 
         $this->load->view('sell/seller',$data);
 
