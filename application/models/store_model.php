@@ -30,7 +30,7 @@ class Store_model extends MY_Model {
     public $has_many = array('products' => array( 'primary_key' => 'product_id' ,'model'=>"product_model"),
                              'medias' => array( 'primary_key' => 'media_id' ,'model'=>"media_model") );
 
-    public $belongs_to = array('profile' => array( 'primary_key' => 'profile_id' ,'model'=>"profile_model") );
+    public $belongs_to = array('profile' => array( 'primary_key' => 'owner_profile_id' ,'model'=>"profile_model") );
 
     /**
      * @param $post
@@ -49,8 +49,8 @@ class Store_model extends MY_Model {
                'store_name' =>$storename ,
                'desc' =>$store_descritpion ,
                'owner_profile_id'=>$profile_id,
-               'is_launced' =>0,
-               'is_paied'=>1
+               'is_launched' =>1,
+               'is_paid'=>1
          );
 
         $store_id = $this->insert($insert_data) ;  

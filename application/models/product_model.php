@@ -33,7 +33,7 @@ class Product_model extends MY_Model {
     public function add_lisiting($post,$profile_id)
     {
         $product_name = $post['product_name'];
-        $product_description = $post['product_description'];
+        $product_description = $post['product_descritpion'];
         $category = $post['category'];
         $variation = $post['variation'];
         $sub_variation = $post['sub_varaition'];

@@ -69,7 +69,7 @@
                         <div class="col-xs-4 col-md-3">
 
                            <a class="thumbnail" id="popup_upload">
-                            <img id='preview_product_image'  name='preview_product_image' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                            <img id='preview_product_image'  name='preview_product_image' src="<?php echo base_url('uploads/profile/no-photo.jpg');?>" alt="..." height="200">
                               <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
                              <span>Upload Image</span>
                            <input id="product_image" name="userfile[]" type="file" class="upload" accept="image/*">
@@ -79,7 +79,7 @@
 
                         <div class="col-xs-4 col-md-2">
                             <a class="thumbnail" id="popup_upload1">
-                             <img id='preview_product_image1' name='preview_product_image1' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                             <img id='preview_product_image1' name='preview_product_image1' src="<?php echo base_url('uploads/profile/no-photo.jpg');?>" alt="..." height="200">
                             <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
                              <span>Upload Image</span>
                            <input id="product_image1" name="userfile[]" type="file" class="upload" accept="image/*" >
@@ -89,7 +89,7 @@
 
                         <div class="col-xs-4 col-md-2">
                             <a  class="thumbnail" id="popup_upload2">
-                             <img id='preview_product_image2' name='preview_product_image2' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                             <img id='preview_product_image2' name='preview_product_image2' src="<?php echo base_url('uploads/profile/no-photo.jpg');?>" alt="..." height="200">
                              <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
                              <span>Upload Image</span>
                            <input id="product_image2" name="userfile[]" type="file" class="upload" accept="image/*" >
@@ -99,7 +99,7 @@
 
                         <div class="col-xs-4 col-md-2">
                             <a  class="thumbnail" id="popup_upload3">
-                            <img id='preview_product_image3' name='preview_product_image3' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                            <img id='preview_product_image3' name='preview_product_image3' src="<?php echo base_url('uploads/profile/no-photo.jpg');?>" alt="..." height="200">
                              <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
                              <span>Upload Image</span>
                            <input id="product_image3" name="userfile[]" type="file" class="upload" accept="image/*" >
@@ -109,7 +109,7 @@
 
                         <div class="col-xs-4 col-md-2">
                             <a class="thumbnail" id="popup_upload4">
-                              <img id='preview_product_image4' name='preview_product_image4' src="uploads/profile/no-photo.jpg" alt="..." height="200">
+                              <img id='preview_product_image4' name='preview_product_image4' src="<?php echo base_url('uploads/profile/no-photo.jpg');?>" alt="..." height="200">
                              <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
                              <span>Upload Image</span>
                            <input id="product_image4" name="userfile[]" type="file" class="upload" accept="image/*" >

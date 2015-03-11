@@ -46,8 +46,8 @@
 
                    <?php
 
-                   $attributes = array('class' => 'form', 'id' => 'store_setup');
-                   echo form_open('store/process_payment', $attributes);
+                   $attributes = array('class' => 'form', 'id' => 'store_setup','name'=>'store_setup');
+                   echo form_open('store/process_payment/'.$profile_id, $attributes);
                    ?>
 
                     <div class="form-group">

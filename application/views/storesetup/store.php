@@ -39,9 +39,8 @@
                                   
                               
                                 <ul class="nav nav-pills" role="tablist" id='createNotTab'>
-                                    <li role="presentation" class="active" ><a href="#verify-tab" aria-controls="verify-tab" role="tab" data-toggle="tab" ><!--validate page-->1. Validate Identity</a></li>
-                                   <!--this is a form for all tab submission after verfiication-->
-                              
+                                    <li role="presentation"><a href="#verify-tab" aria-controls="verify-tab" role="tab" data-toggle="tab" ><!--validate page-->1. Validate Identity</a></li>
+                                   <!--this is a form for all tab submission after verfiication-->                             
 
                                     <li role="presentation" ><a href="#store-tab" aria-controls="store-tab" role="tab" data-toggle="tab" ><!--store page--> 2. Store Name</a></li>
                                     <li role="presentation"><a href="#product-tab" aria-controls="product-tab" role="tab" data-toggle="tab">3. Add Listing</a></li>
@@ -50,20 +49,20 @@
                                     <li role="presentation"><a href="#launchstore-tab" aria-controls="launchstore-tab" role="tab" data-toggle="tab" >6. Launch Store</a></li>
                                   
                                  </ul>
+                   <?php if ($tab_status): ?>
+                         <?php
+                          $attributes = array(
+                              'class'=>'form',
+                               
+                              'id'=>'myForm',
+                              'name'=>'myForm',
 
-                                <?php
-                                    $attributes = array(
-                                        'class'=>'form',
-                                         
-                                        'id'=>'myForm',
-                                        'name'=>'myForm',
+                          );
 
-                                    );
-
-                                    echo form_open_multipart('store/save?XDEBUG_SESSION_START=17431',$attributes);
-                                   ?>   
-
-                                  
+                          echo form_open_multipart('store/save/'.$profile->id,$attributes);
+                         ?>   
+                   <?php endif;  ?> 
+                                                    
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     
@@ -78,11 +77,13 @@
                                     <div role="tabpanel" class="fade tab-pane" id="openstore-tab"><?php $this->load->view($previewstore_page);?></div>
                                     <div role="tabpanel" class="fade tab-pane" id="launchstore-tab"><?php $this->load->view($launchstore_page);?></div>
                                 
-                                 <?php endif;  ?>  
+                                  <?php endif;  ?> 
 
 
-                                </div> 
-                                 </form>                                                         
+                                </div>    
+
+                              <?php if ($tab_status): ?>    </form>    <?php endif;  ?> 
+                                                                                    
                               </div> 
 
                                  
@@ -121,65 +122,44 @@
                     * Send controller
                     * Receive response
                     */
-        
-                     function disable_tabs_when_completed() {
-                                          
-                                             var store_setup_completed = '<?php echo $store_setup_completed ;?>';
+function disable_tabs_when_completed() {
+    var store_setup_completed = '<?php echo $store_setup_completed ;?>';
+    if (store_setup_completed) {
+        $('.nav-pills a[href="#' + 'launchstore-tab' + '"]').tab('show');
+        $('.nav-pills li').not('.active').find('a').removeAttr("data-toggle");
+    } else {
+        $('.nav-pills a[href="#' + 'verify-tab' + '"]').tab('show');
+        $('.nav-pills li').not('.active').find('a').removeAttr("data-toggle");
+    }
+}
 
-                                                        if(store_setup_completed) {
-                                                                                        
-                                                              $('.nav-pills a[href="#' + 'launchstore-tab' + '"]').tab('show');
-                                                              $('.nav-pills li').not('.active').find('a').removeAttr("data-toggle");
-                                                        }
-                                        }
+function misellenous_help_preview_store_and_image() {
+    //change the produt name div conetnt to same as this one
+    // $('.product_name').text($(e.currentTarget).data('asdasdasd');
+    $("#product_name").change(function(e) {
+        $('#product_name_h4').text($(this).val());
+    });
+    $("#product_descritpion").change(function(e) {
+        $('#descritpion_paragraph').text($(this).val());
+    });
+    $("#price").change(function(e) {
+        $('#price_tag_label').text("$" + $(this).val());
+    });
+    $("#category").change(function(e) {
+        $('#category_label').text($(this).val());
+    });
+    //display the image on previw store page as 
+    $(document).on('change', '#product_image', function(event) {
+        var output = document.getElementById("product_preview_image");
+        output.src = URL.createObjectURL(event.target.files[0]);
+    });
+}
 
-                    function misellenous_help_preview_store_and_image() {
-                                          //change the produt name div conetnt to same as this one
-                    // $('.product_name').text($(e.currentTarget).data('asdasdasd');
-                    $( "#product_name" ).change(function(e) {
-                       
-                         $('#product_name_h4').text( $(this).val());
+  $( document ).ready(function() {
 
-                         
-                    });
-                    $( "#product_descritpion" ).change(function(e) {
-                       
-                         $('#descritpion_paragraph').text( $(this).val());
+                       disable_tabs_when_completed();
 
-                         
-                    });
-
-                     $( "#price" ).change(function(e) {
-                       
-                         $('#price_tag_label').text( "$"+$(this).val());
-
-                         
-                    });
-
-                      $( "#category" ).change(function(e) {
-                       
-                         $('#category_label').text( $(this).val());
-                         
-                    });
-                                          
-
-
-
-                     //display the image on previw store page as 
-
-                     $(document).on('change', '#product_image', function(event) {
-                     var output = document.getElementById("product_preview_image");
-                     output.src = URL.createObjectURL(event.target.files[0]);
-                    });
-            
-             
-                                        }
-
-                    $( document ).ready(function() {
-
-                     disable_tabs_when_completed();
-
-                     misellenous_help_preview_store_and_image();
+                       misellenous_help_preview_store_and_image();
 
                          
                      //disable tabs not active so that enable them when validated
@@ -196,7 +176,7 @@
 
                       //next page for store
                        $('#btn_store_next_page').click( function() {
-                         validate1();
+                         validate_store_setup();
                          $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
                          // $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
                          //$('.nav-pills > .active').next('li').find('a').trigger('click');
@@ -205,7 +185,7 @@
 
                     //next page for product
                         $('#btn_product_next_page').click( function() {
-                          validate1();
+                          validate_store_setup();
                          $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
                       });
 
@@ -214,13 +194,14 @@
                       //next page for store
                        $('#btn_next_page_getpaid').click( function() {
                         //$('#myForm').bootstrapValidator().enableFieldValidators('userfile[]', false);
-                         validate1();
+                         validate_store_setup();
+                          $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
                        });
 
                     //next page for store
                        $('#btn_save').click( function() {
-                           //  $('#myForm').bootstrapValidator().enableFieldValidators('userfile[]', false);
-                       validate1();
+                        //  $('#myForm').bootstrapValidator().enableFieldValidators('userfile[]', false);
+                       validate_store_setup();
                      });
 
                      //call function for image upload
@@ -244,35 +225,8 @@
                 }) ;
 
 
-                      $("#upload_2").on("click", function() {
-                         var csrf = $('input[name="madebyus4u_csrf_test_name"]').val();  // <- get token value from hidden form input
-                         var storename = $('input[name="storename"]').val(); 
-                        var storedesc = $('input[name="store_description"]').val(); 
-
-                        var file_data = $("#imgfile_store").prop("files");   
                      
-                        var form_data = new FormData();                  
-                        form_data.append("file", file_data);
-                        form_data.append("madebyus4u_csrf_test_name", csrf);
-                        form_data.append("storename", storename);
-                        form_data.append("storedesc", storedesc);
 
-                        alert(form_data);                             
-                        $.ajax({
-                                    url: "<?php echo base_url('store/save');?>",
-                                    async: false,
-                                    cache: false,
-                                    contentType: false,
-                                    processData: false,
-                                    data: form_data,        
-                                    enctype: 'multipart/form-data',                 
-                                    type: 'post',
-                                    success: function(response){
-                                        alert(response); 
-                                    }
-                         });
-
-                        });
                 </script>
             </body>
         </html>

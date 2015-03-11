@@ -9,15 +9,7 @@
 
         <div class='col-md-6'>
             <div class="col-md-10 col-md-offset-1" style="margin-top:5%;">
-                <?php
-                              /*  $attributes = array(
-                                    'class'=>'form',
-                                    'id'=>'profile_edit',
-                                );
-                                echo form_open_multipart('/store/save_store',$attributes);*/
-                ?>
-
-               
+                                          
                 
                 <div class="form-group">
 
@@ -53,10 +45,10 @@
         </div>
         <hr  class='hr_store_form'>
         <div class="form-group col-md-2 col-md-offset-5">
-            <button id='btn_store_next_page' class="btn btn-primary btn-lg">Continue</button>
-           
-        
+            <button id='btn_store_next_page' class="btn btn-primary btn-lg">Continue</button>                    
         </div>
-        <?php  //echo form_close(); ?>
+       
     </div>
-</div>
+
+    </div>      
+ 

@@ -175,7 +175,7 @@
                     $('#divstoresetup').hide("400",function(){
                     // alert( "Animation complete." );
                     // $('#divsetup-content').css('display','block');
-                    window.location="<?php echo base_url('store');?>";
+                    window.location="<?php echo base_url('store/setup').'/'.$profile->id;?>";
                     });
                     }) ;
                     </script>

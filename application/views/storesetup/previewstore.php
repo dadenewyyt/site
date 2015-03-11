@@ -47,7 +47,7 @@
             <!--col2-->
             <div class="col-md-4 borders" style="background-color:white;margin-left:3px;" >
                 <h4 style="text-align:center" id="product_name_h4">Product Name</h4>
-                <img class="col-md-12 thumbnail" id="product_preview_image"src="uploads/profile/no-photo.jpg" alt="..." height="220">
+                <img class="col-md-12 thumbnail" id="product_preview_image"src="<?php echo base_url('uploads/profile/no-photo.jpg');?>" alt="..." height="220">
             </div>
             <!--col2-->
             <style type="text/css">
@@ -68,8 +68,8 @@
             <div class="col-md-3 sell_info" style="width: 33%;">
                 <div class='money col-md-6'><label id='price_tag_label'>$ 35.00</label></div>
                 <a href="#" class="btn btn-primary col-md-2 buybtn" style="margin-right:4px;width:80px;">Buy</a>
-                <button id='btn_save' name='btn_save'type='submit' class="btn btn-primary col-md-2 save_btn" style="width:24%;">Save</button>
-            
+                <button id='btn_save' name='btn_save' type='submit' class="btn btn-primary col-md-2 save_btn" style="width:24%;">Save</button>
+           
                 <hr class='col-md-11' style="border-top:2px dotted #d5d5d5;margin-top:10px;margin-left: 10px;">
 
                 <div class="col-md-12">
@@ -86,6 +86,7 @@
             </div>
 
         </div>
+
            <hr  class='hr_store_form'>
             <div class="form-group col-md-2 col-md-offset-5">
               <button class="btn btn-primary btn-lg">Continue</button>

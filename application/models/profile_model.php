@@ -100,6 +100,13 @@ class Profile_model extends MY_Model {
 
     }
 
+    /**
+    **/
+    function check_verfication($profile_id) {
+
+        return $this->get($profile_id)->is_profile_verified ;
+    }
+
 }
 
 

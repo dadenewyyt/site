@@ -38,7 +38,7 @@
 
                     <div class="col-md-12 form-group">
                         <h3>Pic of Check</h3>
-                        <img src="assets/images/storesetup/check.jpg">
+                        <img src="<?php echo base_url('assets/images/storesetup/check.jpg');?>">
                     </div>
 
 

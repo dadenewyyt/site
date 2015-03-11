@@ -193,8 +193,9 @@ class Media_model extends MY_Model {
                     $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
                     $_FILES['userfile']['error']= $files['userfile']['error'][$i];
                     $_FILES['userfile']['size']= $files['userfile']['size'][$i];
-                   
-
+                
+                //TODO :Resize IMAGES        
+                
                 //store image first
                 if ($i == 0) {
 
@@ -203,6 +204,11 @@ class Media_model extends MY_Model {
                     $upload_config = $this->config->item('upload_config_profile_edit');
 
                     $upload_config['upload_path'] = $pathToUpload;
+
+                    //rename files first      
+                    $temp = explode(".",$_FILES["userfile"]["name"]);
+                    $newfilename = 'store_image'.rand(1,99999) . '.' .end($temp);
+                    $config['file_name'] = $newfilename;
 
                     if (!is_dir($upload_config['upload_path']))
                         mkdir($upload_config['upload_path'], 0777, TRUE);
@@ -232,6 +238,11 @@ class Media_model extends MY_Model {
                     $upload_config = $this->config->item('upload_config_profile_edit');
 
                     $upload_config['upload_path'] = $pathToUpload;
+                    
+                    //rename files first      
+                    $temp = explode(".",$_FILES["userfile"]["name"]);
+                    $newfilename = 'product_image'.rand(1,99999) . '.' .end($temp);
+                    $config['file_name'] = $newfilename;
 
                     if (!is_dir($upload_config['upload_path']))
                         mkdir($upload_config['upload_path'], 0777, TRUE);
