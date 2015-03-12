@@ -208,7 +208,7 @@ class Media_model extends MY_Model {
                     //rename files first      
                     $temp = explode(".",$_FILES["userfile"]["name"]);
                     $newfilename = 'store_image'.rand(1,99999) . '.' .end($temp);
-                    $config['file_name'] = $newfilename;
+                    $upload_config['file_name'] = $newfilename;
 
                     if (!is_dir($upload_config['upload_path']))
                         mkdir($upload_config['upload_path'], 0777, TRUE);
@@ -242,7 +242,7 @@ class Media_model extends MY_Model {
                     //rename files first      
                     $temp = explode(".",$_FILES["userfile"]["name"]);
                     $newfilename = 'product_image'.rand(1,99999) . '.' .end($temp);
-                    $config['file_name'] = $newfilename;
+                    $upload_config['file_name'] = $newfilename;
 
                     if (!is_dir($upload_config['upload_path']))
                         mkdir($upload_config['upload_path'], 0777, TRUE);

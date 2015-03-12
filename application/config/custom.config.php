@@ -31,11 +31,12 @@ $config['public_urls'] = array (
 
 $config['upload_config_profile_edit'] = array (
         'upload_path' => '',
-        'allowed_types' => "gif|jpg|png|mp4|3gp|flv",
+        'file_name'=>'',
+        'allowed_types' => "gif|jpeg|jpg|png|mp4|3gp|flv",
         'overwrite' => TRUE,
-        'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-        'max_height' => "768",
-        'max_width' => "1024"
+        'max_size' => "3048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+        'max_height' => "1068",
+        'max_width' => "2024"
     );
 
 $config['fee_setting'] = array (

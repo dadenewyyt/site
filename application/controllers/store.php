@@ -209,7 +209,8 @@ class Store extends  MY_Controller {
       $post = $this->input->post();
      // var_dump($post);
      //TODOD:Server Side Validation here
-
+      $tab_status = FALSE ;
+      
       if(empty($post)) { 
          redirect('store/'.$this->profile_id);
       }
@@ -229,6 +230,7 @@ class Store extends  MY_Controller {
        //disable other tabs except verification tab
         $tab_status = TRUE ;
         $data['store_setup_completed'] = FALSE; //
+        $data['tab_status'] = $tab_status; //
      }
 
      else {
@@ -267,7 +269,7 @@ class Store extends  MY_Controller {
         
         //disable other tabs except verification tab
  
-        $data['store_setup_completed'] = TRUE; //
+         $data['store_setup_completed'] = TRUE; //
         $data['tab_status'] = TRUE; //
 
          $this->message = array('type' => 'success','message' =>"You have setup you store succesfully!! <small>Now can continue viewing your store.</small>");
