@@ -149,12 +149,17 @@ class Media_model extends MY_Model {
 
         if (!is_dir($upload_config['upload_path']))
             mkdir($upload_config['upload_path'], 0777, TRUE);
+          
+        //rename files first      
+        $temp = explode(".",$_FILES[$file_post_name]["name"]);
+        $newfilename = 'profile_image'.rand(1,99999) . '.' .end($temp);
+        $upload_config['file_name'] = $newfilename;
 
         $this->upload->initialize($upload_config);
 
         if (!$this->upload->do_upload($file_post_name)) {
             //upload failed
-            //TODO:throw th
+            //TODO:throw exception
             return array('error' => $this->upload->display_errors('<span>', '</span>'));
 
         } else {
