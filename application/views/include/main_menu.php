@@ -13,7 +13,7 @@ div.row.row-1.main-nav {
 }
 .row-1 .navbar-default .navbar-nav>li>a {
 color: #000000;
-padding-right: 8px;
+padding-right: 0px;
 }
 .row-1 {
     background-color: #black;
@@ -63,10 +63,10 @@ color: #a1a1a1;
                 <div class="collapse navbar-collapse" id="madebyus4u-mobile-responsive-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Closing <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Men <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['MEN'] as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -77,10 +77,10 @@ color: #a1a1a1;
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Footwear <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Women <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Shoes'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['WOMEN'] as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -91,10 +91,10 @@ color: #a1a1a1;
                             </ul>
                         </li>
                             <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Home Furnishing <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bottoms<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['BOTTOMS'] as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -105,10 +105,10 @@ color: #a1a1a1;
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Entertainment <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dresses <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['DRESSES'] as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -119,10 +119,10 @@ color: #a1a1a1;
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Electronics <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">OutWear <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['OUTWEAR'] as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -134,10 +134,10 @@ color: #a1a1a1;
                         </li>
 
                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Arts & Crafts <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shoes <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['SHOES'] as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -148,10 +148,10 @@ color: #a1a1a1;
                             </ul>
                         </li>
                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Music<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sleep<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['SI'] as $value) : ?>
                             
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
@@ -164,10 +164,10 @@ color: #a1a1a1;
                         </li>
 
                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bags<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Swim<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Bags'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['SC'] as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -178,10 +178,10 @@ color: #a1a1a1;
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">E Books<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tops<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['TOPS'] as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -192,6 +192,48 @@ color: #a1a1a1;
                             </ul>
                         </li>
                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Art<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+
+                             <?php foreach($this->config->item('categories')['ART'] as $value) : ?>
+               
+                                     <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
+              
+
+                             <?php endforeach;?>                     
+                               
+                               
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Living<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+
+                             <?php foreach($this->config->item('categories')['HL'] as $value) : ?>
+               
+                                     <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
+              
+
+                             <?php endforeach;?>                     
+                               
+                               
+                            </ul>
+                        </li>
+                           <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+
+                             <?php foreach($this->config->item('categories')['MA'] as $value) : ?>
+               
+                                     <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
+              
+
+                             <?php endforeach;?>                     
+                               
+                               
+                            </ul>
+                        </li>
+                           <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jewelry<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
@@ -205,11 +247,12 @@ color: #a1a1a1;
                                
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Accessories<span class="caret"></span></a>
+
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kids<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['Accessories'] as $value) : ?>
+                             <?php foreach($this->config->item('categories')['Kids'] as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -219,7 +262,48 @@ color: #a1a1a1;
                                
                             </ul>
                         </li>
-                       
+                              <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Vintage<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+
+                             <?php foreach($this->config->item('categories')['Vintage'] as $value) : ?>
+               
+                                     <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
+              
+
+                             <?php endforeach;?>                     
+                               
+                               
+                            </ul>
+                        </li>
+                               <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Toys<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+
+                             <?php foreach($this->config->item('categories')['Toys'] as $value) : ?>
+               
+                                     <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
+              
+
+                             <?php endforeach;?>                     
+                               
+                               
+                            </ul>
+                        </li>
+                               <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Crafts<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+
+                             <?php foreach($this->config->item('categories')['Craft Supplies'] as $value) : ?>
+               
+                                     <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
+              
+
+                             <?php endforeach;?>                     
+                               
+                               
+                            </ul>
+                        </li>
                        
                        
                   

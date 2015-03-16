@@ -71,6 +71,10 @@ overflow: hidden;
 font-size: 16px;
 color: #ffffff;
 }
+
+.welcome_link {
+text-decoration: none;
+}
 </style>
 <nav class="navbar-topmenu navbar navbar-inverse navbar-fixed-top" >
   <div class="container">
@@ -94,11 +98,14 @@ color: #ffffff;
               $uname = $this->session->userdata('username'); 
               $profile_fname = $this->session->userdata('profile_fname');
               $profile_id = $this->session->userdata('profile_id'); 
+              //TODO:more logic than bio info check!!!
+              $edit_profile_seller_page = !empty($profile->bioinfo) ? 'sell/seller' : 'profile/edit';
+             
         ?>
             <?php if($logged_in===TRUE): ?>
                    <p class="navbar-text greeting-text">
                     Welcome &nbsp;<span style="color:#2a78ac;">
-                   <?php echo ucfirst(strtolower($profile_fname));?> </span>!!
+                    <a style='text-decoration:none;' href="<?php echo base_url($edit_profile_seller_page).'/'.$profile_id;?>"><?php echo ucfirst(strtolower($profile_fname));?> </span></a>!!
                    </p>
             <?php else: ?>
                <p class="navbar-text greeting-text">

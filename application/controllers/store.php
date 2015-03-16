@@ -22,11 +22,11 @@ class Store extends  MY_Controller {
 
     public function load_country_state(){
 
-     /** read from
-      configuration file
-      and construct
-      STRING,STRING Array list
-     **/
+         /** read from
+          configuration file
+          and construct
+          STRING,STRING Array list
+         **/
         $country_list = $this->config->item('country');
         $country = array();
 
