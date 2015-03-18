@@ -11,11 +11,52 @@
 
 class Store extends  MY_Controller {
 
+     var  $load_all_catagories ;
     public function __construct() {
 
         parent::__construct();
         $this->load->model('profile_model','profile');
         $this->load->model('store_model','store');
+        $this->load_all_catagories = $this->load_catagories();
+
+    }
+
+    public function load_catagories() {
+
+        $this->load_all_catagories = array_keys($this->config->item('categories'));
+        $category_string_string = array();
+        foreach ($this->load_all_catagories as $key => $value) {
+          if($value == 'HL'){
+            $value = "Home & Living";
+          }
+          if($value == 'MA'){
+            $value = "Mobile Accessories";
+          }
+
+         array_push($category_string_string, ucfirst(strtolower($value)));
+        }
+        return $category_string_string;
+    }
+
+    public function get_sub_categories_ajax() {
+           
+         $categories_selected = $this->input->post('category');  
+         $load_all_catagories = $this->config->item('categories');
+
+        
+         $result = $load_all_catagories[strtoupper($categories_selected)];
+         if(!$this->input->is_ajax_request()) {
+            exit('Not allowed');
+         } else {
+            
+
+            $result =  array('#'=>'Please Select Variation')+$result;
+            
+            header('Content-Type: application/x-json; charset=utf-8'); 
+            echo ( json_encode( array_values($result)  )  );
+
+         } 
+
 
 
     }
@@ -53,7 +94,6 @@ class Store extends  MY_Controller {
         $list_of_country_state_data = $this->load_country_state();
         $states = $list_of_country_state_data['state'];
         $country = $list_of_country_state_data['country'];
-
 
         $paginate_page = 'include/paginate_page';
         $notification_bar = 'include/notification_bar';
@@ -101,7 +141,7 @@ class Store extends  MY_Controller {
         $data['data']['message'] = $this->message;
 
         //disable other tabs except verification tab
-        $tab_status = FALSE ;
+        $tab_status = TRUE ;
         $data['store_setup_completed'] = FALSE; //
 
         $data['tab_status'] = $tab_status;
@@ -109,6 +149,8 @@ class Store extends  MY_Controller {
 
         $this->load_profile();
         $data = array_merge($data,$this->data);
+
+        $data['catagories'] = $this->load_all_catagories;
 
         $this->load->view('storesetup/store',$data);
 
@@ -200,6 +242,8 @@ class Store extends  MY_Controller {
         
         $this->load_profile();
         $data = array_merge($data,$this->data);
+        $data['catagories'] = $this->load_all_catagories;
+
         $this->load->view('storesetup/store',$data);
     }
 
@@ -331,6 +375,7 @@ class Store extends  MY_Controller {
        
         $this->load_profile();
         $data = array_merge($data,$this->data);
+        $data['catagories'] = $this->load_all_catagories;
 
         $this->load->view('storesetup/store',$data);
 

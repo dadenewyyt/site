@@ -123,14 +123,14 @@
                     * Receive response
                     */
 function disable_tabs_when_completed() {
-    var store_setup_completed = '<?php echo $store_setup_completed ;?>';
+   /* var store_setup_completed = '<?php echo $store_setup_completed ;?>';
     if (store_setup_completed) {
         $('.nav-pills a[href="#' + 'launchstore-tab' + '"]').tab('show');
         $('.nav-pills li').not('.active').find('a').removeAttr("data-toggle");
     } else {
         $('.nav-pills a[href="#' + 'verify-tab' + '"]').tab('show');
         $('.nav-pills li').not('.active').find('a').removeAttr("data-toggle");
-    }
+    }*/
 }
 
 function misellenous_help_preview_store_and_image() {
@@ -223,6 +223,41 @@ function misellenous_help_preview_store_and_image() {
                 window.location="<?php echo base_url('store');?>";
                 });
                 }) ;
+
+$('#category').change(function(){
+
+ var csrf = $('input[name="madebyus4u_csrf_test_name"]').val();  // <- get token value from hidden form input
+       alert(csrf);
+        var categorey_selected = $("#category option:selected").text();                                   
+                       
+              $("#variation > option").remove(); //first of all clear select items
+
+
+                        alert(categorey_selected);      
+
+                        $.ajax({
+                                    url: "<?php echo base_url('store/get_sub_categories_ajax');?>",
+                                    async: false,
+                                    cache: false,                              
+                                    data: {madebyus4u_csrf_test_name:csrf,category:categorey_selected},    
+                                    type: 'post',
+                                    datatype:'json',
+                                    success: function(variation_array_json){
+                                        alert(variation_array_json); 
+                                        $.each(variation_array_json,function(id,value) //here we're doing a foeach loop round each city with id as the key and city as the value
+                                           {
+                                        
+                                           var opt = $('<option />'); // here we're creating a new select option with for each city
+                                           opt.val(id);
+                                           opt.text(value);
+                                           $('#variation').append(opt); //here we will append these new select options to a dropdown with the id 'cities'
+                                           });
+                                           $('#variation').val('#');
+                                    }
+                         });
+
+});
+
 
 
                      

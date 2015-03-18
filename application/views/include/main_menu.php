@@ -66,7 +66,11 @@ color: #a1a1a1;
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Men <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['MEN'] as $value) : ?>
+                             <?php 
+
+                             $men = array_keys($this->config->item('categories')['MEN']);
+
+                             foreach( $men as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
@@ -80,7 +84,10 @@ color: #a1a1a1;
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Women <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php foreach($this->config->item('categories')['WOMEN'] as $value) : ?>
+                             <?php 
+                            $women = array_keys($this->config->item('categories')['WOMEN']);
+
+                             foreach($women as $value) : ?>
                
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
               
