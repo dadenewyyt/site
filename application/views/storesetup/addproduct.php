@@ -28,15 +28,27 @@
                     <div class="form-group ">
                         <span class='required_star'>*</span>
                         <label for="category">Select Category</label>
-                        <?php  $catagories['#'] = 'Please Select Category';
-                      echo form_dropdown('categories', $catagories,'#','id="category" class="form-control"'); ?>
+                         <select name='category' id='category' class='form-control'>
+                            <option>Shoe</option>
+                            <option>Car</option>
+                            <option>House</option>
+                        </select>
+                        <!--<?php  $catagories['#'] = 'Please Select Category';
+                      echo form_dropdown('categories', $catagories,'#','id="category" 
+                      class="form-control"'); ?> -->
                     </div>
                 </div>
                 <div class="col-md-4 col-md-select">
                     <div class="form-group ">
                         <label for="variation">Variation</label>
-                         <?php  $variation['#'] = 'Please Select';
-                         echo form_dropdown('variation',$variation,'#','id="variation" class="form-control"'); ?>
+                        <select name='variation' id='variation' class='form-control'>
+                            <option>Shoe</option>
+                            <option>Car</option>
+                            <option>House</option>
+                        </select>
+                         <!--<?php  $variation['#'] = 'Please Select';
+                         echo form_dropdown('variation',$variation,'#',
+                         'id="variation" class="form-control"'); ?> -->
                     </div>
                 </div>
 

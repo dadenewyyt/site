@@ -45,11 +45,13 @@ class Store extends  MY_Controller {
 
         
          $result = $load_all_catagories[strtoupper($categories_selected)];
+         var_dump($result);exit;
          if(!$this->input->is_ajax_request()) {
+
             exit('Not allowed');
+
          } else {
             
-
             $result =  array('#'=>'Please Select Variation')+$result;
             
             header('Content-Type: application/x-json; charset=utf-8'); 
