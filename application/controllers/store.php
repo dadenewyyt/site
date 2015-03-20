@@ -143,7 +143,7 @@ class Store extends  MY_Controller {
         $data['data']['message'] = $this->message;
 
         //disable other tabs except verification tab
-        $tab_status = TRUE ;
+        $tab_status = FALSE ;
         $data['store_setup_completed'] = FALSE; //
 
         $data['tab_status'] = $tab_status;
