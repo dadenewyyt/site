@@ -11,7 +11,7 @@
 
 class Store extends  MY_Controller {
 
-     var  $load_all_catagories ;
+    var  $load_all_catagories ;
     public function __construct() {
 
         parent::__construct();
