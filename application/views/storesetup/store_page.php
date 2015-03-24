@@ -19,8 +19,7 @@
                     style="margin-top: 13px;" />
                      <div class="fileUpload row btn btn-sm btn-primary">
                         <span>Upload Image</span>
-                        <input id="imgfile_store" name="userfile[]" type="file" required class="upload" accept="image/*"/>
-                    </div>
+                        <input id="imgfile_store" name="userfile[]" type="file" class="upload" accept="image/*"/>                    </div>
                 </div>
 
                 <div class="col-md-12 col-md-select"  style="margin-top: 13px;">

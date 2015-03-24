@@ -6,8 +6,8 @@ function validate_store_setup() {
     };
     $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
     $('#myForm').bootstrapValidator({
-        //        live: 'disabled',
-        excluded: [':disabled'],
+        live: 'disabled',
+        excluded: [':disabled', ':hidden', ':not(:visible)'],
         message: 'This value is not valid',
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -115,7 +115,7 @@ function validate_store_setup() {
             }
         }
     }).on('status.field.bv', function(e, data) {
-        var $form = $(e.target),
+       var $form = $(e.target),
             validator = data.bv,
             $tabPane = data.element.parents('.tab-pane'),
             tabId = $tabPane.attr('id');

@@ -64,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row col-md-12 ">                                
+                <div class="form-group row colmd-12 ">                                
 
 
                     <label for="preview_produt_image">Photos</label>

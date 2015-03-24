@@ -28,10 +28,19 @@
                 <!--store setup-->
                 <div role="tabpanel" class="tab-pane active" id="store">
                     <!--start of row-->
+                    
+                    <style type="text/css">
+
+                        .tab_lables_sup {
+                          font-weight:400;
+                          top:-3.79px;
+                          font-size:13px;'
+                        }
+                    </style>
                     <div class="row-storesetup row">
                         <div id="divsetup-content" name="divsetup-content" class="divsetup-content col-md-12" style="display:block;">
                             <h2 style="font-size: 26px;font-weight: 600;">Store <span style='font-weight: 400;'>Setup</span>
-                            <sup style='font-weight:400;top:-3.79px;font-size:13px;'>- Step 1. Validate Identity</sup>
+                            <sup id='tab_lables_sup'class='tab_lables_sup'>- Step 1. Validate Identity</sup>
                             <small class='pull-right' style='color:rgb(216, 62, 62);margin-top: 8px;font-size: small;'>* ( Mandatory filed )</small>  </h3>
                             <hr>
                             <div role="tabpanel" class="tabpane-storesetup">
@@ -39,14 +48,14 @@
                                   
                               
                                 <ul class="nav nav-pills" role="tablist" id='createNotTab'>
-                                    <li role="presentation"><a href="#verify-tab" aria-controls="verify-tab" role="tab" data-toggle="tab" ><!--validate page-->1. Validate Identity</a></li>
+                                    <li role="presentation"><a href="#verify-tab" aria-controls="verify-tab" role="tab" data-toggle="tab" ><!--validate page-->1. Validate Identity<i class="fa"></i></a></li>
                                    <!--this is a form for all tab submission after verfiication-->                             
 
-                                    <li role="presentation" ><a href="#store-tab" aria-controls="store-tab" role="tab" data-toggle="tab" ><!--store page--> 2. Store Name</a></li>
-                                    <li role="presentation"><a href="#product-tab" aria-controls="product-tab" role="tab" data-toggle="tab">3. Add Listing</a></li>
-                                    <li role="presentation"><a href="#getpaid-tab" aria-controls="getpaid-tab" role="tab" data-toggle="tab" >4. Get Paid</a></li>
-                                    <li role="presentation"><a href="#openstore-tab" aria-controls="openstore-tab" role="tab" data-toggle="tab" >5. Preview Store</a></li>
-                                    <li role="presentation"><a href="#launchstore-tab" aria-controls="launchstore-tab" role="tab" data-toggle="tab" >6. Launch Store</a></li>
+                                    <li role="presentation" ><a href="#store-tab" aria-controls="store-tab" role="tab" data-toggle="tab" ><!--store page--> 2. Store Name<i class="fa"></i></a></li>
+                                    <li role="presentation"><a href="#product-tab" aria-controls="product-tab" role="tab" data-toggle="tab">3. Add Listing<i class="fa"></i></a></li>
+                                    <li role="presentation"><a href="#getpaid-tab" aria-controls="getpaid-tab" role="tab" data-toggle="tab" >4. Get Paid<i class="fa"></i></a></li>
+                                    <li role="presentation"><a href="#openstore-tab" aria-controls="openstore-tab" role="tab" data-toggle="tab" >5. Preview Store<i class="fa"></i></a></li>
+                                    <li role="presentation"><a href="#launchstore-tab" aria-controls="launchstore-tab" role="tab" data-toggle="tab" >6. Launch Store<i class="fa"></i></a></li>
                                   
                                  </ul>
                    <?php if ($tab_status): ?>
@@ -66,16 +75,16 @@
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     
-                                    <div role="tabpanel" class="fade in tab-pane active " id="verify-tab"><?php $this->load->view($identity_validation_page);?></div>
+                                    <div role="tabpanel" class="tab-pane fade in tab-pane active " id="verify-tab"><?php $this->load->view($identity_validation_page);?></div>
                                   
                                    <!--DISABLE TAB -->
                                    <?php if ($tab_status): ?>
 
-                                    <div role="tabpanel" class="fade tab-pane  " id="store-tab"><?php $this->load->view($store_page);?></div>
-                                    <div role="tabpanel" class="fade tab-pane" id="product-tab"><?php $this->load->view($addproduct_page);?></div>
-                                    <div role="tabpanel" class="fade tab-pane" id="getpaid-tab"><?php $this->load->view($getpaid_page);?></div>
-                                    <div role="tabpanel" class="fade tab-pane" id="openstore-tab"><?php $this->load->view($previewstore_page);?></div>
-                                    <div role="tabpanel" class="fade tab-pane" id="launchstore-tab"><?php $this->load->view($launchstore_page);?></div>
+                                    <div role="tabpanel" class="tab-pane fade tab-pane  " id="store-tab"><?php $this->load->view($store_page);?></div>
+                                    <div role="tabpanel" class="tab-pane fade tab-pane" id="product-tab"><?php $this->load->view($addproduct_page);?></div>
+                                    <div role="tabpanel" class="tab-pane fade tab-pane" id="getpaid-tab"><?php $this->load->view($getpaid_page);?></div>
+                                    <div role="tabpanel" class="tab-pane fade tab-pane" id="openstore-tab"><?php $this->load->view($previewstore_page);?></div>
+                                    <div role="tabpanel" class="tab-pane fade tab-pane" id="launchstore-tab"><?php $this->load->view($launchstore_page);?></div>
                                 
                                   <?php endif;  ?> 
 
@@ -115,13 +124,8 @@
                    
 
 
-                    /***
-                    * Created by Daniel Adenew
-                    * Submit email subscription using ajax
-                    * Send email address
-                    * Send controller
-                    * Receive response
-                    */
+
+     
 function disable_tabs_when_completed() {
    var store_setup_completed = '<?php echo $store_setup_completed ;?>';
     if (store_setup_completed) {
@@ -155,11 +159,50 @@ function misellenous_help_preview_store_and_image() {
     });
 }
 
+function change_labels_when_tabs_activated() {
+
+                      $('a[href="#store-tab"]').click(function() {
+                          $('#tab_lables_sup').empty();
+                          $('#tab_lables_sup').append(document.createTextNode("- Step 2. Create Store"));
+                        });
+
+                                            
+                        $('a[href="#product-tab"]').on('shown.bs.tab', function (e) {
+                           $('#tab_lables_sup').empty();
+                           $('#tab_lables_sup').append(document.createTextNode("- Step 3. Add Product Lisiting"));                          
+                        });
+
+                       
+                        $('a[href="#getpaid-tab"]').on('shown.bs.tab', function (e) {
+                            $('#tab_lables_sup').empty();
+                            $('#tab_lables_sup').append(document.createTextNode("- Step 4. Get Paid Wire Your Account"));                      
+                        });
+
+                       
+                        $('a[href="#openstore-tab"]').on('shown.bs.tab', function (e) {
+                          $('#tab_lables_sup').empty();
+                          $('#tab_lables_sup').append(document.createTextNode("- Step 5. Preview Your Store"));
+                           
+                        });
+
+                     
+                        $('a[href="#launchstore-tab"]').on('shown.bs.tab', function (e) {
+                            $('#tab_lables_sup').empty();
+                            $('#tab_lables_sup').append(document.createTextNode("- Step 6. Launch Your Store"));
+                        });
+}
+
   $( document ).ready(function() {
 
-                       disable_tabs_when_completed();
+                  disable_tabs_when_completed();
 
-                       misellenous_help_preview_store_and_image();
+                  misellenous_help_preview_store_and_image();
+
+                  change_labels_when_tabs_activated();
+                      
+                       
+
+
 
                          
                      //disable tabs not active so that enable them when validated
@@ -176,17 +219,43 @@ function misellenous_help_preview_store_and_image() {
 
                       //next page for store
                        $('#btn_store_next_page').click( function() {
-                         validate_store_setup();
-                         $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
-                         // $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
-                         //$('.nav-pills > .active').next('li').find('a').trigger('click');
+                        var self = this;
+                        validate_store_setup();
+                        $('#myForm').bootstrapValidator().on('status.field.bv', function(e, data) {
+                             
+                            self.isValid = data.bv.isValidContainer('#store-tab');                             
+                           
+                                                        
+                          }); 
+                        
+                            
+                        if(self.isValid==true) {
+                              $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
+                        }
+                                            
+                           
+                        
                       });
                        
 
                     //next page for product
-                        $('#btn_product_next_page').click( function() {
+                      $('#btn_product_next_page').click( function() {
                           validate_store_setup();
-                         $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
+                        
+                        var self = this;
+                        validate_store_setup();
+                        $('#myForm').bootstrapValidator().on('status.field.bv', function(e, data) {
+                             
+                            self.isValid = data.bv.isValidContainer('#product-tab');                             
+                           
+                                                        
+                          }); 
+                        
+                            
+                        if(self.isValid==true) {
+                              $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
+                        }
+                               
                       });
 
 
@@ -195,7 +264,20 @@ function misellenous_help_preview_store_and_image() {
                        $('#btn_next_page_getpaid').click( function() {
                         //$('#myForm').bootstrapValidator().enableFieldValidators('userfile[]', false);
                          validate_store_setup();
-                          $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
+                        var self = this;
+                        validate_store_setup();
+                        $('#myForm').bootstrapValidator().on('status.field.bv', function(e, data) {
+                             
+                            self.isValid = data.bv.isValidContainer('#getpaid-tab');                             
+                           
+                                                        
+                          }); 
+                        
+                            
+                        if(self.isValid==true) {
+                              $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
+                        }
+                               
                        });
 
                     //next page for store
@@ -211,6 +293,13 @@ function misellenous_help_preview_store_and_image() {
 
           
         
+                /***
+                * Created by Daniel Adenew , 2014
+                * Submit email subscription using ajax
+                * Send email address
+                * Send controller
+                * Receive response
+                */
                 var url =  "<?php echo site_url('welcome/subscribe');?>";
                 subscribe_using_ajax(url);
 
@@ -223,6 +312,8 @@ function misellenous_help_preview_store_and_image() {
                 window.location="<?php echo base_url('store');?>";
                 });
                 }) ;
+
+/*care for cascading drop down boxes **/
 
 $('#category1').change(function(){
 
