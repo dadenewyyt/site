@@ -39,28 +39,64 @@ class Store extends  MY_Controller {
         return $category_string_string;
     }
 
-    public function get_sub_categories_ajax() {
+    public function get_categories_variation_ajax() {
            
+         if(!$this->input->is_ajax_request()) {
+
+            exit('Not allowed!');
+
+         } 
+
          $categories_selected = $this->input->post('category');  
          $load_all_catagories = $this->config->item('categories');
 
         
-         $result = $load_all_catagories[strtoupper($categories_selected)];
-         var_dump($result);exit;
-         if(!$this->input->is_ajax_request()) {
-
-            exit('Not allowed');
-
-         } else {
+         $result = array_values($load_all_catagories[strtoupper($categories_selected)]);
+         $subcategories = array();
+         foreach($result as $key => $value) {
+        
+           if(is_array($value)){
+           continue;
+           }
+           $subcategories[$key] = $value;
+          
+         }
+         
+         
+        if(!empty($subcategories))   
+        $subcategories =  array('#'=>'Please Select Variation')+$subcategories;
             
-            $result =  array('#'=>'Please Select Variation')+$result;
-            
-            header('Content-Type: application/x-json; charset=utf-8'); 
-            echo ( json_encode( array_values($result)  )  );
+        header('Content-Type: application/x-json; charset=utf-8'); 
+        echo ( json_encode( $subcategories )  );
+
+         
+       }
+
+    public function get_sub_variation_ajax() {
+           
+
+        if(!$this->input->is_ajax_request()) {
+
+            exit('Not allowed!');
 
          } 
+           
+         $categories_selected = $this->input->post('category');  
+         $variation_selected = $this->input->post('variation'); 
+         $load_all_catagories = $this->config->item('categories');
 
+        
+         $result = $load_all_catagories[strtoupper($categories_selected)][$variation_selected];
+         $subcategories = array();
+         
+                
+          if(!empty($result))  
+          $result =  array('#'=>'Please Select Variation')+$result;
+            
+          header('Content-Type: application/x-json; charset=utf-8'); 
+          echo ( json_encode( $result  )  );
 
+         
 
     }
 

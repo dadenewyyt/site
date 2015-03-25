@@ -9,10 +9,10 @@
 $config['categories']= array(
     'MEN'=>array(
         'Tanks',
-        'Bags & Wallets'=>array('Backpacks','Briefcases','Messenger bags','Wallets'),
+        'Bags & Wallets','Bags & Wallets'=>array('Backpacks','Briefcases','Messenger bags','Wallets'),
         'Belts & Buckles',
-        'Bottoms'=>array('Pants','Shorts','Swim','Underwear'),
-        'Coats & Jackets'=>array('Blazers','Coats','Jackets'),
+        'Bottoms','Bottoms'=>array('Pants','Shorts','Swim','Underwear'),
+        'Coats & Jackets','Coats & Jackets'=>array('Blazers','Coats','Jackets'),
         'Cufflinks',
         'Hats',
         'Shirts',
@@ -27,7 +27,7 @@ $config['categories']= array(
 
     ),
     'WOMEN'=>array(
-        'Accessories'=>array('Belts','Eyewear','Gloves & Mittens','Hats Legwear','Scarves','Watches','Shoe Accessories'),
+        'Accessories','Accessories'=>array('Belts','Eyewear','Gloves & Mittens','Hats Legwear','Scarves','Watches','Shoe Accessories'),
         'Bags & Purses',
         
     ),

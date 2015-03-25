@@ -194,7 +194,7 @@ function change_labels_when_tabs_activated() {
 
   $( document ).ready(function() {
 
-                  disable_tabs_when_completed();
+                 // disable_tabs_when_completed();
 
                   misellenous_help_preview_store_and_image();
 
@@ -364,10 +364,10 @@ function change_labels_when_tabs_activated() {
 
 /*care for cascading drop down boxes **/
 
-$('#category1').change(function(){
+$('#category').change(function(){
 
  var csrf = $('input[name="madebyus4u_csrf_test_name"]').val();  // <- get token value from hidden form input
-       alert(csrf);
+      
         var categorey_selected = $("#category option:selected").text();                                   
                        
               $("#variation > option").remove(); //first of all clear select items
@@ -376,14 +376,14 @@ $('#category1').change(function(){
                        // alert(categorey_selected);      
 
                         $.ajax({
-                                    url: "<?php echo base_url('store/get_sub_categories_ajax');?>",
+                                    url: "<?php echo base_url('store/get_categories_variation_ajax');?>",
                                     async: false,
                                     cache: false,                              
                                     data: {madebyus4u_csrf_test_name:csrf,category:categorey_selected},    
                                     type: 'post',
                                     datatype:'json',
                                     success: function(variation_array_json){
-                                       // alert(variation_array_json); 
+                                      // alert(variation_array_json); 
                                         $.each(variation_array_json,function(id,value) //here we're doing a foeach loop round each city with id as the key and city as the value
                                            {
                                         
@@ -394,6 +394,41 @@ $('#category1').change(function(){
                                            });
                                            $('#variation').val('#');
                                     }
+                         });
+
+//sub variation
+$('#variation').change(function(){
+
+ var csrf = $('input[name="madebyus4u_csrf_test_name"]').val();  // <- get token value from hidden form input
+      
+        var variation_selected = $("#variation option:selected").text();   
+        var categorey_selected = $("#category option:selected").text();                                                
+                       
+              $("#sub_varaition > option").remove(); //first of all clear select items
+
+
+                       // alert(categorey_selected);      
+
+                        $.ajax({
+                                    url: "<?php echo base_url('store/get_sub_variation_ajax');?>",
+                                    async: false,
+                                    cache: false,                              
+                                    data: {madebyus4u_csrf_test_name:csrf,category:categorey_selected,variation:variation_selected},    
+                                    type: 'post',
+                                    datatype:'json',
+                                    success: function(variation_array_json){
+                                       //alert(variation_array_json); 
+                                        $.each(variation_array_json,function(id,value) //here we're doing a foeach loop round each city with id as the key and city as the value
+                                           {
+                                        
+                                           var opt = $('<option />'); // here we're creating a new select option with for each city
+                                           opt.val(id);
+                                           opt.text(value);
+                                           $('#sub_varaition').append(opt); //here we will append these new select options to a dropdown with the id 'cities'
+                                           });
+                                           $('#sub_varaition').val('#');
+                                    }          });
+
                          });
 
 });
