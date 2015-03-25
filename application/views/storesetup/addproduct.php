@@ -64,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row colmd-12 ">                                
+                <div class="form-group row col-md-12 has-feedback">                                
 
 
                     <label for="preview_produt_image">Photos</label>
@@ -78,8 +78,9 @@
                             <img id='preview_product_image'  name='preview_product_image' src="<?php echo base_url('uploads/no-photo.jpg');?>" alt="..." height="200">
                               <div class="fileUpload btn btn-sm btn-primary" style="margin-top: -4px;margin-left: -4px;">
                              <span>Upload Image</span>
-                           <input id="product_image" name="userfile[]" type="file" class="upload" accept="image/*">
+                               <input id="product_image" name="userfile[]" type="file" class="upload" accept="image/*">
                              </div>
+
                             </a>
                         </div>
 
@@ -128,7 +129,7 @@
 
                     <label>Upload clear and good quality pictures</label>
                     <p>
-                    <span class='required_star'>*</span>
+                    <span id='product_valiadtion_message'class='required_star'>*</span>
                     At least one image is manadatory</p>
                 </div>
 

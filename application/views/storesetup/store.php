@@ -220,18 +220,38 @@ function change_labels_when_tabs_activated() {
                       //next page for store
                        $('#btn_store_next_page').click( function() {
                         var self = this;
-                        validate_store_setup();
+                       
                         $('#myForm').bootstrapValidator().on('status.field.bv', function(e, data) {
                              
                             self.isValid = data.bv.isValidContainer('#store-tab');                             
-                           
+                           if(!self.isValid){
+                                 validate_store_setup();
+                             }
                                                         
                           }); 
                         
-                            
-                        if(self.isValid==true) {
+                        //TODOD: check store image file attached or not
+                        $store_image_status = $("#imgfile_store").val();
+                        console.log ('navlue='+$store_image_status);
+
+                        if( ($store_image_status!=undefined) & ($store_image_status!='') )  { 
+                         
+                          self.store_image = true; 
+                          $('#imgfile_store').closest('.form-group').removeClass('has-error').addClass('has-success');
+                          $('#store_validation_message').css('color','#3c763d');
+                                                  
+                        } else if($store_image_status==undefined || $store_image_status=='') {
+                          self.store_image = false; 
+                          $('#imgfile_store').closest('.form-group').removeClass('has-success').addClass('has-error');
+                          $('#store_validation_message').css('color','#a94442');
+                        }
+                         
+                      
+
+                        if(self.isValid==true &self.store_image==true) {
                               $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
                         }
+                        
                                             
                            
                         
@@ -240,19 +260,44 @@ function change_labels_when_tabs_activated() {
 
                     //next page for product
                       $('#btn_product_next_page').click( function() {
-                          validate_store_setup();
                         
-                        var self = this;
-                        validate_store_setup();
+
+                        
+                         var self = this;
+                     
                         $('#myForm').bootstrapValidator().on('status.field.bv', function(e, data) {
                              
                             self.isValid = data.bv.isValidContainer('#product-tab');                             
-                           
+                             if(!self.isValid){
+                                 validate_store_setup();
+                             }
                                                         
                           }); 
+
+                          //TODOD: check store image file attached or not
+                        $product_image_status = $("#product_image").val();
+                        
+
+                       if( ($product_image_status != undefined) & ($product_image_status != '') )  { 
+                           
+                           self.product_image=true; 
+                           $('#preview_product_image').css('border','1px solid #3c763d');
+                           $('#product_valiadtion_message').css('border','#3c763d');
+                                      
+                        } else if( $product_image_status == undefined || $product_image_status == '' ) {
+                           
+                          // self.product_image=false;  
+                          $('#preview_product_image').css('border','1px solid #a94442');
+                          $('#product_valiadtion_message').css('border','#a94442');
+                        }
+                         
+                         alert(self.isValid+self.product_image);
+
                         
                             
-                        if(self.isValid==true) {
+                       if((self.isValid == true & self.product_image == true) ) {
+                          console.log('wtf');
+                            $('#myForm').bootstrapValidator('validate');
                               $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
                         }
                                
@@ -263,18 +308,22 @@ function change_labels_when_tabs_activated() {
                       //next page for store
                        $('#btn_next_page_getpaid').click( function() {
                         //$('#myForm').bootstrapValidator().enableFieldValidators('userfile[]', false);
-                         validate_store_setup();
+                        
                         var self = this;
-                        validate_store_setup();
+                       
                         $('#myForm').bootstrapValidator().on('status.field.bv', function(e, data) {
                              
                             self.isValid = data.bv.isValidContainer('#getpaid-tab');                             
-                           
+                             if(!self.isValid){
+                                 validate_store_setup();
+                             }
                                                         
                           }); 
                         
+                         alert(self.isValid);
                             
                         if(self.isValid==true) {
+                          alert(self.isValid);
                               $('.nav-pills > .active').next('li').find('a').attr("data-toggle","tab").trigger('click');
                         }
                                
@@ -282,8 +331,8 @@ function change_labels_when_tabs_activated() {
 
                     //next page for store
                        $('#btn_save').click( function() {
-                        //  $('#myForm').bootstrapValidator().enableFieldValidators('userfile[]', false);
-                       validate_store_setup();
+                         //  $('#myForm').bootstrapValidator().enableFieldValidators('userfile[]', false);
+                          validate_store_setup();
                      });
 
                      //call function for image upload

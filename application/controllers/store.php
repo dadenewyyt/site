@@ -18,6 +18,7 @@ class Store extends  MY_Controller {
         $this->load->model('profile_model','profile');
         $this->load->model('store_model','store');
         $this->load_all_catagories = $this->load_catagories();
+         $this->load->library('form_validation');
 
     }
 
@@ -253,6 +254,17 @@ class Store extends  MY_Controller {
 
       //capture post data
       $post = $this->input->post();
+$this->load->helper(array('form', 'url'));
+
+
+  $this->form_validation->set_rules('storename', 'StoreName', 'trim|required|min_length[5]|max_length[12]|xss_clean');
+  $this->form_validation->set_rules('store_description', 'store_description', 'trim|required|min_length[5]|max_length[12]|xss_clean');
+  
+   if ($this->form_validation->run() == FALSE){
+      var_dump($post);
+      var_dump($_FILES);
+    }
+   
      // var_dump($post);
      //TODOD:Server Side Validation here
       $tab_status = FALSE ;

@@ -7,7 +7,7 @@ function validate_store_setup() {
     $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
     $('#myForm').bootstrapValidator({
         live: 'disabled',
-        excluded: [':disabled', ':hidden', ':not(:visible)'],
+        excluded: [':disabled'],
         message: 'This value is not valid',
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
