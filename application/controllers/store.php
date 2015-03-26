@@ -18,7 +18,7 @@ class Store extends  MY_Controller {
         $this->load->model('profile_model','profile');
         $this->load->model('store_model','store');
         $this->load_all_catagories = $this->load_catagories();
-         $this->load->library('form_validation');
+        $this->load->library('form_validation');
 
     }
 
@@ -127,9 +127,11 @@ class Store extends  MY_Controller {
    *
    */
 
-    public function setup($profie_id){
+    public function setup($profile_id){
 
-
+        if( empty($post)&&($profile_id!=$this->profile_id) ) {
+            redirect('sell/seller/'.$this->profile_id);
+        }
         $list_of_country_state_data = $this->load_country_state();
         $states = $list_of_country_state_data['state'];
         $country = $list_of_country_state_data['country'];
@@ -195,28 +197,33 @@ class Store extends  MY_Controller {
 
     }
 
-    public function process_payment($profie_id){
+    public function process_payment($profile_id){
+
+        // var_dump($post);
+        //TODOD:Server Side Validation here
+        $tab_status = TRUE ;
+
+        if( empty($post)&&($profile_id!=$this->profile_id) ) {
+            redirect('sell/seller/'.$this->profile_id);
+        }
 
        $data['store_setup_completed'] = FALSE; //
        $data['profile_id'] = $this->profile_id ;// :)
 
        if( !$this->profile->check_verfication($this->profile_id) ) {
        
+               $this->load->library('payment_service');
+               $result = $this->payment_service->processPayment();
 
-       $this->load->library('payment_service');
-       $result = $this->payment_service->processPayment();
+           if(!$result){
+                        $data['data']['message'] = $this->message;
+                        //$this->session->set_flashdata($data['data']['message']);
+                        //disable other tabs except verification tab
+                        $data['tab_status'] = FALSE; // :(
 
-     
+           }
 
-        if(!$result){
-            $data['data']['message'] = $this->message;
-            //$this->session->set_flashdata($data['data']['message']);
-            //disable other tabs except verification tab
-            $data['tab_status'] = FALSE; // :(
-
-        }
-
-        else {
+       else {
 
              $this->message = array('type' => 'success','message' =>"You have verified your account successfully! ! <small>Now can continue creating your store by using the TAB menus.</small>");
              $data['data']['message'] = $this->message;
@@ -286,48 +293,63 @@ class Store extends  MY_Controller {
         $this->load->view('storesetup/store',$data);
     }
 
-  public function save($profie_id) {
+  public function save($profile_id) {
+
+      // var_dump($post);
+      //TODOD:Server Side Validation here
+      $tab_status = TRUE ;
+
+      if( empty($post)&&($profile_id!=$this->profile_id) ) {
+          redirect('sell/seller/'.$this->profile_id);
+      }
 
       //capture post data
       $post = $this->input->post();
-$this->load->helper(array('form', 'url'));
+     
+      $this->form_validation->set_rules('storename', 'StoreName', 'trim|required|min_length[5]|max_length[12]|xss_clean');
+      $this->form_validation->set_rules('store_description', 'store_description', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('product_name', 'Product Name', 'trim|required|min_length[2]|max_length[30]|xss_clean');
+      $this->form_validation->set_rules('product_descritpion', 'Product Description', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('categories', 'Categories', 'trim|required|callback_check_default|xss_clean');
+      $this->form_validation->set_message('check_default','For categories please ,select something other than the default');
+      $this->form_validation->set_rules('quantity', 'Quantity', 'trim|required|xss_clean|numeric');
+      $this->form_validation->set_rules('price', 'Product Name', 'trim|required|xss_clean|numeric');
+      $this->form_validation->set_rules('sprice', 'Special Price', 'trim|required|xss_clean|numeric');
+      $this->form_validation->set_rules('account_type', 'Account Type', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('bankbranch', 'Bank Branch', 'trim|required|min_length[2]|max_length[45]|xss_clean|');
+      $this->form_validation->set_rules('account_owner', 'Account_owner', 'trim|required|min_length[2]|max_length[45]|xss_clean|numeric');
+      $this->form_validation->set_rules('routenumber', 'Route Number', 'trim|required|min_length[5]|max_length[45]|xss_clean|numeric');
+      $this->form_validation->set_rules('account_type', 'Categories', 'trim|required|callback_check_default_account|xss_clean');
+      $this->form_validation->set_message('check_default_account','For account type please ,select something other than the default');
+      $this->form_validation->set_rules('accountnumber', 'Account Number', 'trim|required|xss_clean|matchs[reaccountnumber]');
+      $this->form_validation->set_rules('reaccountnumber', 'Re-Enter Account number', 'trim|required|xss_clean|');
+      $this->form_validation->set_rules('account_owner', 'Account_owner', 'trim|required|min_length[2]|max_length[45]|xss_clean|numeric');
 
 
-  $this->form_validation->set_rules('storename', 'StoreName', 'trim|required|min_length[5]|max_length[12]|xss_clean');
-  $this->form_validation->set_rules('store_description', 'store_description', 'trim|required|min_length[5]|max_length[12]|xss_clean');
-  
-   if ($this->form_validation->run() == FALSE){
-      var_dump($post);
-      var_dump($_FILES);
-    }
-   
-     // var_dump($post);
-     //TODOD:Server Side Validation here
-      $tab_status = FALSE ;
-      
-      if(empty($post)) { 
-         redirect('store/'.$this->profile_id);
-      }
 
-      $this->load->model('media_model','media');
 
-      $file_post_name = 'userfile';
+      if ($this->form_validation->run() == TRUE) {
 
-     $upload_result =  $this->media->upload_media_store_and_products($this->profile_id,$file_post_name);
+          $this->load->model('media_model','media');
 
-     if( !empty($upload_result['error']) ) {
+          $file_post_name = 'userfile';
+
+          $upload_result =  $this->media->upload_media_store_and_products($this->profile_id,$file_post_name);
+
+
+         if( !empty($upload_result['error']) ) {
          
-        //TODO:SHOW ERROR MESSAGE
-        echo $upload_result['error'];
-        $this->message = array('type' => 'error','message' =>$upload_result['error']);
-        $data['data']['message'] = $this->message;
-       //disable other tabs except verification tab
-        $tab_status = TRUE ;
-        $data['store_setup_completed'] = FALSE; //
-        $data['tab_status'] = $tab_status; //
-     }
+                //TODO:SHOW ERROR MESSAGE
+                echo $upload_result['error'];
+                $this->message = $this->message+array('type' => 'error','message' =>$upload_result['error']);
+                $data['data']['message'] =  $this->message;
+               //disable other tabs except verification tab
+                $tab_status = TRUE ;
+                $data['store_setup_completed'] = FALSE; //
+                $data['tab_status'] = $tab_status; //
+           }
 
-     else {
+         else {
 
 
          //TODO:SUCCESS DO THE SAVING of STORE WITH MEDIA DATA / UPLOAD DATA
@@ -364,14 +386,22 @@ $this->load->helper(array('form', 'url'));
         //disable other tabs except verification tab
  
          $data['store_setup_completed'] = TRUE; //
-        $data['tab_status'] = TRUE; //
+         $data['tab_status'] = TRUE; //
 
          $this->message = array('type' => 'success','message' =>"You have setup you store succesfully!! <small>Now can continue viewing your store.</small>");
          $data['data']['message'] = $this->message;
 
         }
-        
-      
+
+      } else {
+
+          $data['store_setup_completed'] = FALSE; //
+          $data['tab_status'] = TRUE; //
+          $this->message = array('type' => 'error', 'message' => validation_errors() );
+          $data['data']['message'] = $this->message;
+      }
+
+        $data['profile_id'] = $this->profile_id ;// :)
         $list_of_country_state_data = $this->load_country_state();
         $states = $list_of_country_state_data['state'];
         $country = $list_of_country_state_data['country'];
@@ -433,5 +463,19 @@ $this->load->helper(array('form', 'url'));
 
 
   }
+
+    function check_default($value) {
+        if($value!='#'){
+            return true;
+        }
+        return false;
+    }
+
+    function check_default_account($value) {
+        if($value!='#'){
+            return true;
+        }
+        return false;
+    }
 
 }

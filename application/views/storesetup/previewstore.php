@@ -89,8 +89,8 @@
 
            <hr  class='hr_store_form'>
             <div class="form-group col-md-2 col-md-offset-5">
-              <button class="btn btn-primary btn-lg">Continue</button>
-            </div>
+              <input type='button' class="btn btn-primary btn-lg" value="Previous">
+</div>
  
 </div>
 </div>

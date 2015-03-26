@@ -20,19 +20,19 @@
                     <div class="col-md-6 form-group">
                         <span class='required_star'>*</span>
                         <label for="descritpion">Account Type</label>
-                          <?= form_dropdown('account_type', array_merge(array(''=>'Select account type'), $account_types) ,'','class="form-control"  tabindex="7"' ) ;?>
+                          <?= form_dropdown('account_type', array_merge(array('#'=>'Please select account type'), $account_types) ,'#','class="form-control"  tabindex="7"' ) ;?>
                     </div>
                     <div class="col-md-6 form-group">
                         <span class='required_star'>*</span>
                         <label for="descritpion">Bank Branch</label>
-                        <input type="text" id="bankbranch" name='bankbranch' class="form-control" required>
+                        <input value="<?php echo set_value('bankbranch');?>" type="text" id="bankbranch" name='bankbranch' class="form-control" required>
                     </div>
 
 
                     <div class="col-md-6 form-group">
                         <span class='required_star'>*</span>
                         <label for="storename">Account Owners Name</label>
-                        <input type="text" id="account_owner" name='account_owner' class="form-control" required>
+                        <input value="<?php echo set_value('account_owner');?>" type="text" id="account_owner" name='account_owner' class="form-control" required>
                         <p class="help-block">same as your bank book account .</p>
                     </div>
 
@@ -45,17 +45,17 @@
                     <div class="col-md-12 form-group">
                         <span class='required_star'>*</span>
                         <label for="descritpion">Rounting Number </label>
-                        <input type="text" id="routenumber" name='routenumber' class="form-control col-md-6" required>
+                        <input value="<?php echo set_value('routenumber');?>" type="text" id="routenumber" name='routenumber' class="form-control col-md-6" required>
                     </div>
                     <div class="col-md-6 form-group">
                         <span class='required_star'>*</span>
                         <label for="descritpion">Account Number</label>
-                        <input type="text" id="accountnumber" name='accountnumber' class="form-control" required>
+                        <input value="<?php echo set_value('accountnumber');?>" type="text" id="accountnumber" name='accountnumber' class="form-control" required>
                     </div>
                     <div class="col-md-6 form-group">
                         <span class='required_star'>*</span>
                         <label for="storename">Re-enter Account Number</label>
-                        <input type="text" id="reaccountnumber" name='reaccountnumber' class="form-control" required>
+                        <input value="<?php echo set_value('reaccountnumber');?>" type="text" id="reaccountnumber" name='reaccountnumber' class="form-control" required>
 
                     </div>     
 
@@ -65,7 +65,7 @@
         </div>
          <hr  class='hr_store_form'>
             <div class="form-group col-md-2 col-md-offset-5">
-              <button id='btn_next_page_getpaid' name='btn_next_page_getpaid' class="btn btn-primary btn-lg">Continue</button>
+              <input type='button' id='btn_next_page_getpaid' name='btn_next_page_getpaid' class="btn btn-primary btn-lg" value='Continue'>
             </div>
          
     </div>

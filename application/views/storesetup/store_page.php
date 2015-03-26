@@ -50,13 +50,13 @@
         <div class='col-md-5' style="margin-top:2%;">
             <div class="form-group">
                 <span class='required_star'>*</span><label for="store_descritpion">Store Description</label>
-                <textarea class="form-control" name='store_description' id='store_description' rows="4" value="<?php echo set_value('store_description');?>" ></textarea>
+                <textarea class="form-control" name='store_description' id='store_description' rows="4"><?php echo set_value('store_description');?> </textarea>
             </div>
 
         </div>
         <hr  class='hr_store_form'>
         <div class="form-group col-md-2 col-md-offset-5">
-            <button id='btn_store_next_page' class="btn btn-primary btn-lg">Continue</button>                    
+            <input type='button' id='btn_store_next_page' class="btn btn-primary btn-lg" value='Continue'>                    
         </div>
        
     </div>
