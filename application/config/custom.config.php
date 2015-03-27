@@ -34,9 +34,9 @@ $config['upload_config_profile_edit'] = array (
         'file_name'=>'',
         'allowed_types' => "gif|jpeg|jpg|png|mp4|3gp|flv",
         'overwrite' => TRUE,
-        'max_size' => "3048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-        'max_height' => "1068",
-        'max_width' => "2024"
+        'max_size' => "5120", // Can be set to particular file size , here it is 5 MB( 5,120 KB)
+        'max_height' => "2068",
+        'max_width' => "4024"
     );
 
 $config['fee_setting'] = array (

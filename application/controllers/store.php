@@ -323,9 +323,7 @@ class Store extends  MY_Controller {
       $this->form_validation->set_message('check_default_account','For account type please ,select something other than the default');
       $this->form_validation->set_rules('accountnumber', 'Account Number', 'trim|required|xss_clean|matchs[reaccountnumber]');
       $this->form_validation->set_rules('reaccountnumber', 'Re-Enter Account number', 'trim|required|xss_clean|');
-      $this->form_validation->set_rules('account_owner', 'Account_owner', 'trim|required|min_length[2]|max_length[45]|xss_clean|numeric');
-
-
+      $this->form_validation->set_rules('account_owner', 'Account_owner', 'trim|required|min_length[2]|max_length[45]|xss_clean');
 
 
       if ($this->form_validation->run() == TRUE) {

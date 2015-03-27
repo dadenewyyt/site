@@ -177,93 +177,101 @@ class Media_model extends MY_Model {
      */
     public function upload_media_store_and_products($profile_id,$file_post_name) {
 
-                 $this->load->library('upload');
+         $this->load->library('upload');
+         //get the image file name for the store
+         $upload_data_store = array();
 
-                 //get the image file name for the store 
-                 $upload_data_store = array();
+         //get the image file name for the products
+         $upload_data_products = array();
 
-                 //get the image file name for the products 
-                 $upload_data_products = array();
+         $files = $_FILES;
 
-                 $files = $_FILES;
-    
-                 $file_post_name = $file_post_name;
+         $total_count_of_files = count($_FILES[$file_post_name]['name']);
 
-                 $total_count_of_files = count($_FILES[$file_post_name]['name']);
+        //count FILES only who have a value / filename;
 
-              for($i=0; $i<$total_count_of_files; $i++) {
+              for($i=0; $i < $total_count_of_files; $i++) {
 
-                    $_FILES['userfile']['name']= $files['userfile']['name'][$i];
-                    $_FILES['userfile']['type']= $files['userfile']['type'][$i];
-                    $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
-                    $_FILES['userfile']['error']= $files['userfile']['error'][$i];
-                    $_FILES['userfile']['size']= $files['userfile']['size'][$i];
-                
-                //TODO :Resize IMAGES        
-                
-                //store image first
-                if ($i == 0) {
+                  //chop out the empty files
+                  if(!empty($files[$file_post_name]['name'][$i])) {
 
-                    $pathToUpload = "./uploads/profile/" . $profile_id . "/store/";
-                    //load the configuration
-                    $upload_config = $this->config->item('upload_config_profile_edit');
+                      $_FILES[$file_post_name]['name'] = $files[$file_post_name]['name'][$i];
+                      $_FILES[$file_post_name]['type'] = $files[$file_post_name]['type'][$i];
+                      $_FILES[$file_post_name]['tmp_name'] = $files[$file_post_name]['tmp_name'][$i];
+                      $_FILES[$file_post_name]['error'] = $files[$file_post_name]['error'][$i];
+                      $_FILES[$file_post_name]['size'] = $files[$file_post_name]['size'][$i];
 
-                    $upload_config['upload_path'] = $pathToUpload;
+                      //TODO :Resize IMAGES
 
-                    //rename files first      
-                    $temp = explode(".",$_FILES["userfile"]["name"]);
-                    $newfilename = 'store_image'.rand(1,99999) . '.' .end($temp);
-                    $upload_config['file_name'] = $newfilename;
+                      //store image first
+                      if ($i == 0) {
 
-                    if (!is_dir($upload_config['upload_path']))
-                        mkdir($upload_config['upload_path'], 0777, TRUE);
+                          $pathToUpload = "./uploads/profile/" . $profile_id . "/store/";
+                          //load the configuration
+                          $upload_config = $this->config->item('upload_config_profile_edit');
 
-                      $this->upload->initialize($upload_config);
+                          $upload_config['upload_path'] = $pathToUpload;
 
-                    
-                     if (!$this->upload->do_upload()) {
-                        //upload failed
-                        //TODO:throw th
-                         return (array('error' => $this->upload->display_errors('<span>', '</span>')));
+                          //rename files first
+                          $temp = explode(".", $_FILES[$file_post_name]["name"]);
+                          $newfilename = 'store_image' . rand(1, 99999) . '.' . end($temp);
+                          $upload_config['file_name'] = $newfilename;
 
-                    } else {
-                        // upload success
-                        $upload_data_store[] = $this->upload->data();
-                    }
+                          if (!is_dir($upload_config['upload_path']))
+                              mkdir($upload_config['upload_path'], 0777, TRUE);
 
-                } else {
+                          $this->upload->initialize($upload_config);
 
-                    $_FILES['userfile']['name']= $files['userfile']['name'][$i];
-                    $_FILES['userfile']['type']= $files['userfile']['type'][$i];
-                    $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
-                    $_FILES['userfile']['error']= $files['userfile']['error'][$i];
-                    $_FILES['userfile']['size']= $files['userfile']['size'][$i];
-                    $pathToUpload = "./uploads/profile/" . $profile_id . "/products/";
-                    //load the configuration
-                    $upload_config = $this->config->item('upload_config_profile_edit');
 
-                    $upload_config['upload_path'] = $pathToUpload;
-                    
-                    //rename files first      
-                    $temp = explode(".",$_FILES["userfile"]["name"]);
-                    $newfilename = 'product_image'.rand(1,99999) . '.' .end($temp);
-                    $upload_config['file_name'] = $newfilename;
+                          if (!$this->upload->do_upload()) {
+                              //upload failed
+                              //TODO:throw th
+                              return (array('error' => $this->upload->display_errors('<span>', '</span>')));
 
-                    if (!is_dir($upload_config['upload_path']))
-                        mkdir($upload_config['upload_path'], 0777, TRUE);
+                          } else {
+                              // upload success
+                              $upload_data_store[] = $this->upload->data();
+                          }
 
-                    $this->upload->initialize($upload_config);
 
-                     if (!$this->upload->do_upload()) {
-                        //upload failed
-                        //TODO:throw th
-                        return (array('error' => $this->upload->display_errors('<span>', '</span>')));
+                      } else {
 
-                    } else {
-                        // upload success
-                        $upload_data_products[] = $this->upload->data();
-                    }
-                }
+                          //chop out the empty files
+
+                          $_FILES[$file_post_name]['name'] = $files[$file_post_name]['name'][$i];
+                          $_FILES[$file_post_name]['type'] = $files[$file_post_name]['type'][$i];
+                          $_FILES[$file_post_name]['tmp_name'] = $files[$file_post_name]['tmp_name'][$i];
+                          $_FILES[$file_post_name]['error'] = $files[$file_post_name]['error'][$i];
+                          $_FILES[$file_post_name]['size'] = $files[$file_post_name]['size'][$i];
+
+                          $pathToUpload = "./uploads/profile/" . $profile_id . "/products/";
+                          //load the configuration
+                          $upload_config = $this->config->item('upload_config_profile_edit');
+
+                          $upload_config['upload_path'] = $pathToUpload;
+
+                          //rename files first
+                          $temp = explode(".", $_FILES[$file_post_name]["name"]);
+                          $newfilename = 'product_image' . rand(1, 99999) . '.' . end($temp);
+                          $upload_config['file_name'] = $newfilename;
+
+                          if (!is_dir($upload_config['upload_path']))
+                              mkdir($upload_config['upload_path'], 0777, TRUE);
+
+                          $this->upload->initialize($upload_config);
+
+                          if (!$this->upload->do_upload()) {
+                              //upload failed
+                              //TODO:throw th
+                              return (array('error' => $this->upload->display_errors('<span>', '</span>')));
+
+                          } else {
+                              // upload success
+                              $upload_data_products[] = $this->upload->data();
+                          }
+
+                      }
+                  }
 
            }
            //this data is need for later database save on media to store relationships
@@ -274,6 +282,7 @@ class Media_model extends MY_Model {
             return $upload_result ;
 
      }
+
 }
 
 

@@ -382,7 +382,7 @@ $('#variation').change(function(){
         var variation_selected = $("#variation option:selected").text();   
         var categorey_selected = $("#category option:selected").text();                                                
                        
-    $("#sub_varaition > option").remove(); //first of all clear select items
+    $("#sub_variation > option").remove(); //first of all clear select items
 
 
              // alert(categorey_selected);      
@@ -396,15 +396,15 @@ $('#variation').change(function(){
               datatype:'json',
               success: function(variation_array_json){
                  //alert(variation_array_json); 
-                  $.each(variation_array_json,function(id,value) //here we're doing a foeach loop round each city with id as the key and city as the value
+                  $.each(variation_array_json,function(id,value) //here we're doing a foreach loop round each city with id as the key and city as the value
                      {
                   
                      var opt = $('<option />'); // here we're creating a new select option with for each city
                      opt.val(id);
                      opt.text(value);
-                     $('#sub_varaition').append(opt); //here we will append these new select options to a dropdown with the id 'cities'
+                     $('#sub_variation').append(opt); //here we will append these new select options to a dropdown with the id 'cities'
                      });
-                     $('#sub_varaition').val('#');
+                     $('#sub_variation').val('#');
               }          });
 
    });

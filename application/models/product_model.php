@@ -34,9 +34,9 @@ class Product_model extends MY_Model {
     {
         $product_name = $post['product_name'];
         $product_description = $post['product_descritpion'];
-        $category = $post['category'];
+        $category = $post['categories'];
         $variation = $post['variation'];
-        $sub_variation = $post['sub_varaition'];
+        $sub_variation = $post['sub_variation'];
         $quantity = $post['quantity'];
         $price = $post['price'];
         $sprice = $post['sprice'];

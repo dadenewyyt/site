@@ -47,11 +47,11 @@
                  <div class="col-md-4 col-md-select">
                     <div class="form-group">
                        
-                        <label for="sub_varaition">Sub Variation</label>
+                        <label for="sub_variation">Sub Variation</label>
                        
-                          <?php  $sub_varaition['#'] = 'Please Select';
-                         echo form_dropdown('sub_varaition',$sub_varaition,'#',
-                         'id="sub_varaition" class="form-control"'); ?> 
+                          <?php  $sub_variation['#'] = 'Please Select';
+                         echo form_dropdown('sub_variation',$sub_variation,'#',
+                         'id="sub_variation" class="form-control"'); ?>
                     </div>
                 </div>
 
