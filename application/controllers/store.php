@@ -129,6 +129,9 @@ class Store extends  MY_Controller {
 
     public function setup($profile_id){
 
+        $this->load->library('imageutility_service');
+        $result = $this->imageutility_service->resize_upload_images('','');
+
         if( empty($post)&&($profile_id!=$this->profile_id) ) {
             redirect('sell/seller/'.$this->profile_id);
         }
@@ -306,7 +309,7 @@ class Store extends  MY_Controller {
       //capture post data
       $post = $this->input->post();
      
-      $this->form_validation->set_rules('storename', 'StoreName', 'trim|required|min_length[5]|max_length[12]|xss_clean');
+      $this->form_validation->set_rules('storename', 'StoreName', 'trim|required|min_length[2]|max_length[45]|xss_clean');
       $this->form_validation->set_rules('store_description', 'store_description', 'trim|required|xss_clean');
       $this->form_validation->set_rules('product_name', 'Product Name', 'trim|required|min_length[2]|max_length[30]|xss_clean');
       $this->form_validation->set_rules('product_descritpion', 'Product Description', 'trim|required|xss_clean');
