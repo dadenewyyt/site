@@ -129,8 +129,8 @@ class Store extends  MY_Controller {
 
     public function setup($profile_id){
 
-        $this->load->library('imageutility_service');
-        $result = $this->imageutility_service->resize_upload_images('','');
+        //$this->load->library('imageutility_service');
+        //$result = $this->imageutility_service->resize_upload_images('','');
 
         if( empty($post)&&($profile_id!=$this->profile_id) ) {
             redirect('sell/seller/'.$this->profile_id);
