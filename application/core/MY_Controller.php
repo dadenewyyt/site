@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller {
     public $profile_id;
     public $error = array();
     public $data = array();
+    public $is_logged_in;
 
     public function __construct()
     {
@@ -54,6 +55,9 @@ class MY_Controller extends CI_Controller {
         if(  ($this->ion_auth->logged_in()== false ) && !( in_array($url,$public_allowed_urls) ) ) {
             redirect('users/login');
         }
+     
+        $is_logged_in = (bool) $this->session->userdata('logged_in');
+        
 
     }
 

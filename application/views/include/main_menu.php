@@ -68,12 +68,13 @@ color: #a1a1a1;
 
                              <?php 
 
-                             $men = array_keys($this->config->item('categories')['MEN']);
+                             $men = array_values($this->config->item('categories')['MEN']);
 
                              foreach( $men as $value) : ?>
-               
+                                          
+                                    <?php if(!is_array($value)):?>
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
-              
+                                    <?php endif;?>
 
                              <?php endforeach;?>                     
                                
@@ -84,13 +85,17 @@ color: #a1a1a1;
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Women <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
 
-                             <?php 
-                            $women = array_keys($this->config->item('categories')['WOMEN']);
+                            <?php 
+                            
+                            $women = array_values($this->config->item('categories')['WOMEN']);
 
-                             foreach($women as $value) : ?>
-               
+                            ?>
+
+                             <?php foreach($women as $value) : ?>
+
+                                   <?php if(!is_array($value)) :?>
                                      <li><a href="<?php echo $value;?>"><?php echo $value;?></a></li>
-              
+                                    <?php endif;?>
 
                              <?php endforeach;?>                     
                                

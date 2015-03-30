@@ -308,9 +308,8 @@ class Store extends  MY_Controller {
 
   public function save($profile_id) {
 
-      // var_dump($post);
-      //TODOD:Server Side Validation here
-      $tab_status = TRUE ;
+         
+      $tab_status = TRUE ; 
 
       if( empty($post)&&($profile_id!=$this->profile_id) ) {
           redirect('sell/seller/'.$this->profile_id);
@@ -318,7 +317,8 @@ class Store extends  MY_Controller {
 
       //capture post data
       $post = $this->input->post();
-     
+      
+      //Server Side Validation here
       $this->form_validation->set_rules('storename', 'StoreName', 'trim|required|min_length[2]|max_length[45]|xss_clean');
       $this->form_validation->set_rules('store_description', 'store_description', 'trim|required|xss_clean');
       $this->form_validation->set_rules('product_name', 'Product Name', 'trim|required|min_length[2]|max_length[30]|xss_clean');
