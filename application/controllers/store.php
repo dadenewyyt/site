@@ -131,10 +131,21 @@ class Store extends  MY_Controller {
 
         //$this->load->library('imageutility_service');
         //$result = $this->imageutility_service->resize_upload_images('','');
-
+        $tab_status = false ;
+        $store_setup_completed = FALSE;
         if( empty($post)&&($profile_id!=$this->profile_id) ) {
             redirect('sell/seller/'.$this->profile_id);
         }
+        //check if user has validated or not and hide verification tab
+        if( $this->profile->check_verfication($this->profile_id) ) {
+             
+              $tab_status = true ;
+              $store_setup_completed = false ;
+              $data['tab_status'] = $tab_status;
+              $this->message = array('type' => 'success','message' =>"Since you have verified your account successfully !! <small> Now can continue creating your store. Please, press to <strong>'Continue'</strong> </small>");
+              $data['data']['message'] = $this->message;
+         }
+
         $list_of_country_state_data = $this->load_country_state();
         $states = $list_of_country_state_data['state'];
         $country = $list_of_country_state_data['country'];
@@ -185,11 +196,10 @@ class Store extends  MY_Controller {
         $data['data']['message'] = $this->message;
 
         //disable other tabs except verification tab
-        $tab_status = FALSE ;
-        $data['store_setup_completed'] = FALSE; //
-
+        $data['store_setup_completed'] = $store_setup_completed; //
         $data['tab_status'] = $tab_status;
-         $data['profile_id'] = $this->profile_id ;// :)
+
+        $data['profile_id'] = $this->profile_id ;// :)
 
         $this->load_profile();
         $data = array_merge($data,$this->data);

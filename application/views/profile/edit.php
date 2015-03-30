@@ -95,12 +95,12 @@ $email = $this->session->userdata('email');
 
                  <div class="form-group">
 
-                     <input type="text" id='file_path' name="file_path" class='form-control' placeholder="No file selected" disabled="disabled"
+                     <input type="text" id='file_path' name="file_path" class='form-control input-sm' placeholder="No file selected" disabled="disabled"
                             style="" />
 
                       <div class="fileUpload btn btn-primary">
                         <span>Choose File</span>
-                        <input id="imgfile" name="imgfile" type="file" class="upload" accept="image/*" />
+                        <input id="imgfile" name="imgfile" type="file" class="upload input-sm" accept="image/*" />
                     </div>
                 </div>
                   
@@ -111,7 +111,7 @@ $email = $this->session->userdata('email');
                 <div class="form-group">
                   <label class="profile_info_text"> A Little About Myself</label>
                  <br/>
-                  <textarea class="form-control" cols="70" rows="2" id="bioinfo" name='bioinfo'> <?php echo $profile->bioinfo;?></textarea>
+                  <textarea class="form-control input-sm" cols="70" rows="2" id="bioinfo" name='bioinfo'><?php echo trim($profile->bioinfo) ;?></textarea>
                 </div>
 
                 <h4 class="heading_color">Email Information </h4>
@@ -125,30 +125,49 @@ $email = $this->session->userdata('email');
                 <div class="form-group">
                   <label class="profile_info_text"> Change Email Address</label>
                  <br/>
-                  <input type='email' class="form-control"  id="new_email" name='new_email'></textarea>
+                  <input type='email' class="form-control input-sm"  id="new_email" name='new_email'></textarea>
                 </div>
 
             <div class="form-group">
                   <label class="profile_info_text"> Confirm Email Address</label>
                  <br/>
-                  <input type='email' class="form-control" id="confirm_email" name='confirm_email'></textarea>
+                  <input type='email' class="form-control input-sm" id="confirm_email" name='confirm_email'></textarea>
                 </div>                
 
 
                 <h4 class="heading_color">Password Information </h4>
- <hr>
+                <hr>
                 <label>Password</label> <label>************</label><br/>
 
                  <div class="form-group">
                   <label class="profile_info_text">Change Password</label>
                  <br/>
-                  <input type='password' class="form-control" name="password" id="password" required='true'></textarea>
+                  <input type='password' class="form-control input-sm" name="password" id="password" required='true'>
                 </div>
 
-            <div class="form-group">
+                <div class="form-group">
                   <label class="profile_info_text"> Confirm Password</label>
                  <br/>
-                  <input type='password' class="form-control" id="confirm_password" name="confirm_password" required='true'></textarea>
+                  <input type='password' class="form-control input-sm" id="confirm_password" name="confirm_password" required='true'>
+                </div>  
+
+                <!-- Job infromation-->
+                 <h4 class="heading_color">Job Information </h4>
+                <hr>
+               
+
+                 <div class="form-group">
+                 <label class="sr-only">Job Title</label>
+                  <label class="profile_info_text">Job Title</label>
+                 <br/>
+                  <input type="text" name="job_title" class="form-control input-sm" id="job_title" value="<?php echo $profile->job_title ;?>">
+                </div>
+
+                <div class="form-group">
+                  <label class="sr-only">Job Title</label>
+                  <label class="profile_info_text">Company Information</label>
+                 <br/>
+                   <input type="text" name="company_name" class="form-control input-sm" id="company_name" value="<?php echo $profile->company_name ;?>">
                 </div> 
 
               
@@ -176,11 +195,11 @@ $email = $this->session->userdata('email');
                 </div>
                  <hr>
 
-                 <h4 class="heading_color">Job Information </h4>
-                <div class="jobinfo">
+                <h4 class="heading_color">Job Information </h4>
+               
                       <div class="form-group">
                         <label class="sr-only">Job Title</label>
-                        <p class="">Job Title</p>
+                           <label class="profile_info_text"> Job Title</label>
                       </div>
                       <div class="form-group">
                         <label for="job_title" class="sr-only">Job Title</label>
@@ -189,14 +208,14 @@ $email = $this->session->userdata('email');
                     &nbsp;
                        <div class="form-group">
                         <label class="sr-only">CompanyName</label>
-                        <p class="">Company Name</p>
+                         <label class="profile_info_text"> Company Name</label>
                       </div>
                       <div class="form-group">
                         <label for="company_name" class="sr-only">Company Name</label>
                         <input type="text" name="company_name" class="form-control input-sm" id="company_name" value="<?php echo $profile->company_name ;?>">
                       </div>
             </div>
-            <br/>-->
+            <br/> -->
                 <br/>
                  <button class="btn btn-primary btn-sm btn-default pull-right" style="padding: 3px 45px;">SAVE</button>
                 <!--<a href="<?php echo base_url('payment/payment');?>" class="btn btn-default" style="margin-left:5px;">SKIP</a>

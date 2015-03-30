@@ -40,8 +40,8 @@
                                 <div class='bodys'>
                                     <h3 class="media-heading"><?php echo ucfirst($profile->fname) .' ' .ucfirst($profile->lname) ;?> <small>| &nbsp;<i class='glyphicon glyphicon-thumbs-up' style='color:#2676af;'></i>&nbsp;<span class='likes'>Likes <span class='likes_count'>( 143 )</span></span></small></h3>
                                     <p><i class='glyphicon glyphicon-briefcase'></i>
-                                    <span class='jobtitle'>Creative Director</span> |
-                                    <span class='companyname'>Fashion Unique Apprell,LLC</span>
+                                    <span class='jobtitle'><?php echo trim(ucfirst($profile->job_title));?></span> |
+                                    <span class='companyname'><?php echo trim(ucfirst($profile->company_name));?></span>
                                     </p>
                                     <p class="located"><span>Located In:</span>
                                     <span class='location'><?php echo $profile->state ; ?></span> |
