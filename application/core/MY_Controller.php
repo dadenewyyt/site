@@ -18,15 +18,17 @@ class MY_Controller extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        
+        $this->load->model('profile_model','profile');
+       
+       /***
+        * DO this thing we you want to secure
+        * evey resource
+        */
+        $this->logged_in();
 
-        /***
-         * DO this thing we you want to secure
-         * evey resource
-         */
-       $this->logged_in();
-
-        //make available useful variables
-        $this->get_session_variables();
+      //make available useful variables
+       $this->get_session_variables();
 
 
     }
@@ -120,18 +122,30 @@ class MY_Controller extends CI_Controller {
 
    public function load_profile($value='')
     {
-         $this->load->model('profile_model','profile');
 
-         $profile = $this->profile->with('media')->get($this->profile_id);
+        isset($value) ?$this->profile_id=$value : $this->profile_id ;
+    
+        if(!empty($this->profile_id)) {
+            
+               $profile = $this->profile->with('media')->get($this->profile_id);
 
-         if(count($profile->media) > 0)  {
-          $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
-         } else {
-          $profile_image = "/uploads/profile/no-photo.jpg";
-         }
+               if(!empty($profile) && count($profile->media) > 0)  {
 
-        $this->data['profile']  = $profile ;
-        $this->data['profile_image']  = $profile_image ;
+                $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
+                $this->data['profile']  = $profile ;
+                $this->data['profile_image']  = $profile_image ;
+
+               } else {
+
+                $profile_image = "/uploads/profile/no-photo.jpg";
+               }
+
+              
+          }
+          
+        return;       
+          
     }
+
 
 }

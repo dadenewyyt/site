@@ -116,8 +116,9 @@ text-decoration: none;
                    </p>
             <?php  endif ?>
         <span class="sr-only">(current)</span></a></li>
-        <li><a href="<?php echo base_url('buy');?>">Shop</a></li>
+
         <li><a href="<?php echo base_url('sell');?>">Sell</a></li>
+        <li><a href="<?php echo base_url('buy');?>">Buy</a></li>
         <li><a href="<?php echo base_url('bid');?>">Bid</a></li>
        
       </ul>
