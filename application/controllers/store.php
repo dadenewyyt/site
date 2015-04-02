@@ -201,7 +201,7 @@ class Store extends  MY_Controller {
 
         $data['profile_id'] = $this->profile_id ;// :)
 
-        $this->load_profile();
+        $this->load_profile($this->profile_id);
         $data = array_merge($data,$this->data);
 
         $data['catagories'] = $this->load_all_catagories;

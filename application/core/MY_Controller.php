@@ -124,7 +124,8 @@ class MY_Controller extends CI_Controller {
     {
 
         isset($value) ?$this->profile_id=$value : $this->profile_id ;
-    
+
+           
         if(!empty($this->profile_id)) {
             
                $profile = $this->profile->with('media')->get($this->profile_id);
@@ -134,7 +135,7 @@ class MY_Controller extends CI_Controller {
                 $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
                 $this->data['profile']  = $profile ;
                 $this->data['profile_image']  = $profile_image ;
-
+               
                } else {
 
                 $profile_image = "/uploads/profile/no-photo.jpg";
@@ -142,7 +143,8 @@ class MY_Controller extends CI_Controller {
 
               
           }
-          
+         
+
         return;       
           
     }

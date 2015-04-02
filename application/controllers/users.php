@@ -117,7 +117,8 @@ class Users extends MY_Controller {
                  // $current_time = str
                  if(count($current_user) > 0) { 
                 
-                  if ( empty($profile->bioinfo) ) {
+                   //redirect user to edit profile page if one this fields are empty . 
+                  if ( empty($profile->bioinfo) || empty($profile->job_title) || empty($profile->company_name)) {
                       //$this->session->set_userdata('current_profile', $current_profile);
                       $profile_url = site_url('profile/edit/' . $this->profile_id);
                   }

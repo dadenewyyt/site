@@ -67,13 +67,14 @@ class Profile extends  MY_Controller {
       $tables = $this->config->item('tables','ion_auth');
       //validate form input
       $this->form_validation->set_rules('bioinfo', 'Bio information', 'required|xss_clean');
+      $this->form_validation->set_rules('website', 'Website address', 'required|xss_clean');
       $this->form_validation->set_rules('imgfile','Please upload your profile image', 'xss_clean');
       $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'valid_email|is_unique['.$tables['users'].'.email]|matches[confirm_email]');
       //$this->form_validation->set_rules('confirm_email', 'confirm email', 'required');
       $this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[confirm_password]');
       $this->form_validation->set_rules('confirm_password', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
       $this->form_validation->set_rules('job_title', 'Job title', 'trim|required|xss_clean');    
-       $this->form_validation->set_rules('company_name', 'Company name', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('company_name', 'Company name', 'trim|required|xss_clean');
 
       if( $this->form_validation->run() == true ) {
        
@@ -96,6 +97,8 @@ class Profile extends  MY_Controller {
             $bioinfo = $this->input->post('bioinfo');
             $job_title = $this->input->post('job_title');
             $company_name = $this->input->post('company_name');
+            $website = $this->input->post('website');
+
 
             //update user account details
             // $updated_password = $this->users->hash_password($password,''); //can pass salt value here
@@ -116,6 +119,7 @@ class Profile extends  MY_Controller {
                       'bioinfo' => $bioinfo,
                        'job_title'=>$job_title,
                        'company_name'=>$company_name,
+                       'website'=>$website,
                        'profile_image_id' =>$profile_image_id
                   )
               );
@@ -126,6 +130,7 @@ class Profile extends  MY_Controller {
                             array (
                             'bioinfo' =>$bioinfo,
                             'job_title'=>$job_title,
+                            'website'=>$website,
                             'company_name'=>$company_name
                              )
                         );

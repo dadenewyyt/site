@@ -13,6 +13,9 @@ height: 50;
 border-bottom: 2px dotted grey;
 padding: 7px;
 }
+.col-md-11{
+  height: 780px;
+}
 
  </style>
 

@@ -157,7 +157,22 @@ class Sell extends  MY_Controller {
         $data['main_menu'] = $main_menu;
        
 
-        $this->load_profile();
+        //becuse it non logged in session we need to pass profile_id
+        $this->load_profile(intval($this->profile_id));
+
+        //TODO:add error message view if nessary
+        /**
+         if( empty($this->data['profile']) || null == $this->data['profile'] ) {
+             $this->message = array('type'=>'error','message'=>"<strong>Unable to find the selected profile. Please , try to select again.&nbsp;&nbsp;<a class='btn btn-sm btn-info' href=".base_url('sell')." >Back to Sell Page</a></strong>");
+             $data['data']['message'] = $this->message;
+             $this->load->view('sell/sellers',$data);
+             return ;
+        }
+       
+
+        $data['data']['message'] = null;
+        */
+        
         $data = array_merge($data,$this->data);
 
         $this->load->view('sell/seller',$data);

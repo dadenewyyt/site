@@ -164,11 +164,17 @@ $email = $this->session->userdata('email');
                 </div>
 
                 <div class="form-group">
-                  <label class="sr-only">Job Title</label>
+                  <label class="sr-only">Company Information</label>
                   <label class="profile_info_text">Company Information</label>
                  <br/>
                    <input type="text" name="company_name" class="form-control input-sm" id="company_name" value="<?php echo $profile->company_name ;?>">
                 </div> 
+                 <div class="form-group">
+                  <label class="sr-only">Website</label>
+                  <label class="profile_info_text">Website Address</label>
+                 <br/>
+                   <input type="text" name="website" class="form-control input-sm" id="website" value="<?php echo  $profile->website ;?>">
+                </div>
 
               
 
@@ -217,7 +223,7 @@ $email = $this->session->userdata('email');
             </div>
             <br/> -->
                 <br/>
-                 <button class="btn btn-primary btn-sm btn-default pull-right" style="padding: 3px 45px;">SAVE</button>
+                 <button class="btn btn-primary btn-sm btn-default pull-right" style="padding: 3px 45px;margin-top: 8px;">SAVE</button>
                 <!--<a href="<?php echo base_url('payment/payment');?>" class="btn btn-default" style="margin-left:5px;">SKIP</a>
                -->
                 <?php  echo form_close(); ?>

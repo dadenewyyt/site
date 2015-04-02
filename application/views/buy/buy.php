@@ -35,49 +35,7 @@
 <div class="container">
    
             <div class="col-md-3 left-catag-twitt">
-
-
-                <div class="thumbnail catagory-checks thumbnail-catagories" >
-                    <span><small>MadeByUs4U</small>&nbsp;&nbsp;<span class="caret"></span>&nbsp;<span style="font-weight:bold">&nbsp;Clothing</span>
-                    <div class="thumbnail rec" >                   
-                  <!--form -->
-                  <?php 
-                  $form_data = array(
-                    'name'        => 'categories',
-                    'id'          => 'categories',
-                    'class' => 'form',
-                    );
-                  echo form_open('bid/categories',$form_data);
-                 ?> 
-
-                <?php foreach($this->config->item('categories')['Cloths'] as $value) : ?>
-                  <div class="line-checkbox">
-                  <p><input type="checkbox"  class='form-inline'name="categories[]" value="<?php echo $value;?>"><a href="">&nbsp;<?php echo $value;?></a>&nbsp;(<span class='catagory_count'>201,201</span> )</p>            
-                
-                </div>
-
-                <?php endforeach;?>                                                          
-                    
-                </div>
-                <?php
-
-                  $submit_btn_data = array(
-                        'class'=>'btn btn-primary apply-button pull-left',        
-                        'value'=>"APPLY",              
-                        'type'=>'submit',
-                    );
-                  $reset_btn_data = array(
-                        'class'=>'btn btn-primary apply-button pull-right',                  
-                        'value'=>"reset filter",
-                        'type'=>'reset',
-                    );
-                ?>
-                    <span class='apply_btn'><?php echo form_submit($submit_btn_data);?></span>
-                    <span class='apply_btn' ><?php echo form_input($reset_btn_data);?></span>
-                    <?php echo form_close();?>
-                   <!--form end--> 
-            </div>
-<hr>
+                <br/>
                  <div class="row row-newline">
                      <div class="col-md-2">
                          <img src="<?php echo base_url()."assets/images/bid/delivery.png"?>" height="200"/>
