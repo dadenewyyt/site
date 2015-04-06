@@ -36,26 +36,34 @@
     
       <div class="col-md-9 col-md-large-image" style="">
         <div class="thumbnail rec thmbnail-large">
-              <img class="img-thumbnail img-responsive" src="<?php echo base_url()."/assets/images/products/product001.png";?>" data-holder-rendered="true"  width="100%" style="margin-left:0px;">       
+
+            <?php 
+
+            $image_found = isset($product['image'])?true:false ;
+            $image_many = is_array($product);
+
+            ?>
+
+              <img class="img-thumbnail img-responsive" src="<?php echo $product['image'][0];?>" data-holder-rendered="true"  width="100%" style="margin-left:0px;height:400px">       
         </div>
       </div>
 
      <div class="col-md-3 col-md-small-images">
-       <img class="img-thumbnail img-responsive small-images" src="<?php echo base_url()."/assets/images/products/product001.png";?>" data-holder-rendered="true"  style="height: 95px;"> 
-       <img class="img-thumbnail img-responsive small-images" src="<?php echo base_url()."/assets/images/products/product001.png";?>" data-holder-rendered="true"  style="height: 95px;">       
-       <img class="img-thumbnail img-responsive small-images" src="<?php echo base_url()."/assets/images/products/product001.png";?>" data-holder-rendered="true"  style="height: 95px;">   
-       <img class="img-thumbnail img-responsive small-images" src="<?php echo base_url()."/assets/images/products/product001.png";?>" data-holder-rendered="true"  style="height:95px;">                       
+       <img class="img-thumbnail img-responsive small-images" src="<?php echo  !empty($product['image'][1])? $product['image'][1]:base_url().'/uploads/no-photo.jpg';?>" data-holder-rendered="true"  style="height: 100px;width:100%;"> 
+       <img class="img-thumbnail img-responsive small-images" src="<?php echo  !empty($product['image'][2])? $product['image'][2]:base_url().'/uploads/no-photo.jpg';?>" data-holder-rendered="true"  style="height: 100px;width:100%;">       
+       <img class="img-thumbnail img-responsive small-images" src="<?php echo  !empty($product['image'][3])? $product['image'][3]:base_url().'/uploads/no-photo.jpg';?>" data-holder-rendered="true"  style="height: 100px;width:100%;">   
+       <img class="img-thumbnail img-responsive small-images" src="<?php echo  !empty($product['image'][4])? $product['image'][4]:base_url().'/uploads/no-photo.jpg';?>" data-holder-rendered="true"  style="height:100px;width:100%;">                       
     </div>
 
     </div>
 
     <div class="col-md-5">
           
-          <h3>Black and Red Plad Long Sleeve</h3>
+          <h3><?php echo $product['product_name'];?></h3>
             <p style="margin-top:-2px;margin-bottom:4px;">
             <span class='seller_name'>
             <i class='glyphicon glyphicon-user'>
-            <b style='padding-left:4px;color: #A8ABAD;'>By Danny man</b>
+            <b style='padding-left:4px;color: #A8ABAD;'>By <?php echo $product['seller_name'];?></b>
             </i>
             </span>|            
             <span class='rating_class'>
@@ -68,18 +76,13 @@
         </p>
         <hr class="hr_border">
 
-        <p> The new model graphics cards marked GeForce GTX770 
-            MSI brings the company. This card has concentrated 
-            power in 1536 CUDA cores communicating through 
-            256-bit memory bus. Brutal stroke 2 gigabytes of 
-            GDDR5 the memory is set to7010 MHz and drives up 
-            the number of frames per second unexpected values. 
+        <p> <?php echo $product['desc'];?> 
         </p>
         <hr class="hr_line">
       
           <h4 style="color:#515151;">
           <strong>Latest Bid:</strong> 
-          <span class="price_1">$ 279.99</span>
+          <span class="price_1">$ <?php echo $product['price'];?></span>
           <span class="timeleft"><strong style="color: #a8a8a8;">Time Left:</strong>
           <span class="left_text">00:04:14</span> </span> 
           </h4>
@@ -175,7 +178,11 @@
         </div>
 
      <!--view-comment-=-->
-     <?php $this->load->view($comment_view); ?>
+     <?php 
+          $data['product'] = $product;
+      ?>
+
+     <?php $this->load->view($comment_view,$data); ?>
          
 
 
@@ -184,7 +191,9 @@
      <!--left container--listedby-->
       <div class="col-md-3" style="padding:10px;border:1px solid #ececec;background-color:white;">
            
-          <?php $this->load->view($product_user_details); ?>
+          <?php 
+          $data['product'] = $product;
+          $this->load->view($product_user_details,$data); ?>
 
           <?php $this->load->view($product_other_details); ?>
 

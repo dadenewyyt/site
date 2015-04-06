@@ -178,7 +178,7 @@
 
 </div>
 
-    <?php $this->load->view($product_listing); ?>
+    <?php $this->load->view($product_listing,$data); ?>
 
   </div>
 

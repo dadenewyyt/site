@@ -76,7 +76,7 @@
       
                     <div class='comment-input-row'>
                         
-                        <img class='pull-left user-small-image' src="<?php echo base_url()."assets/images/products/user.png"?>" height='24' alt="...">
+                        <img class='pull-left user-small-image' src="<?php echo $product['profile_image'];?>" height='24' width='3%'alt="...">
                           
                           <div class="col-md-8 comment-text" style="padding-right:0px;">
                             <input type="text" class="form-control" placeholder="Sign in to post a comment!">
@@ -123,7 +123,7 @@
                           <!--comment2-->
                          
                                 <a class="media-left" href="#">
-                                  <img class='pull-left user-small-image' src="<?php echo base_url()."assets/images/products/user.png"?>" height='100' alt="...">
+                                  <img class='pull-left user-small-image' src="<?php echo $product['profile_image'];?>" height='100' alt="...">
                                 </a>
                                 <div class="media-body">
                                   <h4 class="media-heading">Jane Sparrow <small class="comment_date">January 21, 2014 at 3:35 pm</small></h4>

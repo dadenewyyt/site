@@ -27,7 +27,7 @@ class Profile_model extends MY_Model {
      */
 
     public $belongs_to = array( 'media' => array( 'primary_key' => 'profile_image_id' ,'model'=>"media_model"),
-                                'user' => array( 'primary_key' => 'user_id' ,'model'=>'ion_auth_mode'),
+                                'user' => array( 'primary_key' => 'user_id' ,'model'=>'ion_auth_model'),
                                 'state' => array( 'primary_key' => 'state' ,'model'=>'state_model'),
                                 'account' => array( 'primary_key' => 'account' ,'model'=>'account_model')
 
@@ -106,6 +106,10 @@ class Profile_model extends MY_Model {
 
         return $this->get($profile_id)->is_profile_verified ;
     }
+
+    public function with_media($type='profile_image') {
+        $this->_database->join('medias',$this->_table.'.'.$this->primary_key.' = medias.profile_id')->where('medias.type', $type);
+}
 
 }
 

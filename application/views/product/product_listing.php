@@ -1,151 +1,66 @@
 
+<?php for($i=1;$i<=2;$i++) { ?>
 
-<div class='row product_listing'>
+<div class='row product-lisiting-pages'>
 
 <div class='col-md-12 col-sm-6'>
-  <div class="col-sm-3 col-md-3">
-        <div class="thumbnail">
-        
-        <!-- <img data-src="holder.js/200x300">
-         <img src="../assets/images/products/ring.jpg" width="200" height="300">
-         -->
-            <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-                 src=<?php echo base_url("assets/images/products/dimond.jpg");?> data-holder-rendered="true" style="height: 200px; display: block;">
-     
-                  <div class="caption">
-                            <h4>Dimonad Rings </h4>
-                            <p><span class='price'>$66.99</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                            <span class='span_buy_it_now'><p><a href="#">Buy It Now!</a></p></span>
-                        </div>
-                  <hr>
+
+<style type="text/css">
+  
+  .xpens {
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;         /* Generic*/
+
+  }
+ 
+</style>
+<?php for($j=0;$j<4;$j++) { ?>
+
+      <div class="col-sm-3 col-md-3">
+
+            <div class="thumbnail">
+                <a href="<?php echo base_url('product/detail').'/'.$products[0]['product_id'];?>">
+
+                        <img  alt="<?php echo $products[0]['name'];?>"  class="img-thumbnail img-responsive xpens" 
+                              src="<?php echo base_url().'/uploads/profile/1/products/'.'product_image68124.jpg';?>" 
+                              style=' text-align: center; width: 100%;height: 200px;'>
+               </a>
+                   
+            <div class="caption">
+                       <h4><?php echo $products[0]['name'];?></h4>
+                       <p><?php echo $products[0]['desc'];?></p>
+                        <p>
+                          <span class='price'>$<?php echo $products[0]['price'];?></span>
+                          <span class='buy_btn'> 
+                            <a href="#" class="btn btn-primary" role="button">Buy Now!</a>
+                          </span>
+                      </p>
+            </div>
+             <hr>
+
                   <p>
-                  <span class='seller_name'>
-                  <i class='glyphicon glyphicon-user'>
-                  <b>Seller Name</b>
-
-                  </span>
-                  </i>
-                  <span class='rating_class'>
-                  <i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-
-
-        </div>
-    </div>
-
-    <div class="col-sm-3 col-md-3">
-            <div class="thumbnail">
-                <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-                     src=<?php echo base_url("assets/images/products/tshirt.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
-                  <div class="caption">
-                    <h4>Black and Red Plad Sleeve</h4>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                  </div>
-                   <hr>
-                  <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
+                      <span class='seller_name'><i class='glyphicon glyphicon-user'></i>
+                      <b style='padding-left:4px;color: #1f72ad;'><?php echo $products[0]['seller_name'];?></b>
+                      </span>
+                         
+                        <span class='rating_class'>
+                           <i class='glyphicon glyphicon-star'></i>
+                          <i class='glyphicon glyphicon-star'></i>
+                          <i class='glyphicon glyphicon-star'></i>
+                          <i class='glyphicon glyphicon-star-empty'></i>
+                          <i class='glyphicon glyphicon-star-empty'></i>
+                      </span>
+                   </p>
             </div>
       </div>
 
-    <div class="col-sm-3 col-md-3">
-        <div class="thumbnail">
-        <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-                src=<?php echo base_url("assets/images/products/bag.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
-          <div class="caption">
-            <h4>Black and Red Plad Sleeve</h4>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-          </div>
-           <hr>
-          <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-        </div>
-      </div>
 
-      <div class="col-sm-3 col-md-3">
+<?php } ?>
 
-        <div class="thumbnail">
-           <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-               src=<?php echo base_url("/assets/images/products/ring.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
-           <div class="caption">
-           <h4>Set of Wedding Ring</h4>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-          </div>
-           <hr>
-                  <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-         
-        </div>
-      </div>
+</div>
 
-
-      </div>
-
-    </div>
-<div class="row"><div class='col-md-12 col-sm-2'>
-  <div class="col-sm-3 col-md-3">
-        <div class="thumbnail">
-        
-        <!-- <img data-src="holder.js/200x300">
-         <img src="../assets/images/products/ring.jpg" width="200" height="300">
-         -->
-            <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-                 src=<?php echo base_url("assets/images/products/dimond.jpg");?> data-holder-rendered="true" style="height: 200px; display: block;">
-     
-                  <div class="caption">
-                        <h4>Set of Wedding Ring</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                  </div>
-                  <hr>
-                  <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-
-
-        </div>
-    </div>
-
-    <div class="col-sm-3 col-md-3">
-            <div class="thumbnail">
-                <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-                     src=<?php echo base_url("assets/images/products/tshirt.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
-                  <div class="caption">
-                    <h4>Black and Red Plad Sleeve</h4>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-                  </div>
-                   <hr>
-                  <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-            </div>
-      </div>
-
-    <div class="col-sm-3 col-md-3">
-        <div class="thumbnail">
-        <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-                src=<?php echo base_url("assets/images/products/bag.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
-          <div class="caption">
-            <h4>Black and Red Plad Sleeve</h4>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-          </div>
-           <hr>
-          <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-        </div>
-      </div>
-
-      <div class="col-sm-3 col-md-3">
-
-        <div class="thumbnail">
-           <img data-src="holder.js/100%x200" alt="100%x200"  class="img-thumbnail img-responsive"
-               src=<?php echo base_url("/assets/images/products/ring.jpg");?> data-holder-rendered="true" style="height: 200px;display: block;">
-           <div class="caption">
-           <h4>Set of Wedding Ring</h4>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><span class='price'>$59.89</span><span class='buy_btn'><a href="#" class="btn btn-primary" role="button">Buy Now!</a></span></p>
-          </div>
-           <hr>
-            <p><span class='seller_name'><i class='glyphicon glyphicon-user'><b style='padding-left:4px;color: #1f72ad;'>Seller Name</b></span></i><span class='rating_class'><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></span></span></p>
-         
-        </div>
-
-      </div>
-      </div>
-
+</div>
+<?php } ?>
 

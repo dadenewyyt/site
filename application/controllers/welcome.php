@@ -6,6 +6,9 @@ class Welcome extends MY_Controller {
     public function __construct() {
 
        parent::__construct() ;
+       $this->load->model('product_model','products');
+       $this->load->model('media_model','media');
+
     }
 	/**
 	 * Index Page for this controller.
@@ -24,7 +27,6 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
         $data['email_form'] = 'include/email_form';
-
         $this->load->view('coming_soon',$data);
 
 	}
@@ -65,6 +67,7 @@ class Welcome extends MY_Controller {
           $message = array (
              "message" => $content,
           );
+          //TODO:save the subscribed on database
 
         echo json_encode($message);
      }
@@ -79,11 +82,22 @@ class Welcome extends MY_Controller {
         foreach($categories_all as  $cat=>$val){
             $categories_all[$val] = $val;
         }
-        //var_dump($categories_all);
+       
         $data['categories_all'] = $categories_all;
         $data['footer_page'] = 'include/footer_page';
         $data['product_listing'] = 'product/product_listing';
         $data['catagories_all'] = $categories_all;
+
+      
+     
+        $products = $this->products->display_all_product();
+
+        //var_dump($all_products);
+        //var_dump($all_products[0]->medias);
+        //exit;
+
+        $data['data']['products'] = $products;
+
         $this->load->view('home/home',$data);
     }
 

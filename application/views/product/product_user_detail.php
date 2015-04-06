@@ -2,18 +2,18 @@
           <p class='listedby'>
               <strong>Listed By <i class='caret'></i>
               </strong> 
-              <b>Username</b>    
+              <b><?php echo ucfirst($product['username']);?></b>    
           </p>
 </div>
 <row>
 <div class="col-md-12" style="background-color:#f5f5f5;padding:10px;text-align: center;">
       <div class="media" style="padding-bottom: 13px;">
           <a class="media-left" href="#">
-            <img src="<?php echo base_url()."assets/images/products/user.png"?>" height='90' alt="...">
+            <img src="<?php echo $product['profile_image'];?>" height='90' alt="..." style='width:100%;'>
           </a>
       <div class="media-body">
-            <h4 class="media-heading">Username</h4>
-            <span class='joined_date'>Joined Date <?php echo date('Y');?></span>
+            <h4 class="media-heading"><?</h4>
+            <span class='joined_date'>Joined Date <?php echo date_format(date_create($product['joined_date']),'Y-m-d');?></span>
              <p></p>
              <p><a href="#" class="btn buttons btn_black">Send Request</a></p>
 
