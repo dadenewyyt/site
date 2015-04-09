@@ -25,7 +25,7 @@ foreach($products as $product) { ?>
                 <a href="<?php echo base_url('product/detail').'/'.$product['product_id'];?>">
 
                         <img  alt="<?php echo $product['name'];?>"  class="img-thumbnail img-responsive xpens" 
-                              src="<?php echo base_url().'/uploads/profile/1/products/'.'product_image68124.jpg';?>" 
+                              src="<?php echo $product['image'] ;?>" 
                               style=' text-align: center; width: 100%;height: 200px;'>
                </a>
                    

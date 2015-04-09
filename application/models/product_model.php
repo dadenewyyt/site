@@ -77,9 +77,12 @@ class Product_model extends MY_Model {
         $product_details[$key]['price'] = $value->price;
 
       //TODO:When there are many products on the database this code need to be fixed or properly adujsted
-      if(!empty($value->medias))
+      if(!empty($value->medias)) {
         $product_details[$key]['image'] = base_url().'/uploads/profile/'.$value->profile->id.'/products/'.$value->medias[$key]->file_name ; //get only the first product image
-        $product_details[$key]['image']=   base_url().'/uploads/profile/'.$value->profile->id.'/products/product_image20716.jpg';
+       }
+
+       else  {$product_details[$key]['image'] ='';} 
+
         $product_details[$key]['seller_name'] = (ucfirst($value->profile->fname));
       }
       //var_dump($product_details);exit;
