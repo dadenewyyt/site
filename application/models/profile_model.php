@@ -107,9 +107,23 @@ class Profile_model extends MY_Model {
         return $this->get($profile_id)->is_profile_verified ;
     }
 
-    public function with_media($type='profile_image') {
+    function with_media($type='profile_image') {
         $this->_database->join('medias',$this->_table.'.'.$this->primary_key.' = medias.profile_id')->where('medias.type', $type);
-}
+   }
+
+   function get_Verfied_Profiles($per_page,$page) {
+
+     $verified_profiles = $this->with('media')->limit($per_page,$page)->get_many_by('is_profile_verified','1');
+
+     //var_dump($verified_profiles);exit;
+
+     foreach ($verified_profiles as $value) {
+
+        $value->media->file_name = '/uploads/profile/'.$value->id .'/avatar/'. $value->media->file_name;
+     }
+
+     return $verified_profiles;
+   }
 
 }
 

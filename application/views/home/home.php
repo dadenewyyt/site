@@ -171,14 +171,14 @@
 
     <div class="row">
         <div class='pull-right'>
-            <span class='glyphicon glyphicon-chevron-left' style='background-color:#cccccc;'></span>
-            <span class='glyphicon glyphicon-chevron-right' style='background-color:#cccccc;'></span>
+                            <p><?php echo $links; ?></p>
+            
         </div>
      </div>
 
 </div>
 
-    <?php $this->load->view($product_listing,$data); ?>
+    <?php $this->load->view($product_listing,$products); ?>
 
   </div>
 

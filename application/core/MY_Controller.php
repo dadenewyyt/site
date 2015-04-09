@@ -49,6 +49,7 @@ class MY_Controller extends CI_Controller {
         $action = $this->uri->segment(2); // action
         $url = $controller . '/' . $action;
        **/
+     
 
         $controller= $this->router->class ; //controller
         $action =$this->router->method; // action

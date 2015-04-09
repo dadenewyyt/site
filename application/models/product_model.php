@@ -59,10 +59,10 @@ class Product_model extends MY_Model {
 
     }
 
-    public function display_all_product() {
+    public function display_all_product($per_page, $page) {
 
-      $all_products = $this->with('medias')->with('profile')->get_all();
-     // var_dump($all_products);
+      $all_products = $this->limit($per_page, $page)->with('medias')->with('profile')->get_all();
+     //var_dump($all_products);exit;
 
       //ToDO:Construct arrray of products with media and p
       //profile details as array of objects and pass to the view simpley
@@ -76,7 +76,10 @@ class Product_model extends MY_Model {
         $product_details[$key]['desc'] = $value->desc;
         $product_details[$key]['price'] = $value->price;
 
-        $product_details[$key]['image'] = base_url().'/uploads/profile/'.$value->profile->id.'./products/'.$value->medias[0]->file_name ; //get only the first product image
+      //TODO:When there are many products on the database this code need to be fixed or properly adujsted
+      if(!empty($value->medias))
+        $product_details[$key]['image'] = base_url().'/uploads/profile/'.$value->profile->id.'/products/'.$value->medias[$key]->file_name ; //get only the first product image
+        $product_details[$key]['image']=   base_url().'/uploads/profile/'.$value->profile->id.'/products/product_image20716.jpg';
         $product_details[$key]['seller_name'] = (ucfirst($value->profile->fname));
       }
       //var_dump($product_details);exit;
