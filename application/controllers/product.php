@@ -11,6 +11,7 @@ class Product extends  MY_Controller {
     public function __construct() {
 
         parent::__construct();
+        $this->load->model('product_model','products');
     }
 
     public function index(){   
@@ -28,8 +29,14 @@ class Product extends  MY_Controller {
 
     }
 
-    public function detail(){   
+    public function detail($id){   
        
+        $product = array();
+
+        if( !empty($this->products->get($id)) ){
+        $product = $this->products->get_single_product_detail($id);
+        }
+
         $paginate_page = 'include/paginate_page';
         $notification_bar = 'include/notification_bar';
         $header_logo_white = 'include/header_logo_white';
@@ -50,6 +57,8 @@ class Product extends  MY_Controller {
         $data['paginate_page'] = $paginate_page;
         $data['notification_bar'] = $notification_bar;
         $data['comment_view'] = $comment_view;
+
+        $data['product'] = $product;
 
 
         $this->load->view('product/product_detail',$data);

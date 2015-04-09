@@ -34,6 +34,9 @@
         case "localhost":
             $env = "development";
             break;
+        case "172.22.250.23":
+            $env = "development";
+            break;
         case "127.0.0.1":
             $env = "development";
             break;

@@ -47,8 +47,14 @@ class Profile extends  MY_Controller {
       $data['footer_subscribe'] = 'include/footer_subscribe';
       $data['signin_form'] = 'include/signin_form';
       $data['new_to_madeby'] = 'include/new_to_madeby';
+      
+      /**
+       * Taken our old main menu
+       * 
       $data['navigation_top'] = 'include/navigation_top';
+      **/
       $data['notification_bar'] = 'include/notification_bar';
+      $data['main_menu'] = 'include/main_menu';
 
       $this->load->model('state_model','state');
       $states = $this->state->populate_state_dropdown();

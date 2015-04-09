@@ -62,7 +62,6 @@ $error = isset($data['message']['type'])=='error' ? true :false ;
                             </a>
 
 
-
                            <div class="media-body">
                               <div class='bodys'>
                              <h3 class="media-heading"><?php echo ucfirst($profile->fname) .' ' .ucfirst($profile->lname) ;?> <small>| &nbsp;<i class='glyphicon glyphicon-thumbs-up' style='color:#2676af;'></i>&nbsp;<span class='likes'>Likes <span class='likes_count'>( 143 )</span></span></small></h3>
@@ -126,7 +125,7 @@ $error = isset($data['message']['type'])=='error' ? true :false ;
 
                         <div class="row row-under-container" >
                           
-                           <div class="col-md-1">Web| <span class='webaddres'>www.google.com </span>  </div>
+                           <div class="col-md-1">Web | <span class='webaddres'><a href='<?php echo $profile->website;?>'><?php echo $profile->website;?></a> </span>  </div>
                             <div class="col-md-2"><a href="#listing" aria-controls="listing" role="tab" data-toggle="tab" class="active"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>5 Listings</a></span>  </div>
                             <div class="col-md-2"><a href="#store" aria-controls="store" role="tab" data-toggle="tab"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>2 Store</a></span></div>
                             <div class="col-md-2"><a href="#likes" aria-controls="likes" role="tab" data-toggle="tab"><span class='tab-links' style='border-bottom: 2px solid #428bca;'>10 Likes</a></span></div>

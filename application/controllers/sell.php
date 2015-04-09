@@ -14,6 +14,9 @@ class Sell extends  MY_Controller {
     public function __construct() {
 
         parent::__construct();
+        $this->load->model('profile_model','profile');
+        $this->load->model('media_model','media');
+
     }
 
    /**
@@ -24,19 +27,54 @@ class Sell extends  MY_Controller {
    */
 
     public function index(){   
+
+       $this->load->library('pagination');
+
+       $total_rows = $this->profile->count_by('is_profile_verified',1);
+    
+
+        $config = array();
+
+        $config["base_url"] = base_url() . "sell/index";
+        $config["total_rows"] = $total_rows;
+        $config["per_page"] = 10;
+        $config["uri_segment"] = 3;
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $profiles = $this->profile->get_Verfied_Profiles($config["per_page"], $page);
+
+        $data["profiles"] = $profiles;
+
+      
+
+       $data["links"] = $this->pagination->create_links();
+
+       
        
        $paginate_page = 'include/paginate_page';
        $notification_bar = 'include/notification_bar';
        $header_logo_white = 'include/header_logo_white';
+       $seller_lisiting_page = 'sell/seller_listing_page';
        $main_menu = 'include/main_menu';
 
-        $data['footer_privacy'] = 'include/footer_privacy';
-        $data['footer_subscribe'] = 'include/footer_subscribe';
-        $data['header_black_menu'] = 'include/header_black_menu';
-        $data['paginate_page'] = $paginate_page;
-        $data['notification_bar'] = $notification_bar;
-        $data['header_logo_white'] = $header_logo_white;
-        $data['main_menu'] = $main_menu;
+       $data['footer_privacy'] = 'include/footer_privacy';
+       $data['footer_subscribe'] = 'include/footer_subscribe';
+       $data['header_black_menu'] = 'include/header_black_menu';
+
+       $data['seller_lisiting_page'] = $seller_lisiting_page;
+       $data['paginate_page'] = $paginate_page;
+       $data['notification_bar'] = $notification_bar;
+       $data['header_logo_white'] = $header_logo_white;
+       $data['main_menu'] = $main_menu;
+
+        //TODO: load memeber /profile model
+        //TODO:get_all who isVerfied
+        //TODO:
+
+
 
        $this->load->view('sell/sell',$data);
 

@@ -464,8 +464,9 @@ class Store extends  MY_Controller {
 
      
        
-        $this->load_profile();
+        $this->load_profile($this->profile_id);
         $data = array_merge($data,$this->data);
+        //var_dump($data);
         $data['catagories'] = $this->load_all_catagories;
 
         $this->load->view('storesetup/store',$data);

@@ -6,6 +6,9 @@ class Welcome extends MY_Controller {
     public function __construct() {
 
        parent::__construct() ;
+       $this->load->model('product_model','products');
+       $this->load->model('media_model','media');
+
     }
 	/**
 	 * Index Page for this controller.
@@ -24,7 +27,6 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
         $data['email_form'] = 'include/email_form';
-
         $this->load->view('coming_soon',$data);
 
 	}
@@ -65,25 +67,62 @@ class Welcome extends MY_Controller {
           $message = array (
              "message" => $content,
           );
+          //TODO:save the subscribed on database
 
         echo json_encode($message);
      }
 }
 
-    public function home() {
-
-        //fetch categories from config
+function get_all_categories() {
+ 
+ //fetch categories from config
         //and construct an array of [ STRING,STRING ]
         $categories_all = $this->config->item('categories_all');
 
         foreach($categories_all as  $cat=>$val){
             $categories_all[$val] = $val;
         }
-        //var_dump($categories_all);
-        $data['categories_all'] = $categories_all;
+        return  $categories_all;
+       
+}
+
+    public function home() {
+
+       
+
+        $this->load->library('pagination');
+
+        $total_rows = $this->products->count_all();
+    
+
+        $config = array();
+
+        $config["base_url"] = base_url() . "welcome/home/";
+        $config["total_rows"] = $total_rows;
+        $config["per_page"] = 8;
+        $config["uri_segment"] = 3;
+
+        $config['display_pages'] = FALSE;
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $products = $this->products->display_all_product($config["per_page"],$page);
+
+        $data["products"] = $products;
+
+      
+
+        $data["links"] = $this->pagination->create_links();
+      
         $data['footer_page'] = 'include/footer_page';
         $data['product_listing'] = 'product/product_listing';
+
+        $categories_all = $this->get_all_categories();
         $data['catagories_all'] = $categories_all;
+
+
         $this->load->view('home/home',$data);
     }
 

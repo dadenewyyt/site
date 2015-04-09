@@ -33,7 +33,7 @@ $email = $this->session->userdata('email');
 <section >
 
     <div class="middle_naviagtion">
-        <?php $this->load->view($navigation_top); ?>
+        <?php $this->load->view($main_menu); ?>
     </div>
 
     <div class="container container-content">

@@ -49,6 +49,7 @@ class MY_Controller extends CI_Controller {
         $action = $this->uri->segment(2); // action
         $url = $controller . '/' . $action;
        **/
+     
 
         $controller= $this->router->class ; //controller
         $action =$this->router->method; // action
@@ -132,16 +133,18 @@ class MY_Controller extends CI_Controller {
 
                if(!empty($profile) && count($profile->media) > 0)  {
 
-                $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
-                $this->data['profile']  = $profile ;
-                $this->data['profile_image']  = $profile_image ;
+                $profile_image = "uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
+              
                
                } else {
 
-                $profile_image = "/uploads/profile/no-photo.jpg";
+                $profile_image = "uploads/no-photo.jpg";
+               
                }
 
-              
+                $this->data['profile']  = $profile ;               
+                $this->data['profile_image']  = $profile_image ;
+               
           }
          
 
