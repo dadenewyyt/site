@@ -8,7 +8,7 @@ foreach ($profiles as $key => $profile) {
                         <div class="col-sm-2 col-md-2 col-md-2-person">                 
                                 <div class="thumbnail rec">
                                 <a href="<?php echo base_url('sell/sellers/').'/'.$profile->id;?>">
-                                <img  class="img-thumbnail img-responsive" src="<?php echo base_url().$profile->media->file_name;?>" style="height: 150px;display: block;"></a>
+                                <img  class="img-thumbnail img-responsive" src="<?php echo $profile->media->file_name;?>" style="height: 150px;display: block;"></a>
                                 <div class='text_content'>
                                 <div class="seller_name">
                                  <h4><small><i class='glyphicon glyphicon-user'></i></small><span class="member_name"><?php echo ucfirst($profile->fname).' '.ucfirst($profile->lname); ?></span></h4>
