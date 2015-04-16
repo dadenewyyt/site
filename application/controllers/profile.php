@@ -86,7 +86,7 @@ class Profile extends  MY_Controller {
        
             //path should be profile/profileid/avatar , profile/profileid/video , profile/profileid/products
             $pathToUpload = "./uploads/profile/". $this->profile_id ."/avatar/";
-            var_dump($pathToUpload);
+           
             //load the configuration
             $upload_config = $this->config->item('upload_config_profile_edit');
 
