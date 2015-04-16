@@ -190,7 +190,12 @@ $email = $this->session->userdata('email');
 
                          <div class="col-sm-4">
                 <label class="col-sm-2 control-label">State</label>
-                <?= form_dropdown('state', array_merge(array(''=>'Select State'),$profile->state, $states) ,'','class="form-control input-sm"  tabindex="7"' ) ;?>
+                <?php
+                $default = array(''=>'Select State') ;
+              
+
+                echo form_dropdown('state', $profile->state,array_merge($default,$states),'class="form-control input-sm"  tabindex="7"' ) 
+                ;?>
 
                         </div>
                          <div class="col-sm-4">

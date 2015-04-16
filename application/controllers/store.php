@@ -306,7 +306,7 @@ class Store extends  MY_Controller {
         $this->load->view('storesetup/store',$data);
     }
 
-  public function save($profile_id) {
+  public function save_store($profile_id) {
 
          
       $tab_status = TRUE ; 

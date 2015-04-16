@@ -4,7 +4,7 @@
 
            <?php if($tab_status): ?>
         
-          <span class='tab_content_title'>You Have Validate Your Identity</span>  
+          <span class='tab_content_title'>You can create your store , products and account any time you want. </span>  
        
           <?php endif; ?>
 

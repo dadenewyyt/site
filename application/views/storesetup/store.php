@@ -7,47 +7,44 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- Le styles -->
-        <link href=<?php
-echo base_url() . "assets/plugins/bootstrap/css/bootstrap.min.css"; ?> rel="stylesheet">
-            <link href=<?php
-echo base_url() . "assets/css/common.css"; ?> rel="stylesheet">
-                <link href=<?php
-echo base_url() . "assets/css/collective_common.css"; ?> rel="stylesheet">
-                    <link href=<?php
-echo base_url() . "assets/css/store_tabs.css"; ?> rel="stylesheet">
+        <link href=<?php echo base_url() . "assets/plugins/bootstrap/css/bootstrap.min.css"; ?> rel="stylesheet">
+        <link href=<?php echo base_url() . "assets/css/common.css"; ?> rel="stylesheet">
+        <link href=<?php echo base_url() . "assets/css/collective_common.css"; ?> rel="stylesheet">
+        <link href=<?php echo base_url() . "assets/css/store_tabs.css"; ?> rel="stylesheet">
 
-                    </head>
+         <!--start of row-->
+
+        <style type="text/css">
+                                .tab_lables_sup {
+                                font-weight:400;
+                                top:-3.79px;
+                                font-size:13px;'
+                                }
+        </style>
+
+    </head>
                     <body>
-                        <?php
-$this->load->view($notification_bar); ?>
-                        <header>
-                            <?php
-$this->load->view($header_black_menu); ?>
-                            <?php
-$this->load->view($header_logo_white); ?>
+                        
+                        <?php $this->load->view($notification_bar); ?>
+
+                        <header> 
+                            <?php $this->load->view($header_black_menu); ?>
+                            <?php $this->load->view($header_logo_white); ?>
                         </header>
+
                         <!-- Responsive design
                         ================================================== -->
                         <section id="responsive" style="background-color:#f5f5f5;">
                             <!--load menu here -->
-                            <?php
-$this->load->view($main_menu); ?>
+                            <?php $this->load->view($main_menu); ?>
                             <div class="container container-listing">
                                 <!--store setup-->
                                 <div role="tabpanel" class="tab-pane active" id="store">
-                                    <!--start of row-->
-
-                                    <style type="text/css">
-                                                            .tab_lables_sup {
-                                                            font-weight:400;
-                                                            top:-3.79px;
-                                                            font-size:13px;'
-                                                            }
-                                    </style>
+                                   
                                     <div class="row-storesetup row">
                                         <div id="divsetup-content" name="divsetup-content" class="divsetup-content col-md-12" style="display:block;">
                                             <h2 style="font-size: 26px;font-weight: 600;">Store <span style='font-weight: 400;'>Setup</span>
-                                            <sup id='tab_lables_sup'class='tab_lables_sup'>- Step 1. Validate Identity</sup>
+                                            <sup id='tab_lables_sup'class='tab_lables_sup' id='verify-text'><?php echo $tab_status==true ? "" :"- Step 1. Validate Identity"  ;?></sup>
                                             <small class='pull-right' style='color:rgb(216, 62, 62);margin-top: 8px;font-size: small;'>* ( Mandatory filed )</small>  </h3>
                                             <hr>
                                             <div role="tabpanel" class="tabpane-storesetup">
@@ -55,7 +52,15 @@ $this->load->view($main_menu); ?>
 
 
                                                 <ul class="nav nav-pills" role="tablist" id='createNotTab'>
-                                                    <li role="presentation"><a href="#verify-tab" aria-controls="verify-tab" role="tab" data-toggle="tab" ><!--validate page-->1. Validate Identity<i class="fa"></i></a></li>
+                                                   
+                                                    <li role="presentation"><a href="#verify-tab" aria-controls="verify-tab" role="tab" data-toggle="tab" >
+                                                    <!--validate page-->
+                                                    <?php echo $tab_status==true ? "Verfication complete!" :"1. Validate Identity"  ;?>
+
+                                                    <i class="fa"></i></a>
+
+                                                    </li>
+                                                    
                                                     <!--this is a form for all tab submission after verfiication-->
                                                     <li role="presentation" ><a href="#store-tab" aria-controls="store-tab" role="tab" data-toggle="tab" ><!--store page--> 2. Store Name<i class="fa"></i></a></li>
                                                     <li role="presentation"><a href="#product-tab" aria-controls="product-tab" role="tab" data-toggle="tab">3. Add Listing<i class="fa"></i></a></li>
@@ -64,15 +69,15 @@ $this->load->view($main_menu); ?>
                                                     <li role="presentation"><a href="#launchstore-tab" aria-controls="launchstore-tab" role="tab" data-toggle="tab" >6. Launch Store<i class="fa"></i></a></li>
 
                                                 </ul>
-                                                <?php
-if ($tab_status): ?>
-                                                <?php
-    $attributes = array('class' => 'form', 'novalidate' => 'novalidate', 'id' => 'myForm', 'name' => 'myForm',);
-    
-    echo form_open_multipart('store/save/' . $profile->id, $attributes);
-?>
-                                                <?php
-endif; ?>
+            <?php if ($tab_status): ?>
+                                                        
+                <?php
+                $attributes = array('class' => 'form', 'novalidate' => 'novalidate', 'id' => 'myForm', 'name' => 'myForm',);
+                
+                echo form_open_multipart('store/save_store/' . $profile->id, $attributes);
+                ?>
+
+            <?php endif; ?>
 
                                                 <!-- Tab panes -->
                                                 <div class="tab-content">
@@ -133,12 +138,12 @@ echo base_url() . "assets/js/multiple_image_uploads.js"; ?>"></script>
                         <script src="<?php
 echo base_url() . "assets/js/bootstrapValidator.js"; ?>"></script>
 
-                        <script type="text/javascript">
-                                        
-                            
+                        <script type="text/javascript">                                                                  
+                                              
+
                         function disable_tabs_when_completed() {
-                        var store_setup_completed = '<?php
-                         echo $store_setup_completed; ?>';
+                        var store_setup_completed = '<?php  echo $store_setup_completed; ?>';
+
                         if (store_setup_completed) {
                         $('.nav-pills a[href="#' + 'launchstore-tab' + '"]').tab('show');
                         $('.nav-pills li').not('.active').find('a').removeAttr("data-toggle");
@@ -169,6 +174,18 @@ echo base_url() . "assets/js/bootstrapValidator.js"; ?>"></script>
                         });
                         }
                         function change_labels_when_tabs_activated() {
+                         $('a[href="#verify-tab"]').click(function() {
+                        var  verified_identiy = '<?php  echo $tab_status; ?>';
+                            if(verified_identiy){
+                                $('#tab_lables_sup').empty();
+                                $('#tab_lables_sup').append(document.createTextNode(""));
+                            } else {
+
+                                $('#tab_lables_sup').empty();
+                                $('#tab_lables_sup').append(document.createTextNode("- Step 1. Validate Identity"));
+                            }
+                        });
+                            
                         $('a[href="#store-tab"]').click(function() {
                         $('#tab_lables_sup').empty();
                         $('#tab_lables_sup').append(document.createTextNode("- Step 2. Create Store"));
@@ -199,6 +216,7 @@ echo base_url() . "assets/js/bootstrapValidator.js"; ?>"></script>
                         disable_tabs_when_completed();
                         misellenous_help_preview_store_and_image();
                         change_labels_when_tabs_activated();
+
 
 
 
@@ -293,16 +311,14 @@ echo base_url() . "assets/js/bootstrapValidator.js"; ?>"></script>
                         * Send controller
                         * Receive response
                         */
-                        var url =  "<?php
-echo site_url('welcome/subscribe'); ?>";
+                        var url =  "<?php echo site_url('welcome/subscribe'); ?>";
                         subscribe_using_ajax(url);
 
                         $('#btnstoresetup').click( function() {
                         $('#divstoresetup').hide("400",function(){
                         // alert( "Animation complete." );
                         // $('#divsetup-content').css('display','block');
-                        window.location="<?php
-echo base_url('store'); ?>";
+                        window.location="<?php echo base_url('store'); ?>";
                         });
                         }) ;
                         /*care for cascading drop down boxes **/
@@ -314,8 +330,7 @@ echo base_url('store'); ?>";
                         $("#variation > option").remove(); //first of all clear select items
                         // alert(categorey_selected);
                         $.ajax({
-                        url: "<?php
-echo base_url('store/get_categories_variation_ajax'); ?>",
+                        url: "<?php echo base_url('store/get_categories_variation_ajax'); ?>",
                         async: false,
                         cache: false,
                         data: {madebyus4u_csrf_test_name:csrf,category:categorey_selected},
@@ -344,8 +359,7 @@ echo base_url('store/get_categories_variation_ajax'); ?>",
                             $("#sub_variation > option").remove(); //first of all clear select items
                             // alert(categorey_selected);
                             $.ajax({
-                            url: "<?php
-echo base_url('store/get_sub_variation_ajax'); ?>",
+                            url: "<?php echo base_url('store/get_sub_variation_ajax'); ?>",
                             async: false,
                             cache: false,
                             data: {madebyus4u_csrf_test_name:csrf,category:categorey_selected,variation:variation_selected},
