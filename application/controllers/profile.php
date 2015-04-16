@@ -86,6 +86,7 @@ class Profile extends  MY_Controller {
        
             //path should be profile/profileid/avatar , profile/profileid/video , profile/profileid/products
             $pathToUpload = "./uploads/profile/". $this->profile_id ."/avatar/";
+            var_dump($pathToUpload);
             //load the configuration
             $upload_config = $this->config->item('upload_config_profile_edit');
 
@@ -167,6 +168,7 @@ class Profile extends  MY_Controller {
 
             $data['header_black_menu'] = 'include/header_black_menu';
             $data['header_logo_white'] = 'include/header_logo_white';
+            $data['main_menu'] = 'include/main_menu';
             $data['show_error_page'] = 'include/show_error_page';
             $data['footer_privacy'] = 'include/footer_privacy';
             $data['footer_subscribe'] = 'include/footer_subscribe';

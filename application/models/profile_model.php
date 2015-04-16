@@ -93,6 +93,7 @@ class Profile_model extends MY_Model {
                 $this->session->set_userdata('email', $email);
                 $this->session->set_userdata('firstname',ucfirst($firstname));
 
+                //from general helpr class
                 send_activation_email($firstname,$user_id,$activation_code,$email);
                 return TRUE;
             }
