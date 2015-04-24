@@ -8,7 +8,8 @@
 
 class Product_model extends MY_Model {
 
-    public $belongs_to = array( 'profile' => array('primary_key' => 'profile_id', 'model' => 'profile_model' ));
+    public $belongs_to = array( 'profile' => array('primary_key' => 'profile_id', 'model' => 'profile_model' ),
+                                'store' => array('primary_key' => 'store_id', 'model' => 'store_model'));
 
 
     public $has_many = array(

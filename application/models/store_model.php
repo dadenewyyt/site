@@ -27,10 +27,11 @@ class Store_model extends MY_Model {
      */
 
 
-    public $has_many = array('products' => array( 'primary_key' => 'product_id' ,'model'=>"product_model"),
-                             'medias' => array( 'primary_key' => 'media_id' ,'model'=>"media_model") );
-
-    public $belongs_to = array('profile' => array( 'primary_key' => 'owner_profile_id' ,'model'=>"profile_model") );
+    public $has_many = array('products' => array( 'primary_key' => 'store_id' ,'model'=>"product_model"));
+//'medisas' => array( 'primary_key' => 'media_id' ,'model'=>"media_model") 
+    public $belongs_to = array('profile' => array( 'primary_key' => 'owner_profile_id' ,'model'=>"profile_model"),
+                                'media' => array( 'primary_key' => 'media_id' ,'model'=>"media_model"));
+    
 
     /**
      * @param $post
@@ -56,6 +57,33 @@ class Store_model extends MY_Model {
         $store_id = $this->insert($insert_data) ;  
         return $store_id;
 
+    }
+
+public function get_store_lisiting($profile_id,$per_page, $page) {
+
+
+
+  $all_stores_data = $this->with('products')->with('profile')->with('media')->get_by('owner_profile_id',$profile_id);
+
+  if( is_array($all_stores_data) ) {
+    
+        foreach ($all_stores_data as $key =>$value) {
+            $all_stores_data[$key]->media->file_name = base_url('uploads/profile/'.$value->profile->id.'/store/'.$value->media->file_name);
+        }
+
+          return $all_stores_data;
+        }
+
+  else {
+
+        $new_array = array();
+
+        $all_stores_data->media->file_name = base_url('uploads/profile/'.$all_stores_data->profile->id.'/store/'.$all_stores_data->media->file_name);
+        array_push($new_array,$all_stores_data);
+        return $new_array;
+
+        }
+    
     }
 
 }

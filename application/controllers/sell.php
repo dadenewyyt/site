@@ -16,6 +16,7 @@ class Sell extends  MY_Controller {
         parent::__construct();
         $this->load->model('profile_model','profile');
         $this->load->model('media_model','media');
+        $this->load->model('store_model','store');
 
     }
 
@@ -110,12 +111,16 @@ class Sell extends  MY_Controller {
     public function sellers($id) {
 
         
+   
+       
+
         $paginate_page = 'include/paginate_page';
         $notification_bar = 'include/notification_bar';
         $header_logo_white = 'include/header_logo_white';
         $product_listing = 'product/product_listing_pages';
         /**tabs***/
         $store_page = 'storesetup/store_page';
+        $store_listing_tab = 'include/store_lisiting_tab';
         $addproduct_page = 'storesetup/addproduct';
         $getpaid_page = 'storesetup/getpaid';
         $openstore_page = 'storesetup/openstore';
@@ -131,6 +136,7 @@ class Sell extends  MY_Controller {
         $data['footer_subscribe'] = 'include/footer_subscribe';
         $data['header_black_menu'] = 'include/header_black_menu';
 
+        $data['store_listing_tab'] = $store_listing_tab;
         $data['product_listing'] = $product_listing;
         $data['paginate_page'] = $paginate_page;
         $data['notification_bar'] = $notification_bar;
@@ -147,13 +153,16 @@ class Sell extends  MY_Controller {
              $this->load->view('sell/sellers',$data);
              return ;
         }
+
+        $all_store_data = $this->store->get_store_lisiting($id,10,10);
  
 
         $data['data']['message'] = null;
 
         $data = array_merge($data,$this->data);
 
-       
+       $data['all_store_data'] = $all_store_data;
+       //var_dump($all_store_data);exit;
 
         $this->load->view('sell/sellers',$data);
 

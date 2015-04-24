@@ -162,7 +162,15 @@ $error = isset($data['message']['type'])=='error' ? true :false ;
 
 
                   </div>
-                  <div role="tabpanel" class="tab-pane" id="store">Store coming soon!</div>
+                  <div role="tabpanel" class="tab-pane" id="store">
+                         <div class="product_lsiting">
+                                      <h4> Showing  (1) Listing </h4>
+
+                                      <hr class="hr_border">
+                      <?php $this->load->view($store_listing_tab); ?>
+                        </div>
+                  </div>
+
                    <div role="tabpanel" class="tab-pane" id="likes">Likes coming soon!</div>
                   <div role="tabpanel" class="tab-pane" id="freinds">Friends coming soon!</div>
                   <div role="tabpanel" class="tab-pane" id="photos">Photos coming soon!</div>

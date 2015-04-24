@@ -29,7 +29,7 @@ class Media_model extends MY_Model {
     public $belongs_to = array (
                              'product' => array( 'primary_key' => 'product_id' ,'model'=>"product_model"),
                              'profile' => array( 'primary_key' => 'profile_id' ,'model'=>"profile_model"),
-                             'store'=>array('primary_key'=>'store_image_id','model'=>'store_model'),
+                             'store'=>array('primary_key'=>'store_id','model'=>'store_model'),
                            );
 
     /**
