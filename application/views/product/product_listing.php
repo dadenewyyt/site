@@ -35,7 +35,7 @@ foreach($products as $product) { ?>
                         <p>
                           <span class='price'>$<?php echo $product['price'];?></span>
                           <span class='buy_btn'> 
-                            <a href="#" class="btn btn-primary" role="button">Buy Now!</a>
+                            <a href="<?php echo base_url('product/detail').'/'.$product['product_id'];?>" class="btn btn-primary" role="button">Buy Now!</a>
                           </span>
                       </p>
             </div>

@@ -88,7 +88,7 @@ class Product_model extends MY_Model {
       }
       //var_dump($product_details);exit;
 
-return ((array)$product_details);
+      return ((array)$product_details);
 
     }
 
