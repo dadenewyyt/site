@@ -137,6 +137,11 @@ class MY_Controller extends CI_Controller {
             
                $profile = $this->profile->with('media')->get($this->profile_id);
 
+                $this->data['fname']  = $profile->fname ;               
+                $this->data['lname']  = $profile->lname ;
+                $this->data['zipcode']  = $profile->zipcode ;
+                
+
                if(!empty($profile) && count($profile->media) > 0)  {
 
                 $profile_image = "uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
@@ -154,7 +159,7 @@ class MY_Controller extends CI_Controller {
           }
          
 
-        return;       
+            return $this->data;       
           
     }
 

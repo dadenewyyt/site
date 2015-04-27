@@ -169,9 +169,6 @@ class Store extends  MY_Controller {
         $data['launchstore_page'] = $launchstore_page;
     
 
-        $data['fname'] = $profile_data->fname;
-        $data['lname'] = $profile_data->lname;
-        $data['zipcode'] = $profile_data->zipcode;
 
         $account_types = $this->config->item('account_types');
 
@@ -200,7 +197,7 @@ class Store extends  MY_Controller {
 
         $data['profile_id'] = $this->profile_id ;// :)
 
-        $this->load_profile($this->profile_id);
+        $this->data= $this->load_profile($this->profile_id);
         $data = array_merge($data,$this->data);
 
         $data['catagories'] = $this->load_all_catagories;
