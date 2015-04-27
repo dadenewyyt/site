@@ -50,7 +50,9 @@
                   
              
                <div class="col-md-12 showing_text">
-     
+   
+     <?php if(count($profiles)>0): ?>
+
                     <div class="">
                       
                       <span class="showing">Showing <span class="small_text">all Sellers</span> on MBU4U !</span>
@@ -85,7 +87,11 @@
         </div><!--seller-->
 
 
-    
+  
+
+    <?php else: ?>
+      <div class="col-md-12 col-md-offset-4" ><h4>We are sorry , no sellers added yet!</h4></div>
+     <?php endif ;?>
     </div>
 
 

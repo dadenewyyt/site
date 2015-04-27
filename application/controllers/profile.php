@@ -37,7 +37,7 @@ class Profile extends  MY_Controller {
         if(count($profile->media) > 0)  {
           $profile_image = "/uploads/profile/" . $profile->id . "/avatar/" . $profile->media->file_name;
          } else {
-           $profile_image = "/uploads/profile/no-photo.jpg";
+           $profile_image = "/uploads/no-photo.jpg";
          }
 
       $data['header_black_menu'] = 'include/header_black_menu';

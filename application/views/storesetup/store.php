@@ -73,8 +73,9 @@
                                                         
                 <?php
                 $attributes = array('class' => 'form', 'novalidate' => 'novalidate', 'id' => 'myForm', 'name' => 'myForm',);
-                
-                echo form_open_multipart('store/save_store/' . $profile->id, $attributes);
+                $form_post_id= isset($profile_id) ? $profile_id : $profile->id ;
+
+                echo form_open_multipart('store/save_store/'.$form_post_id, $attributes);
                 ?>
 
             <?php endif; ?>

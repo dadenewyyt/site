@@ -167,9 +167,8 @@ class Store extends  MY_Controller {
         $data['getpaid_page'] = $getpaid_page;
         $data['previewstore_page'] = $previewstore_page;
         $data['launchstore_page'] = $launchstore_page;
-        //*end**tab*/
-        //get the current profile of the user
-        $profile_data = $this->profile->get($this->profile_id);
+    
+
         $data['fname'] = $profile_data->fname;
         $data['lname'] = $profile_data->lname;
         $data['zipcode'] = $profile_data->zipcode;

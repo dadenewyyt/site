@@ -15,9 +15,9 @@
 
 <div class='col-md-12 col-sm-6'>
 
-<?php 
+<?php if(count($products)>0): ?>
 
-foreach($products as $product) { ?>
+    <?php foreach($products as $product): ?>
 
       <div class="col-sm-3 col-md-3">
 
@@ -56,8 +56,11 @@ foreach($products as $product) { ?>
                    </p>
             </div>
       </div>
+<?php endforeach ;?>
+<?php else: ?>
 
-<?php } ?>
+  <div class="col-md-12 col-md-offset-4" ><h4>We are sorry , no products added yet!</h4></div>
+<?php endif ;?>
 
 </div>
 </div>

@@ -53,7 +53,7 @@ class Store_model extends MY_Model {
                'is_launched' =>1,
                'is_paid'=>1
          );
-
+        $this->session->set_userdata('is_store_created',1);
         $store_id = $this->insert($insert_data) ;  
         return $store_id;
 

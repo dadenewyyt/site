@@ -17,7 +17,8 @@ class Sell extends  MY_Controller {
         $this->load->model('profile_model','profile');
         $this->load->model('media_model','media');
         $this->load->model('store_model','store');
-
+       
+       
     }
 
    /**
@@ -49,7 +50,8 @@ class Sell extends  MY_Controller {
 
         $data["profiles"] = $profiles;
 
-      
+       $data['is_store_created'] = !empty($this->is_store_created) ? $this->is_store_created : false;
+
 
        $data["links"] = $this->pagination->create_links();
 
@@ -110,9 +112,7 @@ class Sell extends  MY_Controller {
 
     public function sellers($id) {
 
-        
-   
-       
+                 
 
         $paginate_page = 'include/paginate_page';
         $notification_bar = 'include/notification_bar';
@@ -191,7 +191,9 @@ class Sell extends  MY_Controller {
         $data['getpaid_page'] = $getpaid_page;
         $data['openstore_page'] = $openstore_page;
         $data['launchstore_page'] = $launchstore_page;
+
         //*end**tab*/
+
         $main_menu = 'include/main_menu';
         $data['footer_privacy'] = 'include/footer_privacy';
         $data['footer_subscribe'] = 'include/footer_subscribe';
@@ -202,6 +204,8 @@ class Sell extends  MY_Controller {
         $data['notification_bar'] = $notification_bar;
         $data['header_logo_white'] = $header_logo_white;
         $data['main_menu'] = $main_menu;
+
+        $data['is_store_created'] = !empty($this->is_store_created) ? $this->is_store_created : 0;
        
 
         //becuse it non logged in session we need to pass profile_id
@@ -214,14 +218,12 @@ class Sell extends  MY_Controller {
              $data['data']['message'] = $this->message;
              $this->load->view('sell/sellers',$data);
              return ;
-        }
-       
-
+        }      
         $data['data']['message'] = null;
         */
         
         $data = array_merge($data,$this->data);
-
+        //var_dump($data);exit;
         $this->load->view('sell/seller',$data);
 
     }

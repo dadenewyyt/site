@@ -14,6 +14,7 @@ class MY_Controller extends CI_Controller {
     public $error = array();
     public $data = array();
     public $is_logged_in;
+     public $is_store_created;
 
     public function __construct()
     {
@@ -104,12 +105,17 @@ class MY_Controller extends CI_Controller {
 
         $profile_id = $this->session->userdata('profile_id');
         $user_id = $this->session->userdata('user_id');
+        $is_store_created = $this->session->userdata('is_store_created');
+
 
         //get the current user profile id to upload / create a folder by its id
         $this->profile_id =  isset($profile_id) ? $profile_id : null ;
         //user_id
         $this->user_id =  isset($user_id) ? $user_id : null ;
-
+        //user_id
+        $this->is_store_created =  isset($is_store_created) ? $is_store_created : null ;
+        //user_id
+       
     }
 
     /**
