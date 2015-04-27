@@ -171,7 +171,7 @@ class Store extends  MY_Controller {
 
 
         $account_types = $this->config->item('account_types');
-
+        $data['account_types'] = $account_types;
 
         $main_menu = 'include/main_menu';
         $data['footer_privacy'] = 'include/footer_privacy';
@@ -180,7 +180,7 @@ class Store extends  MY_Controller {
 
         $data['country'] = $country;
         $data['states'] = $states;
-        $data['account_types'] = $account_types;
+       
 
         $data['product_listing'] = $product_listing;
         $data['paginate_page'] = $paginate_page;
