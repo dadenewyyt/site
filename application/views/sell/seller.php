@@ -99,16 +99,18 @@
 
                             <!--start of row-->
                             <div class="row-storesetup row" >
+                             <div id='divstoresetup' class="store-setup-col col-md-8 col-md-offset-2 center-header" style="display:block;">
                                 <?php if($is_store_created==0):?>
-                                <div id='divstoresetup' class="store-setup-col col-md-8 col-md-offset-2 center-header" style="display:block;">
+                               
                                     <h3>Store Setup </h3>
                                     <hr>
                                     <p style="font-weight:400;font-size:15px;">You currently have no stores to create you must verify your account.To begin the store setup process</p>
                                     <a href="#" id="btnstoresetup" name="btnstoresetup" class="btn btn-primary btn-lg"> Setup Your Store Now </a>
-                                </div>
+                               
                                  <?php else:?>
                                     <h3>Store Setup Lisiting coming soon!</h3>
                                <?php endif;?>
+                                </div>
                                 <div id="divsetup-content" name="divsetup-content" class="divsetup-content col-md-12" style="display:none;">
                                     <h3>Store Setup <small class='pull-right' style='color:rgb(216, 62, 62);margin-top: 14px;'>* ( Mandatory filed )</small>  </h3>
                                     <hr>

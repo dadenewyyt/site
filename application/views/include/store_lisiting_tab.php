@@ -14,11 +14,9 @@
 <div class='row product-lisiting-pages'>
 
 <div class='col-md-12 col-sm-6'>
+<?php if(count($all_store_data)>0): ?>
 
-<?php 
-
-
-foreach($all_store_data as $store) { ?>
+<?php foreach($all_store_data as $store) : ?>
 
 
       <div class="col-sm-3 col-md-3">
@@ -57,7 +55,10 @@ foreach($all_store_data as $store) { ?>
             </div>
       </div>
 
-<?php }  ?>
+<?php endforeach; ?>
+<?php else: ?>
+  <h3>No store to show.</h3>
+<?php endif; ?>
 
 </div>
 </div>

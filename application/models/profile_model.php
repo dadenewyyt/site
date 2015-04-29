@@ -32,7 +32,7 @@ class Profile_model extends MY_Model {
                                 'account' => array( 'primary_key' => 'account' ,'model'=>'account_model')
 
                                 );
-    public $has_many = array(   'stores' => array( 'primary_key' => 'profile_id' ,'model'=>"store_model") ,
+    public $has_many = array(   'stores' => array( 'primary_key' => 'owner_profile_id' ,'model'=>"store_model") ,
                                 'payments' => array( 'primary_key' => 'profile_id' ,'model'=>"payment_model"),
                                 'products' => array( 'primary_key' => 'product_id' ,'model'=>"product_model"),);
 
@@ -116,12 +116,27 @@ class Profile_model extends MY_Model {
 
      $verified_profiles = $this->with('media')->limit($per_page,$page)->get_many_by('is_profile_verified','1');
 
+
      //var_dump($verified_profiles);exit;
 
-     foreach ($verified_profiles as $value) {
+     if(count($verified_profiles)>0) {
 
-        $value->media->file_name = '/uploads/profile/'.$value->id .'/avatar/'. $value->media->file_name;
-     }
+      
+             foreach ($verified_profiles as $value) {
+
+                  if(!empty($value->media)) {
+
+                     $value->media->file_name = '/uploads/profile/'.$value->id .'/avatar/'. $value->media->file_name;
+                  } 
+                  else {
+
+                    $value->media = new stdClass();
+                     $value->media->file_name = '/uploads/no-photo.jpg';
+                  }
+                   
+             }
+                
+    }
 
      return $verified_profiles;
    }

@@ -99,6 +99,18 @@ class Media_model extends MY_Model {
                     'profile_id' => $profile_id,
                     'store_id'=> $store_id
                 ));
+
+              //update store relationship with media 
+               $this->load->model('store_model','store');
+             
+    
+              if($store_image_id) {
+
+                $this->store->update($store_id,array('media_id',$store_image_id));  
+     
+              
+              }
+
            
              return $store_image_id;
          }

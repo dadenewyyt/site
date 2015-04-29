@@ -129,13 +129,16 @@ class Store extends  MY_Controller {
 
     public function setup($profile_id){
 
+        //TODO:integrate resize with every image upload
         //$this->load->library('imageutility_service');
         //$result = $this->imageutility_service->resize_upload_images('','');
+
         $tab_status = false ;
-        $store_setup_completed = FALSE;
+        $store_setup_completed = false;
         if( empty($post)&&($profile_id!=$this->profile_id) ) {
             redirect('sell/seller/'.$this->profile_id);
         }
+
         //check if user has validated or not and hide verification tab
         if( $this->profile->check_verfication($this->profile_id) ) {
              
@@ -198,7 +201,9 @@ class Store extends  MY_Controller {
         $data['profile_id'] = $this->profile_id ;// :)
 
         $this->data= $this->load_profile($this->profile_id);
+       // var_dump($this->data);exit;
         $data = array_merge($data,$this->data);
+
 
         $data['catagories'] = $this->load_all_catagories;
 
@@ -294,8 +299,8 @@ class Store extends  MY_Controller {
         $data['notification_bar'] = $notification_bar;
         $data['header_logo_white'] = $header_logo_white;
         $data['main_menu'] = $main_menu;
-        
-        $this->load_profile();
+
+        $this->data = $this->load_profile($this->profile_id);
         $data = array_merge($data,$this->data);
         $data['catagories'] = $this->load_all_catagories;
 
@@ -348,7 +353,7 @@ class Store extends  MY_Controller {
          
                 //TODO:SHOW ERROR MESSAGE
                 echo $upload_result['error'];
-                $this->message = $this->message+array('type' => 'error','message' =>$upload_result['error']);
+                $this->message = array_merge($this->message,array('type' => 'error','message' =>$upload_result['error']));
                 $data['data']['message'] =  $this->message;
                //disable other tabs except verification tab
                 $tab_status = TRUE ;
@@ -372,7 +377,7 @@ class Store extends  MY_Controller {
 
          //save products and its media
         $this->load->model('product_model','product');
-        $product_id = $this->product->add_lisiting($post,$this->profile_id);
+        $product_id = $this->product->add_lisiting($post,$this->profile_id,$store_id);
 
         array_shift($upload_result); // remove store image upload result from products
 
@@ -458,9 +463,9 @@ class Store extends  MY_Controller {
         $data['show_error_page'] = 'include/show_error_page';
         $data['data']['message'] = $this->message;
 
-     
-       
-        $this->load_profile($this->profile_id);
+
+
+        $this->data= $this->load_profile($this->profile_id);
         $data = array_merge($data,$this->data);
         //var_dump($data);
         $data['catagories'] = $this->load_all_catagories;

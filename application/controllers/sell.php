@@ -136,6 +136,7 @@ class Sell extends  MY_Controller {
         $data['footer_subscribe'] = 'include/footer_subscribe';
         $data['header_black_menu'] = 'include/header_black_menu';
 
+        $data['is_store_created'] = $this->is_store_created;
         $data['store_listing_tab'] = $store_listing_tab;
         $data['product_listing'] = $product_listing;
         $data['paginate_page'] = $paginate_page;
@@ -155,7 +156,7 @@ class Sell extends  MY_Controller {
         }
 
         $all_store_data = $this->store->get_store_lisiting($id,10,10);
- 
+       
 
         $data['data']['message'] = null;
 

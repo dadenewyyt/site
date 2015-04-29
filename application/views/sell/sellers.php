@@ -154,7 +154,7 @@ $error = isset($data['message']['type'])=='error' ? true :false ;
                                   <div class="col-md-12 pagination_section">
                                               <hr class="hr_border_bottom" style="margin-top:0px;">
                                               <div class="pull-right">
-                                                      <?php $this->load->view($paginate_page); ?>
+                                                      <!--<?php//$this->load->view($paginate_page,); ?>-->
                                               </div>    
                                       </div>
                                           
@@ -164,10 +164,18 @@ $error = isset($data['message']['type'])=='error' ? true :false ;
                   </div>
                   <div role="tabpanel" class="tab-pane" id="store">
                          <div class="product_lsiting">
-                                      <h4> Showing  (1) Listing </h4>
+                                <?php if($is_store_created==0):?>
+                               
+                                    <h2>No store created by this user yet </h2>
+                                    
+                               
+                                 <?php else:?>
+                                    <<h4> Showing  (1) Listing </h4>
 
                                       <hr class="hr_border">
-                      <?php $this->load->view($store_listing_tab); ?>
+                               <?php $this->load->view($store_listing_tab); ?></h3>
+                               <?php endif;?>
+                                      
                         </div>
                   </div>
 

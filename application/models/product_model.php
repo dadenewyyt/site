@@ -31,7 +31,7 @@ class Product_model extends MY_Model {
      * @param $profile_id
      * @return bool
      */
-    public function add_lisiting($post,$profile_id)
+    public function add_lisiting($post,$profile_id,$store_id)
     {
         $product_name = $post['product_name'];
         $product_description = $post['product_descritpion'];
@@ -54,7 +54,9 @@ class Product_model extends MY_Model {
                       'variation'=>$variation,
                       'sub_variation'=>$sub_variation,
                       'profile_id' => $profile_id,
-                      'quantity'=>$quantity );
+                      'quantity'=>$quantity,
+                      'store_id'=>intval($stored_id),
+                      );
 
         $product_id = $this->insert($insert_data);
 

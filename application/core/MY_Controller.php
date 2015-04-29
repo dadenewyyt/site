@@ -14,14 +14,14 @@ class MY_Controller extends CI_Controller {
     public $error = array();
     public $data = array();
     public $is_logged_in;
-     public $is_store_created;
+     public $is_store_created=0;
 
     public function __construct()
     {
         parent::__construct();
         
         $this->load->model('profile_model','profile');
-       
+
        /***
         * DO this thing we you want to secure
         * evey resource
@@ -30,6 +30,7 @@ class MY_Controller extends CI_Controller {
 
       //make available useful variables
        $this->get_session_variables();
+
 
 
     }
@@ -113,8 +114,19 @@ class MY_Controller extends CI_Controller {
         //user_id
         $this->user_id =  isset($user_id) ? $user_id : null ;
         //user_id
-        $this->is_store_created =  isset($is_store_created) ? $is_store_created : null ;
-        //user_id
+
+        //check if current user has created at least one store or not
+        $result = $this->profile->with('stores')->get_all();
+        if(count($result)>0){
+            if( !empty($this->profile->stores)  ){
+                
+                 $this->is_store_created =  1 ;
+            } else {
+                $this->is_store_created =  0 ;
+            }
+        }
+
+
        
     }
 
