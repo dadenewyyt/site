@@ -75,7 +75,8 @@
 
                 
         
-             </div><!--nio margin row end-->
+             </div>
+             <!--nio margin row end-->
             <div class="col-md-12" style="padding-bottom:6%;">
                         <hr class="hr_border_bottom" style="margin-top:0px;">
                         <div class="pull-right">

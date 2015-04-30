@@ -17,7 +17,7 @@ class Sell extends  MY_Controller {
         $this->load->model('profile_model','profile');
         $this->load->model('media_model','media');
         $this->load->model('store_model','store');
-       
+        $this->load->library('pagination');
        
     }
 
@@ -30,7 +30,7 @@ class Sell extends  MY_Controller {
 
     public function index(){   
 
-       $this->load->library('pagination');
+      
 
        $total_rows = $this->profile->count_by('is_profile_verified',1);
     
@@ -177,6 +177,8 @@ class Sell extends  MY_Controller {
 
     public function seller($id) {
 
+        
+
         $paginate_page = 'include/paginate_page';
         $notification_bar = 'include/notification_bar';
         $header_logo_white = 'include/header_logo_white';
@@ -224,12 +226,38 @@ class Sell extends  MY_Controller {
         }      
         $data['data']['message'] = null;
         */
-        $all_store_data = $this->store->get_store_lisiting($id,10,10);
+
+    
+
+      
+       $data['is_store_created'] = !empty($this->is_store_created) ? $this->is_store_created : false;
+
+
+       
+        
        
 
         $data['data']['message'] = null;
 
         $data = array_merge($data,$this->data);
+        
+        //do pagination for store
+
+        $total_rows = $this->store->count_by('is_launched',1);
+    
+        $config = array();
+
+        $config["base_url"] = base_url() . "sell/seller";
+        $config["total_rows"] = $total_rows;
+        $config["per_page"] = 10;
+        $config["uri_segment"] = 3;
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $all_store_data = $this->store->get_store_lisiting($this->profile_id,$config["per_page"], $page);
+        $data["store_links"] = $this->pagination->create_links();
 
         $data['all_store_data'] = $all_store_data;
        //var_dump($all_store_data);exit;

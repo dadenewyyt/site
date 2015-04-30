@@ -102,7 +102,7 @@
 }
  </style>
 
-                                      <p><?php echo $links; ?></p>
+  <p><?php echo $links; ?></p>
                               
 
 

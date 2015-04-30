@@ -88,7 +88,7 @@
                                 <div class="col-md-12 pagination_section">
                                     <hr class="hr_border_bottom" style="margin-top:0px;">
                                     <div class="pull-right">
-                                        <?php $this->load->view($paginate_page); ?>
+                                        <?php //$this->load->view($paginate_page); ?>
                                     </div>
                                 </div>
 
@@ -104,7 +104,16 @@
                                  <div class="product_lsiting">
                                  <h4> Showing  (1) Listing </h4>
                                 <hr class="hr_border">
-                               <?php $this->load->view($store_listing_tab); ?></h3>
+                                 <?php $this->load->view($store_listing_tab); ?>
+                                  <div class="col-md-12 pagination_section">
+                                    <hr class="hr_border_bottom" style="margin-top:0px;">
+                                    <div class="pull-right">
+                                        <?php 
+                                        $links = $store_links;
+                                        if(!empty($links))
+                                        $this->load->view($paginate_page,$links); ?>
+                                    </div>
+                                </div>
                                </div>
                               
                              
