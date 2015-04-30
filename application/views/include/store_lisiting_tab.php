@@ -14,6 +14,7 @@
 <div class='row product-lisiting-pages'>
 
 <div class='col-md-12 col-sm-6'>
+
 <?php if(count($all_store_data)>0): ?>
 
 <?php foreach($all_store_data as $store) : ?>
@@ -22,7 +23,7 @@
       <div class="col-sm-3 col-md-3">
 
             <div class="thumbnail">
-                <a href="<?php echo base_url('product/detail');?>">
+                <a href="#">
 
                         <img  alt="<?php echo $store->store_name;?>"  class="img-thumbnail img-responsive xpens" 
                               src="<?php echo $store->media->file_name ;?>" 
@@ -41,8 +42,17 @@
 
                   <p>
                       <span class='seller_name'><i class='glyphicon glyphicon-user'></i>
+                    
+                    <?php $logged_in = (bool) $this->session->userdata('logged_in'); ?>
+                      
+                      <?php if($logged_in) :?>
+                      <a href="<?php echo base_url('sell/seller').'/'.$store->profile->id ;?>">
+                      <?php else:?>
+                      <a href="<?php echo base_url('sell/sellers').'/'.$store->profile->id ;?>">
+                      <?php endif;?>
                       <b style='padding-left:4px;color: #1f72ad;'><?php echo ucfirst($store->profile->fname).' '.ucfirst($store->profile->lname);?></b>
-                      </span>
+                      </a>
+                    </span>
                          
                         <span class='rating_class'>
                            <i class='glyphicon glyphicon-star'></i>

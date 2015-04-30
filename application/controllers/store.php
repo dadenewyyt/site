@@ -102,10 +102,13 @@ class Store extends  MY_Controller {
 
     public function load_country_state(){
 
-         /** read from
+         /** 
+
+          Read from
           configuration file
           and construct
           STRING,STRING Array list
+         
          **/
         $country_list = $this->config->item('country');
         $country = array();
@@ -340,7 +343,8 @@ class Store extends  MY_Controller {
       $this->form_validation->set_rules('account_owner', 'Account_owner', 'trim|required|min_length[2]|max_length[45]|xss_clean');
 
 
-      if ($this->form_validation->run() == TRUE) {
+       //if validation success do the following
+      if ( $this->form_validation->run() == TRUE) {
 
           $this->load->model('media_model','media');
 
@@ -365,6 +369,7 @@ class Store extends  MY_Controller {
 
 
          //TODO:SUCCESS DO THE SAVING of STORE WITH MEDIA DATA / UPLOAD DATA
+
         //save store
         $store_id = $this->store->save_store($post,$this->profile_id);
 
@@ -386,7 +391,7 @@ class Store extends  MY_Controller {
 
          //insert the five product image into media table and collect inserted id
         foreach($upload_result as $upload_result_product){
-            $array_of_product_image_ids[] = $this->media->save_or_update_product($this->profile_id,$product_id,$upload_result_product);
+            $array_of_product_image_ids[] = $this->media->save_or_update_product($this->profile_id,$store_id,$product_id,$upload_result_product);
          }
 
          //NOW SAVE ACCOUNT INFORMATION
@@ -394,6 +399,13 @@ class Store extends  MY_Controller {
          $this->load->model('account_model','account');
 
          $account_id = $this->account->save_account_profile($this->profile_id,$post);
+
+          if($store_image_id) {
+
+              $this->store->update($store_id,array('media_id'=>$store_image_id));                  
+                   
+          }              
+           
         
         //disable other tabs except verification tab
  
@@ -444,7 +456,6 @@ class Store extends  MY_Controller {
 
         $account_types = $this->config->item('account_types');
 
-
         $main_menu = 'include/main_menu';
         $data['footer_privacy'] = 'include/footer_privacy';
         $data['footer_subscribe'] = 'include/footer_subscribe';
@@ -462,8 +473,6 @@ class Store extends  MY_Controller {
 
         $data['show_error_page'] = 'include/show_error_page';
         $data['data']['message'] = $this->message;
-
-
 
         $this->data= $this->load_profile($this->profile_id);
         $data = array_merge($data,$this->data);

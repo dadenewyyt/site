@@ -47,10 +47,10 @@ class Media_model extends MY_Model {
             $file_name = $upload_data['file_name'];
             $file_path = $upload_data['file_path'];
             //update profile image details
-            $check_media_id = $this->get_by('profile_id', intval($profile_id),TRUE);
-
-            if ( count($check_media_id) > 0) {
-                $profile_image_id = $this->update($check_media_id->id,
+            $if_exisits_media_id = $this->get_by(array('profile_id'=>intval($profile_id),'type'=>'profile_image'));
+   
+            if ( !empty($if_exisits_media_id) && count($if_exisits_media_id) > 0) {
+                $profile_image_id = $this->update($if_exisits_media_id->id,
                     array(
                         'type' => 'profile_image',
                         'file_name' => $file_name,
@@ -59,7 +59,7 @@ class Media_model extends MY_Model {
                     ));
 
                 if ($profile_image_id) {
-                    $profile_image_id = $check_media_id->id ;
+                    $profile_image_id = $if_exisits_media_id->id ;
                 }
 
             } else {
@@ -83,6 +83,7 @@ class Media_model extends MY_Model {
      * @param $upload_data
      * @return bool|int
      */
+
      public function save_or_update_store($profile_id,$store_id,$upload_data) {
 
 
@@ -102,18 +103,12 @@ class Media_model extends MY_Model {
 
               //update store relationship with media 
                $this->load->model('store_model','store');
-             
-    
-              if($store_image_id) {
-
-                $this->store->update($store_id,array('media_id',$store_image_id));  
-     
+               $this->load->model('product_model','product');             
               
-              }
-
-           
+               
              return $store_image_id;
          }
+         
          return -1;
         
     }
@@ -124,7 +119,7 @@ class Media_model extends MY_Model {
      * @param $upload_data
      * @return bool|int
      */
-    public function save_or_update_product($profile_id,$product_id,$upload_data) {
+    public function save_or_update_product($profile_id,$store_id,$product_id,$upload_data) {
 
 
         if (isset($upload_data['file_name'])) {
@@ -138,6 +133,7 @@ class Media_model extends MY_Model {
                 'full_path' => $file_path,
                 'profile_id' => $profile_id,
                 'product_id'=> $product_id,
+                'store_id'=> $store_id,
             );
 
             $product_image_id = $this->insert($insert_data);

@@ -164,17 +164,13 @@ $error = isset($data['message']['type'])=='error' ? true :false ;
                   </div>
                   <div role="tabpanel" class="tab-pane" id="store">
                          <div class="product_lsiting">
-                                <?php if($is_store_created==0):?>
+                                
                                
-                                    <h2>No store created by this user yet </h2>
-                                    
-                               
-                                 <?php else:?>
-                                    <<h4> Showing  (1) Listing </h4>
+                                <h4> Showing  (1) Listing </h4>
 
-                                      <hr class="hr_border">
+                                <hr class="hr_border">
                                <?php $this->load->view($store_listing_tab); ?></h3>
-                               <?php endif;?>
+                            
                                       
                         </div>
                   </div>

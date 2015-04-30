@@ -182,11 +182,13 @@ class Sell extends  MY_Controller {
         $header_logo_white = 'include/header_logo_white';
         $product_listing = 'product/product_listing_pages';
         /**tabs***/
+        $store_listing_tab = 'include/store_lisiting_tab';
         $store_page = 'storesetup/store_page';
         $addproduct_page = 'storesetup/addproduct';
         $getpaid_page = 'storesetup/getpaid';
         $openstore_page = 'storesetup/openstore';
         $launchstore_page = 'storesetup/launchstore';
+         $data['store_listing_tab'] = $store_listing_tab;
         $data['store_page'] = $store_page;
         $data['addproduct_page'] = $addproduct_page;
         $data['getpaid_page'] = $getpaid_page;
@@ -222,6 +224,15 @@ class Sell extends  MY_Controller {
         }      
         $data['data']['message'] = null;
         */
+        $all_store_data = $this->store->get_store_lisiting($id,10,10);
+       
+
+        $data['data']['message'] = null;
+
+        $data = array_merge($data,$this->data);
+
+        $data['all_store_data'] = $all_store_data;
+       //var_dump($all_store_data);exit;
         
         $data = array_merge($data,$this->data);
         //var_dump($data);exit;

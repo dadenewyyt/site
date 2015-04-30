@@ -37,9 +37,7 @@ class Product_model extends MY_Model {
         $product_description = $post['product_descritpion'];
         $category = $post['categories'];
         $variation = isset( $post['variation'])? $post['variation'] : '';
-        var_dump($variation);
         $sub_variation = isset( $post['sub_variation'] )? $post['sub_variation'] : '';
-        
         $quantity = $post['quantity'];
         $price = $post['price'];
         $sprice = $post['sprice'];
@@ -55,7 +53,7 @@ class Product_model extends MY_Model {
                       'sub_variation'=>$sub_variation,
                       'profile_id' => $profile_id,
                       'quantity'=>$quantity,
-                      'store_id'=>intval($stored_id),
+                      'store_id'=>intval($store_id),
                       );
 
         $product_id = $this->insert($insert_data);
