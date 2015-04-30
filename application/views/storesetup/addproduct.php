@@ -24,6 +24,12 @@
                     <textarea class="form-control" rows="4" id='product_descritpion' name="product_descritpion" required><?php echo set_value('product_descritpion');?></textarea>
                 </div>
 
+                <div class="form-group row col-md-12 ">
+                    <span class='required_star'>*</span>
+                    <label class='control-lable' for="product_details">Add product detail information (used for Social Networking aspect)</label>
+                    <textarea class="form-control" rows="5" id='product_details' name="product_details" required><?php echo set_value('product_details');?></textarea>
+                </div>
+
                 <div class="col-md-4 col-md-select" >
                     <div class="form-group ">
                         <span class='required_star'>*</span>

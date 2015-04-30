@@ -41,7 +41,7 @@ class Product_model extends MY_Model {
         $quantity = $post['quantity'];
         $price = $post['price'];
         $sprice = $post['sprice'];
-
+        $product_details=$post['product_details'];
 
         $insert_data = array(
                       'name' =>$product_name ,
@@ -54,6 +54,7 @@ class Product_model extends MY_Model {
                       'profile_id' => $profile_id,
                       'quantity'=>$quantity,
                       'store_id'=>intval($store_id),
+                      'product_details'=>$product_details,
                       );
 
         $product_id = $this->insert($insert_data);
@@ -78,7 +79,7 @@ class Product_model extends MY_Model {
         $product_details[$key]['name'] = $value->name;
         $product_details[$key]['desc'] = $value->desc;
         $product_details[$key]['price'] = $value->price;
-
+        $product_details[$key]['product_details'] = $value->product_details;
       //TODO:When there are many products on the database this code need to be fixed or properly adujsted
       if(!empty($value->medias)) {
         $product_details[$key]['image'] = base_url().'/uploads/profile/'.$value->profile->id.'/products/'.$value->medias[$key]->file_name ; //get only the first product image

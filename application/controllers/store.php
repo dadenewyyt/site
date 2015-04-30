@@ -324,6 +324,7 @@ class Store extends  MY_Controller {
       
       //Server Side Validation here
       $this->form_validation->set_rules('storename', 'StoreName', 'trim|required|min_length[2]|max_length[45]|xss_clean');
+      $this->form_validation->set_rules('product_details', 'Product_details', 'trim|required|min_length[2]|xss_clean');     
       $this->form_validation->set_rules('store_description', 'store_description', 'trim|required|xss_clean');
       $this->form_validation->set_rules('product_name', 'Product Name', 'trim|required|min_length[2]|max_length[30]|xss_clean');
       $this->form_validation->set_rules('product_descritpion', 'Product Description', 'trim|required|xss_clean');

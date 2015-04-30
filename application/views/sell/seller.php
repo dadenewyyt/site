@@ -100,7 +100,16 @@
                             <!--start of row-->
                             <div class="row-storesetup row" >
                              
-                               
+                             
+                                 <?php if($is_store_created==0):?>
+                                <div id='divstoresetup' class="store-setup-col col-md-8 col-md-offset-2 center-header" style="display:block;">
+                            
+                                     <h3>Store Setup </h3>
+                                     <hr>
+                                     <p style="font-weight:400;font-size:15px;">You currently have no stores to create you must verify your account.To begin the store setup process</p>
+                                     <a href="#" id="btnstoresetup" name="btnstoresetup" class="btn btn-primary btn-lg"> Setup Your Store Now </a>
+                              </div>
+                                <?php else:?>
                                  <div class="product_lsiting">
                                  <h4> Showing  (1) Listing </h4>
                                 <hr class="hr_border">
@@ -114,7 +123,10 @@
                                         $this->load->view($paginate_page,$links); ?>
                                     </div>
                                 </div>
-                               </div>
+                                    </div>
+                                <?php endif;?>
+
+                           
                               
                              
                                 <div id="divsetup-content" name="divsetup-content" class="divsetup-content col-md-12" style="display:none;">
