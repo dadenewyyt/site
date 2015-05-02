@@ -112,8 +112,6 @@ function get_all_categories() {
 
         $data["products"] = $products;
 
-      
-
         $data["links"] = $this->pagination->create_links();
       
         $data['footer_page'] = 'include/footer_page';

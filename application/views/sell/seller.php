@@ -102,7 +102,7 @@
                              
                              
                                  <?php if($is_store_created==0):?>
-                                <div id='divstoresetup' class="store-setup-col col-md-8 col-md-offset-2 center-header" style="display:block;">
+                                  <div id='divstoresetup' class="store-setup-col col-md-8 col-md-offset-2 center-header" style="display:block;">
                             
                                      <h3>Store Setup </h3>
                                      <hr>

@@ -30,7 +30,8 @@ class Account_model extends My_Model {
 
         $insert_data = array(
             'account_type'=>$account_type,
-            'account_owner'=>$account_number,
+            'account_owner'=>$account_owner,
+            'account_number'=>$account_number,
             'routing_number'=>$route_number,
             'account_owner'=>$account_owner,
             'bank_branch'=>$bank_branch,

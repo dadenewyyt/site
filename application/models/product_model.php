@@ -80,6 +80,7 @@ class Product_model extends MY_Model {
         $product_details[$key]['desc'] = $value->desc;
         $product_details[$key]['price'] = $value->price;
         $product_details[$key]['product_details'] = $value->product_details;
+        $product_details[$key]['profile_id'] = $value->profile->id;
       //TODO:When there are many products on the database this code need to be fixed or properly adujsted
       if(!empty($value->medias)) {
         $product_details[$key]['image'] = base_url().'/uploads/profile/'.$value->profile->id.'/products/'.$value->medias[$key]->file_name ; //get only the first product image
@@ -89,8 +90,7 @@ class Product_model extends MY_Model {
 
         $product_details[$key]['seller_name'] = (ucfirst($value->profile->fname));
       }
-      //var_dump($product_details);exit;
-
+     
       return ((array)$product_details);
 
     }
@@ -109,9 +109,12 @@ class Product_model extends MY_Model {
           $product['product_name'] = $product_detail->name;
           $product['desc'] = $product_detail->desc;
           $product['price'] = $product_detail->price;
+          $product['product_details'] = $product_detail->product_details;
+
           //ask for profile data associated with this product
           $product_profile_data = $this->with('profile')->get($id);
           $product['profile_id'] = $product_profile_data->profile->id;
+
         
           $medias = (array) $product_detail->medias;
           

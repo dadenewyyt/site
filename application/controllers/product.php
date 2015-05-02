@@ -30,12 +30,13 @@ class Product extends  MY_Controller {
     }
 
     public function detail($id){   
-       
+            
         $product = array();
 
         if( !empty($this->products->get($id)) ){
         $product = $this->products->get_single_product_detail($id);
         }
+
 
         $paginate_page = 'include/paginate_page';
         $notification_bar = 'include/notification_bar';
@@ -50,6 +51,7 @@ class Product extends  MY_Controller {
         $data['footer_privacy'] = 'include/footer_privacy';
         $data['footer_subscribe'] = 'include/footer_subscribe';
         $data['header_black_menu'] = 'include/header_black_menu';
+        $data['social_sharing_button'] = 'include/social_sharing_buttons';
 
   
         $data['product_user_details']= $product_user_details;

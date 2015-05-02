@@ -100,7 +100,7 @@
           <div class="buttons" style="padding:10px;">
           <button class="btn btn-primary pull-left btn-lg btn-bid" style="width: 45%;">
           <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-          Bid Now
+          Buy Now
           </button>
           <button class="btn btn-primary btn_black btn-lg" style="margin-left:20px;">
             <span class="glyphicon glyphicon glyphicon-heart" aria-hidden="true"></span>
@@ -109,8 +109,8 @@
           <span class="glyphicon glyphicon glyphicon-star" aria-hidden="true"></span>
           Rate</button>
           </div>
-          <p><h5>Share this product</h5> <div class="addthis_native_toolbox"></div></p>
-          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <?php $this->load->view($social_sharing_button) ;?>
          
     
     </div>
@@ -152,7 +152,7 @@
     <hr class="hr_border" >
         <div class="main_content_text">
         <p>
-        <?php echo $product['product_details'] ;?>
+        <?php echo isset($product['product_details'])?$product['product_details'] :"no product detail info";?>
         </p>
         
         </div>

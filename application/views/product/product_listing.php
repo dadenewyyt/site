@@ -43,7 +43,7 @@
 
                   <p>
                       <span class='seller_name'><i class='glyphicon glyphicon-user'></i>
-                      <b style='padding-left:4px;color: #1f72ad;'><?php echo $product['seller_name'];?></b>
+                        <a href="<?php echo base_url('sell/sellers').'/'.$product['profile_id'];?>"> <b style='padding-left:4px;color: #1f72ad;'><?php echo $product['seller_name'];?></b>
                       </span>
                          
                         <span class='rating_class'>

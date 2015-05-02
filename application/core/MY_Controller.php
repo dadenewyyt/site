@@ -116,15 +116,19 @@ class MY_Controller extends CI_Controller {
         //user_id
 
         //check if current user has created at least one store or not
-        $result = $this->profile->with('stores')->get_all();
-        //var_dump($result);
+        $result = $this->profile->with('stores')->get($profile_id);
+      
         if(count($result)>0){
-            if( !empty($this->profile->stores)  ){
+             
+
+            if( !empty($result->stores) ) {
                 
                  $this->is_store_created =  1 ;
+
             } else {
                 $this->is_store_created =  0 ;
             }
+               
         }
 
 
