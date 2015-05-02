@@ -143,7 +143,7 @@
 
           <div class="col-md-4 col-md-offset-1 col-sm-4 col-xs-4 module_images_newarrival img-responsive module_border_style">
 
-              <a href="<?php echo base_url('product/detail/') ;?>" class="btn btn-primary">NEW ARRIVALS</a>
+              <a href="#" class="btn btn-primary">NEW ARRIVALS</a>
          
           </div>
 
