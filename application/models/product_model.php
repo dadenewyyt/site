@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: DEVELOPER4
+ * Created by Daniel Adenew.
+ * User: Daniel Adenew
  * Date: 12/26/14
  * Time: 1:14 PM
+ * Craig Robinson : One World Solutions LLC
  */
 
 class Product_model extends MY_Model {
@@ -122,11 +123,11 @@ class Product_model extends MY_Model {
             $i =0;
                foreach ( $medias as $values) {
                  $product['image'][$i] = base_url().'uploads/profile/'.$product['profile_id'].'/products/'.$values->file_name ; //get only the first product image
-                $i++;
+                 $i++;
                 } 
           }
            else {
-             $product['image'][0] = base_url().'uploads/profile/'.$value->profile->id.'/products/'.$value->medias[0]->file_name ; //get only the first product image
+             $product['image'][0] = base_url().'uploads/profile/'.$product->profile->id.'/products/'.$product->medias[0]->file_name ; //get only the first product image
            }
 
           //combine array result data
@@ -140,7 +141,7 @@ class Product_model extends MY_Model {
     
     /**
      * load single profile of the associated product owner with his profile
-     * image and retrun collection of data on array 
+     * image and return collection of data on array
      * 
      * */
 
@@ -168,14 +169,12 @@ class Product_model extends MY_Model {
                
                }
 
-                $profile_details['username'] =  $profile_user_name ;   
+                $profile_details['username'] =  $profile_user_name ;
                 $profile_details['profile_image'] = base_url().$profile_image;
                 $profile_details['joined_date'] = $profile_joined;
                 $profile_details['seller_name'] = $profile_name;
-                
-         
-           return $profile_details;
 
+           return $profile_details;
 
     }
 

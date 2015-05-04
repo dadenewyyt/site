@@ -20,9 +20,6 @@
 <?php $this->load->view($header_logo_white); ?>
 
 
-
-</div>
-
 </header>
 
 <section>

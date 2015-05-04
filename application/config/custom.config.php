@@ -8,6 +8,8 @@ $config['public_urls'] = array (
 'users/signin',
 'users/logout',
 'users/login',
+'users/forgot_password',
+'users/reset_password',
 'welcome/index',
 'welcome/subscribe',
 'welcome/home',

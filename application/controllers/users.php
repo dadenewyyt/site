@@ -4,8 +4,8 @@
  * User: Daniel Adenew
  * Date: 12/31/2014
  * Time: 10:11 AM
- * Craig Robinson 
- * www.cytekservices.com 
+ * Craig Robinson
+ * www.cytekservices.com
  */
 
 class Users extends MY_Controller {
@@ -15,6 +15,8 @@ class Users extends MY_Controller {
 		parent::__construct();
 
 		$this->load->library('form_validation');
+        //add captcha control
+        $this->load->helper('captcha');
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -115,9 +117,9 @@ class Users extends MY_Controller {
                   $profile_url = site_url('sell/seller/' . $this->profile_id);
 
                  // $current_time = str
-                 if(count($current_user) > 0) { 
-                
-                   //redirect user to edit profile page if one this fields are empty . 
+                 if(count($current_user) > 0) {
+
+                   //redirect user to edit profile page if one this fields are empty .
                   if ( empty($profile->bioinfo) || empty($profile->job_title) || empty($profile->company_name)) {
                       //$this->session->set_userdata('current_profile', $current_profile);
                       $profile_url = site_url('profile/edit/' . $this->profile_id);
@@ -241,23 +243,59 @@ class Users extends MY_Controller {
 
 	//forgot password
 	function forgot_password()
-	{  
-		//setting validation rules by checking wheather identity is username or email
+	{
+
+        $this->data['header_black_menu'] = 'include/header_black_menu';
+        $this->data['header_logo_white_template'] = 'include/header_logo_white_template';
+        $this->data['footer_privacy'] = 'include/footer_privacy';
+        $this->data['footer_subscribe'] = 'include/footer_subscribe';
+        $this->data['signin_form'] = 'include/signin_form';
+        $this->data['show_error_page'] = 'include/show_error_page';
+
+        /* Setup vals to pass into the create_captcha function */
+        $capache_config = array(
+            'img_path' => 'captcha/',
+            'img_url' => base_url().'captcha/',
+            'img_width'	=> '150',
+            'font_path'	=> base_url().'captcha/font/captcha4.ttf',
+            'img_height' => 40,
+            'expiration' => 7200
+        );
+
+        /* Generate the captcha */
+        $captcha = create_captcha($capache_config);
+
+        /* Store the captcha value (or 'word') in a session to retrieve later */
+        $this->session->set_userdata('captchaWord', $captcha['word']);
+
+        /* Load the captcha view containing the form (located under the 'views' folder) */
+
+        $this->data['captcha'] = $captcha;
+
+        /* Get the user's entered captcha value from the form */
+        $userCaptcha = set_value('captcha');
+
+        /* Get the actual captcha value that we stored in the session (see below) */
+        $word = $this->session->userdata('captchaWord');
+
+        $this->form_validation->set_rules('captcha', "Captcha", 'required');
+
+        //setting validation rules by checking wheather identity is username or email
 		if($this->config->item('identity', 'ion_auth') == 'username' )
 		{
-		   $this->form_validation->set_rules('email', $this->lang->line('forgot_password_username_identity_label'), 'required');	
+		   $this->form_validation->set_rules('email', $this->lang->line('forgot_password_username_identity_label'), 'required');
 		}
 		else
 		{
-		   $this->form_validation->set_rules('email', $this->lang->line('forgot_password_validation_email_label'), 'required|valid_email');	
+		   $this->form_validation->set_rules('email', $this->lang->line('forgot_password_validation_email_label'), 'required|valid_email');
 		}
-		
-		
-		if ($this->form_validation->run() == false)
+
+		//add captcha validation as well to the normal form validations
+		if ($this->form_validation->run() == false || strcmp(strtoupper($userCaptcha),strtoupper($word)) != 0)
 		{
 			//setup the input
 			$this->data['email'] = array('name' => 'email',
-				'id' => 'email',
+				'id' => 'email','class'=>'form-control',
 			);
 
 			if ( $this->config->item('identity', 'ion_auth') == 'username' ){
@@ -269,8 +307,11 @@ class Users extends MY_Controller {
 			}
 
 			//set any errors and display the form
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-			$this->_render_page('users/forgot_password', $this->data);
+            $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+            $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
+
+            $this->data['data']['message'] = !empty($this->message)?$this->message:'';
+            $this->_render_page('users/forgot_password', $this->data);
 		}
 		else
 		{
@@ -283,18 +324,25 @@ class Users extends MY_Controller {
 				$identity = $this->ion_auth->where('email', strtolower($this->input->post('email')))->users()->row();
 			}
 	            	if(empty($identity)) {
-	            		
+
 	            		if($this->config->item('identity', 'ion_auth') == 'username')
 		            	{
+
                                    $this->ion_auth->set_message('forgot_password_username_not_found');
+
 		            	}
 		            	else
 		            	{
 		            	   $this->ion_auth->set_message('forgot_password_email_not_found');
 		            	}
+                        //set any errors and display the form
 
-		                $this->session->set_flashdata('message', $this->ion_auth->messages());
-                		redirect("user/forgot_password", 'refresh');
+                        $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->messages() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+                        $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
+                        $this->data['data']['message'] =  $this->message;
+
+
+                        $this->_render_page('users/forgot_password', $this->data);
             		}
 
 			//run the forgotten password method to email an activation code to the users
@@ -304,13 +352,25 @@ class Users extends MY_Controller {
 			{
 				//if there were no errors
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect("users/login", 'refresh'); //we should display a confirmation page here instead of the login page
+                //set any errors and display the form
+
+                $this->message['message'] = 'sent email to your inbox';
+                $this->message = array('type' => 'success', 'message' =>  $this->message['message'] );
+
+				 //we should display a confirmation page here instead of the login page
+                 $this->_render_page('users/forgot_password', $this->data);
 			}
 			else
 			{
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect("users/forgot_password", 'refresh');
+
+                //set any errors and display the form
+                $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->messages() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+                $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
+                $this->data['data']['message'] =  $this->message;
+                redirect("users/forgot_password", 'refresh');
+
 			}
+            $this->_render_page('users/forgot_password', $this->data);
 		}
 	}
 
@@ -361,7 +421,7 @@ class Users extends MY_Controller {
 				$this->data['code'] = $code;
 
 				//render
-				$this->_render_page('user/reset_password', $this->data);
+				$this->_render_page('users/reset_password', $this->data);
 			}
 			else
 			{
@@ -439,7 +499,7 @@ class Users extends MY_Controller {
 			//redirect them to the home page because they must be an administrator to view this
 			return show_error('You must be an administrator to view this page.');
 		}
-		
+
 		$id = (int) $id;
 
 		$this->load->library('form_validation');
@@ -615,14 +675,14 @@ class Users extends MY_Controller {
 					'company'    => $this->input->post('company'),
 					'phone'      => $this->input->post('phone'),
 				);
-				
+
 				//update the password if it was posted
 				if ($this->input->post('password'))
 				{
 					$data['password'] = $this->input->post('password');
 				}
 
-				
+
 
 				// Only allow updating groups if users is admin
 				if ($this->ion_auth->is_admin())
@@ -640,7 +700,7 @@ class Users extends MY_Controller {
 
 					}
 				}
-				
+
 			//check to see if we are updating the users
 			   if($this->ion_auth->update($user->id, $data))
 			    {
@@ -669,8 +729,8 @@ class Users extends MY_Controller {
 						redirect('/', 'refresh');
 					}
 
-			    }		
-				
+			    }
+
 			}
 		}
 

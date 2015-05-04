@@ -1,7 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: DEVELOPER4
+ * Created by Daniel Adenew.
+ * User: Craig Robinson
  * Date: 12/31/2014
  * Time: 10:11 AM
  */
@@ -29,11 +29,30 @@ class Product extends  MY_Controller {
 
     }
 
-    public function detail($id){   
+    public function products(){   
+       
+        $paginate_page = 'include/paginate_page';
+        $notification_bar = 'include/notification_bar';
+
+        $data['footer_privacy'] = 'include/footer_privacy';
+        $data['footer_subscribe'] = 'include/footer_subscribe';
+        $data['header_black_menu'] = 'include/header_black_menu';
+        $data['paginate_page'] = $paginate_page;
+        $data['notification_bar'] = $notification_bar;
+
+        redirect('product/products',$data);
+
+    }
+
+    /**
+     * @param $id
+     */
+    public function detail($id){
             
         $product = array();
 
-        if( !empty($this->products->get($id)) ){
+        $product= $this->products->get($id);
+        if( !empty($product)){
         $product = $this->products->get_single_product_detail($id);
         }
 
