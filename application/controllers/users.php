@@ -244,7 +244,6 @@ class Users extends MY_Controller {
 	//forgot password
 	function forgot_password()
 	{
-
         $this->data['header_black_menu'] = 'include/header_black_menu';
         $this->data['header_logo_white_template'] = 'include/header_logo_white_template';
         $this->data['footer_privacy'] = 'include/footer_privacy';
@@ -252,131 +251,249 @@ class Users extends MY_Controller {
         $this->data['signin_form'] = 'include/signin_form';
         $this->data['show_error_page'] = 'include/show_error_page';
 
-        /* Setup vals to pass into the create_captcha function */
-        $capache_config = array(
-            'img_path' => 'captcha/',
-            'img_url' => base_url().'captcha/',
-            'img_width'	=> '150',
-            'font_path'	=> base_url().'captcha/font/captcha4.ttf',
-            'img_height' => 40,
-            'expiration' => 7200
-        );
-
-        /* Generate the captcha */
-        $captcha = create_captcha($capache_config);
-
-        /* Store the captcha value (or 'word') in a session to retrieve later */
-        $this->session->set_userdata('captchaWord', $captcha['word']);
-
-        /* Load the captcha view containing the form (located under the 'views' folder) */
-
-        $this->data['captcha'] = $captcha;
-
         /* Get the user's entered captcha value from the form */
-        $userCaptcha = set_value('captcha');
+        $userCaptcha = $this->input->post('captcha');
 
         /* Get the actual captcha value that we stored in the session (see below) */
-        $word = $this->session->userdata('captchaWord');
+        $word = $this->session-> userdata('captchaWord');
 
         $this->form_validation->set_rules('captcha', "Captcha", 'required');
 
-        //setting validation rules by checking wheather identity is username or email
-		if($this->config->item('identity', 'ion_auth') == 'username' )
-		{
-		   $this->form_validation->set_rules('email', $this->lang->line('forgot_password_username_identity_label'), 'required');
-		}
-		else
-		{
-		   $this->form_validation->set_rules('email', $this->lang->line('forgot_password_validation_email_label'), 'required|valid_email');
-		}
+        //setting validation rules by checking whether identity is username or email
+        if($this->config->item('identity', 'ion_auth') == 'username' )
+        {
+            $this->form_validation->set_rules('email', $this->lang->line('forgot_password_username_identity_label'), 'required');
+        }
+        else
+        {
+            $this->form_validation->set_rules('email', $this->lang->line('forgot_password_validation_email_label'), 'required|valid_email');
+        }
 
-		//add captcha validation as well to the normal form validations
-		if ($this->form_validation->run() == false || strcmp(strtoupper($userCaptcha),strtoupper($word)) != 0)
-		{
-			//setup the input
-			$this->data['email'] = array('name' => 'email',
-				'id' => 'email','class'=>'form-control',
-			);
+        //add captcha validation as well to the normal form validations
+        if ($this->form_validation->run() == true && strcmp(strtoupper($userCaptcha), strtoupper($word)) == 0 ) {
 
-			if ( $this->config->item('identity', 'ion_auth') == 'username' ){
-				$this->data['identity_label'] = $this->lang->line('forgot_password_username_identity_label');
-			}
-			else
-			{
-				$this->data['identity_label'] = $this->lang->line('forgot_password_email_identity_label');
-			}
+            // get identity from username or email
+            if ($this->config->item('identity', 'ion_auth') == 'username') {
+                $identity = $this->ion_auth->where('username', strtolower($this->input->post('email')))->users()->row();
+            } else {
+                $identity = $this->ion_auth->where('email', strtolower($this->input->post('email')))->users()->row();
+            }
+            //run the forgotten password method to email an activation code to the users
+            $forgotten = $this->ion_auth->forgotten_password($identity->{$this->config->item('identity', 'ion_auth')});
 
-			//set any errors and display the form
-            $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
-            $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
+            if ($forgotten) {
 
-            $this->data['data']['message'] = !empty($this->message)?$this->message:'';
-            $this->_render_page('users/forgot_password', $this->data);
-		}
-		else
-		{
-			// get identity from username or email
-			if ( $this->config->item('identity', 'ion_auth') == 'username' ){
-				$identity = $this->ion_auth->where('username', strtolower($this->input->post('email')))->users()->row();
-			}
-			else
-			{
-				$identity = $this->ion_auth->where('email', strtolower($this->input->post('email')))->users()->row();
-			}
-	            	if(empty($identity)) {
-
-	            		if($this->config->item('identity', 'ion_auth') == 'username')
-		            	{
-
-                                   $this->ion_auth->set_message('forgot_password_username_not_found');
-
-		            	}
-		            	else
-		            	{
-		            	   $this->ion_auth->set_message('forgot_password_email_not_found');
-		            	}
-                        //set any errors and display the form
-
-                        $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->messages() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
-                        $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
-                        $this->data['data']['message'] =  $this->message;
-
-
-                        $this->_render_page('users/forgot_password', $this->data);
-            		}
-
-			//run the forgotten password method to email an activation code to the users
-			$forgotten = $this->ion_auth->forgotten_password($identity->{$this->config->item('identity', 'ion_auth')});
-
-			if ($forgotten)
-			{
-				//if there were no errors
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
+                /* Clear the session variable */
+                $this->session->unset_userdata('captchaWord');
+                //if there were no errors
+                $this->session->set_flashdata('message', $this->ion_auth->messages());
                 //set any errors and display the form
 
                 $this->message['message'] = 'sent email to your inbox';
-                $this->message = array('type' => 'success', 'message' =>  $this->message['message'] );
+                $this->message = array('type' => 'success', 'message' => $this->message['message']);
+                $this->data['header_black_menu'] = 'include/header_black_menu';
+                $this->data['header_logo_white'] = 'include/header_logo_white';
+                $this->data['header_logo_white_template'] = 'include/header_logo_white_template';
+                $this->data['footer_privacy'] = 'include/footer_privacy';
+                $this->data['footer_subscribe'] = 'include/footer_subscribe';
+                $this->data['signin_form'] = 'include/signin_form';
+                $this->data['show_error_page'] = 'include/show_error_page';
+                $this->data['footer_page'] = 'include/footer_page';
+                $this->data['notification_bar'] = 'include/notification_bar';
+                $this->data['data']['message_page_header'] = "Success! We sent email to your inbox!";
+                $this->data['data']['message_page_title'] = "ForgotPassword ";
+                $this->data['data']['message_page_message'] = "Success! Please check you email ,Thankyou!";
 
-				 //we should display a confirmation page here instead of the login page
-                 $this->_render_page('users/forgot_password', $this->data);
-			}
-			else
-			{
+                // var_dump($_POST);die;
+                $this->data['message_page'] = 'message_page';
+                $this->data['success_page'] = 'success';
 
+                /* Clear the session variable */
+                $this->session->unset_userdata('captchaWord');
+
+                //we should display a confirmation page here instead of the login page ;
+                $this->load->view('signup/success', $this->data);
+
+            }
+            else {
+
+                /* Clear the session variable */
+                $this->session->unset_userdata('captchaWord');
+
+                /* Setup vals to pass into the create_captcha function */
+                $capache_config = array(
+                    'img_path' => 'captcha/',
+                    'img_url' => base_url() . 'captcha/',
+                    'img_width' => '150',
+                    'font_path' => base_url() . 'captcha/font/captcha4.ttf',
+                    'img_height' => 40,
+                    'expiration' => 7200
+                );
+
+                /* Generate the captcha */
+                $captcha = create_captcha($capache_config);
+
+                /* Store the captcha value (or 'word') in a session to retrieve later */
+                $this->session->set_userdata('captchaWord', $captcha['word']);
+                $this->data = array('email' => $this->input->post('email'));
+                //setup the input
+                $this->data['email'] = array('name' => 'email',
+                    'id' => 'email', 'class' => 'form-control',
+                );
+
+                if ($this->config->item('identity', 'ion_auth') == 'username') {
+                    $this->data['identity_label'] = $this->lang->line('forgot_password_username_identity_label');
+                } else {
+                    $this->data['identity_label'] = $this->lang->line('forgot_password_email_identity_label');
+                }
+
+                if (empty($identity)) {
+
+                    if ($this->config->item('identity', 'ion_auth') == 'username') {
+                        // $this->ion_auth->set_message('forgot_password_username_not_found');
+                        $this->message['message'] .= '<p>forgot_password_username_not_found!</p>';
+
+                    } else {
+                        $this->message['message'] .= '<p>forgot_password_email_not_found!</p>';
+                        //$this->ion_auth->set_message('forgot_password_email_not_found');
+                    }
+                    //set any errors and display the form
+                    //set any errors and display the form
+                    $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+
+
+                    if ($this->message['message'] != false) {
+                        $this->message = array('type' => 'error', 'message' => $this->message['message']);
+                    } else {
+                        $this->message = array('type' => '', 'message' => '');
+                    }
+                }
+
+                if (strcmp(strtoupper($userCaptcha), strtoupper($word)) != 0 && $userCaptcha!="") {
+
+                    if ((empty($this->message['type'])) && (empty($this->message['message']))) {
+                        $this->message = array('type' => 'error', 'message' => 'The entered verification code did not match! Please try agian!');
+                    } else {
+                        $this->message['message'] .= '<p>The entered verification code did not match! Please try agian!</p>';
+                    }
+                }
+
+                $this->data['data']['message'] = $this->message;
+                $this->data['captcha'] = $captcha;
+                $this->data['header_black_menu'] = 'include/header_black_menu';
+                $this->data['header_logo_white_template'] = 'include/header_logo_white_template';
+                $this->data['header_logo_white_template'] = 'include/header_logo_white_template';
+                $this->data['footer_privacy'] = 'include/footer_privacy';
+                $this->data['footer_subscribe'] = 'include/footer_subscribe';
+                $this->data['signin_form'] = 'include/signin_form';
+                $this->data['show_error_page'] = 'include/show_error_page';
+                $this->data['footer_page'] = 'include/footer_page';
+                $this->_render_page('users/forgot_password', $this->data);
+          }
+        } else {
+
+            /* Clear the session variable */
+            $this->session->unset_userdata('captchaWord');
+
+            /* Setup vals to pass into the create_captcha function */
+            $capache_config = array(
+                'img_path' => 'captcha/',
+                'img_url' => base_url() . 'captcha/',
+                'img_width' => '150',
+                'font_path' => base_url() . 'captcha/font/captcha4.ttf',
+                'img_height' => 40,
+                'expiration' => 7200
+            );
+
+            /* Generate the captcha */
+            $captcha = create_captcha($capache_config);
+
+            /* Store the captcha value (or 'word') in a session to retrieve later */
+            $this->session->set_userdata('captchaWord', $captcha['word']);
+            $this->data = array('email' => $this->input->post('email'));
+            //setup the input
+            $this->data['email'] = array('name' => 'email',
+                'id' => 'email', 'class' => 'form-control',
+            );
+
+            if ($this->config->item('identity', 'ion_auth') == 'username') {
+                $this->data['identity_label'] = $this->lang->line('forgot_password_username_identity_label');
+            } else {
+                $this->data['identity_label'] = $this->lang->line('forgot_password_email_identity_label');
+            }
+            // get identity from username or email
+            if ($this->config->item('identity', 'ion_auth') == 'username') {
+                $identity = $this->ion_auth->where('username', strtolower($this->input->post('email')))->users()->row();
+            } else {
+                $identity = $this->ion_auth->where('email', strtolower($this->input->post('email')))->users()->row();
+            }
+            if (empty($identity)) {
+
+                if ($this->config->item('identity', 'ion_auth') == 'username') {
+                    // $this->ion_auth->set_message('forgot_password_username_not_found');
+                    $this->message['message'] .= '<p>forgot_password_username_not_found!</p>';
+
+                } else {
+                    $this->message['message'] .= '<p>forgot_password_email_not_found!</p>';
+                    //$this->ion_auth->set_message('forgot_password_email_not_found');
+                }
                 //set any errors and display the form
-                $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->messages() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
-                $this->message = array('type' => 'error', 'message' =>  $this->message['message'] );
-                $this->data['data']['message'] =  $this->message;
-                redirect("users/forgot_password", 'refresh');
+                //set any errors and display the form
+                $this->message['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
-			}
+
+                if ($this->message['message'] != false) {
+                    $this->message = array('type' => 'error', 'message' => $this->message['message']);
+                } else {
+                    $this->message = array('type' => '', 'message' => '');
+                }
+            }
+
+            if (strcmp(strtoupper($userCaptcha), strtoupper($word)) != 0 && $userCaptcha!="") {
+
+                if ((empty($this->message['type'])) && (empty($this->message['message']))) {
+                    $this->message = array('type' => 'error', 'message' => 'The entered verification code did not match! Please try agian!');
+                } else {
+                    $this->message['message'] .= '<p>The entered verification code did not match! Please try agian!</p>';
+                }
+            }
+
+
+            $this->data['data']['message'] = $this->message;
+            $this->data['captcha'] = $captcha;
+            $this->data['header_black_menu'] = 'include/header_black_menu';
+            $this->data['header_logo_white'] = 'include/header_logo_white';
+            $this->data['header_logo_white_template'] = 'include/header_logo_white_template';
+
+            $this->data['footer_privacy'] = 'include/footer_privacy';
+            $this->data['footer_subscribe'] = 'include/footer_subscribe';
+            $this->data['signin_form'] = 'include/signin_form';
+            $this->data['show_error_page'] = 'include/show_error_page';
+            $this->data['footer_page'] = 'include/footer_page';
+
             $this->_render_page('users/forgot_password', $this->data);
-		}
+
+        }
+
+
+
+
+
+
 	}
 
 	//reset password - final step for forgotten password
 	public function reset_password($code = NULL)
 	{
+        $this->data['header_black_menu'] = 'include/header_black_menu';
+        $this->data['header_logo_white'] = 'include/header_logo_white';
+        $this->data['header_logo_white_template'] = 'include/header_logo_white_template';
+
+        $this->data['footer_privacy'] = 'include/footer_privacy';
+        $this->data['footer_subscribe'] = 'include/footer_subscribe';
+        $this->data['signin_form'] = 'include/signin_form';
+        $this->data['show_error_page'] = 'include/show_error_page';
+        $this->data['footer_page'] = 'include/footer_page';
 		if (!$code)
 		{
 			show_404();
@@ -402,13 +519,15 @@ class Users extends MY_Controller {
 				$this->data['new_password'] = array(
 					'name' => 'new',
 					'id'   => 'new',
-				'type' => 'password',
+				    'type' => 'password',
+                    'class'=>'form-control',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 				);
 				$this->data['new_password_confirm'] = array(
 					'name' => 'new_confirm',
 					'id'   => 'new_confirm',
 					'type' => 'password',
+                    'class'=>'form-control',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 				);
 				$this->data['user_id'] = array(

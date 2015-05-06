@@ -27,11 +27,9 @@
         }
     </style>
 
-        
-         <div class="menu_top">
-   <?php $this->load->view($header_black_menu); ?> 
-           </div>
-         <?php $this->load->view($header_logo_white); ?>
+    <?php $this->load->view($header_black_menu);?>
+
+    <?php $this->load->view($header_logo_white_template); ?>
 
 </header>
 
@@ -52,10 +50,11 @@
   <div class="container container2">
 
    <div class="row">
-
+        <!--
           <div class="navbar navbar-default navbar-home " role="navigation" style="min-height:40px;">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
+       <!--
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#madebyus4u-mobile-responsive-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -66,10 +65,10 @@
                 <a class="navbar-brand" href="#">
             
               </a>
-            </div>
+            </div>-->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="madebyus4u-mobile-responsive-navbar-collapse-1">
+            <!--<div class="collapse navbar-collapse" id="madebyus4u-mobile-responsive-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a href="#">Closing </a></li>
                 <li><a href="#">Footwear</a></li>
@@ -86,9 +85,10 @@
              
               
               
-            </div><!-- /.navbar-collapse -->
+            </div> <!-- /.navbar-collapse
+
           </div><!-- /.container-fluid -->
-        </div>
+        <!--</div>-->
 
          <div class="message_div" >
                   <?php 
