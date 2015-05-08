@@ -320,13 +320,13 @@ class Users extends MY_Controller {
                 /* Clear the session variable */
                 $this->session->unset_userdata('captchaWord');
 
-                /* Setup vals to pass into the create_captcha function */
+                /* Setup $capache_config to pass into the create_captcha function */
                 $capache_config = array(
                     'img_path' => 'captcha/',
                     'img_url' => base_url() . 'captcha/',
-                    'img_width' => '150',
-                    'font_path' => base_url() . 'captcha/font/captcha4.ttf',
-                    'img_height' => 40,
+                    'img_width' => '290',
+                    'font_path' => FCPATH . 'captcha/font/captcha4.ttf',
+                    'img_height' => 65,
                     'expiration' => 7200
                 );
 
@@ -394,13 +394,13 @@ class Users extends MY_Controller {
             /* Clear the session variable */
             $this->session->unset_userdata('captchaWord');
 
-            /* Setup vals to pass into the create_captcha function */
+            /* Setup $capache_config to pass into the create_captcha function */
             $capache_config = array(
                 'img_path' => 'captcha/',
                 'img_url' => base_url() . 'captcha/',
-                'img_width' => '150',
-                'font_path' => base_url() . 'captcha/font/captcha4.ttf',
-                'img_height' => 40,
+                'img_width' => '290',
+                'font_path' => FCPATH . 'captcha/font/captcha4.ttf',
+                'img_height' => 65,
                 'expiration' => 7200
             );
 
