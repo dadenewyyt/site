@@ -382,7 +382,6 @@ class Users extends MY_Controller {
                 $this->data['captcha'] = $captcha;
                 $this->data['header_black_menu'] = 'include/header_black_menu';
                 $this->data['header_logo_white_template'] = 'include/header_logo_white_template';
-                $this->data['header_logo_white_template'] = 'include/header_logo_white_template';
                 $this->data['footer_privacy'] = 'include/footer_privacy';
                 $this->data['footer_subscribe'] = 'include/footer_subscribe';
                 $this->data['signin_form'] = 'include/signin_form';

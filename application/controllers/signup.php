@@ -24,6 +24,7 @@ class SignUp extends MY_Controller {
       $data['notification_bar'] = 'include/notification_bar';
       $data['header_black_menu'] = 'include/header_black_menu';
       $data['header_logo_white'] = 'include/header_logo_white';
+      $data['header_logo_white_template'] = 'include/header_logo_white_template';
       $data['footer_privacy'] = 'include/footer_privacy';
       $data['footer_subscribe'] = 'include/footer_subscribe';
       $data['signup_form'] = 'include/signup_form';
@@ -78,6 +79,7 @@ class SignUp extends MY_Controller {
                 $activation_code = $this->session->userdata('activation_code');
                 $data['header_black_menu'] = 'include/header_black_menu';
                 $data['header_logo_white'] = 'include/header_logo_white';
+                $data['header_logo_white_template'] = 'include/header_logo_white_template';
                 $data['notification_bar'] = 'include/notification_bar';
                 $data['data']['message_page_header'] = "Thankyou for Registration!" ;
                 $data['data']['message_page_title'] = "Your SignUp </small> was <span style=color:'#2770a2'>Successful!</span>";
@@ -102,6 +104,7 @@ class SignUp extends MY_Controller {
           $states = $this->state->populate_state_dropdown();
           $data['header_black_menu'] = 'include/header_black_menu';
           $data['header_logo_white'] = 'include/header_logo_white';
+          $data['header_logo_white_template'] = 'include/header_logo_white_template';
           $data['notification_bar'] = 'include/notification_bar';
           $data['footer_privacy'] = 'include/footer_privacy';
           $data['footer_subscribe'] = 'include/footer_subscribe';
@@ -136,6 +139,7 @@ class SignUp extends MY_Controller {
                 $update_result = $this->users->update($user_id, $activate_user_data);
                 $data['header_black_menu'] = 'include/header_black_menu';
                 $data['header_logo_white'] = 'include/header_logo_white';
+                $data['header_logo_white_template'] = 'include/header_logo_white_template';
                 $data['notification_bar'] = 'include/notification_bar';
                 $data['data']['message_page_header'] = "Account activated!";
                 $data['data']['message_page_header'] = "Thankyou for Registration!";
@@ -196,6 +200,7 @@ class SignUp extends MY_Controller {
              }
             $data['header_black_menu'] = 'include/header_black_menu';
             $data['header_logo_white'] = 'include/header_logo_white';
+            $data['header_logo_white_template'] = 'include/header_logo_white_template';
             $data['notification_bar'] = 'include/notification_bar';
             $data['message_page'] = 'message_page';
             $data['success_page'] = 'success';
