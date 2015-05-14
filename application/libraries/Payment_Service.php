@@ -110,7 +110,15 @@ class Payment_service {
                 */
 
                 //TODO:update profile verify to true
-                $this->update_profile_status($profile->id);
+                $result = $this->update_profile_status($profile->id);
+
+
+                if( empty($result) || $result==false ) {
+
+                    $this->CI->message = array('type' => 'error', 'message' => "Updating profile status failed!");
+                    return FALSE;
+                }
+
 
                 //TODO:save_payment information
                 //save payment information
@@ -132,7 +140,7 @@ class Payment_service {
 
                 $payment_id =  $this->save_payment_info($payment_data) ;
 
-                if(!$payment_id) {
+                if( empty($payment_id) || $payment_id==false ) {
 
                     $this->CI->message = array('type' => 'error', 'message' => "saving payment information ,has failed!.This is local database save error.");
                     return FALSE;
