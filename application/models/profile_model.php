@@ -12,6 +12,8 @@ class Profile_model extends MY_Model {
         parent::__construct() ;
         $this->_database = $this->db;
     }
+    
+    public $before_create = array( 'timestamps' );
 
     protected function timestamps($table)
     {

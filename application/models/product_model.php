@@ -9,6 +9,16 @@
 
 class Product_model extends MY_Model {
 
+   public function __construct() {
+        parent::__construct() ;
+        $this->_database = $this->db;
+        var_dump($this->da)
+    }
+
+    public $before_create = array( 'timestamps' );
+
+    public $primary_key = 'id';
+
     public $belongs_to = array( 'profile' => array('primary_key' => 'profile_id', 'model' => 'profile_model' ),
                                 'store' => array('primary_key' => 'store_id', 'model' => 'store_model'));
 
@@ -21,19 +31,26 @@ class Product_model extends MY_Model {
     );
 
 
+    public $validate = array(
+      //rules when nessary
+
+    );
+
+    protected function timestamps($table)
+    {
+        //$table['created_date'] = $table['updated_date'] = date('Y-m-d H:i:s');
+        $this->$_table['created_date'] = date('Y-m-d H:i:s');
+        return  $this->$_table;
+    }
+
+
     public function _order_by_created_date() {
 
         $this->db->order_by('created_date', 'desc');
         return $this;
     }
 
-    public $primary_key = 'id';
-
-
-    public $validate = array(
-
-    );
-
+  
     /**
      * @param $post
      * @param $profile_id
@@ -63,6 +80,7 @@ class Product_model extends MY_Model {
                       'quantity'=>$quantity,
                       'store_id'=>intval($store_id),
                       'product_details'=>$product_details,
+                      'created_date'=>date('Y-m-d'),
                       );
 
         $product_id = $this->insert($insert_data);
