@@ -12,14 +12,14 @@ class Profile_model extends MY_Model {
         parent::__construct() ;
         $this->_database = $this->db;
     }
-    
+
     public $before_create = array( 'timestamps' );
 
-   protected function timestamps($table)
+   protected function timestamps($profile_row)
     {
         //$table['created_date'] = $table['updated_date'] = date('Y-m-d H:i:s');
-        $this->_table['created_date'] = date('Y-m-d H:i:s');
-        return  $this->_table;
+        $profile_row['created_date'] = date('Y-m-d H:i:s');
+        return  $profile_row;
     }
 
 
