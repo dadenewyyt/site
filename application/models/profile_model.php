@@ -15,12 +15,13 @@ class Profile_model extends MY_Model {
     
     public $before_create = array( 'timestamps' );
 
-    protected function timestamps($table)
+   protected function timestamps($table)
     {
         //$table['created_date'] = $table['updated_date'] = date('Y-m-d H:i:s');
-        $table['created_date'] = date('Y-m-d H:i:s');
-        return $table;
+        $this->_table['created_date'] = date('Y-m-d H:i:s');
+        return  $this->_table;
     }
+
 
     /**
      * Define relationship a memeber

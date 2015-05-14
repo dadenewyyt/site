@@ -12,7 +12,7 @@ class Product_model extends MY_Model {
    public function __construct() {
         parent::__construct() ;
         $this->_database = $this->db;
-        var_dump($this->da)
+        
     }
 
     public $before_create = array( 'timestamps' );
@@ -39,8 +39,8 @@ class Product_model extends MY_Model {
     protected function timestamps($table)
     {
         //$table['created_date'] = $table['updated_date'] = date('Y-m-d H:i:s');
-        $this->$_table['created_date'] = date('Y-m-d H:i:s');
-        return  $this->$_table;
+        $this->_table['created_date'] = date('Y-m-d H:i:s');
+        return  $this->_table;
     }
 
 
@@ -90,6 +90,7 @@ class Product_model extends MY_Model {
     }
 
     public function display_all_product($per_page, $page) {
+
 
       $all_products = $this->limit($per_page, $page)->with('medias')->with('profile')->get_all();
      
