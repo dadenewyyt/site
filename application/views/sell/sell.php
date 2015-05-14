@@ -51,7 +51,12 @@
              
                <div class="col-md-12 showing_text">
    
-     <?php if(count($profiles)>0): ?>
+
+     <?php 
+     var_dump($profiles);
+
+
+     if(count($profiles)>0): ?>
 
                     <div class="">
                       

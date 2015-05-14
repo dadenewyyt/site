@@ -230,7 +230,7 @@ class Store extends  MY_Controller {
        if( !$this->profile->check_verfication($this->profile_id) ) {
        
                $this->load->library('payment_service');
-               $result = $this->payment_service->processPayment();
+               $result = $this->payment_service->processPayment($profile_id);
 
            if(!$result){
                         $data['data']['message'] = $this->message;

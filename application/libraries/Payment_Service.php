@@ -19,7 +19,7 @@ class Payment_service {
 
     }
 
-    public function processPayment() {
+    public function processPayment($profile_id) {
 
 
         //load helper and libraries for validating the input from the form
@@ -48,7 +48,7 @@ class Payment_service {
 
         //get current user full name and zip to match with the data entered on the form
         $this->CI->load->model('profile_model','profile');
-        $profile = $this->CI->profile->get($this->CI->profile_id);
+        $profile = $this->CI->profile->get($profile_id);
         $user_full_name= $profile->fname." ".$profile->lname ;
         $user_zip = $profile->zipcode;
         $zip = $user_zip;
@@ -73,11 +73,13 @@ class Payment_service {
         //run the validation logic, if the form has an error,   load back the form and show the user the errors
         if ( $this->CI->form_validation->run() == TRUE) {
 
+            echo ('validation_passed');
             //do your API thing
             //TODO:access API here
 
             // Authorize.net lib
             $this->CI->load->library('authorize_net');
+
             //get api _email
             $api_email = $this->CI->config->item('authorize_net')['api_email'];
             $auth_net = array(
@@ -104,20 +106,21 @@ class Payment_service {
             // Try to AUTH_CAPTURE
             if( $this->CI->authorize_net->authorizeAndCapture() ) {
 
-               /* echo '<h2>Success!</h2>';
+                /*echo '<h2>Success!</h2>';
                 echo '<p>Transaction ID: ' . $this->CI->authorize_net->getTransactionId() . '</p>';
                 echo '<p>Approval Code: ' . $this->CI->authorize_net->getApprovalCode() . '</p>';
                 */
 
+
                 //TODO:update profile verify to true
-                $result = $this->update_profile_status($profile->id);
-
-
+          
+                $result = $this->update_profile_status($profile->i);
+                
                 if( empty($result) || $result==false ) {
 
                     $this->CI->message = array('type' => 'error', 'message' => "Updating profile status failed!");
                     return FALSE;
-                }
+                }            
 
 
                 //TODO:save_payment information
@@ -140,12 +143,13 @@ class Payment_service {
 
                 $payment_id =  $this->save_payment_info($payment_data) ;
 
+            
                 if( empty($payment_id) || $payment_id==false ) {
 
                     $this->CI->message = array('type' => 'error', 'message' => "saving payment information ,has failed!.This is local database save error.");
                     return FALSE;
                 }
-
+                       
 
                 //TODO:SHOW success message to user alert success
                 //TODO:Enable the rest of the tabs
@@ -193,7 +197,7 @@ class Payment_service {
             'is_seller'=>1,
         );
 
-        $this->CI->profile->update($id ,$update_array_data);
+        return $this->CI->profile->update($id ,$update_array_data);
 
     }
 

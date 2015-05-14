@@ -13,11 +13,13 @@ class Payment_model extends MY_Model {
         $this->_database = $this->db;
     }
 
-    protected function timestamps($table)
+    public $before_create = array( 'timestamps' );
+
+    protected function timestamps($payments_row)
     {
-        $table['created_date'] = $table['updated_date'] = date('Y-m-d H:i:s');
-        $table['created_by'] ='system';
-        return $table;
+        $payments_row['created_date'] = $payments_row['updated_date'] = date('Y-m-d H:i:s');
+        $payments_row['created_by'] ='system';
+        return $payments_row;
     }
 
     /**
