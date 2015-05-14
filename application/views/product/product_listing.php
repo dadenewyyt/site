@@ -1,7 +1,7 @@
 
 <style type="text/css">
   
-  .xpens {
+.xpens {
     
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
@@ -9,6 +9,8 @@
     background-size: cover;         /* Generic*/
   }
  
+
+
 </style>
 
 <div class='row product-lisiting-pages'>
@@ -30,8 +32,8 @@
                </a>
                    
             <div class="caption">
-                       <h4><?php echo $product['name'];?></h4>
-                       <p><?php echo $product['desc'];?></p>
+                       <h4 class='product_name_heading'><?php echo $product['name'];?></h4>
+                       <p class="product_description"><?php echo $product['desc'];?></p>
                         <p>
                           <span class='price'>$<?php echo $product['price'];?></span>
                           <span class='buy_btn'> 

@@ -28,8 +28,9 @@ class Product extends  MY_Controller {
         redirect('sell/sell',$data);
 
     }
+    
 
-    public function products(){   
+    public function new_arriavls() {   
        
         $paginate_page = 'include/paginate_page';
         $notification_bar = 'include/notification_bar';
@@ -40,7 +41,7 @@ class Product extends  MY_Controller {
         $data['paginate_page'] = $paginate_page;
         $data['notification_bar'] = $notification_bar;
 
-        redirect('product/products',$data);
+        redirect('product/new_arrivals',$data);
 
     }
 

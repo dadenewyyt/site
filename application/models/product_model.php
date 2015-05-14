@@ -20,6 +20,13 @@ class Product_model extends MY_Model {
 
     );
 
+
+    public function _order_by_created_date() {
+
+        $this->db->order_by('created_date', 'desc');
+        return $this;
+    }
+
     public $primary_key = 'id';
 
 
@@ -67,34 +74,70 @@ class Product_model extends MY_Model {
     public function display_all_product($per_page, $page) {
 
       $all_products = $this->limit($per_page, $page)->with('medias')->with('profile')->get_all();
+     
+     
+      //ToDO:Construct array of products with media and p
+      //profile details as array of objects and pass to the view simpley
+
+      $product_details = array();      
+    
+       //var_dump($all_products);
+       // var_dump($value);;
+      foreach ($all_products as $key => $product_object) {
+
+        $product_details[$key]['product_id'] = $product_object->id;
+        $product_details[$key]['name'] = $product_object->name;
+        $product_details[$key]['desc'] = $product_object->desc;
+        $product_details[$key]['price'] = $product_object->price;
+        $product_details[$key]['product_details'] = $product_object->product_details;
+        $product_details[$key]['profile_id'] = $product_object->profile->id;
+      //TODO:When there are many products on the database this code need to be fixed or properly adjusted
+      if(!empty($product_object->medias)) {
+        $product_details[$key]['image'] = base_url().'/uploads/profile/'.$product_object->profile->id.'/products/'.$product_object->medias[0]->file_name ; //get only the first product image
+       }
+
+       else  {$product_details[$key]['image'] ='';} 
+
+        $product_details[$key]['seller_name'] = (ucfirst($product_object->profile->fname));
+      }
+      //exit;
+     
+      return ((array)$product_details);
+
+    }
+
+   public function get_new_arrival_products($per_page, $page) {
+
+       $all_new_arrival_products = $this->limit($per_page, $page)->with('medias')->with('profile')->_order_by_created_date()->get_all();
      //var_dump($all_products);exit;
 
       //ToDO:Construct arrray of products with media and p
       //profile details as array of objects and pass to the view simpley
 
-      $product_details = array();      
+      $new_arrival_product_details = array();      
     
-      foreach ($all_products as $key => $value) {
+      foreach ($all_new_arrival_products as $key => $product_object) {
 
-        $product_details[$key]['product_id'] = $value->id;
-        $product_details[$key]['name'] = $value->name;
-        $product_details[$key]['desc'] = $value->desc;
-        $product_details[$key]['price'] = $value->price;
-        $product_details[$key]['product_details'] = $value->product_details;
-        $product_details[$key]['profile_id'] = $value->profile->id;
+        $new_arrival_product_details[$key]['product_id'] = $product_object->id;
+        $new_arrival_product_details[$key]['name'] = $product_object->name;
+        $new_arrival_product_details[$key]['desc'] = $product_object->desc;
+        $new_arrival_product_details[$key]['price'] = $product_object->price;
+        $new_arrival_product_details[$key]['product_details'] = $product_object->product_details;
+        $new_arrival_product_details[$key]['profile_id'] = $product_object->profile->id;
       //TODO:When there are many products on the database this code need to be fixed or properly adujsted
-      if(!empty($value->medias)) {
-        $product_details[$key]['image'] = base_url().'/uploads/profile/'.$value->profile->id.'/products/'.$value->medias[$key]->file_name ; //get only the first product image
+      if(!empty($product_object->medias)) {
+        $new_arrival_product_details[$key]['image'] = base_url().'/uploads/profile/'.$product_object->profile->id.'/products/'.$product_object->medias[$key]->file_name ; //get only the first product image
        }
 
-       else  {$product_details[$key]['image'] ='';} 
+       else  {$new_arrival_product_details[$key]['image'] ='';} 
 
-        $product_details[$key]['seller_name'] = (ucfirst($value->profile->fname));
+        $new_arrival_product_details[$key]['seller_name'] = (ucfirst($product_object->profile->fname));
       }
      
-      return ((array)$product_details);
+      return ((array)$new_arrival_product_details);
 
     }
+
 
     public function get_single_product_detail($id) {
 

@@ -194,12 +194,28 @@ text-align:center;padding-bottom:8%;
 
 }
 
-.buy_btn {float: right;}
 .browse-btn {  margin: 22%;   background:  cover;}
-.price { padding-top: 1%;margin-left: 3%;font-size: 17px;font-weight: 600;}
+
+/**product_liting_end***/
+
+.buy_btn {float: right;}
+.price { padding-top: 5%;margin-left: 3%;font-size: 17px;font-weight: 600;}
 .caption p {
     padding: 1%;
+    margin-top:5%;
+    font-size:15px;
+
 }
+.product_name_heading {
+        font-size:15px;
+        height: 10px;
+        display: inline-block;
+
+}
+.product_description{}
+
+/**product_liting_end***/
+
 .navbar-home .navbar  {  width: 100%;}
 
 .navbar-home .navbar-nav {
