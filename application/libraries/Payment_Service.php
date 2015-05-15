@@ -106,7 +106,8 @@ class Payment_service {
             // Try to AUTH_CAPTURE
             if( $this->CI->authorize_net->authorizeAndCapture() ) {
 
-                /*echo '<h2>Success!</h2>';
+                /*
+                echo '<h2>Success!</h2>';
                 echo '<p>Transaction ID: ' . $this->CI->authorize_net->getTransactionId() . '</p>';
                 echo '<p>Approval Code: ' . $this->CI->authorize_net->getApprovalCode() . '</p>';
                 */
@@ -121,7 +122,6 @@ class Payment_service {
                     $this->CI->message = array('type' => 'error', 'message' => "Updating profile status failed!");
                     return FALSE;
                 }            
-
 
                 //TODO:save_payment information
                 //save payment information
